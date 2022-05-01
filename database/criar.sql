@@ -6,8 +6,8 @@ CREATE TABLE Restaurant (
 
 CREATE TABLE Dish (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    price INTEGER,
-    photo VARCHAR,
+    name VARCHAR NOT NULL,
+    price INTEGER NOT NULL,
     category VARCHAR
 );
 
@@ -19,25 +19,26 @@ CREATE TABLE Menu (
 
 CREATE TABLE User (
     username VARCHAR PRIMARY KEY,
-    name VARCHAR,
-    password VARCHAR,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
     adress VARCHAR,
-    phone VARCHAR
+    phone VARCHAR,
+    CONSTRAINT email UNIQUE
 );
 
-CREATE TABLE Costumer (
+CREATE TABLE Custumer (
     username VARCHAR REFERENCES User (username),
     CONSTRAINT Costumer_ID PRIMARY KEY(username)
 );
 
 CREATE TABLE Owner (
     username VARCHAR REFERENCES User(username),
-    CONSTRAINT OWNER_ID PRIMARY KEY(username)
+    CONSTRAINT Owner_ID PRIMARY KEY(username)
 );
 
 CREATE TABLE Order (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    state VARCHAR
+    state VARCHAR, NOT NULL
 );
 
 CREATE TABLE OrderRestaurantUser(
@@ -55,7 +56,7 @@ CREATE TABLE OrderDish (
 
 CREATE TABLE Review (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    rating REAL, 
+    rating REAL NOT NULL, 
     comment VARCHAR
 );
 
@@ -66,14 +67,14 @@ CREATE TABLE UserReview (
     CONSTRAINT UserReview_ID PRIMARY KEY(restaurantId, userId, reviewId)
 );
 
-CREATE TABLE FavotiteDish (
+CREATE TABLE FavoriteDish (
     dishId INTEGER REFERENCES Dish (id),
     costumerId INTEGER REFERENCES Costumer (id),
-    CONSTRAINT FavotiteDish_ID PRIMARY KEY(dishId, costumerId)
+    CONSTRAINT FavoriteDish_ID PRIMARY KEY(dishId, costumerId)
 );
 
-CREATE TABLE FavotiteRestaurant (
+CREATE TABLE FavoriteRestaurant (
     restaurantId INTEGER REFERENCES Restaurant (id),
     costumerId INTEGER REFERENCES Costumer (id),
-    CONSTRAINT FavotiteRestaurant_ID PRIMARY KEY(restaurantId, costumerId)
+    CONSTRAINT FavoriteRestaurant_ID PRIMARY KEY(restaurantId, costumerId)
 );
