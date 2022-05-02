@@ -1,6 +1,4 @@
 body{
-    width: 95%;
-    height: 80em;
     background-color: #DEDEDE;
     display: grid;
     grid-template-columns: 25% 60% 15%;
@@ -9,7 +7,7 @@ body{
     vertical-align: middle;
     grid-template-areas: 
     "header header header"
-    "sidebar mainSection adds"
+    "sidebar mainSection ads"
     "footer footer footer";
 }
 
@@ -19,21 +17,16 @@ header{
     color: #EBFFF1;
 }
 
-.sidebar{
-    grid-area: sidebar;
-    height: 100%;
+#side-menu{
     background-color: #F3F3F3;
 }
 
-.mainSection{
-    grid-area: mainSection;
-    height: 100%;
+#search{
     background-color: #F3F3F3;
 }
 
-.adds{
-    grid-area: adds;
-    height: 100%;
+#ads{
+    grid-area: ads;
     background-color: #F3F3F3;
 }
 

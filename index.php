@@ -3,7 +3,7 @@
     <head>
         <title>Super Legit Food</title>
         <meta charset="utf-8">
-        <link rel = "stylesheet" href="style.css">
+        <link rel = "stylesheet" href="./CSS/style.css">
         <script src = "script.js" defer></script>
     </head>
     <body>
