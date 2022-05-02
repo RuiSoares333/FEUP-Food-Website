@@ -1,5 +1,6 @@
 CREATE TABLE Restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR,
     adress VARCHAR,
     category VARCHAR
 );
