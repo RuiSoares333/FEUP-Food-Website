@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700');
 
-body{
+html{
     font-family: "Poppins", sans-serif;
     background-color: #DEDEDE;
+    text-transform: uppercase;
 }
 
 body::-webkit-scrollbar {
@@ -45,12 +46,45 @@ a{
 }
 
 .search{
-    background-color: #ECECEC;
-    border: 0;
-    padding: 0;
     border-radius: 5em;
 }
 
 header > h1{
     margin: auto auto auto 0.25em;
+}
+
+.order button{
+    background-color: #4B9F6D;
+    border: 0;
+    padding: 0 5em;
+    border-radius: 5em;
+    cursor:pointer;
+}
+
+#search form{
+    background-color: #F3F3F3;
+}
+
+#search form button{
+    width: 5em;
+    height: 3em;
+    border: none;
+    padding: 0;
+    background-color:#4B9F6D;
+    border-radius: 1em;
+}
+
+#search form input{
+    width: 90%;
+    height: 90%;
+    border: none;
+    padding: 0;
+    border-radius:0.5em;
+}
+
+
+input[type="text"]{
+    background-color: #DEDEDE;
+    border: 0;
+    padding: 0;
 }

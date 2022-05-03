@@ -4,7 +4,7 @@ body{
     padding: 0;
     display: grid;
     grid-template-columns: 2fr 6.5fr 1.5fr;
-    grid-template-rows: 7.5em 1fr 10em;
+    grid-template-rows: 7.5em auto auto auto 10em;
     column-gap: 1.5em;
     grid-template-areas: 
     "header header header"
@@ -51,7 +51,7 @@ header > h1{
 
 #side-menu{
     height: 100%;
-    max-width: 18.5em;
+    max-width: 20%;
     margin-top: 7.5em;
     grid-area: sideMenu;
     position: fixed;
@@ -59,6 +59,8 @@ header > h1{
 
 #search{
     grid-area: search;
+    display: grid;
+    grid-template-rows: 5em 3em 3em;
 }
 
 #bestRestaurants{
@@ -75,4 +77,26 @@ header > h1{
 
 footer{
     grid-area: footer;
+}
+
+#search .order{
+    margin: auto;
+}
+
+#search .register{
+    margin: -1.5em auto 0 auto;
+}
+
+#search form{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    column-gap: -1em;
+}
+
+#search form button{
+    margin: auto 0 auto 0em;
+}
+
+#search form input{
+    margin: auto;
 }
