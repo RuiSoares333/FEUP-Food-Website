@@ -1,20 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700');
+
 body{
+    font-family: "Poppins", sans-serif;
     background-color: #DEDEDE;
-    display: grid;
-    grid-template-columns: 25% 60% 15%;
-    grid-template-rows: 10% 80% 10%;
-    column-gap: 2em;
-    vertical-align: middle;
-    grid-template-areas: 
-    "header header header"
-    "sidebar mainSection ads"
-    "footer footer footer";
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 header{
-    grid-area: header;
     background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
     color: #EBFFF1;
+    vertical-align: middle;
 }
 
 #side-menu{
@@ -25,13 +23,34 @@ header{
     background-color: #F3F3F3;
 }
 
+#bestRestaurants{
+    background-color: #F3F3F3;
+}
+
+#close{
+    background-color: #F3F3F3;
+}
+
 #ads{
-    grid-area: ads;
     background-color: #F3F3F3;
 }
 
 footer{
-    grid-area: footer;
     background-color: #2C2C2C;
     color: rgba(255, 255, 255, 0.45);
+}
+
+a{
+    text-decoration: none;
+}
+
+.search{
+    background-color: #ECECEC;
+    border: 0;
+    padding: 0;
+    border-radius: 5em;
+}
+
+header > h1{
+    margin: auto auto auto 0.25em;
 }

@@ -1,0 +1,78 @@
+body{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 2fr 6.5fr 1.5fr;
+    grid-template-rows: 7.5em 1fr 10em;
+    column-gap: 1.5em;
+    grid-template-areas: 
+    "header header header"
+    "sideMenu search ads"
+    "sideMenu bestRestaurants ads"
+    "sideMenu close ads"
+    "footer footer footer";
+}
+
+header{
+    width: 100%;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    "webName topnav";
+    position: fixed;
+}
+
+header > h1{
+    grid-area: webName;
+    font-size: 5em;
+    margin: auto 0;
+}
+
+#topnav{
+    grid-area: topnav;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    "search login";
+}
+
+.search{
+    grid-area: search;
+    height: 3em;
+    margin: auto 0;
+}
+
+#topnav > a{
+    grid-area: login;
+    margin: auto;
+}
+
+#side-menu{
+    height: 100%;
+    max-width: 18.5em;
+    margin-top: 7.5em;
+    grid-area: sideMenu;
+    position: fixed;
+}
+
+#search{
+    grid-area: search;
+}
+
+#bestRestaurants{
+    grid-area: bestRestaurants;
+}
+
+#close{
+    grid-area: close;
+}
+
+#ads{
+    grid-area: ads;
+}
+
+footer{
+    grid-area: footer;
+}

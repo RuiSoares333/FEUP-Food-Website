@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
     <head>
         <title>Super Legit Food</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href="./CSS/layout.css">
         <link rel = "stylesheet" href="./CSS/style.css">
         <script src = "script.js" defer></script>
     </head>
@@ -39,7 +41,7 @@
             <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
         </aside>
         <section id ="search">
-            <a class = "order" href="login.php"><h2>Order Now!</h2></a>
+            <a class = "order" href="login.php"><button><h2>Order Now!</h2></button></a>
             <a class = "order" href="register.php"><h5>Not Registered?</h5></a>
             <!--if logged in-->
             <!--<a class = "order" href="restaurants.php"><h2>Order Now!</h2></a>-->
@@ -63,7 +65,7 @@
         </section>
         <footer>
             <div class="teacher">
-                <p>ANDRÈ RESTIVO</p>
+                <p>ANDRÉ RESTIVO</p>
                 <P>DIOGO MACHADO</P>
             </div>
             <div class="rights">
