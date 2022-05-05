@@ -29,10 +29,12 @@ header{
     position: fixed;
 }
 
-header > h1{
+header > a > h1{
     grid-area: webName;
     font-size: 5em;
     margin: auto 0;
+    text-decoration: none;
+    color: #EBFFF1;
 }
 
 #topnav{
