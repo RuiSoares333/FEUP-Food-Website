@@ -1,5 +1,6 @@
 <?php
     require_once('templates/common.php');
+    require_once('templates/form.php')
 ?>
 <!DOCTYPE html>
 <html lang ="en-US">
@@ -11,6 +12,7 @@
             outputHeader();
             outputAds();
             outputSideMenu();
+            ouputLoginForm();
             outputFooter();
         ?>
     </body>

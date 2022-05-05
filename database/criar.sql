@@ -1,13 +1,27 @@
+DROP TABLE IF EXISTS Restaurant;
+DROP TABLE IF EXISTS Dish;
+DROP TABLE IF EXISTS Menu;
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Owner;
+DROP TABLE IF EXISTS Order;
+DROP TABLE IF EXISTS RestaurantOwner;
+DROP TABLE IF EXISTS OrderDish;
+DROP TABLE IF EXISTS Review;
+DROP TABLE IF EXISTS FavoriteDish;
+DROP TABLE IF EXISTS FavoriteRestaurant;
+
+
+
 CREATE TABLE Restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR,
+    restaurantName VARCHAR,
     adress VARCHAR,
     category VARCHAR
 );
 
 CREATE TABLE Dish (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR NOT NULL,
+    dishName VARCHAR NOT NULL,
     price INTEGER NOT NULL,
     category VARCHAR
 );
@@ -15,57 +29,48 @@ CREATE TABLE Dish (
 CREATE TABLE Menu (
     restaurantId INTEGER REFERENCES Restaurant (id),
     dishId INTEGER REFERENCES Dish (id),
-    COINSTRAINT MENU_ID PRIMARY KEY (restaurantId, dishId)
+    CONSTRAINT MENU_ID PRIMARY KEY (restaurantId, dishId)
 );
 
 CREATE TABLE User (
     username VARCHAR PRIMARY KEY,
-    email VARCHAR NOT NULL,
+    email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
     adress VARCHAR,
-    phone VARCHAR,
-    CONSTRAINT email UNIQUE
+    phone VARCHAR UNIQUE
 );
 
-CREATE TABLE Custumer (
-    username VARCHAR REFERENCES User (username),
-    CONSTRAINT Costumer_ID PRIMARY KEY(username)
-);
 
 CREATE TABLE Owner (
     username VARCHAR REFERENCES User(username),
     CONSTRAINT Owner_ID PRIMARY KEY(username)
 );
 
-CREATE TABLE Order (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    state VARCHAR, NOT NULL
+CREATE TABLE RestaurantOwner (
+    username VARCHAR REFERENCES Owner(username),
+    restaurantId INTEGER REFERENCES Restaurant(id),
+    CONSTRAINT Restaurant_Owner_ID PRIMARY KEY (username, restaurantId)
 );
 
-CREATE TABLE OrderRestaurantUser(
-    restaurantId INTEGER REFERENCES Restaurant (id),
-    userId INTEGER REFERENCES User(id),
-    orderId INTEGER REFERENCES Order (id),
-    CONSTRAINT OrderRestaurantUser_ID PRIMARY KEY(restaurantId, userId, orderId)
+CREATE TABLE Order (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR REFERENCES User,
+    restaurantId INTEGER REFERENCES Restaurant,
+    state TEXT NOT NULL CHECK (state IN ('received', 'preparing', 'ready', 'delivered'))
 );
 
 CREATE TABLE OrderDish (
-    orderId INTEGER REFERENCES Order (id),
-    dishId INTEGER REFERENCES Dish (id),
-    CONSTRAINT OrderDish_ID PRIMARY KEY(orderId, dishId)
+    orderId INTEGER REFERENCES Order,
+    dishId INTEGER REFERENCES Dish,
+    CONSTRAINT Order_Dish_ID PRIMARY KEY (orderId, dishId)
 );
 
 CREATE TABLE Review (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    restaurantId INTEGER REFERENCES Restaurant (id),
+    username VARCHAR REFERENCES User (username),
     rating REAL NOT NULL, 
     comment VARCHAR
-);
-
-CREATE TABLE UserReview (
-    restaurantId INTEGER REFERENCES Restaurant (id),
-    userId INTEGER REFERENCES User (id),
-    reviewId INTEGER REFERENCES Review (id),
-    CONSTRAINT UserReview_ID PRIMARY KEY(restaurantId, userId, reviewId)
 );
 
 CREATE TABLE FavoriteDish (
