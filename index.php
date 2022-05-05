@@ -12,7 +12,7 @@
         <header>
             <h1>Super Legit Food</h1>
             <section id = "topnav">
-                <input class = "search" type="text" placeholder="Search..">
+                <input class = "search" type="text" placeholder="Search...">
                 <a href = "login.php">Login</a>
                 <!--if logged in-->
                 <!--<a href ="profile.php">Profile</a> <a href = "shoping_cart.php">Shoping Cart</a>-->
@@ -34,55 +34,70 @@
         </nav>
         <aside id ="ads">
             <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
+            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?2"></a>
+            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?3"></a>
+            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?4"></a>
+            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?5"></a>
+            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?6"></a>
         </aside>
-        <section id ="search">
-            <a class = "order" href="login.php"><button><h2>Order Now!</h2></button></a>
-            <a class = "register" href="register.php"><h5>Not Registered?</h5></a>
-            <!--if logged in-->
-            <!--<a class = "order" href="restaurants.php"><h2>Order Now!</h2></a>-->
-            <form action="#">
-                <input type ="text" placeholder="Cuisine, Restaurant name, ...">
-                <button type ="submit" name="search">Search</button>
-            </form>
-        </section>
-        <section id ="bestRestaurants">
-            <ul>
-                <li>restaurant</li>
-                <li>restaurant</li>
-                <li>restaurant</li>
-                <li>restaurant</li>
-                <li>restaurant</li>
-                <li>restaurant</li>
-            </ul>
-        </section>
-        <section id = "close">
-            map api
-        </section>
+        <div class="mainDiv">
+            <section id ="search">
+                <a class = "order" href="login.php"><button><h2>Order Now!</h2></button></a>
+                <a class = "register" href="register.php"><h5>Not Registered?</h5></a>
+                <!--if logged in-->
+                <!--<a class = "order" href="restaurants.php"><h2>Order Now!</h2></a>-->
+                <form action="#">
+                    <input type ="text" placeholder="Cuisine, Restaurant name, ...">
+                    <button type ="submit" name="search">Search</button>
+                </form>
+            </section>
+            <section id ="bestRestaurants">
+                <ul>
+                    <li>restaurant</li>
+                    <li>restaurant</li>
+                    <li>restaurant</li>
+                    <li>restaurant</li>
+                    <li>restaurant</li>
+                    <li>restaurant</li>
+                </ul>
+            </section>
+            <section id = "close">
+                map api
+            </section>
+        </div>
+
         <footer>
             <div class="teacher">
-                <p>ANDRÉ RESTIVO</p>
-                <P>DIOGO MACHADO</P>
+                <span class="toNormal">ANDRÉ</span>
+                <span class="lname1">RESTIVO</span>
+                <br>
+                <span class="fname2">DIOGO</span>
+                <span class="lname2">MACHADO</span>
             </div>
             <div class="rights">
-                <p>ALL RIGHTS RESERVED &copy;</p>
-                <p>SUPER LEGIT COMPANY</p>
+                <span class="r">ALL RIGHTS RESERVED &copy;</span>
+                <br>
+                <span class="c">SUPER LEGIT COMPANY</span>
             </div>
             <div class ="devTeam">
-                <p>CATARINA CANELAS up202103628</p>
-                <p>GONÇALO MARQUES up202008674</p>
-                <p>RUI SOARES up202103631</p>
+                <span class="name1">CATARINA CANELAS</span>
+                <span class="nr1">up202103628</span>
+                <br>
+                <span class="name2">GONÇALO MARQUES</span>
+                <span class="nr2">up202008674</span>
+                <br>
+                <span class="name3">RUI SOARES</span>
+                <span class="nr3">up202103631</span>
             </div>
             <div class = "socials">
                 <p>fb</p>
                 <p>twitter</p>
                 <p>insta</p>
             </div>
-            <p>LTW 2021/22</p>
+            <div class = "course">
+                <span class="cN">LTW</span>
+                <span class="year">2021/22</span>
+            </div>
         </footer>
     </body>
 </html>

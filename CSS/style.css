@@ -1,14 +1,42 @@
-@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700');
+/* document */
 
-html{
-    font-family: "Poppins", sans-serif;
+body{
     background-color: #DEDEDE;
-    text-transform: uppercase;
 }
 
 body::-webkit-scrollbar {
     display: none;
 }
+
+
+/* font */
+
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700');
+
+body, a, input, button{
+    font-family: "Poppins", "Lora", sans-serif;
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+}
+
+#topnav a, h2{
+    color: #EBFFF1; 
+}
+
+ input[type="text"]{
+    background-color: #DEDEDE;
+    border: 0;
+    padding: 0;
+}
+
+footer{
+    font-size: 0.75em;
+}
+
+/*header*/
 
 header{
     background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
@@ -16,41 +44,33 @@ header{
     vertical-align: middle;
 }
 
-#side-menu{
-    background-color: #F3F3F3;
-}
-
-#search{
-    background-color: #F3F3F3;
-}
-
-#bestRestaurants{
-    background-color: #F3F3F3;
-}
-
-#close{
-    background-color: #F3F3F3;
-}
-
-#ads{
-    background-color: #F3F3F3;
-}
-
-footer{
-    background-color: #2C2C2C;
-    color: rgba(255, 255, 255, 0.45);
-}
-
-a{
-    text-decoration: none;
+header > h1{
+    margin: auto auto auto 0.25em;
 }
 
 .search{
     border-radius: 5em;
 }
 
-header > h1{
-    margin: auto auto auto 0.25em;
+
+/* side Menu */
+
+#side-menu{
+    background-color: #F3F3F3;
+}
+
+
+/* ads */
+
+#ads{
+    background-color: #F3F3F3;
+}
+
+
+/* main Div */
+
+.mainDiv{
+    background-color: #F3F3F3;
 }
 
 .order button{
@@ -66,8 +86,8 @@ header > h1{
 }
 
 #search form button{
-    width: 5em;
-    height: 3em;
+    width: 6em;
+    height: 90%;
     border: none;
     padding: 0;
     background-color:#4B9F6D;
@@ -75,7 +95,7 @@ header > h1{
 }
 
 #search form input{
-    width: 90%;
+    width: 95%;
     height: 90%;
     border: none;
     padding: 0;
@@ -83,8 +103,13 @@ header > h1{
 }
 
 
-input[type="text"]{
-    background-color: #DEDEDE;
-    border: 0;
-    padding: 0;
+/* footer */
+
+footer{
+    background-color: #2C2C2C;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.devTeam{
+    text-align: center;
 }

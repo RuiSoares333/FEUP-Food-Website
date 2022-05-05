@@ -1,22 +1,27 @@
+/* body */
+
 body{
     position: relative;
     margin: 0;
-    padding: 0;
     display: grid;
-    grid-template-columns: 2fr 6.5fr 1.5fr;
-    grid-template-rows: 7.5em auto auto auto 10em;
-    column-gap: 1.5em;
+    grid-template-columns: 2fr 2em 6.5fr 2em 1.5fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas: 
-    "header header header"
-    "sideMenu search ads"
-    "sideMenu bestRestaurants ads"
-    "sideMenu close ads"
-    "footer footer footer";
+    "hd hd hd hd hd"
+    "sM . mD . ads"
+    "ft ft ft ft ft";
 }
+
+#side-menu, #ads, .mainDiv{
+    margin-top: 7.5em;
+}
+
+/* header */
 
 header{
     width: 100%;
-    grid-area: header;
+    height: 7.5em;
+    grid-area: hd;
     display: grid;
     grid-template-columns: auto auto;
     grid-template-areas: 
@@ -49,34 +54,32 @@ header > h1{
     margin: auto;
 }
 
+/* side Menu */
+
 #side-menu{
     height: 100%;
-    max-width: 20%;
-    margin-top: 7.5em;
-    grid-area: sideMenu;
+    width: 18.35em;
+    grid-area: sM;
     position: fixed;
 }
 
+/* main Div*/
+
+.mainDiv{
+    grid-area: mD;
+    display: grid;
+    grid-template-rows: 13em 1fr;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 
+    "srch srch"
+    "rest api"
+}
+
 #search{
-    grid-area: search;
+    grid-area: srch;
+    height: 15em;
     display: grid;
     grid-template-rows: 5em 3em 3em;
-}
-
-#bestRestaurants{
-    grid-area: bestRestaurants;
-}
-
-#close{
-    grid-area: close;
-}
-
-#ads{
-    grid-area: ads;
-}
-
-footer{
-    grid-area: footer;
 }
 
 #search .order{
@@ -89,14 +92,72 @@ footer{
 
 #search form{
     display: grid;
-    grid-template-columns: 90% 10%;
-    column-gap: -1em;
+    grid-template-columns: 85% 15%;
 }
 
 #search form button{
-    margin: auto 0 auto 0em;
+    margin: auto 4em auto auto;
 }
 
 #search form input{
+    margin: auto auto auto 3em;
+}
+
+#bestRestaurants{
+    grid-area: rest;
+}
+
+#close{
+    grid-area: api;
+}
+
+
+/* ads */
+
+#ads{
+    grid-area: ads;
+    margin: 7.5em auto 0 auto;
+}
+
+
+/* footer */
+
+footer{
+    grid-area: ft;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "t dT s"
+    "r c s";
+    z-index: 60;
+}
+
+.teacher{
+    grid-area: t;
+    margin: 1.5em 0 0 3em;
+}
+
+.devTeam{
+    grid-area: dT;
+    margin: 1.5em auto 0 auto;
+}
+
+.rights{
+    grid-area: r;
+    margin: 0 0 0 3em;
+}
+
+.course{
+    grid-area: c;
     margin: auto;
+}
+
+.socials{
+    grid-area: s;
+    margin: 1.5em 0 0 30em;
+}
+
+.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
+    font-weight: bold;
 }
