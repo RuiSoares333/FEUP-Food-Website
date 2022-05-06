@@ -8,6 +8,11 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+button{
+    font-weight: bold;
+    cursor:pointer;
+    color: #EBFFF1;
+}
 
 /* font */
 
@@ -36,6 +41,11 @@ footer{
     font-size: 0.75em;
 }
 
+h5{
+    color: #2C2C2C;
+    text-decoration: underline;
+}
+
 /*header*/
 
 header{
@@ -44,8 +54,10 @@ header{
     vertical-align: middle;
 }
 
-header > h1{
-    margin: auto auto auto 0.25em;
+header > h1 > a{
+    font-size: 2.3em;
+    text-decoration: none;
+    color: #EBFFF1;
 }
 
 .search{
@@ -78,7 +90,6 @@ header > h1{
     border: 0;
     padding: 0 5em;
     border-radius: 5em;
-    cursor:pointer;
 }
 
 #search form{

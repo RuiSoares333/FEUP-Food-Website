@@ -14,7 +14,7 @@
 <?php
     function outputHeader() { ?>
         <header>
-            <a href="index.php"><h1>Super Legit Food</h1></a>
+            <h1><a href="index.php">Super Legit Food</a></h1>
             <div id = "topnav">
                 <input class = "search" type="text" placeholder="Search...">
                 <a href = "login.php">Login</a>
@@ -41,8 +41,8 @@
 <?php
     function outputSideMenu() { ?>
         <nav id = "side-menu">
-            <a href="#bestRestaurants">Most Legit Restaurants</a>
-            <a href="#close">Close to You</a>
+            <a id="bestRestHref" href="#bestRestaurants">Most Legit Restaurants</a>
+            <a id="closeHref" href="#close">Close to You</a>
             <input id ="hamburger" type ="checkbox">
             <label class="hamburger" for="hamburger">Categories</label>
             <ul>

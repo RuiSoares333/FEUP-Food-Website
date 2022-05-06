@@ -29,12 +29,9 @@ header{
     position: fixed;
 }
 
-header > a > h1{
+header > h1 > a{
     grid-area: webName;
-    font-size: 5em;
-    margin: auto 0;
-    text-decoration: none;
-    color: #EBFFF1;
+    margin: 0.25em 0 0 0.25em;
 }
 
 #topnav{
@@ -63,6 +60,8 @@ header > a > h1{
     width: 18.35em;
     grid-area: sM;
     position: fixed;
+    display: flex;
+    flex-direction: column;
 }
 
 /* main Div*/

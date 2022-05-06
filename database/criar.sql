@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Dish;
 DROP TABLE IF EXISTS Menu;
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Owner;
-DROP TABLE IF EXISTS Order;
+DROP TABLE IF EXISTS Ord;
 DROP TABLE IF EXISTS RestaurantOwner;
 DROP TABLE IF EXISTS OrderDish;
 DROP TABLE IF EXISTS Review;
@@ -16,7 +16,7 @@ CREATE TABLE Restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     restaurantName VARCHAR,
     adress VARCHAR,
-    category VARCHAR
+    category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican'))
 );
 
 CREATE TABLE Dish (
@@ -52,7 +52,7 @@ CREATE TABLE RestaurantOwner (
     CONSTRAINT Restaurant_Owner_ID PRIMARY KEY (username, restaurantId)
 );
 
-CREATE TABLE Order (
+CREATE TABLE Ord (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR REFERENCES User,
     restaurantId INTEGER REFERENCES Restaurant,
@@ -60,7 +60,7 @@ CREATE TABLE Order (
 );
 
 CREATE TABLE OrderDish (
-    orderId INTEGER REFERENCES Order,
+    orderId INTEGER REFERENCES Ord,
     dishId INTEGER REFERENCES Dish,
     CONSTRAINT Order_Dish_ID PRIMARY KEY (orderId, dishId)
 );
