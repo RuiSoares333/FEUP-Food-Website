@@ -1,3 +1,5 @@
+PRAGMA foreign_keys = ON;
+
 --Restaurant
 INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "italian");
 INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "japanese");
