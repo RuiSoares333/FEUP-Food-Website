@@ -94,3 +94,18 @@
         </footer>
     <?php }
 ?>
+
+<?php 
+    function outputSearch(){ ?>
+            <section id ="search">
+                <a class = "order" href="login.php"><button><h2>Order Now!</h2></button></a>
+                <a class = "register" href="register.php"><h5>Not Registered?</h5></a>
+                <!--if logged in-->
+                <!--<a class = "order" href="restaurants.php"><h2>Order Now!</h2></a>-->
+                <form action="#">
+                    <input type ="text" placeholder="Cuisine, Restaurant name, ...">
+                    <button type ="submit" name="search">Search</button>
+                </form>
+            </section>
+    <?php }
+?>
