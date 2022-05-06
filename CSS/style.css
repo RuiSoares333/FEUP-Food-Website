@@ -1,0 +1,126 @@
+/* document */
+
+body{
+    background-color: #DEDEDE;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+button{
+    font-weight: bold;
+    cursor:pointer;
+    color: #EBFFF1;
+}
+
+/* font */
+
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700');
+
+body, a, input, button{
+    font-family: "Poppins", "Lora", sans-serif;
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+}
+
+#topnav a, h2{
+    color: #EBFFF1; 
+}
+
+ input[type="text"]{
+    background-color: #DEDEDE;
+    border: 0;
+    padding: 0;
+}
+
+footer{
+    font-size: 0.75em;
+}
+
+h5{
+    color: #2C2C2C;
+    text-decoration: underline;
+}
+
+/*header*/
+
+header{
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    color: #EBFFF1;
+    vertical-align: middle;
+}
+
+header > h1 > a{
+    font-size: 2.3em;
+    text-decoration: none;
+    color: #EBFFF1;
+}
+
+.search{
+    border-radius: 5em;
+}
+
+
+/* side Menu */
+
+#side-menu{
+    background-color: #F3F3F3;
+}
+
+
+/* ads */
+
+#ads{
+    background-color: #F3F3F3;
+}
+
+
+/* main Div */
+
+.mainDiv{
+    background-color: #F3F3F3;
+}
+
+.order button{
+    background-color: #4B9F6D;
+    border: 0;
+    padding: 0 5em;
+    border-radius: 5em;
+}
+
+#search form{
+    background-color: #F3F3F3;
+}
+
+#search form button{
+    width: 6em;
+    height: 90%;
+    border: none;
+    padding: 0;
+    background-color:#4B9F6D;
+    border-radius: 1em;
+}
+
+#search form input{
+    width: 95%;
+    height: 90%;
+    border: none;
+    padding: 0;
+    border-radius:0.5em;
+}
+
+
+/* footer */
+
+footer{
+    background-color: #2C2C2C;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.devTeam{
+    text-align: center;
+}

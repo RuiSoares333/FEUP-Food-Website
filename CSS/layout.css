@@ -1,0 +1,164 @@
+/* body */
+
+body{
+    position: relative;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 2fr 2em 6.5fr 2em 1.5fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "hd hd hd hd hd"
+    "sM . mD . ads"
+    "ft ft ft ft ft";
+}
+
+#side-menu, #ads, .mainDiv{
+    margin-top: 7.5em;
+}
+
+/* header */
+
+header{
+    width: 100%;
+    height: 7.5em;
+    grid-area: hd;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    "webName topnav";
+    position: fixed;
+}
+
+header > h1 > a{
+    grid-area: webName;
+    margin: 0.25em 0 0 0.25em;
+}
+
+#topnav{
+    grid-area: topnav;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    "search login";
+}
+
+.search{
+    grid-area: search;
+    height: 3em;
+    margin: auto 0;
+}
+
+#topnav > a{
+    grid-area: login;
+    margin: auto;
+}
+
+/* side Menu */
+
+#side-menu{
+    height: 100%;
+    width: 18.35em;
+    grid-area: sM;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+/* main Div*/
+
+.mainDiv{
+    grid-area: mD;
+    display: grid;
+    grid-template-rows: 13em 1fr;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 
+    "srch srch"
+    "rest api"
+}
+
+#search{
+    grid-area: srch;
+    height: 15em;
+    display: grid;
+    grid-template-rows: 5em 3em 3em;
+}
+
+#search .order{
+    margin: auto;
+}
+
+#search .register{
+    margin: -1.5em auto 0 auto;
+}
+
+#search form{
+    display: grid;
+    grid-template-columns: 85% 15%;
+}
+
+#search form button{
+    margin: auto 4em auto auto;
+}
+
+#search form input{
+    margin: auto auto auto 3em;
+}
+
+#bestRestaurants{
+    grid-area: rest;
+}
+
+#close{
+    grid-area: api;
+}
+
+
+/* ads */
+
+#ads{
+    grid-area: ads;
+    margin: 7.5em auto 0 auto;
+}
+
+
+/* footer */
+
+footer{
+    grid-area: ft;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "t dT s"
+    "r c s";
+    z-index: 60;
+}
+
+.teacher{
+    grid-area: t;
+    margin: 1.5em 0 0 3em;
+}
+
+.devTeam{
+    grid-area: dT;
+    margin: 1.5em auto 0 auto;
+}
+
+.rights{
+    grid-area: r;
+    margin: 0 0 0 3em;
+}
+
+.course{
+    grid-area: c;
+    margin: auto;
+}
+
+.socials{
+    grid-area: s;
+    margin: 1.5em 0 0 30em;
+}
+
+.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
+    font-weight: bold;
+}
