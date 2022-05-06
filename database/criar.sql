@@ -34,6 +34,7 @@ CREATE TABLE Menu (
 
 CREATE TABLE User (
     username VARCHAR PRIMARY KEY,
+    name VARCHAR NOT NULL,
     email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
     adress VARCHAR,
@@ -75,12 +76,12 @@ CREATE TABLE Review (
 
 CREATE TABLE FavoriteDish (
     dishId INTEGER REFERENCES Dish (id),
-    costumerId INTEGER REFERENCES Costumer (id),
-    CONSTRAINT FavoriteDish_ID PRIMARY KEY(dishId, costumerId)
+    userId VARCHAR REFERENCES User (username),
+    CONSTRAINT FavoriteDish_ID PRIMARY KEY(dishId, userId)
 );
 
 CREATE TABLE FavoriteRestaurant (
     restaurantId INTEGER REFERENCES Restaurant (id),
-    costumerId INTEGER REFERENCES Costumer (id),
-    CONSTRAINT FavoriteRestaurant_ID PRIMARY KEY(restaurantId, costumerId)
+    userId VARCHAR REFERENCES User (username),
+    CONSTRAINT FavoriteRestaurant_ID PRIMARY KEY(restaurantId, userId)
 );
