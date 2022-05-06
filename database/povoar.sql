@@ -65,6 +65,6 @@ INSERT INTO FavoriteDish VALUES (3, "joana26");
 INSERT INTO FavoriteDish VALUES (7, "1mafalda3");
 
 --Favorite_Restaurant
-INSERT INTO FavoriteRestaurant VALUES (0, "miguel_012");
-INSERT INTO FavoriteRestaurant VALUES (1, "maria20");
-INSERT INTO FavoriteRestaurant VALUES (2, "joana26");
+INSERT INTO FavoriteRestaurant VALUES (1, "miguel_012");
+INSERT INTO FavoriteRestaurant VALUES (2, "maria20");
+INSERT INTO FavoriteRestaurant VALUES (3, "joana26");
