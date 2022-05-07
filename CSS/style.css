@@ -1,5 +1,7 @@
 /* document */
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
+
 body{
     background-color: #DEDEDE;
 }
@@ -14,12 +16,11 @@ button{
     color: #EBFFF1;
 }
 
+
 /* font */
 
-@import url('https://fonts.googleapis.com/css?family=Lora:400,700|Poppins:400,700');
-
-body, a, input, button{
-    font-family: "Poppins", "Lora", sans-serif;
+body, a, input, button, form, body *{
+    font-family: 'Poppins';
     text-transform: uppercase;
 }
 
@@ -31,10 +32,16 @@ a{
     color: #EBFFF1; 
 }
 
- input[type="text"]{
+input[type="text"], input[type="password"]{
     background-color: #DEDEDE;
     border: 0;
     padding: 0;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+input[type="text"]:focus, input[type="password"]:focus{
+    outline: none;
 }
 
 footer{
@@ -46,12 +53,26 @@ h5{
     text-decoration: underline;
 }
 
+.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
+    font-weight: bold;
+}
+
+#login input::placeholder{
+    color: #EBFFF1;
+    text-transform: lowercase;
+}
+
+#login input, #login h5{
+    color: #EBFFF1;
+}
+
 /*header*/
 
 header{
     background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
     color: #EBFFF1;
     vertical-align: middle;
+    box-shadow: 5px 10px 18px #888888;
 }
 
 header > h1 > a{
@@ -69,6 +90,7 @@ header > h1 > a{
 
 #side-menu{
     background-color: #F3F3F3;
+    box-shadow: 5px 10px 18px #888888;
 }
 
 
@@ -113,6 +135,39 @@ header > h1 > a{
     border-radius:0.5em;
 }
 
+#square{
+    width: 25em;
+    height: 30em;
+    background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
+    border-radius: 2em;
+}
+
+#login input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid #EBFFF1;
+    width: 100%;
+    height: 2em;
+    text-transform: none;
+}
+
+#login h1{
+    color: #EBFFF1;
+}
+
+#login button{
+    background-color: #EBFFF1;
+    color: rgba(60,129,78,1);
+    width: 50%;
+    height: 3em;
+    border: none;
+    border-radius: 2em;
+    margin-top: 1em;
+}
+
+#login h5{
+    margin-top: -3em;
+}
 
 /* footer */
 

@@ -68,12 +68,40 @@ header > h1 > a{
 
 .mainDiv{
     grid-area: mD;
+}
+
+#index{
     display: grid;
     grid-template-rows: 13em 1fr;
     grid-template-columns: 60% 40%;
     grid-template-areas: 
     "srch srch"
     "rest api"
+}
+
+#login{
+    display: grid;
+    grid-template-rows: 1em 5em 6em 11em 3em;
+}
+
+#loginForm{
+    display: grid;
+    grid-template-rows: repeat(4, 3em);
+    grid-template-columns: 20em;
+}
+
+#login > *, #loginForm > *{
+    margin: auto;
+}
+
+#login > label{
+    margin-left: 0;
+}
+
+#square {
+    margin-top: 2em;
+    grid-column-start: 1;
+    grid-row-start: 1;
 }
 
 #search{
@@ -157,8 +185,4 @@ footer{
 .socials{
     grid-area: s;
     margin: 1.5em 0 0 30em;
-}
-
-.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
-    font-weight: bold;
 }
