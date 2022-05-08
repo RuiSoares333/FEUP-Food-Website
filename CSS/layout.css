@@ -29,9 +29,9 @@ header{
     position: fixed;
 }
 
-header > h1 > a{
+header > h1 {
     grid-area: webName;
-    margin: 0.25em 0 0 0.25em;
+    margin: 0.25em 0 0 0.5em;
 }
 
 #topnav{
@@ -63,6 +63,42 @@ header > h1 > a{
     display: flex;
     flex-direction: column;
 }
+
+#side-menu > *{
+    margin-left: 1.40em;
+    margin-top: 0.30em;
+    font-weight: bold;
+}
+
+#side-menu > *:first-child{
+    margin-top: 1em;
+}
+
+#side-menu .hamburger {
+    display: block;
+}
+
+#side-menu ul {
+    color: transparent;
+}
+
+#hamburger{
+    display: none;
+}
+
+#hamburger:checked + .hamburger + ul li{
+    padding: 0.6em;
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+#side-menu li {
+    max-height: 0;
+    text-align: left;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
 
 /* main Div*/
 
