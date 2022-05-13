@@ -22,7 +22,7 @@
             outputSideMenu();
             outputAds();
         ?>
-        <div class="mainDiv">
+        <div id="mainDiv" class="index">
             <?php 
             outputSearch();
             outputRestaurants($restaurants);
