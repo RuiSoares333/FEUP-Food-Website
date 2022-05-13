@@ -12,7 +12,7 @@
             outputHeader();
             outputAds();
             outputSideMenu();
-            ouputRegisterForm();
+            outputRegisterForm();
             outputFooter();
         ?>
     </body>
