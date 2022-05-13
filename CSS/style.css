@@ -98,7 +98,7 @@ a{
 
 /* main Div */
 
-.mainDiv{
+#mainDiv{
     background-color: #F3F3F3;
 }
 
@@ -146,4 +146,25 @@ footer{
 
 .devTeam{
     text-align: center;
+}
+
+
+/* register and login */
+
+#loginForm input, #registerForm input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid #EBFFF1;
+    text-transform: none;
+}
+
+#loginForm button, #registerForm #continue{
+    background-color: #EBFFF1;
+    color: rgba(60,129,78,1);
+    border: none;
+    border-radius: 2em;
+}
+
+#registerForm #cancel{
+    color: #EBFFF1;
 }

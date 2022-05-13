@@ -12,7 +12,7 @@ body{
     "ft ft ft ft ft";
 }
 
-#side-menu, #ads, .mainDiv{
+#side-menu, #ads, #mainDiv{
     margin-top: 7.5em;
 }
 
@@ -102,12 +102,12 @@ header > h1 {
 
 /* main Div*/
 
-.mainDiv{
+#mainDiv{
     grid-area: mD;
     padding: 2em 1em 1em 1em;
 }
 
-#index{
+.index{
     display: grid;
     grid-template-rows: 13em 1fr;
     grid-template-columns: 60% 40%;
@@ -116,7 +116,7 @@ header > h1 {
     "rest api"
 }
 
-#login{
+.login{
     display: grid;
     grid-template-rows: 1em 5em 6em 11em 3em;
 }
@@ -127,11 +127,11 @@ header > h1 {
     grid-template-columns: 20em;
 }
 
-#login > *, #loginForm > *{
+.login > *, #loginForm > *{
     margin: auto;
 }
 
-#login > label{
+.login > label{
     margin-left: 0;
 }
 

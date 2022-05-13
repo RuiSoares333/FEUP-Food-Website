@@ -13,7 +13,7 @@
             outputSideMenu();
             outputAds();
         ?>
-        <div class="mainDiv" id="index">
+        <div id="mainDiv" class="index">
             <section id ="search">
                 <a class = "order" href="login.php"><button><h2>Order Now!</h2></button></a>
                 <a class = "register" href="register.php"><h5>Not Registered?</h5></a>
