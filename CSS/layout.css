@@ -12,7 +12,7 @@ body{
     "ft ft ft ft ft";
 }
 
-#side-menu, #ads, .mainDiv{
+#side-menu, #ads, #mainDiv{
     margin-top: 7.5em;
 }
 
@@ -29,9 +29,9 @@ header{
     position: fixed;
 }
 
-header > h1 > a{
+header > h1 {
     grid-area: webName;
-    margin: 0.25em 0 0 0.25em;
+    margin: 0.25em 0 0 0.5em;
 }
 
 #topnav{
@@ -64,16 +64,81 @@ header > h1 > a{
     flex-direction: column;
 }
 
+#side-menu > *{
+    margin-left: 1.40em;
+    margin-top: 0.30em;
+    font-weight: bold;
+}
+
+#side-menu > *:first-child{
+    margin-top: 1em;
+}
+
+#side-menu .hamburger {
+    display: block;
+}
+
+#side-menu ul {
+    color: transparent;
+}
+
+#hamburger{
+    display: none;
+}
+
+#hamburger:checked + .hamburger + ul li{
+    padding: 0.6em 0;
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+#side-menu li {
+    max-height: 0;
+    text-align: left;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+
 /* main Div*/
 
-.mainDiv{
+#mainDiv{
     grid-area: mD;
+    padding: 2em 1em 1em 1em;
+}
+
+.index{
     display: grid;
     grid-template-rows: 13em 1fr;
     grid-template-columns: 60% 40%;
     grid-template-areas: 
     "srch srch"
     "rest api"
+}
+
+.login{
+    display: grid;
+    grid-template-rows: 1em 5em 6em 11em 3em;
+}
+
+#loginForm{
+    display: grid;
+    grid-template-rows: repeat(4, 3em);
+    grid-template-columns: 20em;
+}
+
+.login > *, #loginForm > *{
+    margin: auto;
+}
+
+.login > label{
+    margin-left: 0;
+}
+
+#square {
+    margin-top: 2em;
+    grid-column-start: 1;
+    grid-row-start: 1;
 }
 
 #search{
@@ -157,8 +222,4 @@ footer{
 .socials{
     grid-area: s;
     margin: 1.5em 0 0 30em;
-}
-
-.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
-    font-weight: bold;
 }
