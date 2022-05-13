@@ -87,7 +87,7 @@ header > h1 {
 }
 
 #hamburger:checked + .hamburger + ul li{
-    padding: 0.6em;
+    padding: 0.6em 0;
     opacity: 1;
     transition: all 1s ease;
 }
@@ -104,6 +104,7 @@ header > h1 {
 
 .mainDiv{
     grid-area: mD;
+    padding: 2em 1em 1em 1em;
 }
 
 #index{
