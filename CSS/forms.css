@@ -9,40 +9,23 @@
     margin-top: 1em;
 }
 
-
 .register h1{
     padding-top: 1em;
-    color: #EBFFF1;
 }
 
 .register h5{
-    margin-top: -3em;
+    margin: 0 auto;
 }
 
-.register input::placeholder{
-    color: #EBFFF1;
+.login input::placeholder, .register input::placeholder{
     text-transform: lowercase;
-}
-
-.register input, .register h5{
-    color: #EBFFF1;
-}
-
-
-.login h1{
-    color: #EBFFF1;
 }
 
 .login h5{
     margin-top: -3em;
 }
 
-.login input::placeholder{
-    color: #EBFFF1;
-    text-transform: lowercase;
-}
-
-.login input, .login h5{
+.login, .login input::placeholder , .register :not(#continue), .register input::placeholder{
     color: #EBFFF1;
 }
 
@@ -50,19 +33,100 @@
     background-color: #6cffdd;
 }
 
+.price:before{
+    padding: 0;
+    margin: 0;
+    padding-left: 0.8em;
+    padding-top: 10em;
+}
 
-  .price:before {
+.price:before {
     font-size: 2em;
-    content:'\2191';
-  }
+    content:'\2197';
+}
 
-  #price:checked + .price + ul li{
+#price:checked + .price + ul li{
     max-height: 1em;
     padding: 1em;
     opacity: 1;
-  }
+}
 
-  #price:checked + .price:before {
+#price:checked + .price:before {
     font-size: 2em;
-    content:'\2193';
-  }
+    content:'\2199';
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="phonenumber"], input[type="address"]{
+    background-color: #DEDEDE;
+    border: 0;
+    padding-left: 0.8em;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+input[type="text"]:focus, input[type="password"]:focus{
+    outline: none;
+}
+
+input:placeholder-shown{
+    padding-left: 0.8em;
+}
+
+
+/* register and login */
+
+#loginForm input, #registerForm input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid #EBFFF1;
+    text-transform: none;
+}
+
+#loginForm button, #registerForm #continue{
+    background-color: #EBFFF1;
+    color: rgba(60,129,78,1);
+    border: none;
+    border-radius: 2em;
+}
+
+#registerForm #cancel{
+    color: #EBFFF1;
+}
+
+.sort *{
+    margin-top: 1.5em;
+}
+
+.sort select{
+    margin-left: 0.75em;
+}
+
+.sort input{
+    width: 16.75em;
+    height: 1.5em;
+    border-radius: 1em;
+}
+
+.sort button{
+    width: 45%;
+    height: 2em;
+    background-color: #4B9F6D;
+    border-radius: 1em;
+    border: 0;
+    margin-left: 20%;
+}
+
+select{
+    border-radius: 1em;
+    height: 1.5em;
+    background-color: #DEDEDE;
+    cursor: pointer;
+}
+
+select, option{
+    border: 0;
+}
+
+option{
+    border-radius: 1em;
+}
