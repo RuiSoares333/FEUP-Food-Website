@@ -12,7 +12,6 @@
             outputHeader();
             outputAds();
             outputSortSideMenu();
-            ouputLoginForm();
             outputFooter();
         ?>
     </body>

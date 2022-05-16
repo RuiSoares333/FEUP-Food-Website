@@ -16,12 +16,12 @@
         <div id="mainDiv" class="index">
             <section id ="search">
                 <a class = "order" href="restaurants.php"><button><h2>Order Now!</h2></button></a>
-                <a class = "register" href="register.php"><h5>Not Registered?</h5></a>
+                <h5><a class = "RegisterList" href="register.php">Not Registered?</a></h5>
                 <!--if logged in-->
                 <!--<a class = "order" href="restaurants.php"><h2>Order Now!</h2></a>-->
                 <form action="#">
                     <input type ="text" placeholder="Cuisine, Restaurant name, ...">
-                    <button type ="submit" name="search"><a class = "schName" href="restaurants.php">Search</a></button>
+                    <a class = "schName" href="restaurants.php"><button type ="submit" name="search">Search</button></a>
                 </form>
             </section>
             <section id ="bestRestaurants">

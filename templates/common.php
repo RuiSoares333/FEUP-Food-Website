@@ -62,16 +62,17 @@
     function outputSortSideMenu() { ?>
         <nav id="side-menu" class="sort">
             <form>
-                <label>Search</label>
-                <input type="text" name="restName" placeholder="Restaurant Name">
-                <label>Ratings</label>
+                <input type="text" name="searchName" placeholder="Search">
+                <label>Rating</label>
                     <select name="rating">
-                        <option value="emptyS">Select a Rating [1-5]</option>
-                        <option value="1">&#9733;</option>
-                        <option value="2">&#9733;&#9733;</option>
-                        <option value="3">&#9733;&#9733;&#9733;</option>
-                        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
-                        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                        <option value="emptyS">Select a Rating [0-10]</option>
+                        <option value="1">1-</option>
+                        <?php
+                            for($i=2; $i<9; $i++){
+                                echo '<option value="'. $i .'">' . $i . '</option>';
+                            }
+                        ?>
+                        <option value="9">9+</option>
                     </select>
                 <label>Category</label>
                     <select name="category">
