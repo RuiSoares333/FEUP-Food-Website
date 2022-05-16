@@ -41,7 +41,7 @@
 
 <?php
     function outputSideMenu() { ?>
-        <nav id = "side-menu">
+        <nav id="side-menu" class="index">
             <a id="bestRestHref" href="#bestRestaurants">Most Legit Restaurants</a>
             <a id="closeHref" href="#close">Close to You</a>
             <input id ="hamburger" type ="checkbox">
@@ -54,6 +54,41 @@
                 <li><a href="index.php">EUROPEAN</a></li>
                 <li><a href="index.php">MEXICAN</a></li>
             </ul>
+        </nav>
+    <?php }
+?>
+
+<?php
+    function outputSortSideMenu() { ?>
+        <nav id="side-menu" class="sort">
+            <form>
+                <label>Search</label>
+                <input type="text" name="restName" placeholder="Restaurant Name">
+                <label>Ratings</label>
+                    <select name="rating">
+                        <option value="emptyS">Select a Rating [1-5]</option>
+                        <option value="1">&#9733;</option>
+                        <option value="2">&#9733;&#9733;</option>
+                        <option value="3">&#9733;&#9733;&#9733;</option>
+                        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                    </select>
+                <label>Category</label>
+                    <select name="category">
+                        <option value="emptyC">Select a Category</option>
+                        <option value="European">European</option>
+                        <option value="Fast Food">Fast Food</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Portuguese">Portuguese</option>
+                    </select>
+                <label>Price</label>
+                <input type="checkbox" id="price">
+                <label class="price" for="price"></label><br>
+                <input type="hidden" name = "referer" value="<?=$_SERVER['HTTP_REFERER']?>">
+                <button formaction="../actions/action_login.php" formmethod="post">Sort!</button>
+            </form>
         </nav>
     <?php }
 ?>

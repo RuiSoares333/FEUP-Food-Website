@@ -159,14 +159,15 @@ header > h1 {
 #search form{
     display: grid;
     grid-template-columns: 85% 15%;
+    column-gap: 1em;
 }
 
 #search form button{
-    margin: auto 4em auto auto;
+    justify-self: start;
 }
 
 #search form input{
-    margin: auto auto auto 3em;
+    justify-self: end;
 }
 
 #bestRestaurants{

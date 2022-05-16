@@ -33,3 +33,20 @@
 #loginForm button:hover{
     background-color: #6cffdd;
 }
+
+
+  .price:before {
+    font-size: 2em;
+    content:'\2191';
+  }
+
+  #price:checked + .price + ul li{
+    max-height: 1em;
+    padding: 1em;
+    opacity: 1;
+  }
+
+  #price:checked + .price:before {
+    font-size: 2em;
+    content:'\2193';
+  }
