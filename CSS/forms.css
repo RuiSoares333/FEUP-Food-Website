@@ -9,9 +9,25 @@
     margin-top: 1em;
 }
 
-#registerForm #cancel{
+
+.register h1{
+    padding-top: 1em;
     color: #EBFFF1;
 }
+
+.register h5{
+    margin-top: -3em;
+}
+
+.register input::placeholder{
+    color: #EBFFF1;
+    text-transform: lowercase;
+}
+
+.register input, .register h5{
+    color: #EBFFF1;
+}
+
 
 .login h1{
     color: #EBFFF1;
