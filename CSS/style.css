@@ -32,7 +32,7 @@ a{
     color: #EBFFF1; 
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], input[type="email"], input[type="phonenumber"], input[type="address"]{
     background-color: #DEDEDE;
     border: 0;
     padding: 0;
@@ -137,6 +137,14 @@ a{
     border-radius: 2em;
 }
 
+#squareRegister{
+    width: 25em;
+    height: 35em;
+    background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
+    border-radius: 2em;
+}
+
+
 /* footer */
 
 footer{
@@ -158,7 +166,7 @@ footer{
     text-transform: none;
 }
 
-#loginForm button, #registerForm #continue{
+#loginForm button, #registerForm button{
     background-color: #EBFFF1;
     color: rgba(60,129,78,1);
     border: none;
@@ -167,4 +175,10 @@ footer{
 
 #registerForm #cancel{
     color: #EBFFF1;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+#registerForm #continue:hover{
+    background-color: #6cffdd;
 }
