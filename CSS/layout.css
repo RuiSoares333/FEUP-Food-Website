@@ -103,6 +103,26 @@ header > h1 {
     display: none;
 }
 
+#side-menu.sort form{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(2em, auto);
+    grid-template-areas: 
+    "sch sch"
+    "a a"
+    "a a"
+    "a a"
+    "btn btn";
+}
+
+#side-menu.sort input{
+    grid-area: sch;
+}
+
+#side-menu.sort button{
+    grid-area: btn;
+}
+
 /* main Div*/
 
 #mainDiv{
