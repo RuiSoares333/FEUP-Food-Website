@@ -41,6 +41,10 @@ h5{
     text-decoration: underline;
 }
 
+.login h5{
+    color: #EBFFF1;
+}
+
 .cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
     font-weight: bold;
 }
