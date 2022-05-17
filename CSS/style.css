@@ -28,7 +28,7 @@ a{
     text-decoration: none;
 }
 
-#topnav a, h2{
+#topnav a, .index h2{
     color: #EBFFF1; 
 }
 

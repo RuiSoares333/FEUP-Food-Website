@@ -1,21 +1,16 @@
 CREATE TABLE Restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    restaurantName VARCHAR,
+    name VARCHAR,
     adress VARCHAR,
     category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican'))
 );
 
 CREATE TABLE Dish (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    dishName VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
     price INTEGER NOT NULL,
-    category VARCHAR
-);
-
-CREATE TABLE Menu (
-    restaurantId INTEGER REFERENCES Restaurant (id),
-    dishId INTEGER REFERENCES Dish (id),
-    CONSTRAINT MENU_ID PRIMARY KEY (restaurantId, dishId)
+    category VARCHAR CHECK (category IN ('appetizer', 'drink', 'soup', 'meat dish', 'fish dish', 'veggie dish', 'vegan dish', 'pizza', 'pasta', 'sushi', 'dessert', 'hamburger')),
+    restaurantId INTEGER REFERENCES Restaurant
 );
 
 CREATE TABLE User (
@@ -84,26 +79,15 @@ INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "j
 INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "fast food");
 
 --Dish
-INSERT INTO Dish VALUES (NULL, "Tiramisu", 5, "Sobremesa");
-INSERT INTO Dish VALUES (NULL, "Calzone Napolitana", 9, "Pizza");
-INSERT INTO Dish VALUES (NULL, "Lasagna", 10, "Principal");
-INSERT INTO Dish VALUES (NULL, "Camarão Tigre Asiático", 23, "Entradas");
-INSERT INTO Dish VALUES (NULL, "Salmão (6 peças)", 11, "Sashimi Tradicional");
-INSERT INTO Dish VALUES (NULL, "Água", 2, "Bebida");
-INSERT INTO Dish VALUES (NULL, "BigMac", 5, "Hamburguer");
-INSERT INTO Dish VALUES (NULL, "McFlurry KitKat", 2, "Sobremesa");
-INSERT INTO Dish VALUES (NULL, "Coca-Cola", 2, "Bebida");
-
---Menu
-INSERT INTO Menu VALUES (1, 1);
-INSERT INTO Menu VALUES (1, 2);
-INSERT INTO Menu VALUES (1, 3);
-INSERT INTO Menu VALUES (2, 4);
-INSERT INTO Menu VALUES (2, 5);
-INSERT INTO Menu VALUES (2, 6);
-INSERT INTO Menu VALUES (3, 7);
-INSERT INTO Menu VALUES (3, 8);
-INSERT INTO Menu VALUES (3, 9);
+INSERT INTO Dish VALUES (NULL, "Tiramisu", 5, "dessert", 1);
+INSERT INTO Dish VALUES (NULL, "Calzone Napolitana", 9, "pasta", 1);
+INSERT INTO Dish VALUES (NULL, "Lasagna", 10, "pasta", 1);
+INSERT INTO Dish VALUES (NULL, "Camarão Tigre Asiático", 23, "appetizer", 2);
+INSERT INTO Dish VALUES (NULL, "Salmão (6 peças)", 11, "sushi", 2);
+INSERT INTO Dish VALUES (NULL, "Água", 2, "drink", 2);
+INSERT INTO Dish VALUES (NULL, "BigMac", 5, "hamburger", 3);
+INSERT INTO Dish VALUES (NULL, "McFlurry KitKat", 2, "dessert", 3);
+INSERT INTO Dish VALUES (NULL, "Coca-Cola", 2, "drink", 3);
 
 --User
 INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "123456", "Rua das Flores", "962156489");
