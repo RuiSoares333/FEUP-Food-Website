@@ -33,14 +33,14 @@
                     <p>Preço médio 35$</p>
                 </article>
                 <article data-id ="2">
-                    <a href="restaurant.php"><img src="https://picsum.photos/200?7"></a>
+                    <a href="restaurant.php"><img src="https://picsum.photos/200?8"></a>
                     <p>Cozinha International</p>
                     <p>Portucale</p>
                     <p>Porto</p>
                     <p>Preço médio 35$</p>
                 </article>
                 <article data-id ="3">
-                    <a href="restaurant.php"><img src="https://picsum.photos/200?7"></a>
+                    <a href="restaurant.php"><img src="https://picsum.photos/200?9"></a>
                     <p>Cozinha International</p>
                     <p>Portucale</p>
                     <p>Porto</p>

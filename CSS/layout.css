@@ -266,6 +266,11 @@ header > h1 {
 #ads{
     grid-area: ads;
     margin: 7.5em auto 0 auto;
+    padding: 1em;
+}
+
+#ads img{
+    margin: 0.5em 0;
 }
 
 
