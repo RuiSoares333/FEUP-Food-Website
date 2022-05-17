@@ -1,15 +1,15 @@
 CREATE TABLE Restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    restaurantName VARCHAR,
+    name VARCHAR,
     adress VARCHAR,
     category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican'))
 );
 
 CREATE TABLE Dish (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    dishName VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
     price INTEGER NOT NULL,
-    category VARCHAR,
+    category VARCHAR CHECK (category IN ('appetizer', 'drink', 'soup', 'meat dish', 'fish dish', 'veggie dish', 'vegan dish', 'pizza', 'pasta', 'sushi', 'dessert', 'hamburger')),
     restaurantId INTEGER REFERENCES Restaurant
 );
 
@@ -79,15 +79,15 @@ INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "j
 INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "fast food");
 
 --Dish
-INSERT INTO Dish VALUES (NULL, "Tiramisu", 5, "Sobremesa", 1);
-INSERT INTO Dish VALUES (NULL, "Calzone Napolitana", 9, "Pizza", 1);
-INSERT INTO Dish VALUES (NULL, "Lasagna", 10, "Principal", 1);
-INSERT INTO Dish VALUES (NULL, "Camarão Tigre Asiático", 23, "Entradas", 2);
-INSERT INTO Dish VALUES (NULL, "Salmão (6 peças)", 11, "Sashimi Tradicional", 2);
-INSERT INTO Dish VALUES (NULL, "Água", 2, "Bebida", 2);
-INSERT INTO Dish VALUES (NULL, "BigMac", 5, "Hamburguer", 3);
-INSERT INTO Dish VALUES (NULL, "McFlurry KitKat", 2, "Sobremesa", 3);
-INSERT INTO Dish VALUES (NULL, "Coca-Cola", 2, "Bebida", 3);
+INSERT INTO Dish VALUES (NULL, "Tiramisu", 5, "dessert", 1);
+INSERT INTO Dish VALUES (NULL, "Calzone Napolitana", 9, "pasta", 1);
+INSERT INTO Dish VALUES (NULL, "Lasagna", 10, "pasta", 1);
+INSERT INTO Dish VALUES (NULL, "Camarão Tigre Asiático", 23, "appetizer", 2);
+INSERT INTO Dish VALUES (NULL, "Salmão (6 peças)", 11, "sushi", 2);
+INSERT INTO Dish VALUES (NULL, "Água", 2, "drink", 2);
+INSERT INTO Dish VALUES (NULL, "BigMac", 5, "hamburger", 3);
+INSERT INTO Dish VALUES (NULL, "McFlurry KitKat", 2, "dessert", 3);
+INSERT INTO Dish VALUES (NULL, "Coca-Cola", 2, "drink", 3);
 
 --User
 INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "123456", "Rua das Flores", "962156489");

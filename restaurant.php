@@ -7,7 +7,12 @@
 
     $db = getDBConnection('database/data.db');
 
-    $restaurant = getSingleRestaurant($db, $_GET['id']);
+    if(!($restaurant = getSingleRestaurant($db, $_GET['id'])))
+        die("Couldn't get restaurant");
+    if(!($categories = getDishCategories($db, $_GET['id'])))
+        die("Couldn't get categories");
+
+    orderCategories($categories);
 ?>
 
 
@@ -20,9 +25,14 @@
         <?php
             outputHeader();
             outputAds();
-            
-            outputRestaurant($restaurant);
-            outputSideMenu();
+            outputRestaurantSideMenu($categories);
+            ?><div id ="mainDiv" class="restaurant"> <?php
+            outputSingleRestaurant($restaurant);   
+            foreach($categories as $category){
+                $dishes = getDishes($db, $_GET['id'], $category['category']);
+                outputCategoryDishes($category, $dishes);
+            }
+            ?></div><?php
             outputFooter();
         ?>
     </body>

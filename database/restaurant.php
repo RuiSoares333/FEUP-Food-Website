@@ -18,4 +18,17 @@
         WHERE Restaurant.id = ?';
         return getQueryResults($db, $query, false, array($id));
     }
+
+    function getDishCategories(PDO $db, int $id): array| false{
+        $query = 'SELECT DISTINCT category 
+        FROM Dish WHERE restaurantId = ?';
+        return getQueryResults($db, $query, true,  array($id));
+    }
+
+    function getDishes(PDO $db, int $id, string $category): array| false{
+        $query = 'SELECT * 
+        FROM Dish WHERE restaurantId = ? AND category = ?
+        ';
+        return getQueryResults($db, $query, true, array($id, $category));
+    }
 ?>
