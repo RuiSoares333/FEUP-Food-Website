@@ -32,18 +32,6 @@ a{
     color: #EBFFF1; 
 }
 
-input[type="text"], input[type="password"]{
-    background-color: #DEDEDE;
-    border: 0;
-    padding: 0;
-    font-size: 0.9em;
-    font-weight: bold;
-}
-
-input[type="text"]:focus, input[type="password"]:focus{
-    outline: none;
-}
-
 footer{
     font-size: 0.75em;
 }
@@ -51,6 +39,10 @@ footer{
 h5{
     color: #2C2C2C;
     text-decoration: underline;
+}
+
+.login h5{
+    color: #EBFFF1;
 }
 
 .cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
@@ -115,11 +107,15 @@ a{
 
 #search form button{
     width: 6em;
-    height: 90%;
+    height: 95%;
     border: none;
     padding: 0;
     background-color:#4B9F6D;
     border-radius: 1em;
+}
+
+.schName{
+    color: #EBFFF1;
 }
 
 #search form input{
@@ -136,6 +132,14 @@ a{
     background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
     border-radius: 2em;
 }
+
+#squareRegister{
+    width: 25em;
+    height: 35em;
+    background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
+    border-radius: 2em;
+}
+
 
 /* footer */
 
@@ -158,7 +162,7 @@ footer{
     text-transform: none;
 }
 
-#loginForm button, #registerForm #continue{
+#loginForm button, #registerForm button{
     background-color: #EBFFF1;
     color: rgba(60,129,78,1);
     border: none;
@@ -167,4 +171,10 @@ footer{
 
 #registerForm #cancel{
     color: #EBFFF1;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+#registerForm #continue:hover{
+    background-color: #6cffdd;
 }
