@@ -10,7 +10,28 @@
             <input type="hidden" name = "referer" value="<?=$_SERVER['HTTP_REFERER']?>">
             <button formaction="../actions/action_login.php" formmethod="post">Login</button>
         </form>
-        <a class = "register" href="register.php"><h5>Not Registered?</h5></a>
+        <a class = "RegisterLink" href="register.php"><h5>Not Registered?</h5></a>
     </div>
     <?php }
+?>
+
+<?php
+    function outputRegisterForm() { ?>
+        <div id="mainDiv" class="register">
+            <p id="squareRegister"></p>
+            <h1>Register</h1>
+            <form id="registerForm">
+                <input id="Um" type="text" name="username" placeholder="username">
+                <input id="Dois" type="email" name="email" placeholder="email">
+                <input id="Tres" type="password" name="password" placeholder="password">
+                <input id="Quatro" type="password" name="repeat password" placeholder="repeat password">
+                <input id="Cinco" type="phonenumber" name="phone number" placeholder="phone number">
+                <input id="Seis" type="address" name="address" placeholder="address">
+                <input type="hidden" name="referer" value="<?=$_SERVER['HTTP_REFERER']?>">
+                <button id="continue" formaction="./actions/action_register.php" formmethod="post">Register</button>
+                <button id="cancel" formaction="./index.php" formmethod="post">Cancel</button>
+            </form>
+            <a class = "LoginLink" href="login.php"><h5>Already have an account?</h5></a>
+        </div>
+    <?php } 
 ?>
