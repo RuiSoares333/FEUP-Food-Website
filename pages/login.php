@@ -1,6 +1,8 @@
 <?php
-    require_once(__DIR__ . '/../templates/common.php');
-    require_once(__DIR__ . '/../templates/form.php')
+    declare(strict_types = 1);
+    
+    require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(__DIR__ . '/../templates/form.tpl.php')
 ?>
 <!DOCTYPE html>
 <html lang ="en-US">

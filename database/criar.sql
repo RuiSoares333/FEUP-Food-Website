@@ -51,7 +51,7 @@ CREATE TABLE Review (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     restaurantId INTEGER REFERENCES Restaurant (id),
     username VARCHAR REFERENCES User (username),
-    rating REAL NOT NULL, 
+    rating INTEGER NOT NULL, 
     comment VARCHAR
 );
 
@@ -121,6 +121,7 @@ INSERT INTO OrderDish VALUES (3, 7);
 INSERT INTO Review VALUES (NULL, 3, "1mafalda3", 7, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 INSERT INTO Review VALUES (NULL, 1, "miguel_012", 8, "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 INSERT INTO Review VALUES (NULL, 2, "maria20", 9, "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+INSERT INTO Review VALUES (NULL, 2, "1mafalda3", 10, "a");
 
 
 --Favorite_Dish

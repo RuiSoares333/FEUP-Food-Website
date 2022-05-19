@@ -1,14 +1,15 @@
 <?php
-    require_once(__DIR__ . '/../templates/common.php');
-    require_once(__DIR__ . '/../templates/restaurants.php');
+    declare(strict_types = 1);
+    
+    require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(__DIR__ . '/../templates/restaurant.tpl.php');
 
     require_once(__DIR__ . '/../database/connection.php');
-    require_once(__DIR__ . '/../database/restaurant.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    if(!($restaurants = getBestRestaurants($db)))
-        die("Couldn't get restaurants");
+    $restaurants = Restaurant::getBestRestaurants($db);
 ?>
 
 <!DOCTYPE html>

@@ -1,18 +1,15 @@
 <?php
-    require_once(__DIR__ . '/../templates/common.php');
-    require_once(__DIR__ . '/../templates/restaurants.php');
+    declare(strict_types = 1);
+    
+    require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(__DIR__ . '/../templates/restaurant.tpl.php');
 
     require_once(__DIR__ . '/../database/connection.php');
-    require_once(__DIR__ . '/../database/restaurant.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    if(!($restaurant = getSingleRestaurant($db, $_GET['id'])))
-        die("Couldn't get restaurant");
-    if(!($categories = getDishCategories($db, $_GET['id'])))
-        die("Couldn't get categories");
-
-    orderCategories($categories);
+    $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 ?>
 
 
@@ -25,7 +22,7 @@
         <?php
             outputHeader();
             outputAds();
-            outputRestaurantSideMenu($categories);
+            outputRestaurantSideMenu($restaurant->dishCategories);
             ?><div id ="mainDiv" class="restaurant"> <?php
             outputSingleRestaurant($restaurant);   
             foreach($categories as $category){

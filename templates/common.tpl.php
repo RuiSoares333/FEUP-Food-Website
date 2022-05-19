@@ -1,4 +1,6 @@
 <?php
+    declare(strict_types = 1);
+    
     function outputHead() { ?>
         <head>
             <title>Super Legit Food</title>
@@ -141,7 +143,7 @@
                 <!--<a class = "order" href="../pages/restaurants.php"><h2>Order Now!</h2></a>-->
                 <form action="#">
                     <input type ="text" placeholder="Cuisine, Restaurant name, ...">
-                    <button type ="submit" name="search">Search</button>
+                    <button formaction = "../pages/restaurants.php" type ="submit" name="search">Search</button>
                 </form>
             </section>
     <?php }
