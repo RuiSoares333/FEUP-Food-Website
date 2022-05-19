@@ -42,19 +42,4 @@
         echo '</nav>';
     }  
 
-    function outputDish(array $dish){
-        echo '<article data-id = ' . $dish['id'] . '>';
-        echo '<img src="https://picsum.photos/200?' . $dish['id'] . '">';
-        echo '<p>' .$dish['name'] . '</p>';
-        echo '<p>' .$dish['price'] . '€</p>';
-        echo '</article>';
-    }
-
-    function outputCategoryDishes(array $category, array $dishes){
-        echo '<section id = "' . $category['category'] . '">';
-        echo '<h1>' . $category['category'] . '</h1>';
-        foreach($dishes as $dish)
-            outputDish($dish);
-        echo '</section>';
-    }
 ?>
