@@ -55,9 +55,7 @@ input[type="text"]:focus, input[type="password"]:focus{
     outline: none;
 }
 
-input:placeholder-shown{
-    padding-left: 0.8em;
-}
+
 
 
 /* register and login */
@@ -123,10 +121,6 @@ input:placeholder-shown{
 
 .sort option{
     border-radius: 1em;
-}
-
-.sort form{
-    margin-left: 10em;
 }
 
 .sort #rating{
