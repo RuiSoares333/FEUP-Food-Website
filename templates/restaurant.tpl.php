@@ -12,12 +12,14 @@
         </article>
     <?php }
 
-    function outputRestaurants(array $restaurants) { 
-        echo '<section id = "bestRestaurants">';
+    function outputRestaurants(array $restaurants) { ?>
+        <section id = "bestRestaurants">
+            <?php
         foreach ($restaurants as $restaurant)
             outputRestaurant($restaurant);
-        echo '</section>';
-    }
+            ?>
+        </section>
+    <?php }
 
 
     function outputSingleRestaurant(Restaurant $restaurant){ ?>
@@ -32,14 +34,15 @@
         </section>
     <?php }
 
-    function outputRestaurantSideMenu(array $categories){
-        echo '<nav id = "side-menu">';
-        echo '<ul>';
-        foreach($categories as $category){
-            echo '<li><a href="#">' . $category['category'] . '</a></li>';
-        }
-        echo '</ul>';
-        echo '</nav>';
-    }  
+    function outputRestaurantSideMenu(array $categories){ ?>
+        <nav id = "side-menu" class = "restaurant">
+            <ul>
+            <?php
+        foreach($categories as $category)
+        ?> <li><a href="#"><?=$category['category']?></a></li> <?php
+        ?>
+            </ul>
+        </nav>
+    <?php }  
 
 ?>

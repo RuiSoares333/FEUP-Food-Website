@@ -1,8 +1,23 @@
+CREATE TABLE User (
+    username VARCHAR PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    email VARCHAR UNIQUE NOT NULL,
+    password VARCHAR NOT NULL,
+    adress VARCHAR,
+    phone VARCHAR(9) UNIQUE
+);
+
+CREATE TABLE Owner (
+    username VARCHAR REFERENCES User(username),
+    CONSTRAINT Owner_ID PRIMARY KEY(username)
+);
+
 CREATE TABLE Restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR,
     adress VARCHAR,
-    category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican'))
+    category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican')),
+    ownerId VARCHAR REFERENCES Owner(username)
 );
 
 CREATE TABLE Dish (
@@ -11,27 +26,6 @@ CREATE TABLE Dish (
     price INTEGER NOT NULL,
     category VARCHAR CHECK (category IN ('appetizer', 'drink', 'soup', 'meat dish', 'fish dish', 'veggie dish', 'vegan dish', 'pizza', 'pasta', 'sushi', 'dessert', 'hamburger')),
     restaurantId INTEGER REFERENCES Restaurant
-);
-
-CREATE TABLE User (
-    username VARCHAR PRIMARY KEY,
-    name VARCHAR NOT NULL,
-    email VARCHAR UNIQUE NOT NULL,
-    password VARCHAR NOT NULL,
-    adress VARCHAR,
-    phone VARCHAR UNIQUE
-);
-
-
-CREATE TABLE Owner (
-    username VARCHAR REFERENCES User(username),
-    CONSTRAINT Owner_ID PRIMARY KEY(username)
-);
-
-CREATE TABLE RestaurantOwner (
-    username VARCHAR REFERENCES Owner(username),
-    restaurantId INTEGER REFERENCES Restaurant(id),
-    CONSTRAINT Restaurant_Owner_ID PRIMARY KEY (username, restaurantId)
 );
 
 CREATE TABLE Ord (
@@ -73,10 +67,21 @@ CREATE TABLE FavoriteRestaurant (
 
 PRAGMA foreign_keys = ON;
 
+--User
+INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "123456", "Rua das Flores", "962156489");
+INSERT INTO User VALUES ("ricardo32", "ricardo", "ricardo32@gmail.com", "6543210", "Rua Dr. António José Almeida", "956320145");
+INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "5864102", "Rua Nova do Crasto", "93201523");
+INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "hfg41", "Rua Santa Luzia", "96254123");
+INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "mfhg4", "Avenida 5 de Outubro", "91520236");
+
+--Owner
+INSERT INTO Owner VALUES ("ricardo32");
+INSERT INTO Owner VALUES ("joana26");
+
 --Restaurant
-INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "italian");
-INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "japanese");
-INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "fast food");
+INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "italian", "ricardo32");
+INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "japanese", "ricardo32");
+INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "fast food", "joana26");
 
 --Dish
 INSERT INTO Dish VALUES (NULL, "Tiramisu", 5, "dessert", 1);
@@ -88,23 +93,6 @@ INSERT INTO Dish VALUES (NULL, "Água", 2, "drink", 2);
 INSERT INTO Dish VALUES (NULL, "BigMac", 5, "hamburger", 3);
 INSERT INTO Dish VALUES (NULL, "McFlurry KitKat", 2, "dessert", 3);
 INSERT INTO Dish VALUES (NULL, "Coca-Cola", 2, "drink", 3);
-
---User
-INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "123456", "Rua das Flores", "962156489");
-INSERT INTO User VALUES ("ricardo32", "ricardo", "ricardo32@gmail.com", "6543210", "Rua Dr. António José Almeida", "956320145");
-INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "5864102", "Rua Nova do Crasto", "93201523");
-INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "hfg41", "Rua Santa Luzia", "96254123");
-INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "mfhg4", "Avenida 5 de Outubro", "91520236");
-
-
---Owner
-INSERT INTO Owner VALUES ("ricardo32");
-INSERT INTO Owner VALUES ("joana26");
-
---RestaurantOwner
-INSERT INTO RestaurantOwner VALUES ("ricardo32", 1);
-INSERT INTO RestaurantOwner VALUES ("ricardo32", 2);
-INSERT INTO RestaurantOwner VALUES ("joana26", 3);
 
 --Order
 INSERT INTO Ord VALUES (NULL, "maria20", 2, "preparing");

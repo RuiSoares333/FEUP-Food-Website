@@ -4,6 +4,7 @@
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/restaurant.tpl.php');
     require_once(__DIR__ . '/../templates/dish.tpl.php');
+    require_once(__DIR__ . '/../templates/review.tpl.php');
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
@@ -31,6 +32,7 @@
                 $dishes = Dish::getCategoryDishes($db, $restaurant->id, $category['category']);
                 outputCategoryDishes($category, $dishes);
             }
+            outputReviews($restaurant->reviews);
             ?></div><?php
             outputFooter();
         ?>
