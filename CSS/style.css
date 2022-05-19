@@ -101,10 +101,6 @@ a{
     border-radius: 5em;
 }
 
-#search form{
-    background-color: #F3F3F3;
-}
-
 #search form button{
     width: 6em;
     height: 95%;
@@ -114,15 +110,9 @@ a{
     border-radius: 1em;
 }
 
-.schName{
-    color: #EBFFF1;
-}
-
 #search form input{
     width: 95%;
     height: 90%;
-    border: none;
-    padding: 0;
     border-radius:0.5em;
 }
 
@@ -177,4 +167,24 @@ footer{
 
 #registerForm #continue:hover{
     background-color: #6cffdd;
+}
+
+/* Mini Restaurant Preview */
+
+.miniPreview:hover{
+    background-color: #d6d6d6;
+    border-radius: 0.5em;
+}
+
+.miniPreview .restCategory{
+    font-size: 0.65em;
+}
+
+.miniPreview .restName{
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.miniPreview .restAddr, .miniPreview .restPrice, .miniPreview .restRating{
+    font-size: 0.70em;
 }
