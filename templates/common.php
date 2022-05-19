@@ -136,7 +136,7 @@
     function outputSearch(){ ?>
             <section id ="search">
                 <a class = "order" href="login.php"><button><h2>Order Now!</h2></button></a>
-                <a class = "register" href="register.php"><h5>Not Registered?</h5></a>
+                <a class = "RegisterLink" href="register.php"><h5>Not Registered?</h5></a>
                 <!--if logged in-->
                 <!--<a class = "order" href="restaurants.php"><h2>Order Now!</h2></a>-->
                 <form action="#">
