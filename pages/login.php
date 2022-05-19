@@ -1,6 +1,6 @@
 <?php
-    require_once('templates/common.php');
-    require_once('templates/form.php')
+    require_once(__DIR__ . '/../templates/common.php');
+    require_once(__DIR__ . '/../templates/form.php')
 ?>
 <!DOCTYPE html>
 <html lang ="en-US">

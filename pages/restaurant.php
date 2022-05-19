@@ -1,11 +1,11 @@
 <?php
-    require_once('templates/common.php');
-    require_once('templates/restaurants.php');
+    require_once(__DIR__ . '/../templates/common.php');
+    require_once(__DIR__ . '/../templates/restaurants.php');
 
-    require_once('database/connection.php');
-    require_once('database/restaurant.php');
+    require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/restaurant.php');
 
-    $db = getDBConnection('database/data.db');
+    $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     if(!($restaurant = getSingleRestaurant($db, $_GET['id'])))
         die("Couldn't get restaurant");

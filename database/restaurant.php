@@ -1,5 +1,5 @@
 <?php 
-    require_once('connection.php');
+    require_once(__DIR__ . '/../database/connection.php');
 
     function getBestRestaurants(PDO $db): array| false{
         $query = 'SELECT Restaurant.*, avg(Review.rating) as rating, avg(Dish.price) as price
