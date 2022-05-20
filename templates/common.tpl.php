@@ -25,6 +25,7 @@
                 <input class = "search" type="text" placeholder="Search..."><?php
                     if(isset($_SESSION['id'])){ ?>
                         <a href= "../pages/profile.php"><span><?=$_SESSION['name']?><span></a>
+                        <a href = "../actions/action_logout.php">Logout</a>
                         <a href = "../pages/cart.php">a</a>
                     <?php } else {?>
                         <a href = "../pages/login.php">Login</a>

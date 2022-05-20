@@ -8,10 +8,14 @@
 
     $costumer = Costumer::getCostumerWithPassword($db, $_POST['email'], $_POST['password']);
 
+
     if($costumer){
         $_SESSION['id'] = $costumer->username;
         $_SESSION['name'] = $costumer->name;
     }
+    else{
+        header('Location:' . $_SERVER['HTTP_REFERER']);
+    }
 
-    header('Location:' . $_POST['referer']);
+   header('Location:' . $_POST['referer']);
 ?>

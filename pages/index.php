@@ -7,9 +7,9 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
-    $db = getDBConnection(__DIR__ . '/../database/data.db');
-
     session_start();
+
+    $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     $restaurants = Restaurant::getBestRestaurants($db);
 ?>
@@ -18,6 +18,8 @@
         outputHead();
     ?>
         <?php
+            session_start();
+            var_dump($_SESSION);
             outputHeader();
             outputSideMenu();
             outputAds();
