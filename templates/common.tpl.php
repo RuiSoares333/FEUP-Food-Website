@@ -1,12 +1,14 @@
 <?php
+    declare(strict_types = 1);
+    
     function outputHead() { ?>
         <head>
             <title>Super Legit Food</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel = "stylesheet" href="./CSS/layout.css">
-            <link rel = "stylesheet" href="./CSS/forms.css">
-            <link rel = "stylesheet" href="./CSS/style.css">
+            <link rel = "stylesheet" href="../CSS/layout.css">
+            <link rel = "stylesheet" href="../CSS/forms.css">
+            <link rel = "stylesheet" href="../CSS/style.css">
             <script src = "script.js" defer></script>
         </head>
     <?php }
@@ -15,12 +17,12 @@
 <?php
     function outputHeader() { ?>
         <header>
-            <h1><a href="index.php">Super Legit Food</a></h1>
+            <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
                 <input class = "search" type="text" placeholder="Search...">
-                <a href = "login.php">Login</a>
-                <!--<a href= "profile.php"><span><?=$_SESSION['username']?><span></a>-->
-                <!--<a href = "cart.php">Shoping Cart</a>-->
+                <a href = "../pages/login.php">Login</a>
+                <!--<a href= "../pages/profile.php"><span><?=$_SESSION['username']?><span></a>-->
+                <!--<a href = "../pages/cart.php">Shoping Cart</a>-->
             </section>
         </header>
     <?php }
@@ -47,12 +49,12 @@
             <input id ="hamburger" type ="checkbox">
             <label class="hamburger" for="hamburger">Categories</label>
             <ul>
-                <li><a href="index.php">ITALIAN</a></li>
-                <li><a href="index.php">JAPANESE</a></li>
-                <li><a href="index.php">PORTUGUESE</a></li>
-                <li><a href="index.php">FAST FOOD</a></li>
-                <li><a href="index.php">EUROPEAN</a></li>
-                <li><a href="index.php">MEXICAN</a></li>
+                <li><a href="../pages/index.php">ITALIAN</a></li>
+                <li><a href="../pages/index.php">JAPANESE</a></li>
+                <li><a href="../pages/index.php">PORTUGUESE</a></li>
+                <li><a href="../pages/index.php">FAST FOOD</a></li>
+                <li><a href="../pages/index.php">EUROPEAN</a></li>
+                <li><a href="../pages/index.php">MEXICAN</a></li>
             </ul>
         </nav>
     <?php }
@@ -135,13 +137,13 @@
 <?php 
     function outputSearch(){ ?>
             <section id ="search">
-                <a class = "order" href="login.php"><button><h2>Order Now!</h2></button></a>
-                <a class = "RegisterLink" href="register.php"><h5>Not Registered?</h5></a>
+                <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
+                <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
                 <!--if logged in-->
-                <!--<a class = "order" href="restaurants.php"><h2>Order Now!</h2></a>-->
+                <!--<a class = "order" href="../pages/restaurants.php"><h2>Order Now!</h2></a>-->
                 <form action="#">
                     <input type ="text" placeholder="Cuisine, Restaurant name, ...">
-                    <button type ="submit" name="search">Search</button>
+                    <button formaction = "../pages/restaurants.php" type ="submit" name="search">Search</button>
                 </form>
             </section>
     <?php }
