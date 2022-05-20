@@ -1,4 +1,6 @@
 <?php 
+    declare(strict_types = 1);
+
     function getDBConnection(string $db_name, string $schema = "sqlite") : PDO {
         try {
             static $dbMapping = array();
