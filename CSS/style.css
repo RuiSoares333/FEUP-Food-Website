@@ -188,3 +188,8 @@ footer{
 .miniPreview .restAddr, .miniPreview .restPrice, .miniPreview .restRating{
     font-size: 0.70em;
 }
+
+#side-menu.restaurant li{
+    font-weight: bold;
+    font-size: 1.40em;
+}
