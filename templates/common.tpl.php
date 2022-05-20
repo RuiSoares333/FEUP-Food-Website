@@ -2,6 +2,8 @@
     declare(strict_types = 1);
     
     function outputHead() { ?>
+    <!DOCTYPE html>
+    <html lang="en-US">
         <head>
             <title>Super Legit Food</title>
             <meta charset="utf-8">
@@ -11,6 +13,7 @@
             <link rel = "stylesheet" href="../CSS/style.css">
             <script src = "script.js" defer></script>
         </head>
+        <body>
     <?php }
 ?>
 
@@ -19,10 +22,13 @@
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
-                <input class = "search" type="text" placeholder="Search...">
-                <a href = "../pages/login.php">Login</a>
-                <!--<a href= "../pages/profile.php"><span><?=$_SESSION['username']?><span></a>-->
-                <!--<a href = "../pages/cart.php">Shoping Cart</a>-->
+                <input class = "search" type="text" placeholder="Search..."><?php
+                    if(isset($_SESSION['id'])){ ?>
+                        <a href= "../pages/profile.php"><span><?=$_SESSION['name']?><span></a>
+                        <a href = "../pages/cart.php">a</a>
+                    <?php } else {?>
+                        <a href = "../pages/login.php">Login</a>
+                <?php } ?>
             </section>
         </header>
     <?php }
@@ -131,6 +137,8 @@
                 <span class="year">2021/22</span>
             </div>
         </footer>
+    </body>
+    </html>
     <?php }
 ?>
 

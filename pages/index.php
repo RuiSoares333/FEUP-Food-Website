@@ -9,15 +9,14 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
+    session_start();
+
     $restaurants = Restaurant::getBestRestaurants($db);
 ?>
 
-<!DOCTYPE html>
-<html lang="en-US">
     <?php
         outputHead();
     ?>
-    <body>
         <?php
             outputHeader();
             outputSideMenu();
@@ -35,5 +34,3 @@
         <?php
             outputFooter();
         ?>
-    </body>
-</html>

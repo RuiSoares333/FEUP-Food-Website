@@ -3,18 +3,11 @@
     
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
+
+    session_start();
+    outputHead();
+    outputHeader();
+    outputAds();
+    outputSortSideMenu();
+    outputFooter();
 ?>
-<!DOCTYPE html>
-<html lang ="en-US">
-    <?php
-        outputHead();
-    ?>
-    <body>
-        <?php
-            outputHeader();
-            outputAds();
-            outputSortSideMenu();
-            outputFooter();
-        ?>
-    </body>
-</html>
