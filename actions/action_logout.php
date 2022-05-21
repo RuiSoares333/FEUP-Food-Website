@@ -3,6 +3,6 @@
 
     session_start();
     session_destroy();
-
-    header('Locarion:' . $_SERVER['HTTP_REFERER']);
+    
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

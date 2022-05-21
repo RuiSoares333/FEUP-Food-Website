@@ -8,6 +8,7 @@
 
     $costumer = Costumer::getCostumerWithPassword($db, $_POST['email'], $_POST['password']);
 
+    session_start();
 
     if($costumer){
         $_SESSION['id'] = $costumer->username;
