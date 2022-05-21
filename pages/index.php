@@ -12,27 +12,22 @@
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     $restaurants = Restaurant::getBestRestaurants($db);
-?>
 
+    outputHead();
+    session_start();
+    outputHeader();
+    outputSideMenu();
+    outputAds();
+?>        
+    <div id="mainDiv" class="index">
+        <?php 
+        outputSearch();
+        outputRestaurants($restaurants);
+        ?>
+        <section id = "close">
+            map api
+        </section>
+    </div>
     <?php
-        outputHead();
+        outputFooter();
     ?>
-        <?php
-            session_start();
-            var_dump($_SESSION);
-            outputHeader();
-            outputSideMenu();
-            outputAds();
-        ?>
-        <div id="mainDiv" class="index">
-            <?php 
-            outputSearch();
-            outputRestaurants($restaurants);
-            ?>
-            <section id = "close">
-                map api
-            </section>
-        </div>
-        <?php
-            outputFooter();
-        ?>

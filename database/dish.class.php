@@ -7,11 +7,13 @@
         public int $id;
         public string $name;
         public float $price;
+        public int $restaurantId;
 
-        public function __construct(int $id, string $name, float $price){
+        public function __construct(int $id, string $name, float $price, int $restaurantId = 0) {
             $this->id = $id;
             $this->name = $name;
             $this->price = $price;
+            $this->restaurantId = $restaurantId;
         }
 
         static function getCategoryDishes(PDO $db, int $restaurant, string $category){
@@ -30,6 +32,20 @@
             }
 
             return $dishes_;
+        }
+
+        static function getDish(PDO $db, int $id) : Dish {
+            $query = 'SELECT id, name, price, restaurantId
+            FROM Dish WHERE id = ?';
+
+            $dish = getQueryResults($db, $query, false, array($id));
+
+            return new Dish(
+                $dish['id'],
+                $dish['name'],
+                $dish['price'],
+                $dish['restaurantId']
+            );
         }
     }
 
