@@ -11,6 +11,7 @@
         public string $email;
         public string $adress;
         public string $phoneNumber;
+        public bool $is_owner;
 
         public function __construct(string $username, string $name, string $email, string $adress, string $phoneNumber){
             $this->username = $username;
@@ -18,6 +19,7 @@
             $this->email = $email;
             $this->adress = $adress;
             $this->phoneNumber = $phoneNumber;
+            $this->is_owner = checkOwner($username);
         }
 
         static function getCostumerWithPassword(PDO $db, string $email, string $password) : ?Costumer {
@@ -62,6 +64,42 @@
             }
 
             return $restaurants_;
+        }
+
+        static function getCostumer(PDO $db, string $id) : Costumer {
+            $query = 'SELECT username, name, email, adress, phone
+            FROM User WHERE username = ?';
+
+            $user = getQueryResults($db, $query, false, array($id));
+
+            return new Costumer(
+                $user['username'],
+                $user['name'],
+                $user['email'],
+                $user['adress'],
+                $user['phone']
+            );
+        }
+
+        static function checkOwner(string $id) : bool {
+            $query = 'SELECT * FROM Owner WHERE username = ?';
+
+            $owner = getQueryResults($db, $query, false, array($id));
+
+            if($owner)
+                return true;
+
+            return false;
+        }
+
+        function isOwner() : bool {
+            return $this->is_owner;
+        }
+
+        function getOwnedRestaurants() : array {
+            $query = 'SELECT id FROM Restaurants WHERE ownerId = ?';
+
+            return getQueryResults($db, $query, false, array($this->username));
         }
 
     }

@@ -11,6 +11,9 @@
     session_start();
 
     if($costumer){
+        if($costumer->isOwner()){
+            $_SESSION['restaurants'] = $costumer->getOwnedRestaurants();
+        }
         $_SESSION['id'] = $costumer->username;
         $_SESSION['name'] = $costumer->name;
     }
