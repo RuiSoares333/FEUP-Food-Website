@@ -38,9 +38,9 @@
         <nav id = "side-menu" class = "restaurant">
             <ul>
             <?php
-        foreach($categories as $category)
-        ?> <li><a href="#"><?=$category['category']?></a></li> <?php
-        ?>
+        foreach($categories as $category){
+        ?> <li><a href="#<?=$category['category']?>"><?=$category['category']?></a></li> <?php
+        }?>
             </ul>
         </nav>
     <?php }  

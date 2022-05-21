@@ -12,29 +12,21 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
+    session_start();
+
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
+
+    outputHead();
+    outputHeader();
+    outputAds();
+    outputRestaurantSideMenu($restaurant->dishCategories);
+    ?> <div id="mainDiv" class = "restaurant"> <?php
+    outputSingleRestaurant($restaurant);   
+    foreach($restaurant->dishCategories as $category){
+        $dishes = Dish::getCategoryDishes($db, $restaurant->id, $category['category']);
+        outputCategoryDishes($category, $dishes);
+    }
+    outputReviews($restaurant->reviews);
+    ?> </div> <?php   
+    outputFooter();
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en-US">
-    <?php
-        outputHead();
-    ?>
-    <body>
-        <?php
-            outputHeader();
-            outputAds();
-            outputRestaurantSideMenu($restaurant->dishCategories);
-            ?><div id ="mainDiv" class="restaurant"> <?php
-            outputSingleRestaurant($restaurant);   
-            foreach($restaurant->dishCategories as $category){
-                $dishes = Dish::getCategoryDishes($db, $restaurant->id, $category['category']);
-                outputCategoryDishes($category, $dishes);
-            }
-            outputReviews($restaurant->reviews);
-            ?></div><?php
-            outputFooter();
-        ?>
-    </body>
-</html>
