@@ -6,6 +6,9 @@
 
     session_start();
 
+    if(isset($_SESSION['id']))
+        header('Location:' . $_SERVER['HTTP_REFERER']);
+
     outputHead();
     outputHeader();
     outputAds();

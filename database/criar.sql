@@ -3,7 +3,7 @@ CREATE TABLE User (
     name VARCHAR NOT NULL,
     email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
-    adress VARCHAR,
+    address VARCHAR,
     phone VARCHAR(9) UNIQUE
 );
 
@@ -15,7 +15,7 @@ CREATE TABLE Owner (
 CREATE TABLE Restaurant (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR,
-    adress VARCHAR,
+    address VARCHAR,
     category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican')),
     ownerId VARCHAR REFERENCES Owner(username)
 );
@@ -68,11 +68,11 @@ CREATE TABLE FavoriteRestaurant (
 PRAGMA foreign_keys = ON;
 
 --User
-INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "123456", "Rua das Flores", "962156489");
-INSERT INTO User VALUES ("ricardo32", "ricardo", "ricardo32@gmail.com", "6543210", "Rua Dr. António José Almeida", "956320145");
-INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "5864102", "Rua Nova do Crasto", "93201523");
-INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "hfg41", "Rua Santa Luzia", "96254123");
-INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "mfhg4", "Avenida 5 de Outubro", "91520236");
+INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "7c4a8d09ca3762af61e59520943dc26494f8941b", "Rua das Flores", "962156489");
+INSERT INTO User VALUES ("ricardo32", "ricardo", "ricardo32@gmail.com", "5347c8d36f07b8c333b2c40272d3269b38ed810a", "Rua Dr. António José Almeida", "956320145");
+INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "fb4369d81f91586ce212bf0ef9c6186efb37919e", "Rua Nova do Crasto", "93201523");
+INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "1401dad399850fedbcbc78380934b126f708a618", "Rua Santa Luzia", "96254123");
+INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "62458713c0b5c07c221d3e85e1300d6a781d83ce", "Avenida 5 de Outubro", "91520236");
 
 --Owner
 INSERT INTO Owner VALUES ("ricardo32");

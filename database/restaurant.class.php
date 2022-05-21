@@ -7,7 +7,7 @@
     class Restaurant {
         public int $id;
         public string $name;
-        public string $adress;
+        public string $address;
         public string $category;
         public array $dishCategories;
         public array $reviews;
@@ -15,10 +15,10 @@
         public float $avgRating;
 
 
-        public function __construct(int $id, string $name, string $adress, string $category, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating) {
+        public function __construct(int $id, string $name, string $address, string $category, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating) {
             $this->id = $id;
             $this->name = $name;
-            $this->adress = $adress;
+            $this->address = $address;
             $this->category = $category;
             $this->dishCategories = $dishCategories;
             $this->reviews = $reviews;
@@ -41,7 +41,7 @@
                 $restaurants_[] = new Restaurant(
                     $restaurant['id'],
                     $restaurant['name'],
-                    $restaurant['adress'],
+                    $restaurant['address'],
                     $restaurant['category'],
                     array(), array(),
                     $restaurant['price'],
@@ -68,7 +68,7 @@
             return new Restaurant(
                 $restaurant['id'],
                 $restaurant['name'],
-                $restaurant['adress'],
+                $restaurant['address'],
                 $restaurant['category'],
                 $categories,
                 $reviews,
