@@ -7,7 +7,7 @@
         <p><?=$restaurant->category?></p>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
         <p><?=$restaurant->avgRating?>/10</p>
-        <p><?=$restaurant->adress?></p>
+        <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
         </article>
     <?php }
@@ -28,7 +28,7 @@
         <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
         <p><?=$restaurant->name?> </p>
         <p><?=$restaurant->category?> </p>
-        <p><?=$restaurant->adress?></p>
+        <p><?=$restaurant->address?></p>
         <p><?=$restaurant->avgRating?>/10</p>
         </article>
         </section>
