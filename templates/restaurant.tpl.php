@@ -2,7 +2,7 @@
     declare(strict_types = 1);
 
     function outputRestaurant(Restaurant $restaurant) { ?>
-        <article>
+        <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
         <p><?=$restaurant->category?></p>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
@@ -14,12 +14,43 @@
 
     function outputRestaurants(array $restaurants) { ?>
         <section id = "bestRestaurants">
+        <h1>most legit restaurants</h1>
             <?php
-        foreach ($restaurants as $restaurant)
-            outputRestaurant($restaurant);
+                echo '<div id="slides">';
+                echo '<div id="overflow">';
+                echo '<div class="inner">';
+                outputSliders();
+                for($i=0; $i<3; $i+=5){
+                    $k=1;
+                    echo '<div class="slide slide_'.$k.'">';
+                    echo '<div class="slide-content">';
+                    for($j=$i; $j<3; $j++){
+                        outputRestaurant($restaurants[$j]);
+                    }
+                    echo '</div>';
+                    echo '</div>';
+                    $k++;
+                }
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '<div id="controls">';
+                for($i=1; $i<5; $i++){
+                    echo '<label for="slide'.$i.'">➤</label>';
+                }
+                echo '</div>';
             ?>
         </section>
     <?php }
+
+    function outputSliders(){
+        for($i=1; $i<=2; $i++){
+            if($i==1)
+                echo '<input type="radio" name="slider" id="slide"'.$i.'" checked>';
+            else
+                echo '<input type="radio" name="slider" id="slide"'.$i.'">';
+        }
+    }
 
 
     function outputSingleRestaurant(Restaurant $restaurant){ ?>

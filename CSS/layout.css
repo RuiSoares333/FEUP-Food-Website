@@ -261,11 +261,11 @@ header > h1 {
 #bestRestaurants{
     grid-area: best;
     display: grid;
-    grid-template-columns: repeat(5,11.45em);
     grid-template-rows: 3em 16.1em;
+    grid-template-columns: 53.26em 4em;
     grid-template-areas: 
-    "title title title title title"
-    "rest rest rest rest rest";
+    "title btns"
+    "sli sli";
 }
 
 #close{
@@ -343,32 +343,58 @@ footer{
     margin: 0;
 }
 
-#bestRestaurants #title{
+#bestRestaurants h1{
     grid-area: title;
     margin: auto auto auto 0.5em;
 }
 
-.miniPreview img{
+.miniPreview :nth-child(1){
     grid-area: ig;
     padding: 0.3em 0em 0.3em 0em;
 }
 
-.miniPreview .restCategory{
+.miniPreview :nth-child(2){
     grid-area: catg;
 }
 
-.miniPreview .restName{
+.miniPreview :nth-child(3){
     grid-area: name;
 }
 
-.miniPreview .restRating{
+.miniPreview :nth-child(4){
     grid-area: rating;
 }
 
-.miniPreview .restAddr{
+.miniPreview :nth-child(5){
     grid-area: addr;
 }
 
-.miniPreview .restPrice{
+.miniPreview :nth-child(6){
     grid-area: avgPrice;
+}
+
+.slide-content{
+    display: grid;
+    grid-template-columns: repeat(5, 11.45em);
+}
+
+#controls{
+    grid-area: btns;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "btn1 btn2";
+}
+
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(3),
+#slide3:checked ~ #controls label:nth-child(4),
+#slide4:checked ~ #controls label:nth-child(1) {
+    grid-area:btn2;
+}
+
+#slide1:checked ~ #controls label:nth-last-child(2),
+#slide2:checked ~ #controls label:nth-last-child(3),
+#slide3:checked ~ #controls label:nth-last-child(4),
+#slide4:checked ~ #controls label:nth-last-child(1){
+    grid-area: btn1;
 }
