@@ -9,28 +9,30 @@
         public string $username;
         public string $name;
         public string $email;
-        public string $adress;
+        public string $address;
         public string $phoneNumber;
         public bool $is_owner;
 
-        public function __construct(string $username, string $name, string $email, string $adress, string $phoneNumber){
+        public function __construct(string $username, string $name, string $email, string $address, string $phoneNumber){
+            $db = getDBConnection(__DIR__ . '/../database/data.db');
+
             $this->username = $username;
             $this->name = $name;
             $this->email = $email;
-            $this->adress = $adress;
+            $this->address = $address;
             $this->phoneNumber = $phoneNumber;
-            $this->is_owner = checkOwner($username);
+            $this->is_owner = Costumer::checkOwner($db, $username);
         }
 
         static function getCostumerWithPassword(PDO $db, string $email, string $password) : ?Costumer {
-            $query = 'SELECT username, name, email, adress, phone FROM User WHERE lower(email) = ? AND password = ?';
+            $query = 'SELECT username, name, email, address, phone FROM User WHERE lower(email) = ? AND password = ?';
 
-            if($costumer = getQueryResults($db, $query, false, array($email, $password))){
+            if($costumer = getQueryResults($db, $query, false, array($email, sha1($password)))){
                 return new Costumer(
                     $costumer['username'],
                     $costumer['name'],
                     $costumer['email'],
-                    $costumer['adress'],
+                    $costumer['address'],
                     $costumer['phone']
                 );
             }
@@ -46,7 +48,7 @@
             $dishes_ = array();
 
             foreach($dishes as $dish){
-                $dishes_[] = getDish($db, $dish);
+                $dishes_[] = Dish::getDish($db, $dish);
             }
             return $dishes_;
         }
@@ -60,14 +62,14 @@
             $restaurants_ = array();
 
             foreach($restaurants as $restaurant){
-                $restaurants_[] = $getRestaurant($db, $restaurant);
+                $restaurants_[] = Restaurant::getRestaurant($db, $restaurant);
             }
 
             return $restaurants_;
         }
 
         static function getCostumer(PDO $db, string $id) : Costumer {
-            $query = 'SELECT username, name, email, adress, phone
+            $query = 'SELECT username, name, email, address, phone
             FROM User WHERE username = ?';
 
             $user = getQueryResults($db, $query, false, array($id));
@@ -76,12 +78,12 @@
                 $user['username'],
                 $user['name'],
                 $user['email'],
-                $user['adress'],
+                $user['address'],
                 $user['phone']
             );
         }
 
-        static function checkOwner(string $id) : bool {
+        static function checkOwner(PDO $db, string $id) : bool {
             $query = 'SELECT * FROM Owner WHERE username = ?';
 
             $owner = getQueryResults($db, $query, false, array($id));
@@ -102,5 +104,17 @@
             return getQueryResults($db, $query, false, array($this->username));
         }
 
+        static function register(PDO $db, string $id, string $name, string $email, string $password, string $address, string $phone){
+            $query = 'INSERT INTO User VALUES (?, ?, ?, ?, ?, ?)';
+
+            return executeQuery($db, $query, array($id, $name, $email, sha1($password), $address, $phone));
+        }
+
+
+        static function userExists(PDO $db, string $id) : bool{
+            $query = 'SELECT * FROM User WHERE username = ?';
+
+            return !!getQueryResults($db, $query, false, array($id));
+        }
     }
 ?>

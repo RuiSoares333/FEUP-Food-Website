@@ -4,6 +4,11 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
+    if(strcmp($_SERVER['REQUEST_METHOD'], "POST") !== 0){
+        header("Location: /");
+        die;
+    }
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     $costumer = Costumer::getCostumerWithPassword($db, $_POST['email'], $_POST['password']);

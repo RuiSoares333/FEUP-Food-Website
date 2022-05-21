@@ -23,15 +23,16 @@
             <p id="squareRegister"></p>
             <h1>Register</h1>
             <form id="registerForm">
-                <input id="Um" type="text" name="username" placeholder="username">
-                <input id="Dois" type="email" name="email" placeholder="email">
-                <input id="Tres" type="password" name="password" placeholder="password">
-                <input id="Quatro" type="password" name="repeat password" placeholder="repeat password">
-                <input id="Cinco" type="phonenumber" name="phone number" placeholder="phone number">
-                <input id="Seis" type="address" name="address" placeholder="address">
+                <input id="username" type="text" name="username" placeholder="username">
+                <input id ="name" type = "text" name = "name" placeholder="Display name">
+                <input id="email" type="email" name="email" placeholder="email">
+                <input id="password" type="password" name="password" placeholder="password">
+                <input id="password2" type="password" name="repeat password" placeholder="repeat password">
+                <input id="phone" type="text" name="phone" placeholder="phone number">
+                <input id="address" type="text" name="address" placeholder="address">
                 <input type="hidden" name="referer" value="<?=$_SERVER['HTTP_REFERER']?>">
                 <button id="continue" formaction="../actions/action_register.php" formmethod="post">Register</button>
-                <button id="cancel" formaction="../pages/index.php" formmethod="post">Cancel</button>
+                <button id="cancel" formaction="../pages/index.php">Cancel</button>
             </form>
             <a class = "LoginLink" href="../pages/login.php"><h5>Already have an account?</h5></a>
         </div>

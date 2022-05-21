@@ -153,6 +153,7 @@ header > h1 {
     grid-template-columns: 10em 10em;
     grid-template-areas: 
     "um um"
+    "name name"
     "dois dois"
     "tres tres"
     "q q"
@@ -161,28 +162,32 @@ header > h1 {
     "cc rr"
 }
 
-#registerForm #Um{
+#registerForm #username{
     grid-area: um;
 }
 
-#registerForm #Dois{
+#registerForm #email{
     grid-area: dois;
 }
 
-#registerForm #Tres{
+#registerForm #password{
     grid-area: tres;
 }
 
-#registerForm #Quatro{
+#registerForm #password2{
     grid-area: q;
 }
 
-#registerForm #Cinco{
+#registerForm #phone{
     grid-area: c;
 }
 
-#registerForm #Seis{
+#registerForm #address{
     grid-area: s;
+}
+
+#registerForm #name {
+    grid-area: name;
 }
 
 #registerForm #cancel{
