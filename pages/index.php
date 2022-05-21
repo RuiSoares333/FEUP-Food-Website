@@ -7,33 +7,27 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
+    session_start();
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     $restaurants = Restaurant::getBestRestaurants($db);
-?>
 
-<!DOCTYPE html>
-<html lang="en-US">
+    outputHead();
+    session_start();
+    outputHeader();
+    outputSideMenu();
+    outputAds();
+?>        
+    <div id="mainDiv" class="index">
+        <?php 
+        outputSearch();
+        outputRestaurants($restaurants);
+        ?>
+        <section id = "close">
+            map api
+        </section>
+    </div>
     <?php
-        outputHead();
+        outputFooter();
     ?>
-    <body>
-        <?php
-            outputHeader();
-            outputSideMenu();
-            outputAds();
-        ?>
-        <div id="mainDiv" class="index">
-            <?php 
-            outputSearch();
-            outputRestaurants($restaurants);
-            ?>
-            <section id = "close">
-                map api
-            </section>
-        </div>
-        <?php
-            outputFooter();
-        ?>
-    </body>
-</html>
