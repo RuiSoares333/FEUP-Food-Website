@@ -9,7 +9,7 @@
         public int $rating;
         public string $comment;
 
-        public function __construct(int $id, string $username, int $rating, string $comment){
+        public function __construct(int $id, string $username, int $rating, string $comment) {
             $this->id = $id;
             $this->username = $username;
             $this->rating = $rating;
@@ -17,7 +17,7 @@
         }
 
         static function getReviews(PDO $db, int $restaurant) : array{
-            $query = 'SELECT id, username, rating, comment FROM Review WHERE restaurantId = ?';
+            $query = 'SELECT id, username, rating, comment FROM Review WHERE restaurantId = ? AND comment IS NOT NULL';
 
             $reviews = getQueryResults($db, $query, true, array($restaurant));
 
@@ -31,6 +31,18 @@
                 );
             }
             return $reviews_;
+        }
+
+        static function addReviewWithComment(PDO $db, int $restaurant, string $username, int $rating, string $comment){
+            $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, ?)';
+
+            return executeQuery($db, $query, array($restaurant, $username, $rating, $comment));
+        }
+
+        static function addReview(PDO $db, int $restaurant, string $username, int $rating){
+            $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, NULL)';
+
+            executeQuery($db, $query, array($restaurant, $username, $rating));
         }
     }
 ?>
