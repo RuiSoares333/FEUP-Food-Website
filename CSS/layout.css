@@ -64,7 +64,7 @@ header > h1 {
     flex-direction: column;
 }
 
-#side-menu > *{
+#side-menu.index > *{
     margin-left: 1.40em;
     margin-top: 0.30em;
     font-weight: bold;
@@ -74,7 +74,7 @@ header > h1 {
     margin-top: 1em;
 }
 
-#side-menu .hamburger {
+#side-menu.index .hamburger {
     display: block;
 }
 
@@ -92,7 +92,7 @@ header > h1 {
     transition: all 1s ease;
 }
 
-#side-menu li {
+#side-menu.index li {
     max-height: 0;
     text-align: left;
     opacity: 0;
@@ -106,7 +106,7 @@ header > h1 {
 #side-menu.sort form{
     display: grid;
     grid-template-columns: 40% 60%;
-    grid-template-rows: repeat(2em, auto);
+    grid-template-rows: repeat(auto, 2em);
     grid-template-areas: 
     "sch sch"
     "a a"
@@ -132,10 +132,11 @@ header > h1 {
 
 .index{
     display: grid;
-    grid-template-rows: 13em 1fr;
+    grid-template-rows: 13em auto 1fr;
     grid-template-columns: 60% 40%;
     grid-template-areas: 
     "srch srch"
+    "best best"
     "rest api"
 }
 
@@ -239,8 +240,8 @@ header > h1 {
     margin: auto;
 }
 
-#search.RegisterLink{
-    margin: -1.5em auto 0 auto;
+#search a{
+    margin: -.5em auto 0em auto;
 }
 
 #search form{
@@ -258,7 +259,13 @@ header > h1 {
 }
 
 #bestRestaurants{
-    grid-area: rest;
+    grid-area: best;
+    display: grid;
+    grid-template-rows: 3em 16.1em;
+    grid-template-columns: 53.26em 4em;
+    grid-template-areas: 
+    "title btns"
+    "sli sli";
 }
 
 #close{
@@ -316,3 +323,81 @@ footer{
     grid-area: s;
     margin: 1.5em 0 0 30em;
 }
+
+/* Mini Restaurant Preview */
+
+#slides{
+    grid-area: sli;
+}
+
+.miniPreview{
+    display: grid;
+    grid-template-rows: 9em 1.25em 2.65em 2em 1em;
+    grid-template-columns: 9em 1.45em;
+    grid-template-areas:
+    "ig ig"
+    "catg ."
+    "name rating"
+    "addr ."
+    "avgPrice .";
+    padding: 0em 0.5em;
+}
+
+.miniPreview *{
+    margin: 0;
+}
+
+#bestRestaurants h1{
+    grid-area: title;
+    margin: auto auto auto 0.5em;
+}
+
+.miniPreview :nth-child(1){
+    grid-area: ig;
+    padding: 0.3em 0em 0.3em 0em;
+}
+
+.miniPreview :nth-child(2){
+    grid-area: catg;
+}
+
+.miniPreview :nth-child(3){
+    grid-area: name;
+}
+
+.miniPreview :nth-child(4){
+    grid-area: rating;
+    margin-left: -1em;
+}
+
+.miniPreview :nth-child(5){
+    grid-area: addr;
+}
+
+.miniPreview :nth-child(6){
+    grid-area: avgPrice;
+}
+
+.slide-content{
+    display: grid;
+    grid-template-columns: repeat(5, 11.45em);
+}
+
+#controls{
+    grid-area: btns;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "btn1 btn2";
+    column-gap: 0.25em;
+}
+
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(1){
+    grid-area:btn2;
+}
+
+#slide1:checked ~ #controls label:nth-last-child(2),
+#slide2:checked ~ #controls label:nth-last-child(2){
+    grid-area: btn1;
+}
+

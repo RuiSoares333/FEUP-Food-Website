@@ -9,6 +9,7 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel = "stylesheet" href="../CSS/layout.css">
+            <link rel = "stylesheet" href="../CSS/images.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/style.css">
             <script src = "script.js" defer></script>
