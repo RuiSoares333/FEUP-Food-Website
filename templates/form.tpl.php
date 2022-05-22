@@ -36,5 +36,24 @@
             </form>
             <a class = "LoginLink" href="../pages/login.php"><h5>Already have an account?</h5></a>
         </div>
-    <?php } 
+    <?php }
+    
+    
+    function outputReviewForm() { ?>
+        <section id ="newReview">
+            <h1>Make a Review</h1>
+            <form id = "reviewForm">
+                <label for = "rating">Rating</label>
+                <select name = "rating">
+                    <option value=""></option>
+                    <?php for($i = 1; $i <= 10; $i++){
+                        ?> <option value="<?=$i?>"><?=$i?></option> <?php
+                    } ?>  
+                </select>
+                <label for="review">Review</label>
+                <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
+
+            </form>    
+        </section>
+    <?php }
 ?>
