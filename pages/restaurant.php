@@ -23,10 +23,12 @@
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php
     outputSingleRestaurant($restaurant);   
+    ?> <section id = "dishes"> <?php
     foreach($restaurant->dishCategories as $category){
         $dishes = Dish::getCategoryDishes($db, $restaurant->id, $category['category']);
         outputCategoryDishes($category, $dishes);
     }
+    ?></section> <?php
     outputReviews($restaurant->reviews);
     if(isset($_SESSION['id']))
         outputReviewForm();

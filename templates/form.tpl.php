@@ -52,7 +52,8 @@
                 </select>
                 <label for="review">Review</label>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
-
+                <input type = "hidden" name = "restaurant" value ="<?=$_GET['id']?>">
+                <button id = "submit" formaction="../actions/action_add_review.php" formmethod="post">Submit</button>  
             </form>    
         </section>
     <?php }

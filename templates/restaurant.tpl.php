@@ -6,7 +6,11 @@
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
         <p><?=$restaurant->category?></p>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
+        <?php if ($restaurant->avgRating === -1.0){ ?>
+            <p>no rating</p>
+        <?php } else {?>
         <p><?=$restaurant->avgRating?>/10</p>
+        <?php } ?>
         <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
         </article>
@@ -62,8 +66,11 @@
         <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
         <p><?=$restaurant->name?> </p>
         <p><?=$restaurant->category?> </p>
-        <p><?=$restaurant->address?></p>
-        <p><?=$restaurant->avgRating?>/10</p>
+        <p><?=$restaurant->address?></p><?php
+        if($restaurant->avgRating === -1.0){
+            ?> <p>no rating</p> <?php
+        } else {?>
+        <p><?=$restaurant->avgRating?>/10</p> <?php } ?>
         </article>
         </section>
     <?php }

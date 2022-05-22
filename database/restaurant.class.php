@@ -27,7 +27,7 @@
         }
 
         static function getBestRestaurants(PDO $db) : array {
-            $query = 'SELECT Restaurant.*, round(avg(Review.rating),1) as rating, round(avg(Dish.price),1) as price
+            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),1) as price
             FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.restaurantId 
             LEFT JOIN Dish ON Restaurant.id = dish.restaurantId
             GROUP BY Restaurant.id
@@ -53,7 +53,7 @@
         }
 
         static function getRestaurant(PDO $db, int $id) : Restaurant {
-            $query = 'SELECT Restaurant.*, round(avg(Review.rating),1) as rating
+            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating
             FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.restaurantId
             WHERE Restaurant.id = ?';
 
