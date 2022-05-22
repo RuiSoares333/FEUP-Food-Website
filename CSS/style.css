@@ -198,66 +198,57 @@ footer{
     display: none;
  }
 
- #bestRestaurants label {
-    cursor:pointer;
-    text-decoration: none;
- }
-
  #overflow {
     width: 100%;
+    height: 15.9em;
     overflow: hidden;
  }
+
+ #slides .slide {
+    width: 25%;
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+ }
+
  #slide1:checked ~ #slides .inner {
     margin-left: 0;
  }
  #slide2:checked ~ #slides .inner {
     margin-left: -100%;
  }
- #slide3:checked ~ #slides .inner {
-    margin-left: -200%;
- }
- #slide4:checked ~ #slides .inner {
-    margin-left: -300%;
- }
+
  #slides .inner {
     transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
     width: 400%;
+    height: 15.9em;
  }
 
  #controls label {
+    cursor:pointer;
+    text-decoration: none;
     transition: opacity 0.2s ease-out;
+    background-color: rgba(0, 0, 0, 0.300);
     opacity: .4;
+    margin: 0.5em auto 0.5em -0.5em;
+    padding: 0.45em;
+    border-radius: 0.25em;
  }
  #controls label:hover {
     opacity: 1;
+    background-color: rgba(0, 0, 0, 0.600);
+    border-radius: 0.25em;
  }
+
  #slide1:checked ~ #controls label:nth-child(2),
- #slide2:checked ~ #controls label:nth-child(3),
- #slide3:checked ~ #controls label:nth-child(4),
- #slide4:checked ~ #controls label:nth-child(1) {
+ #slide2:checked ~ #controls label:nth-child(1){
     color: #000;
  }
+ 
  #slide1:checked ~ #controls label:nth-last-child(2),
- #slide2:checked ~ #controls label:nth-last-child(3),
- #slide3:checked ~ #controls label:nth-last-child(4),
- #slide4:checked ~ #controls label:nth-last-child(1) {
+ #slide2:checked ~ #controls label:nth-last-child(2){
     color: #000;
     transform: rotate(180deg);
- }
- #bullets {
-    margin: 150px 0 0;
-    text-align: center;
- }
- #bullets label {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius:100%;
-    margin: 0 10px;
- }
- #slide1:checked ~ #bullets label:nth-child(1),
- #slide2:checked ~ #bullets label:nth-child(2),
- #slide3:checked ~ #bullets label:nth-child(3),
- #slide4:checked ~ #bullets label:nth-child(4) {
-    background: #444;
  }

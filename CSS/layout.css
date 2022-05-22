@@ -326,6 +326,10 @@ footer{
 
 /* Mini Restaurant Preview */
 
+#slides{
+    grid-area: sli;
+}
+
 .miniPreview{
     display: grid;
     grid-template-rows: 9em 1.25em 2.65em 2em 1em;
@@ -363,6 +367,7 @@ footer{
 
 .miniPreview :nth-child(4){
     grid-area: rating;
+    margin-left: -1em;
 }
 
 .miniPreview :nth-child(5){
@@ -383,18 +388,16 @@ footer{
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: "btn1 btn2";
+    column-gap: 0.25em;
 }
 
 #slide1:checked ~ #controls label:nth-child(2),
-#slide2:checked ~ #controls label:nth-child(3),
-#slide3:checked ~ #controls label:nth-child(4),
-#slide4:checked ~ #controls label:nth-child(1) {
+#slide2:checked ~ #controls label:nth-child(1){
     grid-area:btn2;
 }
 
 #slide1:checked ~ #controls label:nth-last-child(2),
-#slide2:checked ~ #controls label:nth-last-child(3),
-#slide3:checked ~ #controls label:nth-last-child(4),
-#slide4:checked ~ #controls label:nth-last-child(1){
+#slide2:checked ~ #controls label:nth-last-child(2){
     grid-area: btn1;
 }
+

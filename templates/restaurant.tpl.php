@@ -16,26 +16,29 @@
         <section id = "bestRestaurants">
         <h1>most legit restaurants</h1>
             <?php
+                outputSliders();
                 echo '<div id="slides">';
                 echo '<div id="overflow">';
                 echo '<div class="inner">';
-                outputSliders();
-                for($i=0; $i<3; $i+=5){
-                    $k=1;
+                $k=1;
+                for($i=0; $i<10; $i+=5){
                     echo '<div class="slide slide_'.$k.'">';
                     echo '<div class="slide-content">';
-                    for($j=$i; $j<3; $j++){
+                    for($j=$i; $j<$i+5; $j++){
                         outputRestaurant($restaurants[$j]);
+                        if($j===5){
+                            $j+=5;
+                        }
                     }
                     echo '</div>';
                     echo '</div>';
-                    $k++;
+                    $k+=1;
                 }
                 echo '</div>';
                 echo '</div>';
                 echo '</div>';
                 echo '<div id="controls">';
-                for($i=1; $i<5; $i++){
+                for($i=1; $i<=2; $i++){
                     echo '<label for="slide'.$i.'">➤</label>';
                 }
                 echo '</div>';
@@ -46,9 +49,9 @@
     function outputSliders(){
         for($i=1; $i<=2; $i++){
             if($i==1)
-                echo '<input type="radio" name="slider" id="slide"'.$i.'" checked>';
+                echo '<input type="radio" name="slider" id="slide'.$i.'" checked>';
             else
-                echo '<input type="radio" name="slider" id="slide"'.$i.'">';
+                echo '<input type="radio" name="slider" id="slide'.$i.'">';
         }
     }
 
