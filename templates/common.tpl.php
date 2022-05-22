@@ -77,14 +77,12 @@
                 <input type="text" name="searchName" placeholder="Search">
                 <label id="rating">Rating</label>
                     <select name="rating">
-                        <option value="emptyS">Any</option>
-                        <option value="1">1</option>
+                        <option value="">Any</option>
                         <?php
-                            for($i=2; $i<9; $i++){
+                            for($i=1; $i<10; $i++){
                                 echo '<option value="'. $i .'">' . $i . '</option>';
                             }
                         ?>
-                        <option value="9">9+</option>
                     </select>
                 <label>Category</label>
                     <select name="category">

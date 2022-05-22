@@ -5,6 +5,7 @@
     require_once(__DIR__ . '/../templates/restaurant.tpl.php');
     require_once(__DIR__ . '/../templates/dish.tpl.php');
     require_once(__DIR__ . '/../templates/review.tpl.php');
+    require_once(__DIR__ . '/../templates/form.tpl.php');
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
@@ -29,6 +30,8 @@
     }
     ?></section> <?php
     outputReviews($restaurant->reviews);
+    if(isset($_SESSION['id']))
+        outputReviewForm();
     ?> </div> <?php   
     outputFooter();
 ?>
