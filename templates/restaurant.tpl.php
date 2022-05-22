@@ -67,6 +67,7 @@
         <p><?=$restaurant->name?> </p>
         <p><?=$restaurant->category?> </p>
         <p><?=$restaurant->address?></p><?php
+
         if($restaurant->avgRating === -1.0){
             ?> <p>no rating</p> <?php
         } else {?>
