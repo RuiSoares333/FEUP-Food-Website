@@ -15,15 +15,20 @@
 
     session_start();
 
+    if(isset($_SESSION['id'])){
+        header('Location: ../pages/index.php');
+    }
+
     if($costumer){
         if($costumer->isOwner()){
-            $_SESSION['restaurants'] = $costumer->getOwnedRestaurants();
+            $_SESSION['restaurants'] = $costumer->getOwnedRestaurants($db);
         }
         $_SESSION['id'] = $costumer->username;
         $_SESSION['name'] = $costumer->name;
     }
     else{
         header('Location:' . $_SERVER['HTTP_REFERER']);
+        die;
     }
 
    header('Location:' . $_POST['referer']);
