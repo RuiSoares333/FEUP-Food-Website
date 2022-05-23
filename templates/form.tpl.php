@@ -60,7 +60,7 @@
 
 
     function outputEditProfileForm(Costumer $costumer) { ?>
-        <div id = "mainDiv" class ="edit_profile">
+        <section id="edit_profile">
             <h1>Edit Profile</h1>
             <p id="squareEdit"></p>
             <form id = "edit_profile">
@@ -74,6 +74,20 @@
                 <input type ="text" name ="phone" value ="<?=$costumer->phoneNumber?>">
                 <button formaction="../actions/action_edit_profile.php" id="submit" formmethod="post">Edit</button>
             </form>
-        </div>
+        </section>
+    <?php }
+
+    function outputChangePasswordForm(){ ?>
+        <section id ="changePassword">
+            <h1>Change Password</h1>
+            <p id="squareEdit"></p>
+            <form id ="changePassword">
+                <label for="oldPassword">old password:</label>
+                <input type="password" name ="oldPassword">
+                <label for="newPassword">new password:</label>
+                <input type="password" name ="newPassword">
+                <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">ChangePassword</button>
+            </form>  
+        </section>
     <?php }
 ?>

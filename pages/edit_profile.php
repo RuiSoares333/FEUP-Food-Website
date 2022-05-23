@@ -22,6 +22,9 @@
     outputHeader();
     outputSideMenu();
     outputAds();
+    ?> <div id = "mainDiv" class ="edit_profile"> <?php
     outputEditProfileForm($costumer);
+    outputChangePasswordForm();
+    ?> </div> <?php
     outputFooter();
 ?>

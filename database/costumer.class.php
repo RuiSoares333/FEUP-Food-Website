@@ -129,5 +129,20 @@
 
             executeQuery($db, $query, array($name, $email, $address, $phone, $id));
         }
+
+        static function updatePassword(PDO $db, string $id, string $password){
+            $query = 'UPDATE User SET password = ? WHERE username = ?';
+
+            executeQuery($db, $query, array(sha1($password), $id));
+        }
+
+        static function checkOldPassword(PDO $db, string $id, string $oldPassword): bool{
+            $query = 'SELECT password FROM User WHERE username = ?';
+
+            $password = getQueryResults($db, $query, false, array($id))['password'];
+
+            
+            return $password === sha1($oldPassword);
+        }
     }
 ?>
