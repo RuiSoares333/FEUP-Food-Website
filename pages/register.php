@@ -6,8 +6,11 @@
 
     session_start();
 
-    if(isset($_SESSION['id']))
-        header('Location:' . $_SERVER['HTTP_REFERER']);
+    if(isset($_SESSION['id'])){
+        header('Location: ../pages/index.php');
+        die;
+    }
+
 
     outputHead();
     outputHeader();

@@ -48,7 +48,7 @@
             $dishes_ = array();
 
             foreach($dishes as $dish){
-                $dishes_[] = Dish::getDish($db, $dish);
+                $dishes_[] = Dish::getDish($db, $dish['dishId']);
             }
             return $dishes_;
         }
@@ -62,7 +62,7 @@
             $restaurants_ = array();
 
             foreach($restaurants as $restaurant){
-                $restaurants_[] = Restaurant::getRestaurant($db, $restaurant);
+                $restaurants_[] = Restaurant::getFavoriteRestaurant($db, $restaurant['restaurantId']);
             }
 
             return $restaurants_;
@@ -98,8 +98,8 @@
             return $this->is_owner;
         }
 
-        function getOwnedRestaurants() : array {
-            $query = 'SELECT id FROM Restaurants WHERE ownerId = ?';
+        function getOwnedRestaurants(PDO $db) : array {
+            $query = 'SELECT id FROM Restaurant WHERE ownerId = ?';
 
             return getQueryResults($db, $query, false, array($this->username));
         }
@@ -115,6 +115,12 @@
             $query = 'SELECT * FROM User WHERE username = ?';
 
             return !!getQueryResults($db, $query, false, array($id));
+        }
+
+        static function getName(PDO $db, string $username) : string{
+            $query = 'SELECT name FROM User WHERE username = ?';
+
+            return getQueryResults($db, $query, false, array($username))['name'];
         }
     }
 ?>

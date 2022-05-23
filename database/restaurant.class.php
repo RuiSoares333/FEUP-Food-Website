@@ -27,7 +27,7 @@
         }
 
         static function getBestRestaurants(PDO $db) : array {
-            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),1) as price
+            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price
             FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.restaurantId 
             LEFT JOIN Dish ON Restaurant.id = dish.restaurantId
             GROUP BY Restaurant.id
@@ -77,6 +77,24 @@
             );
         }
 
+        static function getFavoriteRestaurant(PDO $db, int $id) : Restaurant {
+            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price
+            FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.restaurantId 
+            LEFT JOIN Dish ON Restaurant.id = dish.restaurantId WHERE Restaurant.id = ?';
+
+            $restaurant = getQueryResults($db, $query, false, array($id));
+
+            return new Restaurant(
+                $restaurant['id'],
+                $restaurant['name'],
+                $restaurant['address'],
+                $restaurant['category'],
+                array(), array(),
+                $restaurant['price'],
+                $restaurant['rating']
+            );
+        }
+
         static function getDishCategories(PDO $db, int $id) : array {
             $query = 'SELECT DISTINCT category 
             FROM Dish WHERE restaurantId = ?';
@@ -92,14 +110,7 @@
                     case "soup":
                         $category['order'] = 1;
                         break;
-                    case "meat dish":
-                    case "fish dish":
-                    case "veggie dish":
-                    case "vegan dish":
-                    case "pizza":
-                    case "pasta":
-                    case "sushi":
-                    case "hamburger":
+                    case "main course":
                         $category['order'] = 2;
                         break;
                     case "drink":
