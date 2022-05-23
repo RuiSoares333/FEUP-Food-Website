@@ -16,6 +16,12 @@
         </article>
     <?php }
 
+    function outputRestaurantsUser(array $restaurants){
+        foreach($restaurants as $restaurant){
+            outputRestaurant($restaurant);
+        }
+    }
+
     function outputRestaurants(array $restaurants) { ?>
         <section id = "bestRestaurants">
         <h1>most legit restaurants</h1>

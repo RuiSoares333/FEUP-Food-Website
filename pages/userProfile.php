@@ -24,7 +24,8 @@
     <div id="mainDiv" class="faveRest">
         <?php 
         outputUserProfileForm($costumer);
-        outputRestaurants($restaurants);
+        outputRestaurantsUser($restaurants);
+        //var_dump($restaurants);
         outputDishes($dishes);
         ?>
     </div>
