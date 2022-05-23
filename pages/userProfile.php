@@ -3,6 +3,7 @@
     
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/restaurant.tpl.php');
+    require_once(__DIR__ . '/../templates/dish.tpl.php');
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
@@ -13,8 +14,8 @@
 
     $costumer = Costumer::getCostumer($db, $_SESSION['id']);
 
-    $user = Costumer::getCostumer($db, $_SESSION['id']);
-    $user->getFavoriteRestaurants($db);
+    $restaurants = $costumer->getFavoriteRestaurants($db);
+    $dishes = $costumer->getFavoriteDishes($db);
 
     outputHead();
     outputHeader();
@@ -23,7 +24,8 @@
     <div id="mainDiv" class="faveRest">
         <?php 
         outputUserProfileForm($costumer);
-        outputRestaurants($user);
+        outputRestaurants($restaurants);
+        outputDishes($dishes);
         ?>
     </div>
     <?php
