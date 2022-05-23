@@ -56,7 +56,7 @@ header{
     color: #EBFFF1;
     vertical-align: middle;
     box-shadow: 5px 10px 18px #0000003b;
-    z-index: 100;
+    z-index: 1;
 }
 
 header > h1 > a{
@@ -264,25 +264,26 @@ footer{
 
 #mainDiv.restaurant > #dishes > section > article{
     position: relative;
-    color: white;
-    text-shadow: 0px 0px 20px #000000;
-    width: 90%
+    margin: 0;
 }
 
-#mainDiv.restaurant > #dishes > section > article :nth-child(1){
-    width: 90%;
+#mainDiv.restaurant > #dishes > section > article p{
+    color: white;
+    text-shadow: .2em .2em .3em black;
+    -webkit-text-stroke: .5px black;
+    font-weight: bold;
 }
 
 #mainDiv.restaurant > #dishes > section > article :nth-child(2){
     position: absolute;
-    top: 8px;
-    left: 16px;
+    bottom: 25%;
+    left: 5%;
     max-width: 90%;
+    max-height: 10%
 }
 
 #mainDiv.restaurant > #dishes > section > article :nth-child(3){
     position: absolute;
-    top: 32px;
-    left: 16px;
-    max-width: 90%;
+    bottom: -35%;
+    left: 5%;
 }

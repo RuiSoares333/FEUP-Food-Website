@@ -135,3 +135,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
 .sort #prc{
     margin-left: 3em;
 }
+
+#mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article span{
+    text-transform:none;
+}

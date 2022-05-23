@@ -306,7 +306,7 @@ footer{
     grid-template-areas:
     "t dT s"
     "r c s";
-    z-index: 60;
+    z-index: 1;
 }
 
 .teacher{
@@ -438,6 +438,11 @@ footer{
     margin-top: 4em;
 }
 
-#mainDiv.restaurant > #dishes > section > *{
-    width: 90%;
+#mainDiv.restaurant > #dishes > section article{
+    width: 98%
+}
+
+#mainDiv.restaurant > #dishes > section article *{
+    width: 98%;
+    height: 80%;
 }
