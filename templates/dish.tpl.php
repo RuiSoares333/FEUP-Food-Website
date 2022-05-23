@@ -1,6 +1,12 @@
 <?php
     declare(strict_types = 1);
 
+    function outputDishes(array $dishes) {
+        foreach($dishes as $dish){
+            outputDish($dish);
+        }
+    }
+
     function outputDish(Dish $dish){ ?>
         <article data-id = <?= $dish->id?>>
             <img src = "https://picsum.photos/200?<?= $dish->id?>">

@@ -48,7 +48,7 @@
             $dishes_ = array();
 
             foreach($dishes as $dish){
-                $dishes_[] = Dish::getDish($db, $dish);
+                $dishes_[] = Dish::getDish($db, $dish['dishId']);
             }
             return $dishes_;
         }
@@ -62,7 +62,7 @@
             $restaurants_ = array();
 
             foreach($restaurants as $restaurant){
-                $restaurants_[] = Restaurant::getRestaurant($db, $restaurant);
+                $restaurants_[] = Restaurant::getRestaurant($db, $restaurant['restaurantId']);
             }
 
             return $restaurants_;
