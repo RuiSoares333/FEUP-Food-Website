@@ -62,7 +62,7 @@
             $restaurants_ = array();
 
             foreach($restaurants as $restaurant){
-                $restaurants_[] = Restaurant::getRestaurant($db, $restaurant['restaurantId']);
+                $restaurants_[] = Restaurant::getFavoriteRestaurant($db, $restaurant['restaurantId']);
             }
 
             return $restaurants_;

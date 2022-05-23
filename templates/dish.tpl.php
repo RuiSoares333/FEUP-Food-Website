@@ -1,12 +1,18 @@
 <?php
     declare(strict_types = 1);
 
-    function outputDishes(array $dishes) {?>
+    function outputFavoriteDishes(array $dishes) {?>
         <section id="favDishes">
             <h1>Your Favorite Dishes</h1>
-        <?php foreach($dishes as $dish){
-            outputDish($dish);
-        }?>
+        <?php if($dishes!== array()){
+            foreach($dishes as $dish){
+                outputDish($dish);
+            }
+        }
+        else{
+            ?> <h3>You don't have any favorite dishes</h3> <?php
+        }
+        ?>
         </section>
     <?php }
 

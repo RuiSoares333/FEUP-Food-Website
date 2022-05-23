@@ -31,7 +31,7 @@
         <?php 
         outputProfileInfo($costumer);
         outputFavoriteRestaurants($restaurants);
-        outputDishes($dishes);
+        outputFavoriteDishes($dishes);
         ?>
     </div>
     <?php
