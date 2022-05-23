@@ -130,6 +130,16 @@ header > h1 {
     padding: 2em 1em 1em 1em;
 }
 
+#mainDiv.restaurant{
+    display:grid;
+    grid-template-rows: 35em auto auto;
+    padding:0;
+}
+
+#mainDiv.restaurant > *:not(#restaurant){
+    padding: 1em;
+}
+
 .index{
     display: grid;
     grid-template-rows: 13em auto 1fr;
@@ -401,3 +411,33 @@ footer{
     grid-area: btn1;
 }
 
+#restaurant article{
+    display: grid;  
+}
+
+#restaurant article *{
+    margin: auto;
+}
+
+#restaurant article :nth-child(2){
+    font-size: 250%;
+    font-weight: bold;
+}
+
+#restaurant article :nth-child(3){
+    font-size: 175%;
+}
+
+#restaurant article :nth-child(4){
+    font-size: 125%;
+}
+
+#mainDiv.restaurant > #dishes > section{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    margin-top: 4em;
+}
+
+#mainDiv.restaurant > #dishes > section > *{
+    width: 90%;
+}

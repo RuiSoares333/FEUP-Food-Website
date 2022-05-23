@@ -253,3 +253,36 @@ footer{
     color: #000;
     transform: rotate(180deg);
  }
+
+ #mainDiv.restaurant #dishes h1{
+    font-size: 150%;
+    border-bottom: 2px solid black;
+    position: absolute;
+    margin-top: -2em;
+    width: 60%
+}
+
+#mainDiv.restaurant > #dishes > section > article{
+    position: relative;
+    color: white;
+    text-shadow: 0px 0px 20px #000000;
+    width: 90%
+}
+
+#mainDiv.restaurant > #dishes > section > article :nth-child(1){
+    width: 90%;
+}
+
+#mainDiv.restaurant > #dishes > section > article :nth-child(2){
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    max-width: 90%;
+}
+
+#mainDiv.restaurant > #dishes > section > article :nth-child(3){
+    position: absolute;
+    top: 32px;
+    left: 16px;
+    max-width: 90%;
+}
