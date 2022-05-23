@@ -122,5 +122,12 @@
 
             return getQueryResults($db, $query, false, array($username))['name'];
         }
+
+
+        static function updateUser(PDO $db, string $id, string $name, string $email, string $address, string $phone){
+            $query = 'UPDATE User SET name = ?, email = ?, address = ?, phone = ? WHERE username = ?';
+
+            executeQuery($db, $query, array($name, $email, $address, $phone, $id));
+        }
     }
 ?>

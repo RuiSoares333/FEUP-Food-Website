@@ -57,4 +57,23 @@
             </form>    
         </section>
     <?php }
+
+
+    function outputEditProfileForm(Costumer $costumer) { ?>
+        <div id = "mainDiv" class ="edit_profile">
+            <h1>Edit Profile</h1>
+            <p id="squareEdit"></p>
+            <form id = "edit_profile">
+                <label for="name">Name:</label>
+                <input type ="text" name ="name" value ="<?=$costumer->name?>">
+                <label for="email">Email:</label>
+                <input type ="text" name ="email" value ="<?=$costumer->email?>">
+                <label for="address">Address:</label>
+                <input type ="text" name ="address" value ="<?=$costumer->address?>">
+                <label for="phone">Phone number:</label>
+                <input type ="text" name ="phone" value ="<?=$costumer->phoneNumber?>">
+                <button formaction="../actions/action_edit_profile.php" id="submit" formmethod="post">Edit</button>
+            </form>
+        </div>
+    <?php }
 ?>
