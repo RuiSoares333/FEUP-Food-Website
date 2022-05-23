@@ -1,11 +1,14 @@
 <?php
     declare(strict_types = 1);
 
-    function outputDishes(array $dishes) {
-        foreach($dishes as $dish){
+    function outputDishes(array $dishes) {?>
+        <section id="favDishes">
+            <h1>Your Favorite Dishes</h1>
+        <?php foreach($dishes as $dish){
             outputDish($dish);
-        }
-    }
+        }?>
+        </section>
+    <?php }
 
     function outputDish(Dish $dish){ ?>
         <article data-id = <?= $dish->id?>>

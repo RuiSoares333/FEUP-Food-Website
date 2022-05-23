@@ -22,7 +22,7 @@
     <div id="mainDiv" class="index">
         <?php 
         outputSearch();
-        outputRestaurants($restaurants);
+        outputBestRestaurants($restaurants);
         ?>
         <section id = "close">
             map api

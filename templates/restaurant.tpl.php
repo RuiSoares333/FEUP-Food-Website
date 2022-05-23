@@ -16,54 +16,48 @@
         </article>
     <?php }
 
-    function outputRestaurantsUser(array $restaurants){
-        foreach($restaurants as $restaurant){
+    function outputFavoriteRestaurants(array $restaurants){?>
+        <section id="favRestaurants">
+            <h1>Your Favorite Restaurants</h1>
+       <?php foreach($restaurants as $restaurant){
             outputRestaurant($restaurant);
-        }
-    }
+        } ?>
+        </section>
+    <?php }
 
-    function outputRestaurants(array $restaurants) { ?>
+    function outputBestRestaurants(array $restaurants) { ?>
         <section id = "bestRestaurants">
-        <h1>most legit restaurants</h1>
-            <?php
-                outputSliders();
-                echo '<div id="slides">';
-                echo '<div id="overflow">';
-                echo '<div class="inner">';
-                $k=1;
-                for($i=0; $i<10; $i+=5){
-                    echo '<div class="slide slide_'.$k.'">';
-                    echo '<div class="slide-content">';
-                    for($j=$i; $j<$i+5; $j++){
+        <h1>most legit restaurants</h1>    
+        <input type="radio" name="slider" id="slide1" checked>
+        <input type="radio" name="slider" id="slide2">
+        <div id="slides">
+        <div id="overflow">
+        <div class="inner">
+        <?php   
+            $k=1;
+            for($i=0; $i<10; $i+=5){ ?>
+                <div class="slide slide_<?=$k?>">
+                    <div class="slide-content">
+                    <?php for($j=$i; $j<$i+5; $j++){
                         outputRestaurant($restaurants[$j]);
                         if($j===5){
                             $j+=5;
                         }
                     }
-                    echo '</div>';
-                    echo '</div>';
-                    $k+=1;
-                }
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-                echo '<div id="controls">';
-                for($i=1; $i<=2; $i++){
-                    echo '<label for="slide'.$i.'">➤</label>';
-                }
-                echo '</div>';
-            ?>
+                    ?>
+                    </div>
+                </div>
+                <?php $k+=1;
+            } ?>
+        </div>
+        </div>
+        </div>
+        <div id="controls">
+            <label for="slide1">➤</label>
+            <label for="slide2">➤</label>
+        </div>    
         </section>
     <?php }
-
-    function outputSliders(){
-        for($i=1; $i<=2; $i++){
-            if($i==1)
-                echo '<input type="radio" name="slider" id="slide'.$i.'" checked>';
-            else
-                echo '<input type="radio" name="slider" id="slide'.$i.'">';
-        }
-    }
 
 
     function outputSingleRestaurant(Restaurant $restaurant){ ?>

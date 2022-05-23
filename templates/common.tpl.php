@@ -54,7 +54,7 @@
 <?php
     function outputSideMenu() { ?>
         <nav id="side-menu" class="index">
-            <a id="bestRestHref" href="#bestRestaurants">Most Legit Restaurants</a>
+            <a id="bestRestHref" href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
             <a id="closeHref" href="#close">Close to You</a>
             <input id ="hamburger" type ="checkbox">
             <label class="hamburger" for="hamburger">Categories</label>

@@ -24,7 +24,7 @@ CREATE TABLE Dish (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR NOT NULL,
     price INTEGER NOT NULL,
-    category VARCHAR CHECK (category IN ('appetizer', 'drink', 'soup', 'meat dish', 'fish dish', 'veggie dish', 'vegan dish', 'pizza', 'pasta', 'sushi', 'dessert', 'hamburger', 'lasagna')),
+    category VARCHAR CHECK (category IN ('appetizer', 'drink', 'soup', 'main course', 'dessert')),
     restaurantId INTEGER REFERENCES Restaurant
 );
 
@@ -68,11 +68,11 @@ CREATE TABLE FavoriteRestaurant (
 PRAGMA foreign_keys = ON;
 
 --User
-INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "7c4a8d09ca3762af61e59520943dc26494f8941b", "Rua das Flores", "962156489");
-INSERT INTO User VALUES ("ricardo32", "ricardo", "ricardo32@gmail.com", "5347c8d36f07b8c333b2c40272d3269b38ed810a", "Rua Dr. António José Almeida", "956320145");
-INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "fb4369d81f91586ce212bf0ef9c6186efb37919e", "Rua Nova do Crasto", "93201523");
-INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "1401dad399850fedbcbc78380934b126f708a618", "Rua Santa Luzia", "96254123");
-INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "62458713c0b5c07c221d3e85e1300d6a781d83ce", "Avenida 5 de Outubro", "91520236");
+INSERT INTO User VALUES ("maria20", "maria", "maria20@gmail.com", "7c4a8d09ca3762af61e59520943dc26494f8941b", "Rua das Flores", "962156489"); --123456
+INSERT INTO User VALUES ("ricardo32", "ricardo", "ricardo32@gmail.com", "5347c8d36f07b8c333b2c40272d3269b38ed810a", "Rua Dr. António José Almeida", "956320145"); --6543210
+INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "fb4369d81f91586ce212bf0ef9c6186efb37919e", "Rua Nova do Crasto", "93201523"); --5864102
+INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "1401dad399850fedbcbc78380934b126f708a618", "Rua Santa Luzia", "96254123"); --hfg41
+INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "62458713c0b5c07c221d3e85e1300d6a781d83ce", "Avenida 5 de Outubro", "91520236"); --mfhg4
 
 --Owner
 INSERT INTO Owner VALUES ("ricardo32");
@@ -90,23 +90,23 @@ INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "po
 
 --Dish
 INSERT INTO Dish VALUES (NULL, "Tiramisu", 5, "dessert", 1);
-INSERT INTO Dish VALUES (NULL, "Neapolitan Calzone", 9, "pasta", 1);
-INSERT INTO Dish VALUES (NULL, "Lasagna Bolognese", 10, "lasagna", 1);
+INSERT INTO Dish VALUES (NULL, "Neapolitan Calzone", 9, "main course", 1);
+INSERT INTO Dish VALUES (NULL, "Lasagna Bolognese", 10, "main course", 1);
 
 INSERT INTO Dish VALUES (NULL, "Asian Tiger Shrimp", 23, "appetizer", 2);
-INSERT INTO Dish VALUES (NULL, "Salmão (6 peças)", 11, "sushi", 2);
+INSERT INTO Dish VALUES (NULL, "Salmão (6 peças)", 11, "main course", 2);
 INSERT INTO Dish VALUES (NULL, "Water", 2, "drink", 2);
 
-INSERT INTO Dish VALUES (NULL, "BigMac", 5, "hamburger", 3);
+INSERT INTO Dish VALUES (NULL, "BigMac", 5, "main course", 3);
 INSERT INTO Dish VALUES (NULL, "McFlurry KitKat", 2, "dessert", 3);
 INSERT INTO Dish VALUES (NULL, "Coca-Cola", 2, "drink", 3);
 
-INSERT INTO Dish VALUES (NULL, "Bacalhau Especial à Charco", 22, "fish dish", 4);
-INSERT INTO Dish VALUES (NULL, "Bacalhau à moda de Braga", 22, "fish dish", 4);
-INSERT INTO Dish VALUES (NULL, "Arroz de Marisco", 29, "fish dish", 4);
-INSERT INTO Dish VALUES (NULL, "Francesinha", 11, "meat dish", 4);
-INSERT INTO Dish VALUES (NULL, "Cachorro Especial", 9, "meat dish", 4);
-INSERT INTO Dish VALUES (NULL, "Prego no Prato", 14, "meat dish", 4);
+INSERT INTO Dish VALUES (NULL, "Bacalhau Especial à Charco", 22, "main course", 4);
+INSERT INTO Dish VALUES (NULL, "Bacalhau à moda de Braga", 22, "main course", 4);
+INSERT INTO Dish VALUES (NULL, "Arroz de Marisco", 29, "main course", 4);
+INSERT INTO Dish VALUES (NULL, "Francesinha", 11, "main course", 4);
+INSERT INTO Dish VALUES (NULL, "Cachorro Especial", 9, "main course", 4);
+INSERT INTO Dish VALUES (NULL, "Prego no Prato", 14, "main course", 4);
 INSERT INTO Dish VALUES (NULL, "Super Bock", 2, "drink", 4);
 INSERT INTO Dish VALUES (NULL, "Fanta Laranja", 3, "drink", 4);
 INSERT INTO Dish VALUES (NULL, "Coca-Cola", 2, "drink", 4);
@@ -115,12 +115,12 @@ INSERT INTO Dish VALUES (NULL, "Mousse de Chocolate", 3, "dessert", 4);
 INSERT INTO Dish VALUES (NULL, "Crepe de Legumes", 2, "appetizer", 5);
 INSERT INTO Dish VALUES (NULL, "Espetada de Frango", 2, "appetizer", 5);
 INSERT INTO Dish VALUES (NULL, "Camarão Panado", 4, "appetizer", 5);
-INSERT INTO Dish VALUES (NULL, "Nigiri Salmão", 8, "sushi", 5);
-INSERT INTO Dish VALUES (NULL, "Gukan de Morango", 9, "sushi", 5);
-INSERT INTO Dish VALUES (NULL, "Hot Roll", 7, "sushi", 5);
-INSERT INTO Dish VALUES (NULL, "Noodles Frango", 11, "meat dish", 5);
-INSERT INTO Dish VALUES (NULL, "Noodles Vaca", 12, "meat dish", 5);
-INSERT INTO Dish VALUES (NULL, "Tempura de Gambas", 11, "fish dish", 5);
+INSERT INTO Dish VALUES (NULL, "Nigiri Salmão", 8, "main course", 5);
+INSERT INTO Dish VALUES (NULL, "Gukan de Morango", 9, "main course", 5);
+INSERT INTO Dish VALUES (NULL, "Hot Roll", 7, "main course", 5);
+INSERT INTO Dish VALUES (NULL, "Noodles Frango", 11, "main course", 5);
+INSERT INTO Dish VALUES (NULL, "Noodles Vaca", 12, "main course", 5);
+INSERT INTO Dish VALUES (NULL, "Tempura de Gambas", 11, "main course", 5);
 INSERT INTO Dish VALUES (NULL, "Água", 1, "drink", 5);
 INSERT INTO Dish VALUES (NULL, "Coca-cola", 1, "drink", 5);
 INSERT INTO Dish VALUES (NULL, "Cerveja Japonesa", 3, "drink", 5);
@@ -130,12 +130,12 @@ INSERT INTO Dish VALUES (NULL, "Azeitonas", 1, "appetizer", 6);
 INSERT INTO Dish VALUES (NULL, "Pratinho de Presunto", 5, "appetizer", 6);
 INSERT INTO Dish VALUES (NULL, "Sopa", 2, "soup", 6);
 INSERT INTO Dish VALUES (NULL, "Canja de Galinha", 2, "soup", 6);
-INSERT INTO Dish VALUES (NULL, "Bacalhau à Cardeal", 23, "fish dish", 6);
-INSERT INTO Dish VALUES (NULL, "Bacalhau Assado na Brasa", 23, "fish dish", 6);
-INSERT INTO Dish VALUES (NULL, "Polvo à Lagareiro", 43, "fish dish", 6);
-INSERT INTO Dish VALUES (NULL, "Bife à Cardeal", 29, "meat dish", 6);
-INSERT INTO Dish VALUES (NULL, "Costeletas de Vitela", 37, "meat dish", 6);
-INSERT INTO Dish VALUES (NULL, "Francesinha à Cardeal", 11, "meat dish", 6);
+INSERT INTO Dish VALUES (NULL, "Bacalhau à Cardeal", 23, "main course", 6);
+INSERT INTO Dish VALUES (NULL, "Bacalhau Assado na Brasa", 23, "main course", 6);
+INSERT INTO Dish VALUES (NULL, "Polvo à Lagareiro", 43, "main course", 6);
+INSERT INTO Dish VALUES (NULL, "Bife à Cardeal", 29, "main course", 6);
+INSERT INTO Dish VALUES (NULL, "Costeletas de Vitela", 37, "main course", 6);
+INSERT INTO Dish VALUES (NULL, "Francesinha à Cardeal", 11, "main course", 6);
 INSERT INTO Dish VALUES (NULL, "Baba de Camelo", 2, "dessert", 6);
 INSERT INTO Dish VALUES (NULL, "Pudim Molotof", 1, "dessert", 6);
 INSERT INTO Dish VALUES (NULL, "Melão", 2, "dessert", 6);

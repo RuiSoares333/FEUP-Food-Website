@@ -27,7 +27,7 @@
         }
 
         static function getBestRestaurants(PDO $db) : array {
-            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),1) as price
+            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price
             FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.restaurantId 
             LEFT JOIN Dish ON Restaurant.id = dish.restaurantId
             GROUP BY Restaurant.id
@@ -92,14 +92,7 @@
                     case "soup":
                         $category['order'] = 1;
                         break;
-                    case "meat dish":
-                    case "fish dish":
-                    case "veggie dish":
-                    case "vegan dish":
-                    case "pizza":
-                    case "pasta":
-                    case "sushi":
-                    case "hamburger":
+                    case "main course":
                         $category['order'] = 2;
                         break;
                     case "drink":

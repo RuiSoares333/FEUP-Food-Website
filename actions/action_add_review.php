@@ -11,8 +11,11 @@
 
     session_start();
 
-    if(!isset($_SESSION['id']))
+    if(!isset($_SESSION['id'])){
         header("Location:" . $_SERVER['HTTP_REFERER']);
+        die;
+    }
+
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 

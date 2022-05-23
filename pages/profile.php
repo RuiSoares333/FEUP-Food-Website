@@ -4,6 +4,7 @@
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/restaurant.tpl.php');
     require_once(__DIR__ . '/../templates/dish.tpl.php');
+    require_once(__DIR__ . '/../templates/profile.tpl.php');
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
@@ -12,6 +13,9 @@
 
     session_start();
 
+    if(!isset($_SESSION['id']))
+        header('Location: /../pages/login.php');
+
     $costumer = Costumer::getCostumer($db, $_SESSION['id']);
 
     $restaurants = $costumer->getFavoriteRestaurants($db);
@@ -19,29 +23,18 @@
 
     outputHead();
     outputHeader();
+    outputSideMenu();
+    outputAds();
 ?>
 
-    <div id="mainDiv" class="faveRest">
+    <div id="mainDiv" class="profile">
         <?php 
-        outputUserProfileForm($costumer);
-        outputRestaurantsUser($restaurants);
-        //var_dump($restaurants);
+        outputProfileInfo($costumer);
+        outputFavoriteRestaurants($restaurants);
         outputDishes($dishes);
         ?>
     </div>
     <?php
         outputFooter();
     ?>
-
-<?php
-    function outputUserProfileForm(Costumer $costumer) { ?>
-        <div id="mainDiv" class="userProfile">
-            <img src="https://picsum.photos/300/200?a" alt="A beautiful random image">
-            <p id="squareProfile"></p>
-            <p><?=$costumer->username?> / User</p>
-            
-            <a class = "LoginLink" href="../pages/login.php"><h5>User Settings</h5></a>
-        </div>
-    <?php } 
-?>
 

@@ -29,7 +29,7 @@
         outputCategoryDishes($category, $dishes);
     }
     ?></section> <?php
-    outputReviews($restaurant->reviews);
+    outputReviews($restaurant->reviews, $db);
     if(isset($_SESSION['id']))
         outputReviewForm();
     ?> </div> <?php   
