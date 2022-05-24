@@ -222,8 +222,9 @@ header > h1 {
 #loginForm{
     display: grid;
     grid-template-rows: repeat(4, 3em);
-    grid-template-columns: 110%;
+    grid-template-columns: 100%;
 }
+
 
 .login > *, #loginForm > *{
     margin: auto;
@@ -350,12 +351,13 @@ footer{
     "name rating"
     "addr ."
     "avgPrice .";
-    padding: 0em 0.5em;
+    padding: 0em 0.4em;
 }
 
 .miniPreview *{
     margin: 0;
 }
+
 
 #bestRestaurants h1{
     grid-area: title;
@@ -412,7 +414,7 @@ footer{
 }
 
 #restaurant article{
-    display: grid;  
+    display: grid;
 }
 
 #restaurant article *{
@@ -432,17 +434,53 @@ footer{
     font-size: 125%;
 }
 
-#mainDiv.restaurant > #dishes > section{
+#mainDiv.restaurant #dishes section{
     display: grid;
     grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(auto auto);
     margin-top: 4em;
 }
 
-#mainDiv.restaurant > #dishes > section article{
-    width: 98%
+#mainDiv.restaurant #dishes section article{
+    width: 98%;
+    height: 11em;
 }
 
-#mainDiv.restaurant > #dishes > section article *{
-    width: 98%;
-    height: 80%;
+#mainDiv.restaurant #dishes section article *{
+    padding-top: 0.25em;
+    padding-left: 0.25em;
+}
+
+#mainDiv.restaurant #reviews article{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "name username . rating"
+    "review review review review";
+    margin: 1em 0;
+}
+
+#mainDiv.restaurant #reviews article *{
+    margin: auto 0;
+    padding:0;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(1){
+    grid-area:name;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(2){
+    grid-area: username;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(3){
+    grid-area: rating;
+    margin: auto 1em;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(4){
+    grid-area: review;
+    margin: 0 1%;
+    padding: 1%;
 }

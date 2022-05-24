@@ -5,7 +5,8 @@
 
     function outputReview(Review $review, string $name){ ?>
         <article data-review-id = <?= $review->id?>>
-            <p><span><?=$name?></span>@<?= $review->username?></p>
+            <p><?=$name?></p>
+            <p>@<?= $review->username?></p>
             <h5><?=$review->rating?>/10</h5>
             <p><?=$review->comment?></p>
         </article> 

@@ -9,7 +9,9 @@
     height: 25em;
 }
 
-#mainDiv.restaurant > #dishes > section article :nth-child(1){
-    border-radius: 2em;
-    padding: 5% 0;
+
+#mainDiv.restaurant #dishes section article :nth-child(1){
+    border-radius: 25%;
+    width: 95%;
+    height: 95%;
 }
