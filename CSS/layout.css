@@ -503,9 +503,11 @@ footer{
     grid-area: cmt;
     resize: none;
     border-radius: 0.75em 0.75em 0.75em 0.75em;
+    border: 1px solid #00000088;
     background-color: #DEDEDE;
     text-transform: none;
     padding-left: 1%;
+    margin-top: 1em;
 }
 
 #mainDiv.restaurant #newReview #reviewForm #review:placeholder-shown{
@@ -533,10 +535,10 @@ footer{
     margin: 0;
 }
 
-#mainDiv.restaurant #newReview #reviewForm :nth-child(2){
+#reviewForm > p:nth-child(2){
     font-weight: bold;
 }
 
-#mainDiv.restaurant #newReview #reviewForm :nth-child(3){
+#reviewForm > p:nth-child(3){
     color: #00000088;
 }
