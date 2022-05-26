@@ -43,14 +43,14 @@
         <section id ="newReview">
             <h1>Make a Review</h1>
             <form id = "reviewForm">
-                <label for = "rating">Rating</label>
                 <select name = "rating">
                     <option value=""></option>
                     <?php for($i = 1; $i <= 10; $i++){
                         ?> <option value="<?=$i?>"><?=$i?></option> <?php
                     } ?>  
                 </select>
-                <label for="review">Review</label>
+                <p>Comment</p>
+                <p>(optional)</p>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
                 <input type = "hidden" name = "restaurant" value ="<?=$_GET['id']?>">
                 <button id = "submit" formaction="../actions/action_add_review.php" formmethod="post">Submit</button>  

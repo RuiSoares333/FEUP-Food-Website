@@ -4,14 +4,21 @@ input:focus{
 }
 
 #loginForm input, #registerForm input{
-    width: 100%;
+    width: fit-content;
     height: 2em;
 }
 
 #loginForm button, #registerForm #continue{
-    width: 50%;
     height: 3em;
     margin-top: 1em;
+}
+
+#loginForm button{
+    width: 50%;
+}
+
+#registerForm #continue{
+    width: 75%;
 }
 
 .register h1{
@@ -30,12 +37,12 @@ input:focus{
     margin-top: -3em;
 }
 
-.login, .login input::placeholder , .register :not(#continue), .register input::placeholder{
+#mainDiv.login h1, #mainDiv.login #loginForm input, .register :not(#continue), #mainDiv.register #registerForm{
     color: #EBFFF1;
 }
 
 #loginForm button:hover{
-    background-color: #6cffdd;
+    background-color: #51BD7E;
 }
 
 .price:before {
@@ -65,7 +72,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
     text-transform: none;
 }
 
-#loginForm button, #registerForm #continue{
+#loginForm button, #registerForm button{
     background-color: #EBFFF1;
     color: rgba(60,129,78,1);
     border: none;
@@ -74,6 +81,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
 
 #registerForm #cancel{
     color: #EBFFF1;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+#registerForm #continue:hover{
+    background-color: #6cffdd;
 }
 
 .sort *{
@@ -127,4 +140,8 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
 
 .sort #prc{
     margin-left: 3em;
+}
+
+#mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article span{
+    text-transform:none;
 }

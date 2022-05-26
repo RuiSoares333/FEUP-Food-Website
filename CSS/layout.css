@@ -4,7 +4,7 @@ body{
     position: relative;
     margin: 0;
     display: grid;
-    grid-template-columns: 2fr 2em 6.5fr 2em 1.5fr;
+    grid-template-columns: 19.1145833333% 1fr 61.734375% 1fr 15.1041666667%;
     grid-template-rows: auto auto auto;
     grid-template-areas: 
     "hd hd hd hd hd"
@@ -57,7 +57,7 @@ header > h1 {
 
 #side-menu{
     height: 100%;
-    width: 18.35em;
+    width: 19.1145833333%;
     grid-area: sM;
     position: fixed;
     display: flex;
@@ -130,6 +130,16 @@ header > h1 {
     padding: 2em 1em 1em 1em;
 }
 
+#mainDiv.restaurant{
+    display:grid;
+    grid-template-rows: 35em auto auto;
+    padding:0;
+}
+
+#mainDiv.restaurant > *:not(#restaurant){
+    padding: 1em;
+}
+
 .index{
     display: grid;
     grid-template-rows: 13em auto 1fr;
@@ -150,7 +160,7 @@ header > h1 {
 #registerForm{
     display: grid;
     grid-template-rows: repeat(7, 3em);
-    grid-template-columns: 10em 10em;
+    grid-template-columns: 50% 50%;
     grid-template-areas: 
     "um um"
     "name name"
@@ -212,8 +222,9 @@ header > h1 {
 #loginForm{
     display: grid;
     grid-template-rows: repeat(4, 3em);
-    grid-template-columns: 20em;
+    grid-template-columns: 100%;
 }
+
 
 .login > *, #loginForm > *{
     margin: auto;
@@ -261,8 +272,8 @@ header > h1 {
 #bestRestaurants{
     grid-area: best;
     display: grid;
-    grid-template-rows: 3em 16.1em;
-    grid-template-columns: 53.26em 4em;
+    grid-template-rows: 15.7068062827% 84.2931937173%;
+    grid-template-columns: 93.0143206427% 6.98567935732%;
     grid-template-areas: 
     "title btns"
     "sli sli";
@@ -296,7 +307,7 @@ footer{
     grid-template-areas:
     "t dT s"
     "r c s";
-    z-index: 60;
+    z-index: 1;
 }
 
 .teacher{
@@ -333,19 +344,20 @@ footer{
 .miniPreview{
     display: grid;
     grid-template-rows: 9em 1.25em 2.65em 2em 1em;
-    grid-template-columns: 9em 1.45em;
+    grid-template-columns: 86.1244019139% 13.8755980861%;
     grid-template-areas:
     "ig ig"
     "catg ."
     "name rating"
     "addr ."
     "avgPrice .";
-    padding: 0em 0.5em;
+    padding: 0em 0.4em;
 }
 
 .miniPreview *{
     margin: 0;
 }
+
 
 #bestRestaurants h1{
     grid-area: title;
@@ -380,7 +392,7 @@ footer{
 
 .slide-content{
     display: grid;
-    grid-template-columns: repeat(5, 11.45em);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 #controls{
@@ -401,3 +413,132 @@ footer{
     grid-area: btn1;
 }
 
+#restaurant article{
+    display: grid;
+}
+
+#restaurant article *{
+    margin: auto;
+}
+
+#restaurant article :nth-child(2){
+    font-size: 250%;
+    font-weight: bold;
+}
+
+#restaurant article :nth-child(3){
+    font-size: 175%;
+}
+
+#restaurant article :nth-child(4){
+    font-size: 125%;
+}
+
+#mainDiv.restaurant #dishes section{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(auto auto);
+    margin-top: 4em;
+}
+
+#mainDiv.restaurant #dishes section article{
+    width: 98%;
+    height: 11em;
+}
+
+#mainDiv.restaurant #dishes section article *{
+    padding-top: 0.25em;
+    padding-left: 0.25em;
+}
+
+#mainDiv.restaurant #reviews article{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "name username . rating"
+    "review review review review";
+    margin: 1em 0;
+}
+
+#mainDiv.restaurant #reviews article *{
+    margin: auto 0;
+    padding:0;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(1){
+    grid-area:name;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(2){
+    grid-area: username;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(3){
+    grid-area: rating;
+    margin: auto 1em;
+}
+
+#mainDiv.restaurant #reviews article :nth-child(4){
+    grid-area: review;
+    margin: 0 1%;
+    padding: 1%;
+}
+
+
+#mainDiv.restaurant #newReview form{
+    display: grid;
+    grid-template-columns: 9.5% 10% auto;
+    grid-template-areas: 
+    "st1 st2 st3"
+    "cmt cmt cmt"
+    "btn btn btn";
+}
+
+#mainDiv.restaurant #newReview #reviewForm select{
+    grid-area: st3;
+}
+
+#mainDiv.restaurant #newReview #reviewForm #review{
+    grid-area: cmt;
+    resize: none;
+    border-radius: 0.75em 0.75em 0.75em 0.75em;
+    border: 1px solid #00000088;
+    background-color: #DEDEDE;
+    text-transform: none;
+    padding-left: 1%;
+    margin-top: 1em;
+}
+
+#mainDiv.restaurant #newReview #reviewForm #review:placeholder-shown{
+    text-transform: capitalize;
+}
+
+#mainDiv.restaurant #newReview #reviewForm #review:focus{
+    outline: none;
+}
+
+#mainDiv.restaurant #newReview #reviewForm button{
+    grid-area: btn;
+    margin: 1.5em 0;
+    background-color: #4B9F6D;
+    border: 0;
+    border-radius: 5em;
+    height: 50%;
+}
+
+#mainDiv.restaurant #newReview #reviewForm button:hover{
+    background-color: #51BD7E;
+}
+
+#mainDiv.restaurant #newReview #reviewForm p{
+    margin: 0;
+}
+
+#reviewForm > p:nth-child(2){
+    font-weight: bold;
+}
+
+#reviewForm > p:nth-child(3){
+    color: #00000088;
+}
