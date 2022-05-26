@@ -15,3 +15,12 @@
     width: 95%;
     height: 95%;
 }
+
+.dropdown > img{
+    border-radius: 100%;
+    margin: auto auto auto auto;
+    border: 2px solid #00000088;
+    background-color: transparent;
+    cursor: pointer;
+}
+  

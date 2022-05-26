@@ -142,7 +142,7 @@ header > h1 {
 
 .index{
     display: grid;
-    grid-template-rows: 13em auto 1fr;
+    grid-template-rows: 8em auto 1fr;
     grid-template-columns: 60% 40%;
     grid-template-areas: 
     "srch srch"
@@ -242,9 +242,9 @@ header > h1 {
 
 #search{
     grid-area: srch;
-    height: 15em;
+    height: 8em;
     display: grid;
-    grid-template-rows: 5em 3em 3em;
+    grid-template-rows: 5em 3em /*3em*/;
 }
 
 #search .order, #search h5{

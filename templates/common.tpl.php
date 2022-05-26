@@ -24,12 +24,18 @@
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
                 <form action = "../pages/restaurants.php" method = "POST" class = "search">
-                    <input class = "search" type="text" placeholder="Search...">
+                    <input class = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
                 </form> <?php
                     if(isset($_SESSION['id'])){ ?>
-                        <a href= "../pages/profile.php"></a>
-                        <a href = "../actions/action_logout.php">Logout</a>
-                        <a href = "../pages/cart.php"></a>
+                        <div class="dropdown">
+                            <img src="https://picsum.photos/50/50">
+                            <div class="dropdown-content">
+                                <a href= "../pages/profile.php">Profile</a>
+                                <a href= "../pages/edit_profile.php">Profile Settings</a>
+                                <a href = "../pages/cart.php">Cart</a>
+                                <a href = "../actions/action_logout.php">Logout</a>
+                            </div>   
+                        </div>
                     <?php } else {?>
                         <a href = "../pages/login.php">Login</a>
                 <?php } ?>
@@ -146,15 +152,17 @@
 
 <?php 
     function outputSearch(){ ?>
-            <section id ="search">
-                <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
+            <section id ="search"><?php
+                if(isset($_SESSION['id'])){ ?>
+                    <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
+                <?php } else { ?>
+                    <a class = "order" href="../pages/restaurants.php"><h2>Order Now!</h2></a>
+                <?php } ?>
                 <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
-                <!--if logged in-->
-                <!--<a class = "order" href="../pages/restaurants.php"><h2>Order Now!</h2></a>-->
-                <form action="#">
+                <!--<form action="#">
                     <input type ="text" placeholder="Cuisine, Restaurant name, ...">
                     <button formaction = "../pages/restaurants.php" type ="submit" name="search">Search</button>
-                </form>
+                </form>-->
             </section>
     <?php }
 ?>

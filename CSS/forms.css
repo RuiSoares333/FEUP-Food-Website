@@ -86,7 +86,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
 }
 
 #registerForm #continue:hover{
-    background-color: #6cffdd;
+    background-color: #51BD7E;
 }
 
 .sort *{
