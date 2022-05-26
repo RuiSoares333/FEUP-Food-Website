@@ -90,4 +90,8 @@
             </form>  
         </section>
     <?php }
+
+    function outputEditRestaurantForm(Restaurant $restaurant){ ?>
+        
+    <?php }
 ?>

@@ -10,19 +10,22 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
     require_once(__DIR__ . '/../database/dish.class.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     session_start();
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
+    if(isset($_SESSION['id']))
+        $user = Costumer::getCostumer($db, $_SESSION['id']);
 
     outputHead();
     outputHeader();
     outputAds();
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php
-    outputSingleRestaurant($restaurant);   
+    outputSingleRestaurant($restaurant, $user);   
     ?> <section id = "dishes"> <?php
     foreach($restaurant->dishCategories as $category){
         $dishes = Dish::getCategoryDishes($db, $restaurant->id, $category['category']);

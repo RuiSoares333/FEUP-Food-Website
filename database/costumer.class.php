@@ -101,7 +101,7 @@
         function getOwnedRestaurants(PDO $db) : array {
             $query = 'SELECT id FROM Restaurant WHERE ownerId = ?';
 
-            return getQueryResults($db, $query, false, array($this->username));
+            return getQueryResults($db, $query, true, array($this->username));
         }
 
         static function register(PDO $db, string $id, string $name, string $email, string $password, string $address, string $phone){

@@ -10,7 +10,7 @@
     session_start();
 
     if(!isset($_SESSION['id'])){
-        header('Location: ../pages/index.php');
+        header('Location: ../pages/login.php');
         die;
     }
 
