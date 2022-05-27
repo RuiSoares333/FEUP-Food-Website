@@ -443,7 +443,7 @@ footer{
 
 #mainDiv.restaurant #dishes section article{
     width: 98%;
-    height: 11em;
+    height: auto;
 }
 
 #mainDiv.restaurant #dishes section article *{
@@ -452,39 +452,27 @@ footer{
 }
 
 #mainDiv.restaurant #reviews article{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-    "name username . rating"
-    "review review review review";
-    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
 }
 
-#mainDiv.restaurant #reviews article *{
-    margin: auto 0;
-    padding:0;
+#mainDiv.restaurant #reviews article div{
+    display:flex;
+    align-content: space-between;
 }
 
-#mainDiv.restaurant #reviews article :nth-child(1){
-    grid-area:name;
+#mainDiv.restaurant #reviews article div :last-child{
+    margin-left: auto;
+    margin-right: 0;
 }
 
-#mainDiv.restaurant #reviews article :nth-child(2){
-    grid-area: username;
+#mainDiv.restaurant #reviews article div *{
+    margin: 0;
 }
 
-#mainDiv.restaurant #reviews article :nth-child(3){
-    grid-area: rating;
-    margin: auto 1em;
+#mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article p b{
+    text-transform: none;
 }
-
-#mainDiv.restaurant #reviews article :nth-child(4){
-    grid-area: review;
-    margin: 0 1%;
-    padding: 1%;
-}
-
 
 #mainDiv.restaurant #newReview form{
     display: grid;

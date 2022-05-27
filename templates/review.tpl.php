@@ -5,9 +5,10 @@
 
     function outputReview(Review $review, string $name){ ?>
         <article data-review-id = <?= $review->id?>>
-            <p><?=$name?></p>
-            <p>@<?= $review->username?></p>
-            <h5><?=$review->rating?>/10</h5>
+            <div>
+                <p><b><?=$name?></b>@<?= $review->username?></p>
+                <h5><?=$review->rating?>/10</h5>
+            </div>
             <p><?=$review->comment?></p>
         </article> 
     <?php }

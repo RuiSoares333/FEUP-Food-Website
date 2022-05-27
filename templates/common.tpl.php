@@ -28,7 +28,8 @@
                 </form> <?php
                     if(isset($_SESSION['id'])){ ?>
                         <div class="dropdown">
-                            <img src="https://picsum.photos/50/50">
+                            
+                            <img src="https://picsum.photos/50/50" for="">
                             <div class="dropdown-content">
                                 <a href= "../pages/profile.php">Profile</a>
                                 <a href= "../pages/edit_profile.php">Profile Settings</a>
@@ -156,7 +157,7 @@
                 if(isset($_SESSION['id'])){ ?>
                     <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
                 <?php } else { ?>
-                    <a class = "order" href="../pages/restaurants.php"><h2>Order Now!</h2></a>
+                    <a class = "order" href="../pages/restaurants.php"><button><h2>Order Now!</h2></button></a>
                 <?php } ?>
                 <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
                 <!--<form action="#">
