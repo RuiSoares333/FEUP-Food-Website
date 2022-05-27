@@ -101,7 +101,7 @@
         function getOwnedRestaurants(PDO $db) : array {
             $query = 'SELECT id FROM Restaurant WHERE ownerId = ?';
 
-            return getQueryResults($db, $query, false, array($this->username));
+            return getQueryResults($db, $query, true, array($this->username));
         }
 
         static function register(PDO $db, string $id, string $name, string $email, string $password, string $address, string $phone){
@@ -121,6 +121,28 @@
             $query = 'SELECT name FROM User WHERE username = ?';
 
             return getQueryResults($db, $query, false, array($username))['name'];
+        }
+
+
+        static function updateUser(PDO $db, string $id, string $name, string $email, string $address, string $phone){
+            $query = 'UPDATE User SET name = ?, email = ?, address = ?, phone = ? WHERE username = ?';
+
+            executeQuery($db, $query, array($name, $email, $address, $phone, $id));
+        }
+
+        static function updatePassword(PDO $db, array $newPassword){
+            $query = 'UPDATE User SET password = ? WHERE username = ?';
+
+            executeQuery($db, $query, $newPassword);
+        }
+
+        static function checkOldPassword(PDO $db, array $oldPassword): bool{
+            $query = 'SELECT password FROM User WHERE username = ?';
+
+            $password = getQueryResults($db, $query, false, array($oldPassword[0]))['password'];
+
+            
+            return $password === $oldPassword[1];
         }
     }
 ?>
