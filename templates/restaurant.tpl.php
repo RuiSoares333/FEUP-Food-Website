@@ -80,13 +80,9 @@
         } else {?>
         <p><?=$restaurant->avgRating?>/10</p> <?php } ?>
 
-        <?php if(isset($user) && $user->isOwner()){
-            foreach($_SESSION['restaurants'] as $restaurant_){
-                if($restaurant_['id'] === $restaurant->id){
-                ?> <a href="../pages/edit_restaurant.php?id=<?=$restaurant->id?>">Edit Restaurant</a> <?php
-                }
-            }
-        } ?>
+        <?php if(isset($user) && $restaurant->owner === $user->username){ ?>
+            <a href="../pages/edit_restaurant.php?id=<?=$restaurant->id?>">Edit Restaurant</a>
+        <?php } ?>
         </article>
         </section>
     <?php }

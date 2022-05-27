@@ -14,14 +14,14 @@
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
 
-    if(!Costumer::checkOldPassword($db, $_SESSION['id'], $_POST['oldPassword'])){
+    if(!Costumer::checkOldPassword($db, array($_SESSION['id'], sha1($_POST['oldPassword'])))){
         header('Location:' . $_SERVER['HTTP_REFERER']);
         die;
     }
 
-    Costumer::updatePassword($db, $_SESSION['id'], $_POST['newPassword']);
+    Costumer::updatePassword($db, array(sha1($_POST['newPassword']), $_SESSION['id']));
 
-   include(__DIR__ . '/../actions/action_logout.php');
-   header('Location: ../pages/login.php');
+    include(__DIR__ . '/../actions/action_logout.php');
+    header('Location: ../pages/login.php');
 
 ?>

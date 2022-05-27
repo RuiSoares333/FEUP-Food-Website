@@ -52,8 +52,7 @@
                 <p>Comment</p>
                 <p>(optional)</p>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
-                <input type = "hidden" name = "restaurant" value ="<?=$_GET['id']?>">
-                <button id = "submit" formaction="../actions/action_add_review.php" formmethod="post">Submit</button>  
+                <button id = "submit" formaction="../actions/action_add_review.php?id=<?=$_GET["id"]?>" formmethod="post">Submit</button>  
             </form>    
         </section>
     <?php }
@@ -86,12 +85,37 @@
                 <input type="password" name ="oldPassword">
                 <label for="newPassword">new password:</label>
                 <input type="password" name ="newPassword">
-                <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">ChangePassword</button>
+                <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">Change Password</button>
             </form>  
         </section>
     <?php }
 
-    function outputEditRestaurantForm(Restaurant $restaurant){ ?>
-        
+    function outputEditRestaurantForm(Restaurant $restaurant){ 
+        $selected = $restaurant->category;
+        ?>
+        <div id ="mainDiv" class="editRestaurant">
+            <section id ="editRestaurant">
+                <h1>Edit Restaurant</h1>
+                <p id="squareEdit"></p>
+                <form id ="editRestaurant">
+                    <label for="name">Name:</label>
+                    <input type ="text" name ="name" value= "<?=$restaurant->name?>">
+                    <label for="address">Address:</label>
+                    <input type ="text" name ="address" value ="<?=$restaurant->address?>">
+                    <label for="category">Category:</label>
+                    <select name ="category">
+                        <option value ="italian" <?php if($selected == 'italian') echo 'selected'?>>italian</option>
+                        <option value ="japanese" <?php if($selected == 'japanese') echo 'selected'?>>japanese</option>
+                        <option value ="portuguese" <?php if($selected == 'portuguese') echo 'selected'?>>portuguese</option>
+                        <option value ="fast food" <?php if($selected == 'fast food') echo 'selected'?>>fast food</option>
+                        <option value ="european" <?php if($selected == 'european') echo 'selected'?>>european</option>
+                        <option value ="mexican" <?php if($selected == 'mexican') echo 'selected'?>>mexican</option>
+                    </select>
+                    <label for="phone">Phone:</label>
+                    <input type ="text" name ="phone" value ="<?=$restaurant->phone?>">
+                    <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" id ="submit" formmethod="post">Edit</button>
+                </form>
+            </section>
+        </div>
     <?php }
 ?>

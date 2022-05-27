@@ -17,6 +17,7 @@ CREATE TABLE Restaurant (
     name VARCHAR,
     address VARCHAR,
     category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican')),
+    phone VARCHAR(9),
     ownerId VARCHAR REFERENCES Owner(username)
 );
 
@@ -80,12 +81,12 @@ INSERT INTO Owner VALUES ("joana26");
 INSERT INTO Owner VALUES ("1mafalda3");
 
 --Restaurant
-INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "italian", "ricardo32");
-INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "japanese", "ricardo32");
-INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "fast food", "joana26");
-INSERT INTO Restaurant VALUES (NULL, "O Charco", "Rua Nossa Senhora Amparo 143", "portuguese", "1mafalda3");
-INSERT INTO Restaurant VALUES (NULL, "Temple Rio", "Rua D. Afonso Henriques 745", "japanese", "1mafalda3");
-INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "portuguese", "1mafalda3");
+INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "italian", "22 205 5071", "ricardo32");
+INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "japanese", "913 037 171", "ricardo32");
+INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "fast food", "22 509 1784", "joana26");
+INSERT INTO Restaurant VALUES (NULL, "O Charco", "Rua Nossa Senhora Amparo 143", "portuguese", "22 375 4618", "1mafalda3");
+INSERT INTO Restaurant VALUES (NULL, "Temple Rio", "Rua D. Afonso Henriques 745", "japanese", "932 464 670", "1mafalda3");
+INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "portuguese", "22 480 1268", "1mafalda3");
 
 
 --Dish

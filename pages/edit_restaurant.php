@@ -16,23 +16,17 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
+    if(!isset($_SESSION['id'])){
+        die(header('Location: /'));
+    }
+
     $owner = Costumer::getCostumer($db, $_SESSION['id']);
 
-    $notOwner = true;
+    $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    if($owner->isOwner()){
-        foreach($_SESSION['restaurants'] as $restaurant){
-            if($restaurant['id'] === intval($_GET['id']))
-                $notOwner = false;
-        }
+    if($owner->username !== $restaurant->owner){
+        die(header('Location: /'));
     }
-    
-    if($notOwner){
-        header('Location:' . $_SERVER['HTTP_REFERER']);
-        die;
-    }
-
-    $restaurant = Restaurant::getRestaurant($db, $_GET['id']);
 
     outputHead();
     outputHeader();
