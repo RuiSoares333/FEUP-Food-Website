@@ -33,7 +33,7 @@
 
             return $dishes_;
         }
-
+ 
         static function getDish(PDO $db, int $id) : Dish {
             $query = 'SELECT id, name, price, restaurantId
             FROM Dish WHERE id = ?';
@@ -46,6 +46,30 @@
                 $dish['price'],
                 $dish['restaurantId']
             );
+        }
+
+        static function getDishes(PDO $db, int $id) : array {
+            $query = 'SELECT id, name, price FROM Dish
+            WHERE restaurantId = ?';
+
+            $dishes = getQueryResults($db, $query, true, array($id));
+
+            $dishes_ = array();
+
+            foreach($dishes as $dish){
+                $dishes_[] = new Dish(
+                    $dish['id'],
+                    $dish['name'],
+                    $dish['price']
+                );
+            }
+            return $dishes_;
+        }
+
+        static function deleteDish(PDO $db, int $id){
+            $query = 'DELETE FROM dish WHERE id = ?';
+
+            executeQuery($db, $query, array($id));
         }
     }
 

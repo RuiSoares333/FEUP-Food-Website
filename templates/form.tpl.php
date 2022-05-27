@@ -93,7 +93,6 @@
     function outputEditRestaurantForm(Restaurant $restaurant){ 
         $selected = $restaurant->category;
         ?>
-        <div id ="mainDiv" class="editRestaurant">
             <section id ="editRestaurant">
                 <h1>Edit Restaurant</h1>
                 <p id="squareEdit"></p>
@@ -116,6 +115,5 @@
                     <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" id ="submit" formmethod="post">Edit</button>
                 </form>
             </section>
-        </div>
     <?php }
 ?>
