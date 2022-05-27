@@ -71,6 +71,12 @@
 
             executeQuery($db, $query, array($id));
         }
+
+        static function addDish(PDO $db, array $dish){
+            $query = 'INSERT INTO dish VALUES(NULL, ?, ?, ?, ?)';
+
+            executeQuery($db, $query, $dish);
+        }
     }
 
 ?>

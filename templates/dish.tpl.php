@@ -48,8 +48,13 @@
         <section id ="manageDishes">
             <h1>manage dishes</h1>
             <?php
-            foreach ($dishes as $dish){
-                outputMenuDish($dish);
+            if($dishes === array()){
+                echo '<p>Your restaurant currently has no dishes</p>';
+            }
+            else{
+                foreach ($dishes as $dish){
+                    outputMenuDish($dish);
+                } 
             } ?>
         </section>
     <?php }

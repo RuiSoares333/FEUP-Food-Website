@@ -39,6 +39,7 @@
     ?> <div id ="mainDiv" class ="editRestaurant"> <?php
     outputEditRestaurantForm($restaurant);
     outputDishMenu($dishes);
+    outputAddDishForm();
     ?> </div> <?php
     outputFooter();
     
