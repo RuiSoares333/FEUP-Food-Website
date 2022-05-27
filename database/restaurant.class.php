@@ -9,17 +9,21 @@
         public string $name;
         public string $address;
         public string $category;
+        public string $phone;
+        public string $owner;
         public array $dishCategories;
         public array $reviews;
         public float $avgPrice;
         public float $avgRating;
 
 
-        public function __construct(int $id, string $name, string $address, string $category, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating) {
+        public function __construct(int $id, string $name, string $address, string $category, string $phone, string $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating) {
             $this->id = $id;
             $this->name = $name;
             $this->address = $address;
             $this->category = $category;
+            $this->phone = $phone;
+            $this->owner = $owner;
             $this->dishCategories = $dishCategories;
             $this->reviews = $reviews;
             $this->avgPrice = $avgPrice;
@@ -27,7 +31,7 @@
         }
 
         static function getBestRestaurants(PDO $db) : array {
-            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price
+            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, IFNULL(round(avg(Dish.price),2), 0) as price
             FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.restaurantId 
             LEFT JOIN Dish ON Restaurant.id = dish.restaurantId
             GROUP BY Restaurant.id
@@ -43,6 +47,8 @@
                     $restaurant['name'],
                     $restaurant['address'],
                     $restaurant['category'],
+                    $restaurant['phone'],
+                    $restaurant['ownerId'],
                     array(), array(),
                     $restaurant['price'],
                     $restaurant['rating']
@@ -70,6 +76,8 @@
                 $restaurant['name'],
                 $restaurant['address'],
                 $restaurant['category'],
+                $restaurant['phone'],
+                $restaurant['ownerId'],
                 $categories,
                 $reviews,
                 0,
@@ -89,6 +97,8 @@
                 $restaurant['name'],
                 $restaurant['address'],
                 $restaurant['category'],
+                $restaurant['phone'],
+                $restaurant['ownerId'],
                 array(), array(),
                 $restaurant['price'],
                 $restaurant['rating']
@@ -127,7 +137,13 @@
             return uasort($categories, function ($item1, $item2) {
                 return $item1['order'] <=> $item2['order'];
             });
-        }  
+        } 
+        
+        static function updateRestaurant(PDO $db, array $newInfo){
+            $query = 'UPDATE Restaurant SET name = ?, address = ?, category = ?, phone = ? WHERE id = ?';
+
+            executeQuery($db, $query, $newInfo);
+        }
 
     }
 

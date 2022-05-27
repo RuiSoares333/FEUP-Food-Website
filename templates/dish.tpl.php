@@ -34,4 +34,28 @@
         </section>
 
     <?php }
+
+    function outputMenuDish(Dish $dish){ ?>
+        <article data-id = <?= $dish->id?>>
+        <img src = "https://picsum.photos/200?<?= $dish->id?>">
+            <p><?= $dish->name?></p>
+            <p><?= $dish->price?>€</p>
+            <a href = "../actions/action_delete_dish.php?id=<?= $dish->id?>">Delete</a>
+        </article>
+    <?php }
+
+    function outputDishMenu(array $dishes){ ?>
+        <section id ="manageDishes">
+            <h1>manage dishes</h1>
+            <?php
+            if($dishes === array()){
+                echo '<p>Your restaurant currently has no dishes</p>';
+            }
+            else{
+                foreach ($dishes as $dish){
+                    outputMenuDish($dish);
+                } 
+            } ?>
+        </section>
+    <?php }
 ?>

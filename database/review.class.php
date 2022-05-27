@@ -33,16 +33,16 @@
             return $reviews_;
         }
 
-        static function addReviewWithComment(PDO $db, int $restaurant, string $username, int $rating, string $comment){
+        static function addReviewWithComment(PDO $db, array $reviewInfo){
             $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, ?)';
 
-            return executeQuery($db, $query, array($restaurant, $username, $rating, $comment));
+            return executeQuery($db, $query, $reviewInfo);
         }
 
-        static function addReview(PDO $db, int $restaurant, string $username, int $rating){
+        static function addReview(PDO $db, array $reviewInfo){
             $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, NULL)';
 
-            executeQuery($db, $query, array($restaurant, $username, $rating));
+            executeQuery($db, $query, $reviewInfo);
         }
     }
 ?>

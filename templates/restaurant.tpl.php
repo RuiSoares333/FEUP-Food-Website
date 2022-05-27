@@ -67,7 +67,7 @@
     <?php }
 
 
-    function outputSingleRestaurant(Restaurant $restaurant){ ?>
+    function outputSingleRestaurant(Restaurant $restaurant, Costumer $user = null) { ?>
         <section id = "restaurant">
         <article>
         <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
@@ -79,6 +79,10 @@
             ?> <p>no rating</p> <?php
         } else {?>
         <p><?=$restaurant->avgRating?>/10</p> <?php } ?>
+
+        <?php if(isset($user) && $restaurant->owner === $user->username){ ?>
+            <a href="../pages/edit_restaurant.php?id=<?=$restaurant->id?>">Edit Restaurant</a>
+        <?php } ?>
         </article>
         </section>
     <?php }
