@@ -117,6 +117,12 @@
             return !!getQueryResults($db, $query, false, array($id));
         }
 
+        static function userExistsEmail(PDO $db, string $email) : bool {
+            $query = 'SELECT * FROM User WHERE email = ?';
+
+            return !!getQueryResults($db, $query, false, array($email));
+        }
+
         static function getName(PDO $db, string $username) : string{
             $query = 'SELECT name FROM User WHERE username = ?';
 

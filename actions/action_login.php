@@ -4,6 +4,8 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
+    require_once(__DIR__ . '/../utils/session.php');
+
     if(strcmp($_SERVER['REQUEST_METHOD'], "POST") !== 0){
         header("Location: /");
         die;
@@ -13,18 +15,18 @@
 
     $costumer = Costumer::getCostumerWithPassword($db, $_POST['email'], $_POST['password']);
 
-    session_start();
+    $session = new Session();
 
-    if(isset($_SESSION['id'])){
+    if($session->isLoggedin()){
         header('Location: ../pages/index.php');
     }
 
     if($costumer){
         if($costumer->isOwner()){
-            $_SESSION['restaurants'] = $costumer->getOwnedRestaurants($db);
+            $session->setOwnedRestaurants($costumer->getOwnedRestaurants($db));
         }
-        $_SESSION['id'] = $costumer->username;
-        $_SESSION['name'] = $costumer->name;
+        $session->setId($costumer->username);
+        $session->setName($costumer->name);
     }
     else{
         header('Location:' . $_SERVER['HTTP_REFERER']);

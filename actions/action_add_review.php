@@ -4,10 +4,11 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/review.class.php');
 
+    require_once(__DIR__ . '/../utils/session.php');
 
-    session_start();
+    $session = new Session();
 
-    if(!isset($_SESSION['id'])){
+    if(!$session->isLoggedin()){
         header("Location:" . $_SERVER['HTTP_REFERER']);
         die;
     }
@@ -15,8 +16,12 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    if($_POST['review'] !== ''){
-       Review::addReviewWithComment($db, array(intval($_GET['id']), $_SESSION['id'], intval($_POST['rating']), $_POST['review']));
+    if(trim($_POST['rating']) === ''){
+        $session->addMessage('error', 'please enter a rating');
+    }
+
+    if(trim($_POST['review']) !== ''){
+       Review::addReviewWithComment($db, array(intval($_GET['id']), $_SESSION['id'], intval($_POST['rating']), trim($_POST['review'])));
     }
     else{
         Review::addReview($db, array(intval($_GET['id']), $_SESSION['id'], intval($_POST['rating'])));
