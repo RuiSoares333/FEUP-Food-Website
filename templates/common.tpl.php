@@ -1,7 +1,12 @@
 <?php
     declare(strict_types = 1);
+
     
-    function outputHead() { ?>
+    function outputHead() { 
+    $styleFiles = array('../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
+                        '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
+                        '../CSS/layout/register.layout.css', '../CSS/style/register.style.css');
+                        ?>
     <!DOCTYPE html>
     <html lang="en-US">
         <head>
@@ -12,6 +17,11 @@
             <link rel = "stylesheet" href="../CSS/images.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/style.css">
+            <?php
+            foreach($styleFiles as $file){
+                echo '<link rel = "stylesheet" href="'.$file.'">';
+            }
+            ?>
             <script src = "script.js" defer></script>
         </head>
         <body>
@@ -61,8 +71,8 @@
 <?php
     function outputSideMenu() { ?>
         <nav id="side-menu" class="index">
-            <a id="bestRestHref" href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
-            <a id="closeHref" href="#close">Close to You</a>
+            <a href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
+            <a href="#close">Close to You</a>
             <input id ="hamburger" type ="checkbox">
             <label class="hamburger" for="hamburger">Categories</label>
             <ul>

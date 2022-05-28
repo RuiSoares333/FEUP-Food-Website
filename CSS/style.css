@@ -6,6 +6,18 @@ body{
     background-color: #DEDEDE;
 }
 
+html body div#mainDiv.restaurant section#dishes section#drink article p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}
+
+html body div#mainDiv.restaurant section#dishes section#drink article{
+    visibility: visible;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -158,19 +170,7 @@ a{
     border-radius:0.5em;
 }
 
-#square{
-    width: 42.6499706248%;
-    height: 30em;
-    background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
-    border-radius: 2em;
-}
 
-#squareRegister{
-    width: 42.6499706248%;
-    height: 35em;
-    background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
-    border-radius: 2em;
-}
 
 
 /* footer */
@@ -320,4 +320,18 @@ footer{
 
 button:hover {
     background-color: #51BD7E;
+}
+
+
+
+/* orverhaul */
+
+#hamburger, #price{
+    display: none;
+}
+
+#hamburger:checked + .hamburger + ul li{
+    padding: 0.6em 0;
+    opacity: 1;
+    transition: all 1s ease;
 }

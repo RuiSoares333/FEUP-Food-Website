@@ -64,44 +64,16 @@ header > h1 {
     flex-direction: column;
 }
 
-#side-menu.index > *{
-    margin-left: 1.40em;
-    margin-top: 0.30em;
-    font-weight: bold;
-}
-
 #side-menu > *:first-child{
     margin-top: 1em;
 }
 
-#side-menu.index .hamburger {
-    display: block;
-}
 
-#side-menu ul {
+
+#side-menu ul{
     color: transparent;
 }
 
-#hamburger{
-    display: none;
-}
-
-#hamburger:checked + .hamburger + ul li{
-    padding: 0.6em 0;
-    opacity: 1;
-    transition: all 1s ease;
-}
-
-#side-menu.index li {
-    max-height: 0;
-    text-align: left;
-    opacity: 0;
-    transition: all 1s ease;
-}
-
-#hamburger, #price{
-    display: none;
-}
 
 #side-menu.sort form{
     display: grid;
@@ -140,105 +112,6 @@ header > h1 {
     padding: 1em;
 }
 
-.index{
-    display: grid;
-    grid-template-rows: 8em auto 1fr;
-    grid-template-columns: 60% 40%;
-    grid-template-areas: 
-    "srch srch"
-    "best best"
-    "rest api"
-}
-
-
-
-.register{
-    display: grid;
-    grid-template-rows: 1em 3em 27em 2em;
-}
-
-#registerForm{
-    display: grid;
-    grid-template-rows: repeat(7, 3em);
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-    "um um"
-    "name name"
-    "dois dois"
-    "tres tres"
-    "q q"
-    "c c"
-    "s s"
-    "cc rr"
-}
-
-#registerForm #username{
-    grid-area: um;
-}
-
-#registerForm #email{
-    grid-area: dois;
-}
-
-#registerForm #password{
-    grid-area: tres;
-}
-
-#registerForm #password2{
-    grid-area: q;
-}
-
-#registerForm #phone{
-    grid-area: c;
-}
-
-#registerForm #address{
-    grid-area: s;
-}
-
-#registerForm #name {
-    grid-area: name;
-}
-
-#registerForm #cancel{
-    padding-top: 1em;
-    grid-area: cc;
-}
-
-#registerForm #continue{
-    grid-area: rr;
-}
-
-
-.register > *, #registerForm > *{
-    margin: auto;
-}
-
-.login{
-    display: grid;
-    grid-template-rows: 1em 5em 6em 11em 3em;
-}
-
-#loginForm{
-    display: grid;
-    grid-template-rows: repeat(4, 3em);
-    grid-template-columns: 100%;
-}
-
-
-.login > *, #loginForm > *{
-    margin: auto;
-}
-
-.login > label{
-    margin-left: 0;
-}
-
-#square {
-    margin-top: 2em;
-    grid-column-start: 1;
-    grid-row-start: 1;
-}
 
 #search{
     grid-area: srch;

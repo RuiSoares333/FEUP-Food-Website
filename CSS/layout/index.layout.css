@@ -1,0 +1,21 @@
+/* side-menu */
+
+#side-menu.index > *{
+    padding-left: 1.40em;
+    padding-top: 0.30em;
+}
+
+#side-menu.index .hamburger {
+    display: block;
+}
+
+#side-menu.index li {
+    max-height: 0;
+}
+
+/* mainDiv */
+
+#mainDiv.index{
+    display: flex;
+    flex-direction: column;
+}
