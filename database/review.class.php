@@ -7,17 +7,19 @@
         public int $id;
         public string $username;
         public int $rating;
-        public string $comment;
+        public int $date;
+        public ?string $comment;
 
-        public function __construct(int $id, string $username, int $rating, string $comment) {
+        public function __construct(int $id, string $username, int $rating, int $date, ?string $comment) {
             $this->id = $id;
             $this->username = $username;
             $this->rating = $rating;
+            $this->date = $date;
             $this->comment = $comment;
         }
 
         static function getReviews(PDO $db, int $restaurant) : array{
-            $query = 'SELECT id, username, rating, comment FROM Review WHERE restaurantId = ? AND comment IS NOT NULL';
+            $query = 'SELECT id, username, rating, published, comment FROM Review WHERE restaurantId = ? AND comment IS NOT NULL';
 
             $reviews = getQueryResults($db, $query, true, array($restaurant));
 
@@ -27,22 +29,17 @@
                     $review['id'], 
                     $review['username'],
                     $review['rating'],
+                    $review['published'],
                     $review['comment']
                 );
             }
             return $reviews_;
         }
 
-        static function addReviewWithComment(PDO $db, array $reviewInfo){
-            $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, ?)';
+        function add(PDO $db, int $restaurant){
+            $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, unixepoch(now), ?)';
 
-            return executeQuery($db, $query, $reviewInfo);
-        }
-
-        static function addReview(PDO $db, array $reviewInfo){
-            $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, NULL)';
-
-            executeQuery($db, $query, $reviewInfo);
+            executeQuery($db, $query, array($restaurant, $this->username, $this->rating, $this->comment));
         }
     }
 ?>

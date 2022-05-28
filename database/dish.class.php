@@ -66,16 +66,16 @@
             return $dishes_;
         }
 
-        static function deleteDish(PDO $db, int $id){
+        function deleteDish(PDO $db){
             $query = 'DELETE FROM dish WHERE id = ?';
 
-            executeQuery($db, $query, array($id));
+            executeQuery($db, $query, array($this->id));
         }
 
-        static function addDish(PDO $db, array $dish){
+        function add(PDO $db, string $category){
             $query = 'INSERT INTO dish VALUES(NULL, ?, ?, ?, ?)';
 
-            executeQuery($db, $query, $dish);
+            executeQuery($db, $query, array($this->name, $this->price, $category, $this->restaurantId));
         }
     }
 

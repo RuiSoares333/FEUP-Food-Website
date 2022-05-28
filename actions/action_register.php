@@ -61,7 +61,11 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    Costumer::register($db, $_POST['username'], $_POST['name'], $_POST['email'], $_POST['password'], $_POST['address'], $_POST['phone']);
+    $costumer = new Costumer(
+        $_POST['username'], $_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone'], false
+    );
+
+    $costumer->register($db, $_POST['password']);
 
     header('Location: /../pages/login.php');
 ?>

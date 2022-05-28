@@ -15,17 +15,19 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
+    $costumer = Costumer::getCostumer($db, $session->getId());
 
-    if(!Costumer::checkOldPassword($db, array($session->getId(), sha1($_POST['oldPassword'])))){
+
+    if(!$costumer->checkOldPassword($db, sha1($_POST['oldPassword']))){
         header('Location:' . $_SERVER['HTTP_REFERER']);
         die;
     }
 
-    if(trim($_POST('newPassword')) === ''){
+    if(trim($_POST['newPassword']) === ''){
         $session->addMessage('error', 'New Password must not be empty');
     }
 
-    Costumer::updatePassword($db, array(sha1($_POST['newPassword']), $session->getId()));
+    $costumer->updatePassword($db, sha1($_POST['newPassword']));
 
     include(__DIR__ . '/../actions/action_logout.php');
     header('Location: ../pages/login.php');

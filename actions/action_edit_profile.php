@@ -34,7 +34,17 @@
         $session->addMessage('error', 'can I get your phone number, friend?');
     }
 
-    Costumer::updateUser($db, $session->getId(), $_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone']);
+    $costumer = Costumer::getCostumer($db, $session->getId());
+
+    $costumer->name = $_POST['name'];
+    $costumer->email = $_POST['email'];
+    $costumer->address = $_POST['address'];
+    $costumer->phoneNumber = $_POST['phone'];
+
+    $costumer->save($db);
+
+    $session->setName($costumer->name);
+    $session->addMessage('success', 'Account update successful!');
 
     header('Location: ../pages/profile.php');
 ?>

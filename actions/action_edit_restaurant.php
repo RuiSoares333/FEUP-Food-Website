@@ -40,8 +40,14 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
+    $restaurant->name = trim($_POST['name']);
+    $restaurant->address = trim($_POST['address']);
+    $restaurant->category = trim($_POST['category']);
+    $restaurant->phone = trim($_POST['phone']);
 
-    Restaurant::updateRestaurant($db, array($_POST['name'], $_POST['address'], $_POST['category'], $_POST['phone'], intval($_GET['id'])));
+    $restaurant->save($db);
 
-    header('Location: ../pages/restaurant.php?id=' . $_GET['id']);
+    $session->addMessage('success', 'Your restaurant has been updated!');
+
+    header('Location: ../pages/restaurant.php?id=' . $restaurant->id);
 ?>

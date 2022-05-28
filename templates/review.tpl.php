@@ -7,6 +7,7 @@
         <article data-review-id = <?= $review->id?>>
             <p><?=$name?></p>
             <p>@<?= $review->username?></p>
+            <p><?=date('j/n/Y',$review->date)?></p>
             <h5><?=$review->rating?>/10</h5>
             <p><?=$review->comment?></p>
         </article> 

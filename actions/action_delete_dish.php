@@ -20,7 +20,7 @@
     if($restaurant->owner !== $session->getId())
         die(header('Location: /'));
 
-    Dish::deleteDish($db, $dish->id);
+    $dish->deleteDish($db);
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>

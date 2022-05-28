@@ -20,12 +20,14 @@
         $session->addMessage('error', 'please enter a rating');
     }
 
-    if(trim($_POST['review']) !== ''){
-       Review::addReviewWithComment($db, array(intval($_GET['id']), $_SESSION['id'], intval($_POST['rating']), trim($_POST['review'])));
-    }
-    else{
-        Review::addReview($db, array(intval($_GET['id']), $_SESSION['id'], intval($_POST['rating'])));
-    }
+    $review = new Review(
+        1,
+        $session->getId(),
+        intval($_POST['rating']),
+        trim($_POST['review']) !== '' ? trim($_POST['review']) : null
+    );
+
+    $review->add($db, intval($_GET['id']));
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>

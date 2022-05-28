@@ -16,7 +16,7 @@
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    if($restaurant->owner !== $session->getId)
+    if($restaurant->owner !== $session->getId())
         die(header('Location: /'));
 
     if(trim($_POST['name']) === ''){
@@ -34,7 +34,16 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    Dish::addDish($db, array($_POST['name'], intval($_POST['price']), $_POST['category'], $_GET['id']));
+    $dish = new Dish(
+        1,
+        $_POST['name'],
+        intval($_POST['price']),
+        intval($_GET['id'])
+    );
+
+    $dish->add($db, $_POST['category']);
+
+    $session->addMessage('success', 'Dish created successfully!');
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>

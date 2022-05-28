@@ -6,20 +6,15 @@
 
     require_once(__DIR__ . '/../utils/session.php');
 
-    if(strcmp($_SERVER['REQUEST_METHOD'], "POST") !== 0){
-        header("Location: /");
-        die;
-    }
-
-    $db = getDBConnection(__DIR__ . '/../database/data.db');
-
-    $costumer = Costumer::getCostumerWithPassword($db, $_POST['email'], $_POST['password']);
-
     $session = new Session();
 
     if($session->isLoggedin()){
         header('Location: ../pages/index.php');
     }
+
+    $db = getDBConnection(__DIR__ . '/../database/data.db');
+
+    $costumer = Costumer::getCostumerWithPassword($db, $_POST['username'], $_POST['password']);
 
     if($costumer){
         if($costumer->isOwner()){
@@ -27,8 +22,10 @@
         }
         $session->setId($costumer->username);
         $session->setName($costumer->name);
+        $session->addMessage('success', 'Login successful!');
     }
     else{
+        $session->addMessage('error', 'Wrong password!');
         header('Location:' . $_SERVER['HTTP_REFERER']);
         die;
     }
