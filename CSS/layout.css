@@ -112,46 +112,6 @@ header > h1 {
     padding: 1em;
 }
 
-
-#search{
-    grid-area: srch;
-    height: 8em;
-    display: grid;
-    grid-template-rows: 5em 3em /*3em*/;
-}
-
-#search .order, #search h5{
-    margin: auto;
-}
-
-#search a{
-    margin: -.5em auto 0em auto;
-}
-
-#search form{
-    display: grid;
-    grid-template-columns: 85% 15%;
-    column-gap: 1em;
-}
-
-#search form button{
-    justify-self: start;
-}
-
-#search form input{
-    justify-self: end;
-}
-
-#bestRestaurants{
-    grid-area: best;
-    display: grid;
-    grid-template-rows: 15.7068062827% 84.2931937173%;
-    grid-template-columns: 93.0143206427% 6.98567935732%;
-    grid-template-areas: 
-    "title btns"
-    "sli sli";
-}
-
 #close{
     grid-area: api;
 }
@@ -208,83 +168,6 @@ footer{
     margin: 1.5em 0 0 30em;
 }
 
-/* Mini Restaurant Preview */
-
-#slides{
-    grid-area: sli;
-}
-
-.miniPreview{
-    display: grid;
-    grid-template-rows: 9em 1.25em 2.65em 2em 1em;
-    grid-template-columns: 86.1244019139% 13.8755980861%;
-    grid-template-areas:
-    "ig ig"
-    "catg ."
-    "name rating"
-    "addr ."
-    "avgPrice .";
-    padding: 0em 0.4em;
-}
-
-.miniPreview *{
-    margin: 0;
-}
-
-
-#bestRestaurants h1{
-    grid-area: title;
-    margin: auto auto auto 0.5em;
-}
-
-.miniPreview :nth-child(1){
-    grid-area: ig;
-    padding: 0.3em 0em 0.3em 0em;
-}
-
-.miniPreview :nth-child(2){
-    grid-area: catg;
-}
-
-.miniPreview :nth-child(3){
-    grid-area: name;
-}
-
-.miniPreview :nth-child(4){
-    grid-area: rating;
-    margin-left: -1em;
-}
-
-.miniPreview :nth-child(5){
-    grid-area: addr;
-}
-
-.miniPreview :nth-child(6){
-    grid-area: avgPrice;
-}
-
-.slide-content{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-}
-
-#controls{
-    grid-area: btns;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: "btn1 btn2";
-    column-gap: 0.25em;
-}
-
-#slide1:checked ~ #controls label:nth-child(2),
-#slide2:checked ~ #controls label:nth-child(1){
-    grid-area:btn2;
-}
-
-#slide1:checked ~ #controls label:nth-last-child(2),
-#slide2:checked ~ #controls label:nth-last-child(2){
-    grid-area: btn1;
-}
 
 #restaurant article{
     display: grid;

@@ -10,3 +10,55 @@
 }
 
 /* mainDiv */
+
+
+/* Mini Preview */
+
+#bestRestaurants input[type=radio] {
+    display: none;
+ }
+
+#controls label {
+    cursor:pointer;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    background-color: rgba(0, 0, 0, 0.300);
+    opacity: .4;
+    border-radius: 0.25em;
+}
+
+#controls label:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.200);
+    border-radius: 0.25em;
+}
+
+#slide1:checked ~ #controls label:nth-child(2),
+#slide2:checked ~ #controls label:nth-child(1){
+    color: #000;
+}
+ 
+ #slide1:checked ~ #controls label:nth-last-child(2),
+ #slide2:checked ~ #controls label:nth-last-child(2){
+    color: #000;
+    transform: rotate(180deg);
+}
+
+
+.miniPreview:hover{
+    background-color: #0000002d;
+    border-radius: 0.5em;
+}
+
+.miniPreview > :nth-child(2){
+    font-size: 65%;
+}
+
+.miniPreview > :nth-child(3){
+    font-weight: bold;
+    font-size: 85%;
+}
+
+.miniPreview > :nth-child(4), .miniPreview > :nth-child(5), .miniPreview > :nth-child(6){
+    font-size: 75%;
+}

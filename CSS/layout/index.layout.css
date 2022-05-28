@@ -19,3 +19,134 @@
     display: flex;
     flex-direction: column;
 }
+
+/* search */
+
+#search{
+    height: 8em;
+    display: flex;
+    flex-direction: column;
+}
+
+#search .order, #search .RegisterLink{
+    margin: 0 auto;
+}
+
+#search .RegisterLink h5{
+    margin: 0;
+}
+
+/* Best Restaurants */
+
+#bestRestaurants{
+    display: grid;
+    grid-template-rows: 15.7% 84.3%;
+    grid-template-columns: 93% 7%;
+    grid-template-areas: 
+    "title btns"
+    "sli sli";
+}
+
+#bestRestaurants > h1{
+    grid-area: title;
+    margin: auto auto auto 0.5em;
+}
+
+#controls{
+    grid-area: btns;
+    display: flex;
+    column-gap: 25%;
+}
+
+#controls label {
+    margin: 0.5em auto 0.5em -0.5em;
+    padding: 0.45em;
+}
+
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
+#slides{
+    grid-area: sli;
+}
+
+#slides .slide {
+    width: 25%;
+    float:left;
+}
+
+#slide1:checked ~ #slides .inner {
+    margin-left: 0;
+}
+
+#slide2:checked ~ #slides .inner {
+    margin-left: -100%;
+}
+
+#slides .inner{
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    height: 15.9em;
+}
+
+.slide-content{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+.miniPreview{
+    display: grid;
+    grid-template-rows: 55% 7.5% 15% 15% 7.5%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+    "ig ig"
+    "catg ."
+    "name rating"
+    "addr ."
+    "avgPrice .";
+    padding: 0 5%;
+}
+
+.miniPreview *{
+    margin: 0;
+    padding: 0;
+}
+
+.miniPreview > :nth-child(1){
+    grid-area: ig;
+    width: 100%;
+    height: 85%;
+    margin: auto 0;
+}
+
+.miniPreview img{
+    border-radius: 0.5em;
+    width: 100%;
+    height: 100%;
+}
+
+.miniPreview > :nth-child(2){
+    grid-area: catg;
+    margin-top: -8%
+}
+
+.miniPreview > :nth-child(3){
+    grid-area: name;
+}
+
+.miniPreview > :nth-child(4){
+    grid-area: rating;
+    margin-left: -40%;
+}
+
+.miniPreview > :nth-child(5){
+    grid-area: addr;
+    margin: auto 0;
+}
+
+.miniPreview > :nth-child(6){
+    grid-area: avgPrice;
+}
