@@ -31,8 +31,6 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
 
 /* register and login */
 
-
-
 #loginForm button, #registerForm button{
     background-color: #EBFFF1;
     color: rgba(60,129,78,1);
@@ -96,7 +94,3 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
 .sort #prc{
     margin-left: 3em;
 }
-/*
-#mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article span{
-    text-transform:none;
-}*/

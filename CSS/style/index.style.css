@@ -62,3 +62,22 @@
 .miniPreview > :nth-child(4), .miniPreview > :nth-child(5), .miniPreview > :nth-child(6){
     font-size: 75%;
 }
+
+/* Footer */
+
+footer{
+    background-color: #2C2C2C;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.devTeam{
+    text-align: center;
+}
+
+.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
+    font-weight: bold;
+}
+
+footer{
+    font-size: 75%;
+}

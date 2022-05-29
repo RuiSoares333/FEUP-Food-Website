@@ -5,7 +5,8 @@
     function outputHead() { 
     $styleFiles = array('../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
                         '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
-                        '../CSS/layout/register.layout.css', '../CSS/style/register.style.css');
+                        '../CSS/layout/register.layout.css', '../CSS/style/register.style.css',
+                        '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css');
                         ?>
     <!DOCTYPE html>
     <html lang="en-US">

@@ -3,7 +3,6 @@
     height: 25em;
 }
 
-
 #mainDiv.restaurant #dishes section article :nth-child(1){
     border-radius: 25%;
     width: 95%;

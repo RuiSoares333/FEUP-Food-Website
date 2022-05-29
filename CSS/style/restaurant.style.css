@@ -1,0 +1,67 @@
+#mainDiv.restaurant #dishes h1{
+    font-size: 150%;
+    border-bottom: 2px solid black;
+}
+
+#mainDiv.restaurant #dishes section article:hover{
+    background-color: #00000044;
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+#mainDiv.restaurant #dishes section article p{
+    color: white;
+    text-shadow: .2em .2em .3em black;
+    -webkit-text-stroke: .5px black;
+    font-weight: bold;
+}
+
+#mainDiv.restaurant #reviews article > p{
+    background-color:#DEDEDE;
+    border-radius: 1em;
+    border: 1px solid black;
+}
+
+
+/* Reviews */
+
+#mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article p b{
+    text-transform: none;
+}
+
+
+/* New Review */
+
+#mainDiv.restaurant #newReview #reviewForm #review{
+    resize: none;
+    border-radius: 0.75em 0.75em 0.75em 0.75em;
+    border: 1px solid #00000088;
+    background-color: #DEDEDE;
+    text-transform: none;
+}
+
+#mainDiv.restaurant #newReview #reviewForm #review::placeholder{
+    text-transform: capitalize;
+}
+
+#mainDiv.restaurant #newReview #reviewForm #review:focus{
+    outline: none;
+}
+
+#mainDiv.restaurant #newReview #reviewForm button{
+    background-color: #4B9F6D;
+    border: 0;
+    border-radius: 5em;
+}
+
+#mainDiv.restaurant #newReview #reviewForm button:hover{
+    background-color: #51BD7E;
+}
+
+#reviewForm > p:nth-child(2){
+    font-weight: bold;
+}
+
+#reviewForm > p:nth-child(3){
+    color: #00000088;
+}

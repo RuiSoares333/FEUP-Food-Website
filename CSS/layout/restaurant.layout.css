@@ -1,0 +1,143 @@
+#mainDiv.restaurant{
+    display:flex;
+    flex-direction: column;
+    padding:0;
+}
+
+#mainDiv.restaurant > *:not(#restaurant){
+    padding: 1em;
+}
+
+
+/* Intro */
+
+#restaurant article{
+    display: flex;
+    flex-direction: column;
+}
+
+#restaurant article *{
+    margin: auto;
+}
+
+#restaurant article :nth-child(2){
+    font-size: 250%;
+    font-weight: bold;
+}
+
+#restaurant article :nth-child(3){
+    font-size: 175%;
+}
+
+#restaurant article :nth-child(4){
+    font-size: 125%;
+}
+
+
+/* Dishes */
+
+#mainDiv.restaurant #dishes section{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    margin-top: 4em;
+}
+
+#mainDiv.restaurant #dishes section article{
+    width: 98%;
+}
+
+#mainDiv.restaurant #dishes section article *{
+    padding-top: 0.25em;
+    padding-left: 0.25em;
+}
+
+
+#mainDiv.restaurant #dishes h1{
+    position: absolute;
+    margin-top: -2em;
+    width: 60%
+}
+
+#mainDiv.restaurant #dishes section article{
+    position: relative;
+    margin: 0;
+}
+
+#mainDiv.restaurant #dishes section article :nth-child(2){
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    max-width: 90%;
+    max-height: 10%
+}
+
+#mainDiv.restaurant #dishes section article :nth-child(3){
+    position: absolute;
+    bottom: 27.5%;
+    left: 5%;
+}
+
+#mainDiv.restaurant #reviews article > p{
+    padding: 0.5em;
+    margin-top: 0.25em;
+    margin-bottom: 1.25em;
+}
+
+
+/* Reviews */
+
+#mainDiv.restaurant #reviews article{
+    display: flex;
+    flex-direction: column;
+}
+
+#mainDiv.restaurant #reviews article div{
+    display:flex;
+    align-content: space-between;
+}
+
+#mainDiv.restaurant #reviews article div :last-child{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#mainDiv.restaurant #reviews article div *{
+    margin: 0;
+}
+
+#mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article p b{
+    text-transform: none;
+}
+
+
+/* New Review */
+
+#mainDiv.restaurant #newReview form{
+    display: grid;
+    grid-template-columns: 9.5% 10% auto;
+    grid-template-areas: 
+    "st1 st2 st3"
+    "cmt cmt cmt"
+    "btn btn btn";
+}
+
+#mainDiv.restaurant #newReview #reviewForm select{
+    grid-area: st3;
+}
+
+#mainDiv.restaurant #newReview #reviewForm #review{
+    grid-area: cmt;
+    border-radius: 0.75em 0.75em 0.75em 0.75em;
+    padding-left: 1%;
+    margin-top: 1em;
+}
+
+#mainDiv.restaurant #newReview #reviewForm button{
+    grid-area: btn;
+    margin: 1.5em 0;
+    height: 50%;
+}
+
+#mainDiv.restaurant #newReview #reviewForm p{
+    margin: 0;
+}
