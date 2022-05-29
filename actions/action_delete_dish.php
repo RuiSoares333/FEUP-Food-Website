@@ -5,9 +5,11 @@
     require_once(__DIR__ . '/../database/dish.class.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
-    session_start();
+    require_once(__DIR__ . '/../utils/session.php');
 
-    if(!isset($_SESSION['id']))
+    $session = new Session();
+
+    if(!$session->isLoggedin())
         die(header('Location: /'));
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
@@ -15,10 +17,10 @@
     $dish = Dish::getDish($db, intval($_GET['id']));
     $restaurant = Restaurant::getRestaurant($db, $dish->restaurantId);
 
-    if($restaurant->owner !== $_SESSION['id'])
+    if($restaurant->owner !== $session->getId())
         die(header('Location: /'));
 
-    Dish::deleteDish($db, $dish->id);
+    $dish->deleteDish($db);
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>

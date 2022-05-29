@@ -4,16 +4,47 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
-    session_start();
+    require_once(__DIR__ . '/../utils/session.php');
 
-    if(!isset($_SESSION['id'])){
+    $session = new Session();
+
+    if(!$session->isLoggedin()){
         header('Location: ../pages/index.php');
         die;
     }
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    Costumer::updateUser($db, $_SESSION['id'], $_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone']);
+    if(trim($_POST['name']) === ''){
+        $session->addMessage('error', 'You need a name');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(trim($_POST['email']) === ''){
+        $session->addMessage('error', 'Please enter an email address');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(trim($_POST['address']) === ''){
+        $session->addMessage('error', 'home address, NOW!');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(trim($_POST['phone']) === ''){
+        $session->addMessage('error', 'can I get your phone number, friend?');
+    }
+
+    $costumer = Costumer::getCostumer($db, $session->getId());
+
+    $costumer->name = $_POST['name'];
+    $costumer->email = $_POST['email'];
+    $costumer->address = $_POST['address'];
+    $costumer->phoneNumber = $_POST['phone'];
+
+    $costumer->save($db);
+
+    $session->setName($costumer->name);
+    $session->addMessage('success', 'Account update successful!');
 
     header('Location: ../pages/profile.php');
 ?>

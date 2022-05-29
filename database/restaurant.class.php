@@ -139,10 +139,10 @@
             });
         } 
         
-        static function updateRestaurant(PDO $db, array $newInfo){
+        function save(PDO $db){
             $query = 'UPDATE Restaurant SET name = ?, address = ?, category = ?, phone = ? WHERE id = ?';
 
-            executeQuery($db, $query, $newInfo);
+            executeQuery($db, $query, array($this->name, $this->address, $this->category, $this->phone, $this->id));
         }
 
     }

@@ -7,15 +7,16 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
-    session_start();
+    require_once(__DIR__ . '/../utils/session.php');
+
+    $session = new Session();
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     $restaurants = Restaurant::getBestRestaurants($db);
 
     outputHead();
-    session_start();
-    outputHeader();
+    outputHeader($session);
     outputSideMenu();
     outputAds();
 ?>        

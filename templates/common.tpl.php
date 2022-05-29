@@ -30,16 +30,15 @@
 ?>
 
 <?php
-    function outputHeader() { ?>
+    function outputHeader(Session $session) { ?>
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
                 <form action = "../pages/restaurants.php" method = "POST" class = "search">
                     <input class = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
                 </form> <?php
-                    if(isset($_SESSION['id'])){ ?>
+                    if($session->isLoggedin()){ ?>
                         <div class="dropdown">
-                            
                             <img src="https://picsum.photos/50/50" for="">
                             <div class="dropdown-content">
                                 <a href= "../pages/profile.php">Profile</a>
@@ -51,7 +50,16 @@
                     <?php } else {?>
                         <a href = "../pages/login.php">Login</a>
                 <?php } ?>
+            </div>
+            
+            <section id ="messages">
+            <?php foreach($session->getMessages() as $message) {?>
+                <article class = "<?=$message['type']?>">
+                    <?=$message['text']?>
+                </article>
+                <?php } ?>
             </section>
+            
         </header>
     <?php }
 ?>

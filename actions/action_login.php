@@ -4,29 +4,28 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
-    if(strcmp($_SERVER['REQUEST_METHOD'], "POST") !== 0){
-        header("Location: /");
-        die;
+    require_once(__DIR__ . '/../utils/session.php');
+
+    $session = new Session();
+
+    if($session->isLoggedin()){
+        header('Location: ../pages/index.php');
     }
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $costumer = Costumer::getCostumerWithPassword($db, $_POST['email'], $_POST['password']);
-
-    session_start();
-
-    if(isset($_SESSION['id'])){
-        header('Location: ../pages/index.php');
-    }
+    $costumer = Costumer::getCostumerWithPassword($db, $_POST['username'], $_POST['password']);
 
     if($costumer){
         if($costumer->isOwner()){
-            $_SESSION['restaurants'] = $costumer->getOwnedRestaurants($db);
+            $session->setOwnedRestaurants($costumer->getOwnedRestaurants($db));
         }
-        $_SESSION['id'] = $costumer->username;
-        $_SESSION['name'] = $costumer->name;
+        $session->setId($costumer->username);
+        $session->setName($costumer->name);
+        $session->addMessage('success', 'Login successful!');
     }
     else{
+        $session->addMessage('error', 'Wrong password!');
         header('Location:' . $_SERVER['HTTP_REFERER']);
         die;
     }

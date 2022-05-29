@@ -6,7 +6,7 @@
         <p id="square"></p>
         <h1>Login</h1>
         <form id="loginForm">
-            <input type="text" name="email" placeholder="email" required>
+            <input type="text" name="username" placeholder="username" required>
             <input type="password" name="password" placeholder="password" required>
             <input type="hidden" name = "referer" value="<?=$_SERVER['HTTP_REFERER']?>">
             <button formaction="../actions/action_login.php" formmethod="post">Login</button>
