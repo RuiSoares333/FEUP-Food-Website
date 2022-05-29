@@ -7,19 +7,21 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
-    session_start();
+    require_once(__DIR__ . '/../utils/session.php');
 
-    if(!isset($_SESSION['id'])){
+    $session = new Session();
+
+    if(!$session->isLoggedin()){
         header('Location: ../pages/login.php');
         die;
     }
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $costumer = Costumer::getCostumer($db, $_SESSION['id']);
+    $costumer = Costumer::getCostumer($db, $session->getId());
 
     outputHead();
-    outputHeader();
+    outputHeader($session);
     outputSideMenu();
     outputAds();
     ?> <div id = "mainDiv" class ="edit_profile"> <?php

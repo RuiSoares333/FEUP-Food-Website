@@ -4,9 +4,11 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
-    session_start();
+    require_once(__DIR__ . '/../utils/session.php');
 
-    if(!isset($_SESSION['id'])){
+    $session = new Session();
+
+    if(!$session->isLoggedin()){
         die(header('Location: /'));
     }
 
@@ -14,11 +16,38 @@
     
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    if($restaurant->owner !== $_SESSION['id']){
+    if($restaurant->owner !== $session->getid()){
         die(header('Location: /'));
     }
 
-    Restaurant::updateRestaurant($db, array($_POST['name'], $_POST['address'], $_POST['category'], $_POST['phone'], intval($_GET['id'])));
+    if(trim($_POST['name']) === ''){
+        $session->addMessage('error', 'restaurant needs a name');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
 
-    header('Location: ../pages/restaurant.php?id=' . $_GET['id']);
+    if(trim($_POST['address']) === ''){
+        $session->addMessage('error', 'where is your restaurant located?');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(trim($_POST['category']) === ''){
+        $session->addMessage('error', 'what type of restaurant do you have?');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(trim($_POST['phone']) === ''){
+        $session->addMessage('error', 'what\' your restaurant\s phone number?');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    $restaurant->name = trim($_POST['name']);
+    $restaurant->address = trim($_POST['address']);
+    $restaurant->category = trim($_POST['category']);
+    $restaurant->phone = trim($_POST['phone']);
+
+    $restaurant->save($db);
+
+    $session->addMessage('success', 'Your restaurant has been updated!');
+
+    header('Location: ../pages/restaurant.php?id=' . $restaurant->id);
 ?>

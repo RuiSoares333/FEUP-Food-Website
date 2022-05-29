@@ -19,21 +19,30 @@
 ?>
 
 <?php
-    function outputHeader() { ?>
+    function outputHeader(Session $session) { ?>
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
                 <form action = "../pages/restaurants.php" method = "POST" class = "search">
                     <input class = "search" type="text" placeholder="Search...">
                 </form> <?php
-                    if(isset($_SESSION['id'])){ ?>
+                    if($session->isLoggedin()){ ?>
                         <a href= "../pages/profile.php"></a>
                         <a href = "../actions/action_logout.php">Logout</a>
                         <a href = "../pages/cart.php"></a>
                     <?php } else {?>
                         <a href = "../pages/login.php">Login</a>
                 <?php } ?>
+            </div>
+            
+            <section id ="messages">
+            <?php foreach($session->getMessages() as $message) {?>
+                <article class = "<?=$message['type']?>">
+                    <?=$message['text']?>
+                </article>
+                <?php } ?>
             </section>
+            
         </header>
     <?php }
 ?>

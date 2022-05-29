@@ -9,20 +9,22 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
+    require_once(__DIR__ . '/../utils/session.php');
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    session_start();
+    $session = new Session();
 
-    if(!isset($_SESSION['id']))
+    if(!$session->isLoggedin())
         header('Location: /../pages/login.php');
 
-    $costumer = Costumer::getCostumer($db, $_SESSION['id']);
+    $costumer = Costumer::getCostumer($db, $session->getId());
 
     $restaurants = $costumer->getFavoriteRestaurants($db);
     $dishes = $costumer->getFavoriteDishes($db);
 
     outputHead();
-    outputHeader();
+    outputHeader($session);
     outputSideMenu();
     outputAds();
 ?>

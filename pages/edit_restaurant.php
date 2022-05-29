@@ -1,12 +1,6 @@
 <?php
     declare(strict_types = 1);
 
-    session_start();
-
-    if(!isset($_SESSION['id'])){
-        header('Location: ../pages/login.php');
-    }
-
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
@@ -16,13 +10,17 @@
     require_once(__DIR__ . '/../templates/form.tpl.php');
     require_once(__DIR__ . '/../templates/dish.tpl.php');
 
+    require_once(__DIR__ . '/../utils/session.php');
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    if(!isset($_SESSION['id'])){
-        die(header('Location: /'));
+    $session = new Session();
+
+    if(!$session->isLoggedin()){
+        die(header('Location: ../pages/login.php'));
     }
 
-    $owner = Costumer::getCostumer($db, $_SESSION['id']);
+    $owner = Costumer::getCostumer($db, $session->getId());
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
@@ -33,7 +31,7 @@
     }
 
     outputHead();
-    outputHeader();
+    outputHeader($session);
     outputSideMenu();
     outputAds();
     ?> <div id ="mainDiv" class ="editRestaurant"> <?php
