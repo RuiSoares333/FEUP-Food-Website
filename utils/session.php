@@ -44,7 +44,7 @@
             $_SESSION['messages'][] = array('type' => $type, 'text' => $text);
         }
 
-        public function getMessages() {
+        public function getMessages() : array {
             return $this->messages;
         }
     }

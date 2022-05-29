@@ -12,16 +12,19 @@
     require_once(__DIR__ . '/../database/dish.class.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
+    require_once(__DIR__ . '/../utils/session.php');
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    session_start();
+    $session = new Session();
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
-    if(isset($_SESSION['id']))
-        $user = Costumer::getCostumer($db, $_SESSION['id']);
+
+    if($session->isLoggedin())
+        $user = Costumer::getCostumer($db, $session->getId());
 
     outputHead();
-    outputHeader();
+    outputHeader($session);
     outputAds();
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php
@@ -33,7 +36,7 @@
     }
     ?></section> <?php
     outputReviews($restaurant->reviews, $db);
-    if(isset($_SESSION['id']))
+    if($session->isLoggedin())
         outputReviewForm();
     ?> </div> <?php   
     outputFooter();
