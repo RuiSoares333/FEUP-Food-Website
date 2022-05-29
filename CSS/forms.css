@@ -11,16 +11,6 @@ input:focus{
     background-color: #51BD7E;
 }
 
-.price:before {
-    font-size: 1.80em;
-    content:'\2197';
-}
-
-#price:checked + .price:before {
-    font-size: 1.80em;
-    content:'\2199';
-}
-
 input[type="text"], input[type="password"], input[type="email"], input[type="phonenumber"], input[type="address"]{
     background-color: #DEDEDE;
     border: 0;
@@ -40,57 +30,4 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
 
 #registerForm #continue:hover{
     background-color: #51BD7E;
-}
-
-.sort *{
-    margin: 1em auto;
-}
-
-.sort select{
-    margin-top: 1.5em;
-}
-
-.sort .price{
-    padding-right: 6.5em;
-    margin-top: 0.5em;
-}
-
-.sort input{
-    width: 16.75em;
-    height: 1.5em;
-    border-radius: 1em;
-}
-
-.sort button{
-    width: 45%;
-    height: 2em;
-    background-color: #4B9F6D;
-    border-radius: 1em;
-    border: 0;
-    margin-left: 25%;
-}
-
-.sort select{
-    border-radius: 1em;
-    height: 1.5em;
-    width: 10em;
-    background-color: #DEDEDE;
-    cursor: pointer;
-    text-align: center;
-}
-
-.sort select, .sort option{
-    border: 0;
-}
-
-.sort option{
-    border-radius: 1em;
-}
-
-.sort #rating{
-    padding-left: 1.6em;
-}
-
-.sort #prc{
-    margin-left: 3em;
 }

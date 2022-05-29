@@ -6,7 +6,8 @@
     $styleFiles = array('../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
                         '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
                         '../CSS/layout/register.layout.css', '../CSS/style/register.style.css',
-                        '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css');
+                        '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css',
+                        '../CSS/layout/search.layout.css', '../CSS/style/search.style.css');
                         ?>
     <!DOCTYPE html>
     <html lang="en-US">
@@ -34,7 +35,7 @@
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
-                <form action = "../pages/restaurants.php" method = "POST" class = "search">
+                <form action = "../pages/search.php" method = "POST" class = "search">
                     <input class = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
                 </form> <?php
                     if($session->isLoggedin()){ ?>
@@ -176,13 +177,9 @@
                 if(isset($_SESSION['id'])){ ?>
                     <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
                 <?php } else { ?>
-                    <a class = "order" href="../pages/restaurants.php"><button><h2>Order Now!</h2></button></a>
+                    <a class = "order" href="../pages/search.php"><button><h2>Order Now!</h2></button></a>
+                    <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
                 <?php } ?>
-                <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
-                <!--<form action="#">
-                    <input type ="text" placeholder="Cuisine, Restaurant name, ...">
-                    <button formaction = "../pages/restaurants.php" type ="submit" name="search">Search</button>
-                </form>-->
             </section>
     <?php }
 ?>

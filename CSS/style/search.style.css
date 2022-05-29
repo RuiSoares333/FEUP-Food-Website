@@ -1,0 +1,26 @@
+#side-menu.sort input{
+    border-radius: 1em;
+}
+
+#side-menu.sort button{
+    background-color: #4B9F6D;
+    border-radius: 1em;
+    border: 0;
+}
+
+#side-menu.sort select{
+    border-radius: 1em;
+    background-color: #DEDEDE;
+    cursor: pointer;
+    text-align: center;
+}
+
+.price:before {
+    font-size: 1.80em;
+    content:'\2197';
+}
+
+#price:checked + .price:before {
+    font-size: 1.80em;
+    content:'\2199';
+}

@@ -136,21 +136,6 @@ a{
     border-radius: 5em;
 }
 
-#search form button{
-    width: 6em;
-    height: 95%;
-    border: none;
-    padding: 0;
-    background-color:#4B9F6D;
-    border-radius: 1em;
-}
-
-#search form input{
-    width: 95%;
-    height: 90%;
-    border-radius:0.5em;
-}
-
 #side-menu.restaurant li{
     font-weight: bold;
     font-size: 150%;

@@ -20,19 +20,6 @@
     margin: auto;
 }
 
-#restaurant article :nth-child(2){
-    font-size: 250%;
-    font-weight: bold;
-}
-
-#restaurant article :nth-child(3){
-    font-size: 175%;
-}
-
-#restaurant article :nth-child(4){
-    font-size: 125%;
-}
-
 
 /* Dishes */
 
