@@ -1,35 +1,43 @@
 CREATE TABLE User (
-    username VARCHAR PRIMARY KEY,
+    username VARCHAR,
     name VARCHAR NOT NULL,
     email VARCHAR(320) UNIQUE NOT NULL,
     password VARCHAR(40) NOT NULL,
     address VARCHAR,
     phone VARCHAR(9) UNIQUE,
-    owner BOOLEAN DEFAULT FALSE
+    owner BOOLEAN DEFAULT FALSE,
+    CONSTRAINT PK_User PRIMARY KEY (username)
 );
 
 CREATE TABLE Restaurant (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER,
     name VARCHAR,
     address VARCHAR,
     category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican')),
     phone VARCHAR(9),
-    ownerId VARCHAR REFERENCES User(username)
+    ownerId VARCHAR,
+    CONSTRAINT PK_Restaurant PRIMARY KEY (id),
+    FOREIGN KEY (ownerId) REFERENCES User(username)
+            ON DELETE CASCADE 
 );
 
 CREATE TABLE Dish (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER,
     name VARCHAR NOT NULL,
     price INTEGER NOT NULL,
     category VARCHAR CHECK (category IN ('appetizer', 'drink', 'soup', 'main course', 'dessert')),
-    restaurantId INTEGER REFERENCES Restaurant
+    restaurantId INTEGER,
+    CONSTRAINT PK_Dish PRIMARY KEY (id),
+    FOREIGN KEY (restaurantId) REFERENCES Restaurant(id)
+            ON DELETE CASCADE 
 );
 
 CREATE TABLE Ord (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER,
     username VARCHAR REFERENCES User,
     restaurantId INTEGER REFERENCES Restaurant,
-    state TEXT NOT NULL CHECK (state IN ('received', 'preparing', 'ready', 'delivered'))
+    state TEXT NOT NULL CHECK (state IN ('received', 'preparing', 'ready', 'delivered')),
+    CONSTRAINT PK_Order PRIMARY KEY (id)
 );
 
 CREATE TABLE OrderDish (
@@ -39,24 +47,37 @@ CREATE TABLE OrderDish (
 );
 
 CREATE TABLE Review (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    restaurantId INTEGER REFERENCES Restaurant (id),
-    username VARCHAR REFERENCES User (username),
+    id INTEGER,
+    restaurantId INTEGER,
+    username VARCHAR,
     rating INTEGER NOT NULL, 
     published INTEGER,
-    comment VARCHAR
+    comment VARCHAR,
+    CONSTRAINT PK_Review PRIMARY KEY (id),
+    FOREIGN KEY (restaurantId) REFERENCES Restaurant (id)
+            ON DELETE CASCADE ,
+    FOREIGN KEY (username) REFERENCES User (username)
+            ON DELETE NO ACTION 
 );
 
 CREATE TABLE FavoriteDish (
-    dishId INTEGER REFERENCES Dish (id),
-    userId VARCHAR REFERENCES User (username),
-    CONSTRAINT FavoriteDish_ID PRIMARY KEY(dishId, userId)
+    dishId INTEGER,
+    userId VARCHAR,
+    CONSTRAINT FavoriteDish_ID PRIMARY KEY(dishId, userId),
+    FOREIGN KEY (dishId) REFERENCES Dish(id)
+            ON DELETE CASCADE ,
+    FOREIGN KEY (userId) REFERENCES User(username)
+            ON DELETE CASCADE 
 );
 
 CREATE TABLE FavoriteRestaurant (
-    restaurantId INTEGER REFERENCES Restaurant (id),
-    userId VARCHAR REFERENCES User (username),
-    CONSTRAINT FavoriteRestaurant_ID PRIMARY KEY(restaurantId, userId)
+    restaurantId INTEGER,
+    userId VARCHAR,
+    CONSTRAINT FavoriteRestaurant_ID PRIMARY KEY(restaurantId, userId),
+    FOREIGN KEY (restaurantId) REFERENCES Restaurant(id)
+            ON DELETE CASCADE ,
+    FOREIGN KEY (userId) REFERENCES User(username)
+            ON DELETE CASCADE 
 );
 
 

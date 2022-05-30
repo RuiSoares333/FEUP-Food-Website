@@ -145,6 +145,16 @@
             executeQuery($db, $query, array($this->name, $this->address, $this->category, $this->phone, $this->id));
         }
 
+
+        function delete(PDO $db){
+            $query = 'DELETE FROM Restaurant WHERE id = ?';
+
+            executeQuery($db, $query, array($this->id));
+
+            $query = 'DELETE FROM FavoriteRestaurant WHERE restaurantId = ?';
+
+            executeQuery($db, $query, array($this->id));
+        }
     }
 
     

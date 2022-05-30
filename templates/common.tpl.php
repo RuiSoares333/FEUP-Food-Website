@@ -154,12 +154,11 @@
 ?>
 
 <?php 
-    function outputSearch(){ ?>
+    function outputSearch(Session $session){ ?>
             <section id ="search">
-                <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
-                <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
-                <!--if logged in-->
-                <!--<a class = "order" href="../pages/restaurants.php"><h2>Order Now!</h2></a>-->
+                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/restaurants.php"'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
+                <?php if(!$session->isLoggedin()){?> 
+                <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a> <?php } ?> 
                 <form action="#">
                     <input type ="text" placeholder="Cuisine, Restaurant name, ...">
                     <button formaction = "../pages/restaurants.php" type ="submit" name="search">Search</button>

@@ -141,5 +141,13 @@
             
             return $password === $oldPassword;
         }
+
+        function noLongerOwner(PDO $db){
+            $this->is_owner = false;
+
+            $query = 'UPDATE User set owner = FALSE WHERE username = ?';
+
+            executeQuery($db, $query, array($this->username));
+        }
     }
 ?>

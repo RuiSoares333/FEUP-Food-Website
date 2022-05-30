@@ -4,9 +4,9 @@
     function outputFavoriteDishes(array $dishes) {?>
         <section id="favDishes">
             <h1>Your Favorite Dishes</h1>
-        <?php if($dishes!== array()){
+        <?php if($dishes){
             foreach($dishes as $dish){
-                outputDish($dish);
+                outputFavoriteDish($dish);
             }
         }
         else{
@@ -14,6 +14,16 @@
         }
         ?>
         </section>
+    <?php }
+
+    function outputFavoriteDish(Dish $dish){?>
+        <a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
+        <article data-id = <?= $dish->id?>>
+        <img src = "https://picsum.photos/200?<?= $dish->id?>">
+        <p><?= $dish->name?></p>
+        <p><?= $dish->price?>€</p>
+        </article>
+        </a>
     <?php }
 
     function outputDish(Dish $dish){ ?>
@@ -48,7 +58,7 @@
         <section id ="manageDishes">
             <h1>manage dishes</h1>
             <?php
-            if($dishes === array()){
+            if(!$dishes){
                 echo '<p>Your restaurant currently has no dishes</p>';
             }
             else{
