@@ -1,15 +1,19 @@
 /* side-menu */
 
-#side-menu.index > *{
-    padding-left: 1.40em;
-    padding-top: 0.30em;
+#side-menu.index > a, #side-menu.index > label{
+    padding-left: 7%;
+    padding-top: 1.5%;
+}
+
+#side-menu.index > ul{
+    margin: 0;
 }
 
 #side-menu.index .hamburger {
     display: block;
 }
 
-#side-menu.index li {
+#side-menu.index li{
     max-height: 0;
 }
 
@@ -152,8 +156,6 @@
 }
 
 /* Footer */
-
-/* footer */
 
 footer{
     grid-area: ft;

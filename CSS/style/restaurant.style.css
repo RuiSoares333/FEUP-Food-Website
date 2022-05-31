@@ -26,6 +26,15 @@
     border-bottom: 2px solid black;
 }
 
+#mainDiv.restaurant #dishes section article{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
 #mainDiv.restaurant #dishes section article:hover{
     background-color: #00000044;
     border-radius: 15%;
@@ -72,13 +81,8 @@
 }
 
 #mainDiv.restaurant #newReview #reviewForm button{
-    background-color: #4B9F6D;
     border: 0;
     border-radius: 5em;
-}
-
-#mainDiv.restaurant #newReview #reviewForm button:hover{
-    background-color: #51BD7E;
 }
 
 #reviewForm > p:nth-child(2){
@@ -87,4 +91,11 @@
 
 #reviewForm > p:nth-child(3){
     color: #00000088;
+}
+
+
+/* side-menu */
+
+#side-menu.restaurant li{
+    font-size: 175%
 }

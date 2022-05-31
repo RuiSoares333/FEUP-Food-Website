@@ -2,8 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
 
-body{
-    background-color: #DEDEDE;
+:root {
+    --fundo-cinza: #DEDEDE;
+    --fundo-branco: #F3F3F3;
+    --fundo-preto: #2C2C2C;
+    --branco-preto: rgba(255, 255, 255, 0.45);
+    --branco-verde: #EBFFF1;
+    --cor-botao: #4B9F6D;
+    --hover-botao: #51BD7E;
 }
 
 ::-webkit-scrollbar {
@@ -12,149 +18,91 @@ body{
 
 html{
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
+body{
+    background-color: var(--fundo-cinza);
+}
+
+#mainDiv, #side-menu, #ads{
+    background-color: var(--fundo-branco);
+}
+
+/* Button */
 
 button{
     font-weight: bold;
     cursor:pointer;
-    color: #EBFFF1;
+    color: var(--branco-verde);
+    background-color: var(--cor-botao);
 }
 
+button:hover {
+    background-color: var(--hover-botao);
+}
 
 /* font */
 
-body, a, input, button, form, body *{
+*{
     font-family: 'Poppins';
     text-transform: uppercase;
 }
 
 a{
     text-decoration: none;
+    color: var(--fundo-preto);
 }
 
-header > h1 > a, .index h2{
-    color: #EBFFF1; 
+header > h1 > a, #topnav > a:nth-child(2){
+    color: var(--branco-verde); 
 }
 
+body > header > h1 > a{
+    font-size: 230%;
+    text-decoration: none;
+}
 
-#mainDiv.index #search .RegisterLink h5{
-    color: #2C2C2C;
+.RegisterLink{
+    color: var(--branco-verde);
     text-decoration: underline;
-}
-
-.login h5{
-    color: #EBFFF1;
 }
 
 /*header*/
 
 header{
     background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
-    color: #EBFFF1;
-    vertical-align: middle;
     box-shadow: 5px 10px 18px #0000003b;
     z-index: 1;
 }
 
-header > h1 > a{
-    font-size: 2.3em;
-    text-decoration: none;
-    color: #EBFFF1;
-}
-
-.search{
+input.search{
     border-radius: 5em;
-}
-
-.dropdown{
-    position: relative;
-    display: inline-block;
-    margin: auto 20% auto auto;
-    height: 60px;
-    width: 60px;
-}
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 11em;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.25);
-    right: 0;
-    margin-top: -0.45em;
-}
-  
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-  
-.dropdown-content a:hover {
-      background-color: #f1f1f1
-}
-  
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown .dropdown-content a{
-      color: #2C2C2C;
+    width: 80%;
 }
 
 /* side Menu */
 
 #side-menu{
-    background-color: #F3F3F3;
     box-shadow: 5px 10px 18px #0000003b;
-}
-
-a{
-    color: #2C2C2C
-}
-
-
-/* ads */
-
-#ads{
-    background-color: #F3F3F3;
-}
-
-
-/* main Div */
-
-#mainDiv{
-    background-color: #F3F3F3;
-}
-
-.order button{
-    background-color: #4B9F6D;
-    border: 0;
-    padding: 0 5em;
-    border-radius: 5em;
-}
-
-#side-menu.restaurant li{
     font-weight: bold;
-    font-size: 150%;
 }
 
-button:hover {
-    background-color: #51BD7E;
+/* Footer */
+
+footer{
+    background-color: var(--fundo-preto);
+    color: var(--branco-preto);
 }
 
-
-
-/* orverhaul */
-
-#hamburger, #price{
-    display: none;
+.devTeam{
+    text-align: center;
 }
 
-#hamburger:checked + .hamburger + ul li{
-    padding: 0.6em 0;
-    opacity: 1;
-    transition: all 1s ease;
+.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
+    font-weight: bold;
+}
+
+footer{
+    font-size: 75%;
 }

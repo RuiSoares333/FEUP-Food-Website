@@ -23,7 +23,7 @@
 #side-menu.sort button{
     grid-area: btn;
     width: 45%;
-    height: 2em;
+    height: 60%;
     margin-left: 25%;
 }
 
