@@ -22,10 +22,14 @@
 
 /* mainDiv */
 
-.order button{
+#search .order button{
     border: 0;
     padding: 0 5em;
     border-radius: 5em;
+}
+
+#search .RegisterLink{
+    color: var(--fundo-preto);
 }
 
 .dropdown{

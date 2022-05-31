@@ -3,15 +3,15 @@ input:focus{
     border: none;   
 }
 
-#mainDiv.login h1, #mainDiv.login #loginForm input, .register :not(#continue), #mainDiv.register #registerForm{
-    color: #EBFFF1;
+#mainDiv.login h1, #mainDiv.login #loginForm input, .register :not(#continue), #mainDiv.register #registerForm, #loginForm > input::placeholder, #registerForm > input::placeholder{
+    color: var(--branco-verde);
 }
 
 #loginForm button:hover{
     background-color: #51BD7E;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="phonenumber"], input[type="address"]{
+input{
     background-color: #DEDEDE;
     border: 0;
     padding-left: 5%;

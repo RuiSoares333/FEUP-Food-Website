@@ -3,7 +3,8 @@
 
     
     function outputHead() { 
-    $styleFiles = array('../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
+    $styleFiles = array('../CSS/style.css', '../CSS/layout.css', '../CSS/forms.css', '../CSS/images.css',
+                        '../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
                         '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
                         '../CSS/layout/register.layout.css', '../CSS/style/register.style.css',
                         '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css',
@@ -15,10 +16,6 @@
             <title>Super Legit Food</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel = "stylesheet" href="../CSS/layout.css">
-            <link rel = "stylesheet" href="../CSS/images.css">
-            <link rel = "stylesheet" href="../CSS/forms.css">
-            <link rel = "stylesheet" href="../CSS/style.css">
             <?php
             foreach($styleFiles as $file){
                 echo '<link rel = "stylesheet" href="'.$file.'">';

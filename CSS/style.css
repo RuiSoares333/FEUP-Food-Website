@@ -63,7 +63,7 @@ body > header > h1 > a{
     text-decoration: none;
 }
 
-.RegisterLink{
+.LoginLink, .RegisterLink{
     color: var(--branco-verde);
     text-decoration: underline;
 }
