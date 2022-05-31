@@ -3,74 +3,23 @@ input:focus{
     border: none;   
 }
 
-#loginForm input, #registerForm input{
-    width: fit-content;
-    height: 2em;
-}
-
-#loginForm button, #registerForm #continue{
-    height: 3em;
-    margin-top: 1em;
-}
-
-#loginForm button{
-    width: 50%;
-}
-
-#registerForm #continue{
-    width: 75%;
-}
-
-.register h1{
-    padding-top: 1em;
-}
-
-.register h5{
-    margin: 0 auto;
-}
-
-.login input::placeholder, .register input::placeholder{
-    text-transform: lowercase;
-}
-
-.login h5{
-    margin-top: -3em;
-}
-
-#mainDiv.login h1, #mainDiv.login #loginForm input, .register :not(#continue), #mainDiv.register #registerForm{
-    color: #EBFFF1;
+#mainDiv.login h1, #mainDiv.login #loginForm input, .register :not(#continue), #mainDiv.register #registerForm, #loginForm > input::placeholder, #registerForm > input::placeholder{
+    color: var(--branco-verde);
 }
 
 #loginForm button:hover{
     background-color: #51BD7E;
 }
 
-.price:before {
-    font-size: 1.80em;
-    content:'\2197';
-}
-
-#price:checked + .price:before {
-    font-size: 1.80em;
-    content:'\2199';
-}
-
-input[type="text"], input[type="password"], input[type="email"], input[type="phonenumber"], input[type="address"]{
+input{
     background-color: #DEDEDE;
     border: 0;
-    padding-left: 0.8em;
-    font-size: 0.9em;
+    padding-left: 5%;
+    font-size: 90%;
     font-weight: bold;
 }
 
 /* register and login */
-
-#loginForm input, #registerForm input{
-    border: none;
-    background-color: transparent;
-    border-bottom: 3px solid #EBFFF1;
-    text-transform: none;
-}
 
 #loginForm button, #registerForm button{
     background-color: #EBFFF1;
@@ -79,69 +28,6 @@ input[type="text"], input[type="password"], input[type="email"], input[type="pho
     border-radius: 2em;
 }
 
-#registerForm #cancel{
-    color: #EBFFF1;
-    background-color: transparent;
-    font-weight: normal;
-}
-
 #registerForm #continue:hover{
-    background-color: #6cffdd;
-}
-
-.sort *{
-    margin: 1em auto;
-}
-
-.sort select{
-    margin-top: 1.5em;
-}
-
-.sort .price{
-    padding-right: 6.5em;
-    margin-top: 0.5em;
-}
-
-.sort input{
-    width: 16.75em;
-    height: 1.5em;
-    border-radius: 1em;
-}
-
-.sort button{
-    width: 45%;
-    height: 2em;
-    background-color: #4B9F6D;
-    border-radius: 1em;
-    border: 0;
-    margin-left: 25%;
-}
-
-.sort select{
-    border-radius: 1em;
-    height: 1.5em;
-    width: 10em;
-    background-color: #DEDEDE;
-    cursor: pointer;
-    text-align: center;
-}
-
-.sort select, .sort option{
-    border: 0;
-}
-
-.sort option{
-    border-radius: 1em;
-}
-
-.sort #rating{
-    padding-left: 1.6em;
-}
-
-.sort #prc{
-    margin-left: 3em;
-}
-
-#mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article span{
-    text-transform:none;
+    background-color: #51BD7E;
 }

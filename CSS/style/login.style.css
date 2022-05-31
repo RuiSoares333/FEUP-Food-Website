@@ -1,0 +1,15 @@
+.login input::placeholder{
+    text-transform: lowercase;
+}
+
+#loginForm input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid #EBFFF1;
+    text-transform: none;
+}
+
+#square{
+    background: linear-gradient(to bottom, #35B557, #3C814E);
+    border-radius: 2em;
+}

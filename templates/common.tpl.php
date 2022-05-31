@@ -1,17 +1,26 @@
 <?php
     declare(strict_types = 1);
+
     
-    function outputHead() { ?>
+    function outputHead() { 
+    $styleFiles = array('../CSS/style.css', '../CSS/layout.css', '../CSS/forms.css', '../CSS/images.css',
+                        '../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
+                        '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
+                        '../CSS/layout/register.layout.css', '../CSS/style/register.style.css',
+                        '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css',
+                        '../CSS/layout/search.layout.css', '../CSS/style/search.style.css');
+                        ?>
     <!DOCTYPE html>
     <html lang="en-US">
         <head>
             <title>Super Legit Food</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel = "stylesheet" href="../CSS/layout.css">
-            <link rel = "stylesheet" href="../CSS/images.css">
-            <link rel = "stylesheet" href="../CSS/forms.css">
-            <link rel = "stylesheet" href="../CSS/style.css">
+            <?php
+            foreach($styleFiles as $file){
+                echo '<link rel = "stylesheet" href="'.$file.'">';
+            }
+            ?>
             <script src = "script.js" defer></script>
         </head>
         <body>
@@ -23,13 +32,19 @@
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
-                <form action = "../pages/restaurants.php" method = "POST" class = "search">
-                    <input class = "search" type="text" placeholder="Search...">
+                <form action = "../pages/search.php" method = "POST" class = "search">
+                    <input class = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
                 </form> <?php
                     if($session->isLoggedin()){ ?>
-                        <a href= "../pages/profile.php"></a>
-                        <a href = "../actions/action_logout.php">Logout</a>
-                        <a href = "../pages/cart.php"></a>
+                        <div class="dropdown">
+                            <img src="https://picsum.photos/50/50" for="">
+                            <div class="dropdown-content">
+                                <a href= "../pages/profile.php">Profile</a>
+                                <a href= "../pages/edit_profile.php">Profile Settings</a>
+                                <a href = "../pages/cart.php">Cart</a>
+                                <a href = "../actions/action_logout.php">Logout</a>
+                            </div>   
+                        </div>
                     <?php } else {?>
                         <a href = "../pages/login.php">Login</a>
                 <?php } ?>
@@ -63,8 +78,8 @@
 <?php
     function outputSideMenu() { ?>
         <nav id="side-menu" class="index">
-            <a id="bestRestHref" href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
-            <a id="closeHref" href="#close">Close to You</a>
+            <a href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
+            <a href="#close">Close to You</a>
             <input id ="hamburger" type ="checkbox">
             <label class="hamburger" for="hamburger">Categories</label>
             <ul>
@@ -155,15 +170,13 @@
 
 <?php 
     function outputSearch(){ ?>
-            <section id ="search">
-                <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
-                <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
-                <!--if logged in-->
-                <!--<a class = "order" href="../pages/restaurants.php"><h2>Order Now!</h2></a>-->
-                <form action="#">
-                    <input type ="text" placeholder="Cuisine, Restaurant name, ...">
-                    <button formaction = "../pages/restaurants.php" type ="submit" name="search">Search</button>
-                </form>
+            <section id ="search"><?php
+                if(isset($_SESSION['id'])){ ?>
+                    <a class = "order" href="../pages/login.php"><button><h2>Order Now!</h2></button></a>
+                <?php } else { ?>
+                    <a class = "order" href="../pages/search.php"><button><h2>Order Now!</h2></button></a>
+                    <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
+                <?php } ?>
             </section>
     <?php }
 ?>

@@ -3,7 +3,6 @@
     
     function ouputLoginForm() { ?>
     <div id="mainDiv" class="login">
-        <br>
         <p id="square"></p>
         <h1>Login</h1>
         <form id="loginForm">

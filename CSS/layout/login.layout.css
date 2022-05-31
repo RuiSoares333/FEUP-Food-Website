@@ -1,0 +1,30 @@
+#loginForm{
+    display: flex;
+    flex-direction: column;
+}
+
+#mainDiv.login{
+    display: grid;
+    grid-template-rows: 5% 5% 11em 3em;
+}
+
+#mainDiv.login > *, #loginForm > *{
+    margin: auto;
+}
+
+#loginForm input{
+    height: 100%;
+}
+
+#loginForm button{
+    width: 50%;
+}
+
+#square{
+    width: 42.6499706248%;
+    height: 600%;
+}
+
+#loginForm input{
+    margin: 5% auto;
+}
