@@ -8,7 +8,8 @@
                         '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
                         '../CSS/layout/register.layout.css', '../CSS/style/register.style.css',
                         '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css',
-                        '../CSS/layout/search.layout.css', '../CSS/style/search.style.css');
+                        '../CSS/layout/search.layout.css', '../CSS/style/search.style.css',
+                        '../CSS/layout/editUserInfo.layout.css', '../CSS/style/editUserInfo.style.css');
                         ?>
     <!DOCTYPE html>
     <html lang="en-US">

@@ -59,8 +59,8 @@
 
     function outputEditProfileForm(Costumer $costumer) { ?>
         <section id="edit_profile">
-            <h1>Edit Profile</h1>
             <p id="squareEdit"></p>
+            <h1>Edit Profile</h1>
             <form id = "edit_profile">
                 <label for="name">Name:</label>
                 <input type ="text" name ="name" value ="<?=$costumer->name?>" required>

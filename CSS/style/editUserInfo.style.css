@@ -1,0 +1,18 @@
+#squareEdit{
+    background: linear-gradient(to bottom, #35B557, #3C814E);
+    border-radius: 2em;
+}
+
+#edit_profile input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid var(--branco-verde);
+    text-transform: none;
+}
+
+#edit_profile label{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid var(--branco-verde);
+    text-transform: none;
+}
