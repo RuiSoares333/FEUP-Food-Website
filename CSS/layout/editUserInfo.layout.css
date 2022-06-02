@@ -1,6 +1,6 @@
 #edit_profile{
     display: grid;
-    grid-template-rows: 1em 3em 20em 2em;
+    grid-template-rows: 1em 3em 19em 2em;
 }
 
 #edit_profile form{
@@ -62,6 +62,10 @@
     margin-top: 1em;
 }
 
+input{
+    text-align: center;
+}
+
 #edit_profile #squareEdit{
     width: 55%;
     height: 25em;
@@ -79,11 +83,11 @@
 
 #changePassword{
     display: grid;
-    grid-template-rows: 2em 1em 12em 2em;
+    grid-template-rows: 2em 1em 31em 2em;
 }
 
-#changePassword:nth-child(1){
-    margin-top: 0.5em;
+#changePassword h1{
+    margin-top: 5em;
 }
 
 #changePassword form{
@@ -129,7 +133,8 @@
 
 #changePassword #squareEdit{
     width: 55%;
-    height: 16em;
+    height: 18em;
+    margin-top: 8em;
 }
 
 
