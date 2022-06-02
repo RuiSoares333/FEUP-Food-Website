@@ -21,7 +21,7 @@ input{
 
 /* register and login */
 
-#loginForm button, #registerForm button{
+#loginForm button, #registerForm button, #edit_profile form button, #changePassword form button{
     background-color: #EBFFF1;
     color: rgba(60,129,78,1);
     border: none;
