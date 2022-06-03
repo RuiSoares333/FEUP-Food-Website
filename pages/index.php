@@ -17,7 +17,7 @@
 
     outputHead();
     outputHeader($session);
-    outputSideMenu();
+    outputSideMenu($db);
     outputAds();
 ?>        
     <div id="mainDiv" class="index">

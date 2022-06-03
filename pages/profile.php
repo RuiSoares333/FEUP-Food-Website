@@ -33,7 +33,7 @@
 
     outputHead();
     outputHeader($session);
-    outputSideMenu();
+    outputSideMenu($db);
     outputAds();
 ?>
 

@@ -61,32 +61,37 @@
 ?>
 
 <?php
-    function outputSideMenu() { ?>
+    function outputSideMenu(PDO $db) { 
+        $query = 'SELECT name FROM RestaurantCategory';
+        $categories = getQueryResults($db, $query, true, null);
+        ?>
         <nav id="side-menu" class="index">
             <a id="bestRestHref" href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
             <a id="closeHref" href="#close">Close to You</a>
             <input id ="hamburger" type ="checkbox">
             <label class="hamburger" for="hamburger">Categories</label>
             <ul>
-                <li><a href="../pages/index.php">ITALIAN</a></li>
-                <li><a href="../pages/index.php">JAPANESE</a></li>
-                <li><a href="../pages/index.php">PORTUGUESE</a></li>
-                <li><a href="../pages/index.php">FAST FOOD</a></li>
-                <li><a href="../pages/index.php">EUROPEAN</a></li>
-                <li><a href="../pages/index.php">MEXICAN</a></li>
+                <?php
+                    foreach($categories as $category){
+                        ?> <li><a href= "../pages/index.php"><?=$category['name']?></a></li> <?php
+                    }
+                ?>
             </ul>
         </nav>
     <?php }
 ?>
 
 <?php
-    function outputSortSideMenu() { ?>
+    function outputSortSideMenu(PDO $db) { 
+        $query = 'SELECT name FROM RestaurantCategory';
+        $categories = getQueryResults($db, $query, true, null);
+        ?>
         <nav id="side-menu" class="sort">
             <form>
                 <input type="text" name="searchName" placeholder="Search">
                 <label id="rating">Rating</label>
                     <select name="rating">
-                        <option value="">Any</option>
+                        <option value="0">Any</option>
                         <?php
                             for($i=1; $i<10; $i++){
                                 echo '<option value="'. $i .'">' . $i . '</option>';
@@ -95,13 +100,12 @@
                     </select>
                 <label>Category</label>
                     <select name="category">
-                        <option value="emptyC">Any</option>
-                        <option value="European">European</option>
-                        <option value="Fast Food">Fast Food</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Mexican">Mexican</option>
-                        <option value="Portuguese">Portuguese</option>
+                        <option selected value = "">Any</option>
+                        <?php
+                            foreach($categories as $category){
+                                ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                            }
+                        ?>
                     </select>
                 <label id="prc">Price</label>
                 <input type="checkbox" id="price">

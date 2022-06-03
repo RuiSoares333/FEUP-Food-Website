@@ -17,7 +17,7 @@
     outputHead();
     outputHeader($session);
     outputAds();
-    outputSideMenu();
+    outputSideMenu($db);
     outputRegisterForm();
     outputFooter()
 ?>

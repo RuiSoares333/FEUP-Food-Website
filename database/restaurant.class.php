@@ -155,6 +155,12 @@
 
             executeQuery($db, $query, array($this->id));
         }
+
+        static function add(PDO $db, array $data){
+            $query = 'INSERT INTO Restaurant VALUES (NULL, ?, ?, ?, ?, ?)';
+
+            executeQuery($db, $query, $data);
+        }
     }
 
     

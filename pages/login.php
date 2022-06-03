@@ -14,7 +14,7 @@
     outputHead();
     outputHeader($session);
     outputAds();
-    outputSideMenu();
+    outputSideMenu($db);
     ouputLoginForm();
     outputFooter();
 ?>           

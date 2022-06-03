@@ -9,16 +9,22 @@ CREATE TABLE User (
     CONSTRAINT PK_User PRIMARY KEY (username)
 );
 
+CREATE TABLE RestaurantCategory (
+    name VARCHAR,
+    CONSTRAINT PK_RestaurantCategory PRIMARY KEY (name)
+);
+
 CREATE TABLE Restaurant (
     id INTEGER,
     name VARCHAR,
     address VARCHAR,
-    category VARCHAR CHECK (category IN ('italian', 'japanese', 'portuguese', 'fast food', 'european', 'mexican')),
+    category VARCHAR,
     phone VARCHAR(9),
     ownerId VARCHAR,
     CONSTRAINT PK_Restaurant PRIMARY KEY (id),
     FOREIGN KEY (ownerId) REFERENCES User(username)
-            ON DELETE CASCADE 
+            ON DELETE CASCADE,
+    FOREIGN KEY (category) REFERENCES RestaurantCategory(name) 
 );
 
 CREATE TABLE Dish (
@@ -93,11 +99,24 @@ INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "fb4369d
 INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "1401dad399850fedbcbc78380934b126f708a618", "Rua Santa Luzia", "96254123", true); --hfg41
 INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "62458713c0b5c07c221d3e85e1300d6a781d83ce", "Avenida 5 de Outubro", "91520236", true); --mfhg4
 
+--RestaurantCategory
+INSERT INTO RestaurantCategory VALUES ( "portuguese");
+INSERT INTO RestaurantCategory VALUES ( "international cuisine");
+INSERT INTO RestaurantCategory VALUES ( "asian");
+INSERT INTO RestaurantCategory VALUES ( "italian");
+INSERT INTO RestaurantCategory VALUES ( "japanese");
+INSERT INTO RestaurantCategory VALUES ( "latino");
+INSERT INTO RestaurantCategory VALUES ( "brazilian");
+INSERT INTO RestaurantCategory VALUES ( "steakhouse");
+INSERT INTO RestaurantCategory VALUES ( "pizzaria");
+INSERT INTO RestaurantCategory VALUES ( "spanish");
+INSERT INTO RestaurantCategory VALUES ( "indian");
+INSERT INTO RestaurantCategory VALUES ( "american");
 
 --Restaurant
 INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "italian", "22 205 5071", "ricardo32");
 INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "japanese", "913 037 171", "ricardo32");
-INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "fast food", "22 509 1784", "joana26");
+INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "american", "22 509 1784", "joana26");
 INSERT INTO Restaurant VALUES (NULL, "O Charco", "Rua Nossa Senhora Amparo 143", "portuguese", "22 375 4618", "1mafalda3");
 INSERT INTO Restaurant VALUES (NULL, "Temple Rio", "Rua D. Afonso Henriques 745", "japanese", "932 464 670", "1mafalda3");
 INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "portuguese", "22 480 1268", "1mafalda3");
