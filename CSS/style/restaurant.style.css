@@ -46,6 +46,11 @@
     text-shadow: .2em .2em .3em black;
     -webkit-text-stroke: .5px black;
     font-weight: bold;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #mainDiv.restaurant #reviews article > p{

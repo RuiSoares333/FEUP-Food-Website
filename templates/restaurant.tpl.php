@@ -19,6 +19,7 @@
     function outputFavoriteRestaurants(array $restaurants){?>
         <section id="favRestaurants">
             <h1>Your Favorite Restaurants</h1>
+            <section id="listRestaurants">
        <?php 
         if($restaurants !== array()){
             foreach($restaurants as $restaurant){
@@ -29,6 +30,7 @@
             ?> <h3>You don't have any favorite Restaurants'</h3> <?php
         }
         ?>
+            </section>
         </section>
     <?php }
 

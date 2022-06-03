@@ -52,10 +52,9 @@
 
 #mainDiv.restaurant #dishes section article :nth-child(2){
     position: absolute;
-    bottom: 20%;
+    top: 50%;
     left: 5%;
-    max-width: 90%;
-    max-height: 10%
+    max-width: 85%;
 }
 
 #mainDiv.restaurant #dishes section article :nth-child(3){

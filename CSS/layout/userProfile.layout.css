@@ -1,0 +1,9 @@
+#mainDiv.profile{
+    display:flex;
+    flex-direction: column;
+}
+
+#favRestaurants #listRestaurants{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}

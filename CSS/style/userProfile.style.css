@@ -1,0 +1,18 @@
+#user{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+#user > *{
+    margin: 1.5% auto;
+}
+
+#user > p:nth-child(3){
+    text-transform: none;
+}
+
+#user img{
+    border-radius: 100%;
+    border: 5px solid #00000088;
+}
