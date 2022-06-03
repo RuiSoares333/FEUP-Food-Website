@@ -2,8 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
 
-body{
-    background-color: #DEDEDE;
+:root {
+    --fundo-cinza: #DEDEDE;
+    --fundo-branco: #F3F3F3;
+    --fundo-preto: #2C2C2C;
+    --branco-preto: rgba(255, 255, 255, 0.45);
+    --branco-verde: #EBFFF1;
+    --cor-botao: #4B9F6D;
+    --hover-botao: #51BD7E;
 }
 
 ::-webkit-scrollbar {
@@ -12,283 +18,91 @@ body{
 
 html{
     scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
+body{
+    background-color: var(--fundo-cinza);
+}
+
+#mainDiv, #side-menu, #ads{
+    background-color: var(--fundo-branco);
+}
+
+/* Button */
 
 button{
     font-weight: bold;
     cursor:pointer;
-    color: #EBFFF1;
+    color: var(--branco-verde);
+    background-color: var(--cor-botao);
 }
 
+button:hover {
+    background-color: var(--hover-botao);
+}
 
 /* font */
 
-body, a, input, button, form, body *{
+*{
     font-family: 'Poppins';
     text-transform: uppercase;
 }
 
 a{
     text-decoration: none;
+    color: var(--fundo-preto);
 }
 
-#topnav a, .index h2{
-    color: #EBFFF1; 
+header > h1 > a, #topnav > a:nth-child(2){
+    color: var(--branco-verde); 
 }
 
-footer{
-    font-size: 0.75em;
+body > header > h1 > a{
+    font-size: 230%;
+    text-decoration: none;
 }
 
-#mainDiv.index #search .RegisterLink h5{
-    color: #2C2C2C;
+.LoginLink, .RegisterLink{
+    color: var(--branco-verde);
     text-decoration: underline;
-}
-
-.login h5{
-    color: #EBFFF1;
-}
-
-.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
-    font-weight: bold;
 }
 
 /*header*/
 
 header{
     background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
-    color: #EBFFF1;
-    vertical-align: middle;
     box-shadow: 5px 10px 18px #0000003b;
     z-index: 1;
 }
 
-header > h1 > a{
-    font-size: 2.3em;
-    text-decoration: none;
-    color: #EBFFF1;
-}
-
-.search{
+input.search{
     border-radius: 5em;
+    width: 80%;
 }
-
 
 /* side Menu */
 
 #side-menu{
-    background-color: #F3F3F3;
     box-shadow: 5px 10px 18px #0000003b;
+    font-weight: bold;
 }
 
-a{
-    color: #2C2C2C
-}
-
-
-/* ads */
-
-#ads{
-    background-color: #F3F3F3;
-}
-
-
-/* main Div */
-
-#mainDiv{
-    background-color: #F3F3F3;
-}
-
-.order button{
-    background-color: #4B9F6D;
-    border: 0;
-    padding: 0 5em;
-    border-radius: 5em;
-}
-
-#search form button{
-    width: 6em;
-    height: 95%;
-    border: none;
-    padding: 0;
-    background-color:#4B9F6D;
-    border-radius: 1em;
-}
-
-#search form input{
-    width: 95%;
-    height: 90%;
-    border-radius:0.5em;
-}
-
-#square{
-    width: 42.6499706248%;
-    height: 30em;
-    background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
-    border-radius: 2em;
-}
-
-#squareRegister{
-    width: 42.6499706248%;
-    height: 35em;
-    background: linear-gradient(180deg, rgba(53,181,87,1) 0%, rgba(60,129,78,1) 100%);
-    border-radius: 2em;
-}
-
-
-/* footer */
+/* Footer */
 
 footer{
-    background-color: #2C2C2C;
-    color: rgba(255, 255, 255, 0.45);
+    background-color: var(--fundo-preto);
+    color: var(--branco-preto);
 }
 
 .devTeam{
     text-align: center;
 }
 
-
-/* Mini Restaurant Preview */
-
-.miniPreview:hover{
-    background-color: #0000002d;
-    border-radius: 0.5em;
-}
-
-.miniPreview :nth-child(2){
-    font-size: 0.65em;
-}
-
-.miniPreview :nth-child(3){
-    font-weight: bold;
-    font-size: 0.85em;
-}
-
-.miniPreview :nth-child(4), .miniPreview :nth-child(5), .miniPreview :nth-child(6){
-    font-size: 0.70em;
-}
-
-#side-menu.restaurant li{
-    font-weight: bold;
-    font-size: 150%;
-}
-
- #bestRestaurants input[type=radio] {
-    display: none;
- }
-
- #overflow {
-    width: 100%;
-    height: 15.9em;
-    overflow: hidden;
- }
-
- #slides .slide {
-    width: 25%;
-    float:left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
- }
-
- #slide1:checked ~ #slides .inner {
-    margin-left: 0;
- }
- #slide2:checked ~ #slides .inner {
-    margin-left: -100%;
- }
-
- #slides .inner {
-    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-    width: 400%;
-    height: 15.9em;
- }
-
- #controls label {
-    cursor:pointer;
-    text-decoration: none;
-    transition: opacity 0.2s ease-out;
-    background-color: rgba(0, 0, 0, 0.300);
-    opacity: .4;
-    margin: 0.5em auto 0.5em -0.5em;
-    padding: 0.45em;
-    border-radius: 0.25em;
- }
- #controls label:hover {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.200);
-    border-radius: 0.25em;
- }
-
- #slide1:checked ~ #controls label:nth-child(2),
- #slide2:checked ~ #controls label:nth-child(1){
-    color: #000;
- }
- 
- #slide1:checked ~ #controls label:nth-last-child(2),
- #slide2:checked ~ #controls label:nth-last-child(2){
-    color: #000;
-    transform: rotate(180deg);
- }
-
- #mainDiv.restaurant #dishes h1{
-    font-size: 150%;
-    border-bottom: 2px solid black;
-    position: absolute;
-    margin-top: -2em;
-    width: 60%
-}
-
-#mainDiv.restaurant #dishes section article{
-    position: relative;
-    margin: 0;
-}
-
-#mainDiv.restaurant #dishes section article:hover{
-    background-color: #00000044;
-    border-radius: 15%;
-    cursor: pointer;
-}
-
-#mainDiv.restaurant #dishes section article p{
-    color: white;
-    text-shadow: .2em .2em .3em black;
-    -webkit-text-stroke: .5px black;
+.cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
     font-weight: bold;
 }
 
-#mainDiv.restaurant #dishes section article :nth-child(2){
-    position: absolute;
-    bottom: 20%;
-    left: 5%;
-    max-width: 90%;
-    max-height: 10%
-}
-
-#mainDiv.restaurant #dishes section article :nth-child(3){
-    position: absolute;
-    bottom: 27.5%;
-    left: 5%;
-}
-
-
-#mainDiv.restaurant #reviews article :nth-child(1){
-    font-weight: bold;
-}
-
-#mainDiv.restaurant #reviews article :nth-child(2){
-    font-size: 80%;
-    color: #2C2C2C;
-}
-
-#mainDiv.restaurant #reviews article :nth-child(3){
-    text-decoration: underline;
-}
-
-#mainDiv.restaurant #reviews article :nth-child(4){
-    background-color:#DEDEDE;
-    border-radius: 1em;
-    border: 1px solid black;
+footer{
+    font-size: 75%;
 }

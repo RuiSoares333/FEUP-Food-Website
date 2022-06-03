@@ -1,0 +1,25 @@
+.register input::placeholder{
+    text-transform: lowercase;
+}
+
+#registerForm input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid #EBFFF1;
+    text-transform: none;
+}
+
+#squareRegister{
+    background: linear-gradient(to bottom, #35B557, #3C814E);
+    border-radius: 2em;
+}
+
+#registerForm #cancel{
+    color: #EBFFF1;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+.LoginLink > h5{
+    text-decoration: underline;
+}
