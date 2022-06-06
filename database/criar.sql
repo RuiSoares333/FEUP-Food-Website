@@ -189,7 +189,7 @@ INSERT INTO OrderDish VALUES (2, 3);
 INSERT INTO OrderDish VALUES (3, 7);
 
 --Review
-INSERT INTO Review VALUES (NULL, 1, "miguel_012", 8, 1635347252, "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+--INSERT INTO Review VALUES (NULL, 1, "miguel_012", 8, 1635347252, "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 
 INSERT INTO Review VALUES (NULL, 2, "maria20", 9, 1635347252, "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
 INSERT INTO Review VALUES (NULL, 2, "1mafalda3", 10, 1635347252, "a");

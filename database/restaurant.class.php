@@ -17,7 +17,7 @@
         public float $avgRating;
 
 
-        public function __construct(int $id, string $name, string $address, string $category, string $phone, string $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating) {
+        public function __construct(int $id, string $name, string $address, string $category, string $phone, string $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating = -1) {
             $this->id = $id;
             $this->name = $name;
             $this->address = $address;
@@ -156,10 +156,10 @@
             executeQuery($db, $query, array($this->id));
         }
 
-        static function add(PDO $db, array $data){
+        function add(PDO $db){
             $query = 'INSERT INTO Restaurant VALUES (NULL, ?, ?, ?, ?, ?)';
 
-            executeQuery($db, $query, $data);
+            executeQuery($db, $query, array($this->name, $this-> address, $this->category, $this->phone, $this->owner));
         }
     }
 

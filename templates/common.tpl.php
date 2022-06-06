@@ -42,6 +42,7 @@
                                 <a href= "../pages/profile.php">Profile</a>
                                 <a href= "../pages/edit_profile.php">Profile Settings</a>
                                 <a href = "../pages/cart.php">Cart</a>
+                                <a href = "../pages/add_restaurant.php">Add new restaurant</a>
                                 <a href = "../actions/action_logout.php">Logout</a>
                             </div>   
                         </div>
@@ -175,7 +176,7 @@
 <?php 
     function outputSearch(Session $session){ ?>
             <section id ="search">
-                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/restaurants.php"'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
+                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/search.php"'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
                 <?php if(!$session->isLoggedin()){?> 
                 <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a> <?php } ?>
                 </form>

@@ -149,5 +149,13 @@
 
             executeQuery($db, $query, array($this->username));
         }
+
+        function becomeOwner(PDO $db){
+            $this->is_owner = true;
+
+            $query = 'UPDATE User set owner = TRUE WHERE username = ?';
+
+            executeQuery($db, $query, array($this->username));
+        }
     }
 ?>

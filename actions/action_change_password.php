@@ -27,7 +27,7 @@
         $session->addMessage('error', 'New Password must not be empty');
     }
 
-    $costumer->updatePassword($db, sha1($_POST['newPassword']));
+    $costumer->updatePassword($db, sha1(trim($_POST['newPassword'])));
 
     include(__DIR__ . '/../actions/action_logout.php');
     header('Location: ../pages/login.php');
