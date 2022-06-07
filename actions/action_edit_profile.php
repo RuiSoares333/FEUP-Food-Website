@@ -36,10 +36,10 @@
 
     $costumer = Costumer::getCostumer($db, $session->getId());
 
-    $costumer->name = $_POST['name'];
-    $costumer->email = $_POST['email'];
-    $costumer->address = $_POST['address'];
-    $costumer->phoneNumber = $_POST['phone'];
+    $costumer->name = trim($_POST['name']);
+    $costumer->email = trim($_POST['email']);
+    $costumer->address = trim($_POST['address']);
+    $costumer->phoneNumber = trim($_POST['phone']);
 
     $costumer->save($db);
 

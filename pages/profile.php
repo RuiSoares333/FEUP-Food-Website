@@ -20,18 +20,29 @@
 
     $costumer = Costumer::getCostumer($db, $session->getId());
 
+    $myRestaurants = array();
+
+    if($costumer->isOwner()){
+        foreach($session->getOwnedRestaurants() as $restaurant){
+            $myRestaurants[] = Restaurant::getRestaurant($db, $restaurant['id']);
+        }
+    }
+
     $restaurants = $costumer->getFavoriteRestaurants($db);
     $dishes = $costumer->getFavoriteDishes($db);
 
     outputHead();
     outputHeader($session);
-    outputSideMenu();
+    outputSideMenu($db);
     outputAds();
 ?>
 
     <div id="mainDiv" class="profile">
         <?php 
         outputProfileInfo($costumer);
+        if($costumer->isOwner()){
+            outputOwnedRestaurants($myRestaurants);
+        }
         outputFavoriteRestaurants($restaurants);
         outputFavoriteDishes($dishes);
         ?>

@@ -70,12 +70,32 @@
             $query = 'DELETE FROM dish WHERE id = ?';
 
             executeQuery($db, $query, array($this->id));
+
+            $query = 'DELETE FROM FavoriteDish WHERE dishId = ?';
+
+            executeQuery($db, $query, array($this->id));
         }
 
         function add(PDO $db, string $category){
             $query = 'INSERT INTO dish VALUES(NULL, ?, ?, ?, ?)';
 
             executeQuery($db, $query, array($this->name, $this->price, $category, $this->restaurantId));
+        }
+
+        static function deleteRestaurantDishes($db, $restaurant){
+            $query = 'SELECT id FROM dish WHERE restaurantId = ?';
+
+            $dishes = getQueryResults($db, $query, true, array($restaurant));
+
+            foreach($dishes as $dish){
+                $query = 'DELETE FROM FavoriteDish WHERE dishId = ?';
+
+                executeQuery($db, $query, array($dish['id']));
+            }
+
+            $query = 'DELETE FROm dish WHERE restaurantId = ?';
+
+            executeQuery($db, $query, array($restaurant));
         }
     }
 

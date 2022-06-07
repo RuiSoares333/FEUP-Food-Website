@@ -138,4 +138,35 @@
             </form>
         </section>
     <?php }
+
+
+    function outputAddRestaurantForm(PDO $db){ 
+        $query = "SELECT name FROM RestaurantCategory";
+        $categories = getQueryResults($db, $query, true);
+        
+        ?>
+        <div id = "mainDiv" class = "add_restaurant">
+        <section id= "newRestaurant">
+            <h1>Add your Restaurant</h1>
+            <form>
+                <label for = "name">Name:</label>
+                <input type="text" name="name" required>
+                <label for="address">Address:</label>
+                <input type="text" name="address" required>
+                <label for="category">Category:</label>
+                <select name="category" required>
+                    <option disabled selected value>--choose a category--</option>
+                    <?php 
+                        foreach($categories as $category){
+                            ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                        }
+                    ?>
+                </select>
+                <label for="phone">Phone number:</label>
+                <input type="text" name="phone"required>
+                <button formaction="../actions/action_add_restaurant.php" id ="submit" formmethod="post">Submit</button>
+            </form>
+        </section>
+        </div>
+    <?php }
 ?>

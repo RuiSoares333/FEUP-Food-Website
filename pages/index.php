@@ -17,12 +17,12 @@
 
     outputHead();
     outputHeader($session);
-    outputSideMenu();
+    outputSideMenu($db);
     outputAds();
 ?>        
     <div id="mainDiv" class="index">
         <?php 
-        outputSearch();
+        outputSearch($session);
         outputBestRestaurants($restaurants);
         ?>
         <section id = "close">

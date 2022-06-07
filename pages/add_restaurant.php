@@ -1,6 +1,6 @@
-<?php
+<?php 
     declare(strict_types = 1);
-    
+
     require_once(__DIR__ . '/../database/connection.php');
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
@@ -10,15 +10,16 @@
 
     $session = new Session();
 
-    $db = getDBConnection(__DIR__ . '/../database/data.db');
+    if(!$session->isLoggedin()){
+        die(header('Location: ../pages/login.php'));
+    }
 
-    if($session->isLoggedin())
-        header('Location: ../pages/index.php');
+    $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     outputHead();
     outputHeader($session);
-    outputAds();
     outputSideMenu($db);
-    ouputLoginForm();
+    outputAds();
+    outputAddRestaurantForm($db);
     outputFooter();
-?>           
+?>
