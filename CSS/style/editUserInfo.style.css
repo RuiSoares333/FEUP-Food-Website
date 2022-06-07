@@ -9,6 +9,7 @@
     background-color: transparent;
     border-bottom: 3px solid var(--branco-verde);
     text-transform: none;
+    text-align: center;
     color: var(--branco-verde);
 }
 
@@ -35,6 +36,7 @@
     background-color: transparent;
     border-bottom: 3px solid var(--branco-verde);
     text-transform: none;
+    text-align: center;
     color: var(--branco-verde);
 }
 
