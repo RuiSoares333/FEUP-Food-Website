@@ -62,7 +62,7 @@
     }
 
     $costumer = new Costumer(
-        $_POST['username'], $_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone'], false
+        trim($_POST['username']), trim($_POST['name']), trim($_POST['email']), trim($_POST['address']), trim($_POST['phone']), false
     );
 
     $costumer->register($db, $_POST['password']);

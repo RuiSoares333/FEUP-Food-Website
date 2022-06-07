@@ -18,6 +18,7 @@
 
     if(trim($_POST['rating']) === ''){
         $session->addMessage('error', 'please enter a rating');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $review = new Review(

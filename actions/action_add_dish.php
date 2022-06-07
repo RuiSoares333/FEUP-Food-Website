@@ -36,12 +36,12 @@
 
     $dish = new Dish(
         1,
-        $_POST['name'],
+        trim($_POST['name']),
         intval($_POST['price']),
         intval($_GET['id'])
     );
 
-    $dish->add($db, $_POST['category']);
+    $dish->add($db, trim($_POST['category']));
 
     $session->addMessage('success', 'Dish created successfully!');
 

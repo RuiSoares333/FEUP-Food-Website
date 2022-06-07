@@ -59,8 +59,8 @@
 
     function outputEditProfileForm(Costumer $costumer) { ?>
         <section id="edit_profile">
-            <h1>Edit Profile</h1>
             <p id="squareEdit"></p>
+            <h1>Edit Profile</h1>
             <form id = "edit_profile">
                 <label for="name">Name:</label>
                 <input type ="text" name ="name" value ="<?=$costumer->name?>" required>
@@ -77,8 +77,8 @@
 
     function outputChangePasswordForm(){ ?>
         <section id ="changePassword">
-            <h1>Change Password</h1>
             <p id="squareEdit"></p>
+            <h1>Change Password</h1>
             <form id ="changePassword">
                 <label for="oldPassword">old password:</label>
                 <input type="password" name ="oldPassword" required>
@@ -137,5 +137,36 @@
                 <button formaction="../actions/action_add_dish.php?id=<?=$_GET['id']?>" id ="submit" formmethod="post">Add</button>
             </form>
         </section>
+    <?php }
+
+
+    function outputAddRestaurantForm(PDO $db){ 
+        $query = "SELECT name FROM RestaurantCategory";
+        $categories = getQueryResults($db, $query, true);
+        
+        ?>
+        <div id = "mainDiv" class = "add_restaurant">
+        <section id= "newRestaurant">
+            <h1>Add your Restaurant</h1>
+            <form>
+                <label for = "name">Name:</label>
+                <input type="text" name="name" required>
+                <label for="address">Address:</label>
+                <input type="text" name="address" required>
+                <label for="category">Category:</label>
+                <select name="category" required>
+                    <option disabled selected value>--choose a category--</option>
+                    <?php 
+                        foreach($categories as $category){
+                            ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                        }
+                    ?>
+                </select>
+                <label for="phone">Phone number:</label>
+                <input type="text" name="phone"required>
+                <button formaction="../actions/action_add_restaurant.php" id ="submit" formmethod="post">Submit</button>
+            </form>
+        </section>
+        </div>
     <?php }
 ?>

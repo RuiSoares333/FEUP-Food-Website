@@ -16,12 +16,28 @@
         </article>
     <?php }
 
+    function outputOwnedRestaurant(Restaurant $restaurant) { ?>
+        <article class="miniPreview">
+        <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
+        <p><?=$restaurant->category?></p>
+        <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
+        <?php if ($restaurant->avgRating === -1.0){ ?>
+            <p>no rating</p>
+        <?php } else {?>
+        <p><?=$restaurant->avgRating?>/10</p>
+        <?php } ?>
+        <p><?=$restaurant->address?></p>
+        <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
+        <a href ="../actions/action_delete_restaurant.php?id=<?=$restaurant->id?>">Delete</a>
+        </article>
+    <?php }
+
     function outputFavoriteRestaurants(array $restaurants){?>
         <section id="favRestaurants">
             <h1>Your Favorite Restaurants</h1>
             <section id="listRestaurants">
        <?php 
-        if($restaurants !== array()){
+        if($restaurants) {
             foreach($restaurants as $restaurant){
                 outputRestaurant($restaurant);
             }  
@@ -31,6 +47,16 @@
         }
         ?>
             </section>
+        </section>
+    <?php }
+
+    function outputOwnedRestaurants(array $restaurants){ ?>
+        <section id="myRestaurants">
+            <h1>Your Restaurants</h1>
+            <?php if($restaurants){
+                foreach($restaurants as $restaurant)
+                    outputOwnedRestaurant($restaurant);
+            }?>
         </section>
     <?php }
 
