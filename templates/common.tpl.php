@@ -22,7 +22,7 @@
                 echo '<link rel = "stylesheet" href="'.$file.'">';
             }
             ?>
-            <script src = "script.js" defer></script>
+            <script src = "../javascript/script.js" defer></script>
         </head>
         <body>
     <?php }
@@ -94,42 +94,6 @@
                     }
                 ?>
             </ul>
-        </nav>
-    <?php }
-?>
-
-<?php
-    function outputSortSideMenu(PDO $db) { 
-        $query = 'SELECT name FROM RestaurantCategory';
-        $categories = getQueryResults($db, $query, true, null);
-        ?>
-        <nav id="side-menu" class="sort">
-            <form>
-                <input type="text" name="searchName" placeholder="Search">
-                <label id="rating">Rating</label>
-                    <select name="rating">
-                        <option value="0">Any</option>
-                        <?php
-                            for($i=1; $i<10; $i++){
-                                echo '<option value="'. $i .'">' . $i . '</option>';
-                            }
-                        ?>
-                    </select>
-                <label>Category</label>
-                    <select name="category">
-                        <option selected value = "">Any</option>
-                        <?php
-                            foreach($categories as $category){
-                                ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
-                            }
-                        ?>
-                    </select>
-                <label id="prc">Price</label>
-                <input type="checkbox" id="price">
-                <label class="price" for="price"></label><br>
-                <input type="hidden" name = "referer" value="<?=$_SERVER['HTTP_REFERER']?>">
-                <button formaction="../actions/action_login.php" formmethod="post">Sort!</button>
-            </form>
         </nav>
     <?php }
 ?>

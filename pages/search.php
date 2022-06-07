@@ -16,5 +16,6 @@
     outputHeader($session);
     outputAds();
     outputSortSideMenu($db);
+    ?> <div id = "mainDiv" class = "search"></div> <?php
     outputFooter();
 ?>
