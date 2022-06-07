@@ -9,7 +9,8 @@
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
     require_once(__DIR__ . '/../templates/dish.tpl.php');
-
+    require_once(__DIR__ . '/../templates/headfiles.tpl.php');
+    
     require_once(__DIR__ . '/../utils/session.php');
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
@@ -31,6 +32,7 @@
     }
 
     outputHead();
+    edit_restaurant_head();
     outputHeader($session);
     outputSideMenu($db);
     outputAds();

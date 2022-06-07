@@ -5,6 +5,7 @@
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
+    require_once(__DIR__ . '/../templates/headfiles.tpl.php');
 
     require_once(__DIR__ . '/../utils/session.php');
 
@@ -18,6 +19,7 @@
 
     outputHead();
     outputHeader($session);
+    add_restaurant_head();
     outputSideMenu($db);
     outputAds();
     outputAddRestaurantForm($db);

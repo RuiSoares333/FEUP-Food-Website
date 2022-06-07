@@ -3,34 +3,27 @@
 
     
     function outputHead() { 
-    $styleFiles = array('../CSS/style.css', '../CSS/layout.css', '../CSS/forms.css', '../CSS/images.css',
-                        '../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
-                        '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
-                        '../CSS/layout/register.layout.css', '../CSS/style/register.style.css',
-                        '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css',
-                        '../CSS/layout/search.layout.css', '../CSS/style/search.style.css',
-                        '../CSS/layout/userProfile.layout.css', '../CSS/style/userProfile.style.css',
-                        '../CSS/layout/editUserInfo.layout.css', '../CSS/style/editUserInfo.style.css');
-                        ?>
+
+    ?>
+
     <!DOCTYPE html>
     <html lang="en-US">
         <head>
             <title>Super Legit Food</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <?php
-            foreach($styleFiles as $file){
-                echo '<link rel = "stylesheet" href="'.$file.'">';
-            }
-            ?>
+            <link rel = "stylesheet" href="../CSS/style.css">
+            <link rel = "stylesheet" href="../CSS/layout.css">
+            <link rel = "stylesheet" href="../CSS/forms.css">
+            <link rel = "stylesheet" href="../CSS/images.css">
             <script src = "script.js" defer></script>
-        </head>
-        <body>
     <?php }
 ?>
 
 <?php
     function outputHeader(Session $session) { ?>
+        </head>
+        <body>
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">

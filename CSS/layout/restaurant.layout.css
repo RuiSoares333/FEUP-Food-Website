@@ -79,16 +79,19 @@
 
 #mainDiv.restaurant #reviews article div{
     display:flex;
-    align-content: space-between;
-}
-
-#mainDiv.restaurant #reviews article div :last-child{
-    margin-left: auto;
-    margin-right: 0;
 }
 
 #mainDiv.restaurant #reviews article div *{
     margin: 0;
+}
+
+#mainDiv.restaurant #reviews article div :last-child{
+    text-decoration: underline;
+}
+
+#mainDiv.restaurant #reviews article div > p:nth-child(2){
+    margin-left: auto;
+    margin-right: 2.5%;
 }
 
 #mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article p b{

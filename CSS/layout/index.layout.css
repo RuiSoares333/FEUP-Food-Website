@@ -1,22 +1,3 @@
-/* side-menu */
-
-#side-menu.index > a, #side-menu.index > label{
-    padding-left: 7%;
-    padding-top: 1.5%;
-}
-
-#side-menu.index > ul{
-    margin: 0;
-}
-
-#side-menu.index .hamburger {
-    display: block;
-}
-
-#side-menu.index li{
-    max-height: 0;
-}
-
 /* mainDiv */
 
 #mainDiv.index{
@@ -153,42 +134,4 @@
 
 .miniPreview > :nth-child(6){
     grid-area: avgPrice;
-}
-
-/* Footer */
-
-footer{
-    grid-area: ft;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas:
-    "t dT s"
-    "r c s";
-    z-index: 1;
-}
-
-.teacher{
-    grid-area: t;
-    margin: 1.5em 0 0 3em;
-}
-
-.devTeam{
-    grid-area: dT;
-    margin: 1.5em auto 0 auto;
-}
-
-.rights{
-    grid-area: r;
-    margin: 0 0 0 3em;
-}
-
-.course{
-    grid-area: c;
-    margin: auto;
-}
-
-.socials{
-    grid-area: s;
-    margin: 1.5em 0 0 30em;
 }

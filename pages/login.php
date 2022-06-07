@@ -5,7 +5,8 @@
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
-
+    require_once(__DIR__ . '/../templates/headfiles.tpl.php');
+    
     require_once(__DIR__ . '/../utils/session.php');
 
     $session = new Session();
@@ -16,6 +17,7 @@
         header('Location: ../pages/index.php');
 
     outputHead();
+    login_head();
     outputHeader($session);
     outputAds();
     outputSideMenu($db);
