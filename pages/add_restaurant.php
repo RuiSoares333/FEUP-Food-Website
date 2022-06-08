@@ -2,6 +2,7 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
@@ -17,9 +18,11 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
+    $categories = Restaurant::getAllCategories($db);
+
     outputHead();
-    outputHeader($session);
     add_restaurant_head();
+    outputHeader($session, $categories);
     outputSideMenu($db);
     outputAds();
     outputAddRestaurantForm($db);

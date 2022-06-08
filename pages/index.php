@@ -16,9 +16,11 @@
 
     $restaurants = Restaurant::getBestRestaurants($db);
 
+    $categories = Restaurant::getAllCategories($db);
+
     outputHead();
     index_head();
-    outputHeader($session);
+    outputHeader($session, $categories);
     outputSideMenu($db);
     outputAds();
 ?>        

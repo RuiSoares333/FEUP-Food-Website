@@ -115,15 +115,25 @@
         </section>
     <?php }
 
-    function outputRestaurantSideMenu(array $categories){ ?>
+    function outputRestaurantSideMenu(array $categories){ 
+        ?>
         <nav id = "side-menu" class = "restaurant">
             <ul>
             <?php
         foreach($categories as $category){
-        ?> <li><a href="#<?=$category['category']?>"><?=$category['category']?></a></li> <?php
+        ?> <li><a href="#<?=$category['category']?>"><?=str_replace('_', ' ', $category['category'])?></a></li> <?php
         }?>
             </ul>
         </nav>
     <?php }  
+
+
+    function outputSearchResults(array $restaurants){ ?>
+        <div id = "mainDiv" class = "search">
+            <?php foreach($restaurants as $restaurant){
+                outputRestaurant($restaurant);
+            } ?> 
+        </div>
+    <?php }
 
 ?>

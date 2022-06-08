@@ -7,6 +7,7 @@
     
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     require_once(__DIR__ . '/../utils/session.php');
 
@@ -21,9 +22,11 @@
 
     $costumer = Costumer::getCostumer($db, $session->getId());
 
+    $categories = Restaurant::getAllCategories($db);
+
     outputHead();
     edit_profile_head();
-    outputHeader($session);
+    outputHeader($session, $categories);
     outputSideMenu($db);
     outputAds();
     ?> <div id = "mainDiv" class ="edit_profile"> <?php

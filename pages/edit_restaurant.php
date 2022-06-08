@@ -27,13 +27,15 @@
 
     $dishes = Dish::getDishes($db, intval($_GET['id']));
 
+    $categories = Restaurant::getAllCategories($db);
+
     if($owner->username !== $restaurant->owner){
         die(header('Location: /'));
     }
 
     outputHead();
     edit_restaurant_head();
-    outputHeader($session);
+    outputHeader($session, $categories);
     outputSideMenu($db);
     outputAds();
     ?> <div id ="mainDiv" class ="editRestaurant"> <?php
