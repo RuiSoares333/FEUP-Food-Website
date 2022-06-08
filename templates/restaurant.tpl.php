@@ -35,18 +35,22 @@
     function outputFavoriteRestaurants(array $restaurants){?>
         <section id="favRestaurants">
             <h1>Your Favorite Restaurants</h1>
-            <section id="listRestaurants">
        <?php 
         if($restaurants) {
+            ?>
+            <section id="listRestaurants">
+            <?php
             foreach($restaurants as $restaurant){
                 outputRestaurant($restaurant);
-            }  
+            }
+            ?>
+            </section>
+            <?php
         }
         else{
-            ?> <h3>You don't have any favorite Restaurants'</h3> <?php
+            ?> <h3>You don't have any favorite Restaurants</h3> <?php
         }
         ?>
-            </section>
         </section>
     <?php }
 

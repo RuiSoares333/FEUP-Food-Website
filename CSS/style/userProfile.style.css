@@ -16,3 +16,19 @@
     border-radius: 100%;
     border: 5px solid #00000088;
 }
+
+#favDishes > h3{
+    background-color:#DEDEDE;
+    margin: 0;
+    padding: 5% 29%;
+    border: 1px solid #000000;
+    border-radius: 1em;
+}
+
+#favRestaurants > h3{
+    background-color:#DEDEDE;
+    margin: 0;
+    padding: 5% 25%;
+    border: 1px solid #000000;
+    border-radius: 1em;
+}

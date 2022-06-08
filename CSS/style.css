@@ -165,3 +165,23 @@ footer{
 footer{
     font-size: 75%;
 }
+
+/* Mini Preview */
+
+.miniPreview:hover{
+    background-color: #0000002d;
+    border-radius: 0.5em;
+}
+
+.miniPreview > :nth-child(2){
+    font-size: 65%;
+}
+
+.miniPreview > :nth-child(3){
+    font-weight: bold;
+    font-size: 85%;
+}
+
+.miniPreview > :nth-child(4), .miniPreview > :nth-child(5), .miniPreview > :nth-child(6){
+    font-size: 75%;
+}

@@ -36,7 +36,7 @@
 
     function outputCategoryDishes(array $category, array $dishes){ ?>
         <section id = <?= $category['category']?>>
-            <h1><?= $category['category']?></h1>
+            <h1><?= str_replace('_',' ', $category['category'])?></h1>
             <?php
                 foreach ($dishes as $dish)
                     outputDish($dish);
