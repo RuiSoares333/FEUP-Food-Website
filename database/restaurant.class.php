@@ -8,7 +8,7 @@
         public int $id;
         public string $name;
         public string $address;
-        public string $category;
+        public array $categories;
         public string $phone;
         public string $owner;
         public array $dishCategories;
@@ -17,11 +17,11 @@
         public float $avgRating;
 
 
-        public function __construct(int $id, string $name, string $address, string $category, string $phone, string $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating = -1) {
+        public function __construct(int $id, string $name, string $address, array $categories, string $phone, string $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating = -1) {
             $this->id = $id;
             $this->name = $name;
             $this->address = $address;
-            $this->category = $category;
+            $this->categories = $categories;
             $this->phone = $phone;
             $this->owner = $owner;
             $this->dishCategories = $dishCategories;
@@ -42,11 +42,20 @@
 
             $restaurants_ = array();
             foreach($restaurants as $restaurant){
+                $query = 'SELECT category FROM RestaurantCategory WHERE restaurant = ?';
+
+                $categories = getQueryResults($db, $query, true, array($restaurant['id']));
+
+                $categories_ = array();
+                foreach($categories as $category){
+                    $categories_[] = $category['category'];
+                }
+
                 $restaurants_[] = new Restaurant(
                     $restaurant['id'],
                     $restaurant['name'],
                     $restaurant['address'],
-                    $restaurant['category'],
+                    $categories_,
                     $restaurant['phone'],
                     $restaurant['ownerId'],
                     array(), array(),
@@ -70,12 +79,22 @@
             $categories = Restaurant::getDishCategories($db, $id);
             Restaurant::orderCategories($categories);
 
+            $query = 'SELECT category FROM RestaurantCategory WHERE restaurant = ?';
+
+            $restaurantCategories = getQueryResults($db, $query, true, array($id));
+
+            $categories_ = array();
+
+            foreach($restaurantCategories as $category){
+                $categories_[] = $category['category'];
+            }
+
 
             return new Restaurant(
                 $restaurant['id'],
                 $restaurant['name'],
                 $restaurant['address'],
-                $restaurant['category'],
+                $categories_,
                 $restaurant['phone'],
                 $restaurant['ownerId'],
                 $categories,
@@ -91,6 +110,16 @@
             LEFT JOIN Dish ON Restaurant.id = dish.restaurantId WHERE Restaurant.id = ?';
 
             $restaurant = getQueryResults($db, $query, false, array($id));
+
+            $query = 'SELECT category FROM RestaurantCategory WHERE restaurant = ?';
+
+            $categories = getQueryResults($db, $query, true, array($id));
+
+            $categories_ = array();
+
+            foreach($categories as $category) {
+                $categories_[] = $category['category'];
+            }
 
             return new Restaurant(
                 $restaurant['id'],
@@ -140,9 +169,19 @@
         } 
         
         function save(PDO $db){
-            $query = 'UPDATE Restaurant SET name = ?, address = ?, category = ?, phone = ? WHERE id = ?';
+            $query = 'UPDATE Restaurant SET name = ?, address = ?, phone = ? WHERE id = ?';
 
-            executeQuery($db, $query, array($this->name, $this->address, $this->category, $this->phone, $this->id));
+            executeQuery($db, $query, array($this->name, $this->address, $this->phone, $this->id));
+
+            $query = 'DELETE * FROM RestaurantCategory WHERE restaurant = ?';
+
+            executeQuery($db, $query, array($this->id));
+
+            foreach($this->categories as $category){
+                $query = 'INSERT INTO RestaurantCategory VALUES (?, ?)';
+
+                executeQuery($db, $query, array($this->id, $category));
+            }
         }
 
 
@@ -154,25 +193,38 @@
             $query = 'DELETE FROM FavoriteRestaurant WHERE restaurantId = ?';
 
             executeQuery($db, $query, array($this->id));
+
+            $query = 'DELETE FROM RestaurantCategory WHERE restaurant = ?';
+
+            executeQuery($db, $query, array($this->id));
         }
 
         function add(PDO $db){
-            $query = 'INSERT INTO Restaurant VALUES (NULL, ?, ?, ?, ?, ?)';
+            $query = 'INSERT INTO Restaurant VALUES (NULL, ?, ?, ?, ?)';
 
-            executeQuery($db, $query, array($this->name, $this-> address, $this->category, $this->phone, $this->owner));
+            executeQuery($db, $query, array($this->name, $this-> address, $this->phone, $this->owner));
+
+            $query = 'SELECT id FROM Restaurant WHERE name = ?';
+            $restaurant = getQueryResults($db, $query, false, array($this->name));
+
+            foreach($this->categories as $category){
+                $query = 'INSERT INTO RestaurantCategory VALUES(?, ?)';
+
+                executeQuery($db, $query, array($restaurant, $category));
+            }
         }
 
         static function searchRestaurants(PDO $db, string $search, bool $order, string $category, int $minRating) : array{
             if($order){
                 $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price 
-                    FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.RestaurantId LEFT JOIN Dish ON Restaurant.id = Dish.RestaurantId
-                    WHERE (Restaurant.name LIKE ? OR Dish.name LIKE ?) AND Restaurant.category LIKE ? AND rating >= ?
+                    FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.RestaurantId LEFT JOIN Dish ON Restaurant.id = Dish.RestaurantId LEFT JOIN RestaurantCategory ON Restaurant.id = RestaurantCategory.restaurant
+                    WHERE (Restaurant.name LIKE ? OR Dish.name LIKE ?) AND RestaurantCategory.category LIKE ? AND rating >= ?
                     GROUP BY Restaurant.id
                     ORDER BY price DESC';
             }else {
                 $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price 
-                    FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.RestaurantId LEFT JOIN Dish ON Restaurant.id = Dish.RestaurantId
-                    WHERE (Restaurant.name LIKE ? OR Dish.name LIKE ?) AND Restaurant.category LIKE ? AND rating >= ?
+                    FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.RestaurantId LEFT JOIN Dish ON Restaurant.id = Dish.RestaurantId LEFT JOIN RestaurantCategory ON Restaurant.id = RestaurantCategory.restaurant
+                    WHERE (Restaurant.name LIKE ? OR Dish.name LIKE ?) AND RestaurantCategory.category LIKE ? AND rating >= ?
                     GROUP BY Restaurant.id
                     ORDER BY price ASC';
             }
@@ -183,11 +235,20 @@
             $restaurants_ = array();
 
             foreach($restaurants as $restaurant){
+                $query = 'SELECT category FROM RestaurantCategory WHERE restaurant = ?';
+
+                $categories = getQueryResults($db, $query, true, array($restaurant['id']));
+
+                $categories_ = array();
+                foreach($categories as $category){
+                    $categories_[] = $category['category'];
+                }
+
                 $restaurants_[] = new Restaurant(
                     $restaurant['id'],
                     $restaurant['name'],
                     $restaurant['address'],
-                    $restaurant['category'],
+                    $categories_,
                     $restaurant['phone'],
                     $restaurant['ownerId'],
                     array(), array(),
@@ -201,7 +262,7 @@
 
 
         static function getAllCategories(PDO $db) : array {
-            $query = 'SELECT name FROM RestaurantCategory';
+            $query = 'SELECT name FROM Category';
             return getQueryResults($db, $query, true, null);
         }
     }

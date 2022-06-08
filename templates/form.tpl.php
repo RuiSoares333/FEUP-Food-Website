@@ -187,7 +187,7 @@
                         <option selected value = "">Any</option>
                         <?php
                             foreach($categories as $category){
-                                ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                                ?> <option value = "<?=$category['name']?>"><?=str_replace('_', ' ',$category['name'])?></option> <?php
                             }
                         ?>
                     </select>
