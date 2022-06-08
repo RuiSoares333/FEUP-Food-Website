@@ -27,7 +27,7 @@
 
     outputHead();
     outputHeader($session, $categories);
-    outputAds();
+    outputShoppingCart();
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php
     outputSingleRestaurant($restaurant, $user);   
@@ -42,4 +42,20 @@
         outputReviewForm();
     ?> </div> <?php   
     outputFooter();
+?>
+
+<?php
+    function outputShoppingCart(){ ?>
+        <aside id ="ads">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+            </table>
+        </aside>
+    <?php }
 ?>

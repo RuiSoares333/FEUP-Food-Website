@@ -22,7 +22,7 @@
                 echo '<link rel = "stylesheet" href="'.$file.'">';
             }
             ?>
-            <script src = "../javascript/script.js" defer></script>
+            <script src = "../javascript/shoppingCart.js" defer></script>
         </head>
         <body>
     <?php }
