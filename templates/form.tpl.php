@@ -177,7 +177,7 @@
                 <input type="text" name="search" placeholder="Search">
                 <label for ="rating">Rating</label>
                     <select name="rating">
-                        <option selected value="0">Any</option>
+                        <option selected value="-1">Any</option>
                         <?php
                             for($i=1; $i<10; $i++){
                                 echo '<option value="'. $i .'">' . $i . '</option>';
