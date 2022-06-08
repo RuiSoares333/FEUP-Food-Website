@@ -29,14 +29,30 @@
 ?>
 
 <?php
-    function outputHeader(Session $session) { ?>
+    function outputHeader(Session $session, $categories) { ?>
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
                 <form action = "../pages/search.php?" class = "search">
                     <input class = "search" name = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
-                    <input name = "rating" type = "hidden" value = -1>
-                    <input name = "category" type = "hidden" value = "">
+                    <nav>
+                        <select name ="rating">
+                            <option selected value="-1">Any</option>
+                            <?php 
+                                for($i=1 ; $i < 10; $i++){
+                                    ?> <option value ="<?=$i?>"><?=$i?></option> <?php
+                                }
+                            ?>
+                        </select>
+                        <select name = "category">
+                            <option selected value= "">Any</option>
+                            <?php
+                                foreach($categories as $category){
+                                    ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                                }
+                            ?>
+                        </select>
+                    </nav>
                 </form> <?php
                     if($session->isLoggedin()){ ?>
                         <div class="dropdown">

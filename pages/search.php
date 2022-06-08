@@ -16,10 +16,12 @@
 
     $restaurants = Restaurant::searchRestaurants($db, $_GET['search'], isset($_GET['order']), $_GET['category'], intval($_GET['rating']));
 
+    $categories = Restaurant::getAllCategories($db);
+
     outputHead();
-    outputHeader($session);
+    outputHeader($session, $categories);
     outputAds();
-    outputSortSideMenu($db);
+    outputSortSideMenu($categories);
     outputSearchResults($restaurants);
     outputFooter();
 ?>

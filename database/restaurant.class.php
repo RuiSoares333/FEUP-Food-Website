@@ -198,5 +198,11 @@
 
             return $restaurants_;
         }
+
+
+        static function getAllCategories(PDO $db) : array {
+            $query = 'SELECT name FROM RestaurantCategory';
+            return getQueryResults($db, $query, true, null);
+        }
     }
 ?>

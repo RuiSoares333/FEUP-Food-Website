@@ -168,9 +168,7 @@
         </div>
     <?php }
 
-    function outputSortSideMenu(PDO $db) { 
-        $query = 'SELECT name FROM RestaurantCategory';
-        $categories = getQueryResults($db, $query, true, null);
+    function outputSortSideMenu(array $categories) { 
         ?>
         <nav id="side-menu" class="sort">
             <form>
