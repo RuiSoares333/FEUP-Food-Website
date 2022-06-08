@@ -33,8 +33,10 @@
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
-                <form action = "../pages/search.php" method = "POST" class = "search">
-                    <input class = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
+                <form action = "../pages/search.php?" class = "search">
+                    <input class = "search" name = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
+                    <input name = "rating" type = "hidden" value = -1>
+                    <input name = "category" type = "hidden" value = "">
                 </form> <?php
                     if($session->isLoggedin()){ ?>
                         <div class="dropdown">
@@ -141,7 +143,7 @@
 <?php 
     function outputSearch(Session $session){ ?>
             <section id ="search">
-                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/search.php"'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
+                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/search.php?search=&rating=-1&category="'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
                 <?php if(!$session->isLoggedin()){?> 
                 <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a> <?php } ?>
                 </form>

@@ -196,7 +196,7 @@
                 <label for="price">Price</label>
                 <input type="checkbox" id="price" name = "order" value = "value">
                 <label class="price" for="price"></label><br>
-                <button>Search!</button>
+                <button type = "submit" formaction = "../pages/search.php" formmethod="GET">Search!</button>
             </form>
         </nav>
     <?php }

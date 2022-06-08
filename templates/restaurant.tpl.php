@@ -124,4 +124,13 @@
         </nav>
     <?php }  
 
+
+    function outputSearchResults(array $restaurants){ ?>
+        <div id = "mainDiv" class = "search">
+            <?php foreach($restaurants as $restaurant){
+                outputRestaurant($restaurant);
+            } ?> 
+        </div>
+    <?php }
+
 ?>
