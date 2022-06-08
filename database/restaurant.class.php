@@ -263,7 +263,7 @@
 
         static function getAllCategories(PDO $db) : array {
             $query = 'SELECT name FROM Category';
-            return getQueryResults($db, $query, true, null);
+            return getQueryResults($db, $query, true);
         }
     }
 ?>
