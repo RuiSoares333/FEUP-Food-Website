@@ -20,11 +20,13 @@
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
+    $categories = Restaurant::getAllCategories($db);
+
     if($session->isLoggedin())
         $user = Costumer::getCostumer($db, $session->getId());
 
     outputHead();
-    outputHeader($session);
+    outputHeader($session, $categories);
     outputAds();
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php

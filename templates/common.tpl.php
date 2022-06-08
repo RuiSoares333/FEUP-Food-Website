@@ -22,19 +22,37 @@
                 echo '<link rel = "stylesheet" href="'.$file.'">';
             }
             ?>
-            <script src = "script.js" defer></script>
+            <script src = "../javascript/script.js" defer></script>
         </head>
         <body>
     <?php }
 ?>
 
 <?php
-    function outputHeader(Session $session) { ?>
+    function outputHeader(Session $session, $categories) { ?>
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
-                <form action = "../pages/search.php" method = "POST" class = "search">
-                    <input class = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
+                <form action = "../pages/search.php?" class = "search">
+                    <input class = "search" name = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
+                    <nav>
+                        <select name ="rating">
+                            <option selected value="-1">Any</option>
+                            <?php 
+                                for($i=1 ; $i < 10; $i++){
+                                    ?> <option value ="<?=$i?>"><?=$i?></option> <?php
+                                }
+                            ?>
+                        </select>
+                        <select name = "category">
+                            <option selected value= "">Any</option>
+                            <?php
+                                foreach($categories as $category){
+                                    ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                                }
+                            ?>
+                        </select>
+                    </nav>
                 </form> <?php
                     if($session->isLoggedin()){ ?>
                         <div class="dropdown">
@@ -99,42 +117,6 @@
 ?>
 
 <?php
-    function outputSortSideMenu(PDO $db) { 
-        $query = 'SELECT name FROM RestaurantCategory';
-        $categories = getQueryResults($db, $query, true, null);
-        ?>
-        <nav id="side-menu" class="sort">
-            <form>
-                <input type="text" name="searchName" placeholder="Search">
-                <label id="rating">Rating</label>
-                    <select name="rating">
-                        <option value="0">Any</option>
-                        <?php
-                            for($i=1; $i<10; $i++){
-                                echo '<option value="'. $i .'">' . $i . '</option>';
-                            }
-                        ?>
-                    </select>
-                <label>Category</label>
-                    <select name="category">
-                        <option selected value = "">Any</option>
-                        <?php
-                            foreach($categories as $category){
-                                ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
-                            }
-                        ?>
-                    </select>
-                <label id="prc">Price</label>
-                <input type="checkbox" id="price">
-                <label class="price" for="price"></label><br>
-                <input type="hidden" name = "referer" value="<?=$_SERVER['HTTP_REFERER']?>">
-                <button formaction="../actions/action_login.php" formmethod="post">Sort!</button>
-            </form>
-        </nav>
-    <?php }
-?>
-
-<?php
     function outputFooter(){ ?>
         <footer>
             <div class="teacher">
@@ -177,7 +159,7 @@
 <?php 
     function outputSearch(Session $session){ ?>
             <section id ="search">
-                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/search.php"'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
+                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/search.php?search=&rating=-1&category="'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
                 <?php if(!$session->isLoggedin()){?> 
                 <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a> <?php } ?>
                 </form>

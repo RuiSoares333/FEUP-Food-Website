@@ -161,7 +161,48 @@
 
             executeQuery($db, $query, array($this->name, $this-> address, $this->category, $this->phone, $this->owner));
         }
-    }
 
-    
+        static function searchRestaurants(PDO $db, string $search, bool $order, string $category, int $minRating) : array{
+            if($order){
+                $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price 
+                    FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.RestaurantId LEFT JOIN Dish ON Restaurant.id = Dish.RestaurantId
+                    WHERE (Restaurant.name LIKE ? OR Dish.name LIKE ?) AND Restaurant.category LIKE ? AND rating >= ?
+                    GROUP BY Restaurant.id
+                    ORDER BY price DESC';
+            }else {
+                $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, round(avg(Dish.price),2) as price 
+                    FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.RestaurantId LEFT JOIN Dish ON Restaurant.id = Dish.RestaurantId
+                    WHERE (Restaurant.name LIKE ? OR Dish.name LIKE ?) AND Restaurant.category LIKE ? AND rating >= ?
+                    GROUP BY Restaurant.id
+                    ORDER BY price ASC';
+            }
+
+
+            $restaurants = getQueryResults($db, $query, true, array($search . '%', $search . '%', $category . '%', $minRating));
+
+            $restaurants_ = array();
+
+            foreach($restaurants as $restaurant){
+                $restaurants_[] = new Restaurant(
+                    $restaurant['id'],
+                    $restaurant['name'],
+                    $restaurant['address'],
+                    $restaurant['category'],
+                    $restaurant['phone'],
+                    $restaurant['ownerId'],
+                    array(), array(),
+                    $restaurant['price'],
+                    $restaurant['rating'],
+                );
+            }
+
+            return $restaurants_;
+        }
+
+
+        static function getAllCategories(PDO $db) : array {
+            $query = 'SELECT name FROM RestaurantCategory';
+            return getQueryResults($db, $query, true, null);
+        }
+    }
 ?>

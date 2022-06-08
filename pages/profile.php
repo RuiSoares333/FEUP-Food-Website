@@ -8,6 +8,7 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     require_once(__DIR__ . '/../utils/session.php');
 
@@ -28,11 +29,13 @@
         }
     }
 
+    $categories = Restaurant::getAllCategories($db);
+
     $restaurants = $costumer->getFavoriteRestaurants($db);
     $dishes = $costumer->getFavoriteDishes($db);
 
     outputHead();
-    outputHeader($session);
+    outputHeader($session, $categories);
     outputSideMenu($db);
     outputAds();
 ?>

@@ -14,9 +14,7 @@
         <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
     </div>
     <?php }
-?>
 
-<?php
     function outputRegisterForm() { ?>
         <div id="mainDiv" class="register">
             <p id="squareRegister"></p>
@@ -168,5 +166,36 @@
             </form>
         </section>
         </div>
+    <?php }
+
+    function outputSortSideMenu(array $categories) { 
+        ?>
+        <nav id="side-menu" class="sort">
+            <form>
+                <input type="text" name="search" placeholder="Search">
+                <label for ="rating">Rating</label>
+                    <select name="rating">
+                        <option selected value="-1">Any</option>
+                        <?php
+                            for($i=1; $i<10; $i++){
+                                echo '<option value="'. $i .'">' . $i . '</option>';
+                            }
+                        ?>
+                    </select>
+                <label for = "category">Category</label>
+                    <select name="category">
+                        <option selected value = "">Any</option>
+                        <?php
+                            foreach($categories as $category){
+                                ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                            }
+                        ?>
+                    </select>
+                <label for="price">Price</label>
+                <input type="checkbox" id="price" name = "order" value = "value">
+                <label class="price" for="price"></label><br>
+                <button type = "submit" formaction = "../pages/search.php" formmethod="GET">Search!</button>
+            </form>
+        </nav>
     <?php }
 ?>
