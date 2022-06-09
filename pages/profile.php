@@ -38,7 +38,7 @@
     outputHead();
     profile_head();
     outputHeader($session, $categories);
-    outputSideMenu($db);
+    outputSideMenu($categories);
     outputAds();
 ?>
 

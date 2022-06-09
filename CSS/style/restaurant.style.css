@@ -1,11 +1,5 @@
 /* Intro */
 
-#mainDiv.restaurant #dishes section article :nth-child(1){
-    border-radius: 25%;
-    width: 95%;
-    height: 95%;
-}
-
 #restaurant article :nth-child(2){
     font-size: 250%;
     font-weight: bold;
@@ -24,6 +18,12 @@
 #mainDiv.restaurant #dishes h1{
     font-size: 150%;
     border-bottom: 2px solid black;
+}
+
+#mainDiv.restaurant #dishes section article :nth-child(1){
+    border-radius: 25%;
+    width: 95%;
+    height: 95%;
 }
 
 #mainDiv.restaurant #dishes section article{

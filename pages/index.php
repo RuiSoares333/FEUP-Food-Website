@@ -21,7 +21,7 @@
     outputHead();
     index_head();
     outputHeader($session, $categories);
-    outputSideMenu($db);
+    outputSideMenu($categories);
     outputAds();
 ?>        
     <div id="mainDiv" class="index">

@@ -16,7 +16,7 @@
             <link rel = "stylesheet" href="../CSS/layout.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/images.css">
-            <script src = "script.js" defer></script>
+            <script src = "../javascript/script.js" defer></script>
     <?php }
 ?>
 
@@ -88,10 +88,7 @@
 ?>
 
 <?php
-    function outputSideMenu(PDO $db) { 
-        $query = 'SELECT name FROM RestaurantCategory';
-        $categories = getQueryResults($db, $query, true, null);
-        ?>
+    function outputSideMenu(array $categories) {?>
         <nav id="side-menu" class="index">
             <a href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
             <a href="#close">Close to You</a>
@@ -100,7 +97,7 @@
             <ul>
                 <?php
                     foreach($categories as $category){
-                        ?> <li><a href= "../pages/index.php"><?=$category['name']?></a></li> <?php
+                        ?> <li><a href= "../pages/index.php"><?=str_replace('_', ' ', $category['name'])?></a></li> <?php
                     }
                 ?>
             </ul>

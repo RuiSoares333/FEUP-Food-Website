@@ -23,7 +23,7 @@
     outputHead();
     add_restaurant_head();
     outputHeader($session, $categories);
-    outputSideMenu($db);
+    outputSideMenu($categories);
     outputAds();
     outputAddRestaurantForm($categories);
     outputFooter();

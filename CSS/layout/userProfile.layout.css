@@ -3,12 +3,55 @@
     flex-direction: column;
 }
 
-#favRestaurants #listRestaurants{
+#favRestaurants #listRestaurants, #favRestaurants #listDishes{
     display: grid;
     grid-template-columns: repeat(5, 20%);
+    margin: 0;
 }
 
 #favDishes, #favRestaurants{
     display: flex;
     flex-direction: column;
+}
+
+/* Fav favDishes */
+
+#mainDiv.profile #favDishes section{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    margin-top: 4em;
+}
+
+#mainDiv.profile #favDishes section article{
+    width: 98%;
+}
+
+#mainDiv.profile #favDishes section article *{
+    padding-top: 0.25em;
+    padding-left: 0.25em;
+}
+
+
+#mainDiv.profile #favDishes h1{
+    position: absolute;
+    margin-top: -2em;
+    width: 60%
+}
+
+#listDishes a article{
+    position: relative;
+    margin: 0;
+}
+
+#listDishes a article :nth-child(2){
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    max-width: 85%;
+}
+
+#listDishes a article :nth-child(3){
+    position: absolute;
+    bottom: 27.5%;
+    left: 5%;
 }
