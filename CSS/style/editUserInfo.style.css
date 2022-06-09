@@ -11,6 +11,7 @@
     text-transform: none;
     text-align: center;
     color: var(--branco-verde);
+    width: 90%;
 }
 
 #edit_profile label{
@@ -38,6 +39,7 @@
     text-transform: none;
     text-align: center;
     color: var(--branco-verde);
+    width: 90%;
 }
 
 #changePassword label{

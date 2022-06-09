@@ -5,9 +5,15 @@
         <section id="favDishes">
             <h1>Your Favorite Dishes</h1>
         <?php if($dishes){
-            foreach($dishes as $dish){
-                outputFavoriteDish($dish);
-            }
+            ?>
+            <section id="listDishes">
+                <?php
+                foreach($dishes as $dish){
+                    outputFavoriteDish($dish);
+                }
+                ?>
+            </section>
+            <?php
         }
         else{
             ?> <h3>You don't have any favorite dishes</h3> <?php
@@ -36,7 +42,7 @@
 
     function outputCategoryDishes(array $category, array $dishes){ ?>
         <section id = <?= $category['category']?>>
-            <h1><?= $category['category']?></h1>
+            <h1><?= str_replace('_',' ', $category['category'])?></h1>
             <?php
                 foreach ($dishes as $dish)
                     outputDish($dish);

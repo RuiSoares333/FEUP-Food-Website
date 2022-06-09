@@ -6,7 +6,8 @@
     require_once(__DIR__ . '/../templates/dish.tpl.php');
     require_once(__DIR__ . '/../templates/review.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
-
+    require_once(__DIR__ . '/../templates/headfiles.tpl.php');
+    
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
     require_once(__DIR__ . '/../database/dish.class.php');
@@ -26,6 +27,7 @@
         $user = Costumer::getCostumer($db, $session->getId());
 
     outputHead();
+    restaurant_head();
     outputHeader($session, $categories);
     outputAds();
     outputRestaurantSideMenu($restaurant->dishCategories);

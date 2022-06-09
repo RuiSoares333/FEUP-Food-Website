@@ -3,7 +3,8 @@
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
-
+    require_once(__DIR__ . '/../templates/headfiles.tpl.php');
+    
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
@@ -24,8 +25,9 @@
     $categories = Restaurant::getAllCategories($db);
 
     outputHead();
+    edit_profile_head();
     outputHeader($session, $categories);
-    outputSideMenu($db);
+    outputSideMenu($categories);
     outputAds();
     ?> <div id = "mainDiv" class ="edit_profile"> <?php
     outputEditProfileForm($costumer);
