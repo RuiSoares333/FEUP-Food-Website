@@ -159,7 +159,7 @@ footer{
     grid-template-columns: 85% 15%;
     grid-template-areas:
     "ig ig"
-    "catg ."
+    "catg del"
     "name rating"
     "addr ."
     "avgPrice .";
@@ -205,4 +205,9 @@ footer{
 
 .miniPreview > :nth-child(6){
     grid-area: avgPrice;
+}
+
+.miniPreview > :nth-child(7){
+    grid-area: del;
+    margin-left: -90%;
 }

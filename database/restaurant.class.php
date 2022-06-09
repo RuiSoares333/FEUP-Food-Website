@@ -127,7 +127,7 @@
                 $restaurant['id'],
                 $restaurant['name'],
                 $restaurant['address'],
-                $restaurant['category'],
+                $categories_,
                 $restaurant['phone'],
                 $restaurant['ownerId'],
                 array(), array(),

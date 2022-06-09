@@ -182,6 +182,10 @@ footer{
     font-size: 85%;
 }
 
-.miniPreview > :nth-child(4), .miniPreview > :nth-child(5), .miniPreview > :nth-child(6){
+.miniPreview > :nth-child(4), .miniPreview > :nth-child(5), .miniPreview > :nth-child(6), .miniPreview > :nth-child(7){
     font-size: 75%;
+}
+
+.miniPreview > :nth-child(7) *{
+    color: red;
 }

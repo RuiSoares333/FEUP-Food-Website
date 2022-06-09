@@ -4,9 +4,11 @@
     function outputRestaurant(Restaurant $restaurant) { ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
+        <div class="categories">
         <?php foreach($restaurant->categories as $category){
                 ?> <p><?=$category?></p> <?php
         } ?>
+        </div>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
         <?php if ($restaurant->avgRating === -1.0){ ?>
             <p>no rating</p>
@@ -21,9 +23,11 @@
     function outputOwnedRestaurant(Restaurant $restaurant) { ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
+        <div class="categories">
         <?php foreach ($restaurant->categories as $category){
                 ?> <p><?=$category?></p> <?php
         } ?>
+        </div>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
         <?php if ($restaurant->avgRating === -1.0){ ?>
             <p>no rating</p>
@@ -32,7 +36,7 @@
         <?php } ?>
         <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
-        <a href ="../actions/action_delete_restaurant.php?id=<?=$restaurant->id?>">Delete</a>
+        <p><a href ="../actions/action_delete_restaurant.php?id=<?=$restaurant->id?>">Delete</a><p>
         </article>
     <?php }
 
@@ -61,10 +65,12 @@
     function outputOwnedRestaurants(array $restaurants){ ?>
         <section id="myRestaurants">
             <h1>Your Restaurants</h1>
+            <section id="listRestaurants">
             <?php if($restaurants){
                 foreach($restaurants as $restaurant)
                     outputOwnedRestaurant($restaurant);
             }?>
+            </section>
         </section>
     <?php }
 

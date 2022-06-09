@@ -46,7 +46,11 @@
         <?php 
         outputProfileInfo($costumer);
         if($costumer->isOwner()){
-            outputOwnedRestaurants($myRestaurants);
+            ?>
+            <?php
+                outputOwnedRestaurants($myRestaurants);
+            ?>
+            <?php
         }
         outputFavoriteRestaurants($restaurants);
         outputFavoriteDishes($dishes);

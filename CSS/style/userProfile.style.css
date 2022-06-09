@@ -8,7 +8,7 @@
     margin: 1.5% auto;
 }
 
-#user > p:nth-child(3){
+#user > p:nth-child(3), #user > p:nth-child(3) > b:nth-child(1){
     text-transform: none;
 }
 
@@ -19,7 +19,6 @@
 
 #favDishes > h3{
     background-color:#DEDEDE;
-    margin: 0;
     padding: 5% 29%;
     border: 1px solid #000000;
     border-radius: 1em;
@@ -29,7 +28,6 @@
 
 #favRestaurants > h3{
     background-color:#DEDEDE;
-    margin: 0;
     padding: 5% 25%;
     border: 1px solid #000000;
     border-radius: 1em;
@@ -38,7 +36,7 @@
 
 /* Fav Dishes */
 
-#mainDiv.profile #favDishes h1{
+#favDishes h1, #favRestaurants h1, #myRestaurants h1{
     font-size: 150%;
     border-bottom: 2px solid black;
 }

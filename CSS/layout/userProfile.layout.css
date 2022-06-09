@@ -3,10 +3,9 @@
     flex-direction: column;
 }
 
-#favRestaurants #listRestaurants, #favRestaurants #listDishes{
+#favRestaurants #listRestaurants, #favRestaurants #listDishes, #myRestaurants #listRestaurants{
     display: grid;
     grid-template-columns: repeat(5, 20%);
-    margin: 0;
 }
 
 #favDishes, #favRestaurants{
@@ -14,27 +13,30 @@
     flex-direction: column;
 }
 
+#favRestaurants > :nth-child(2), #favDishes > :nth-child(2){
+    margin: 4em 0 0 0;
+}
+
 /* Fav favDishes */
 
-#mainDiv.profile #favDishes section{
+#favDishes section{
     display: grid;
     grid-template-columns: repeat(5, 20%);
     margin-top: 4em;
 }
 
-#mainDiv.profile #favDishes section article{
+#favDishes section article{
     width: 98%;
 }
 
-#mainDiv.profile #favDishes section article *{
+#favDishes section article *{
     padding-top: 0.25em;
     padding-left: 0.25em;
 }
 
 
-#mainDiv.profile #favDishes h1{
+#favDishes h1, #favRestaurants h1{
     position: absolute;
-    margin-top: -2em;
     width: 60%
 }
 
