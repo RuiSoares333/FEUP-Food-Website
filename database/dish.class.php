@@ -4,6 +4,7 @@
     require_once(__DIR__ . '/../database/connection.php');
 
     class Dish {
+        const DEFAULT_IMG = 0;
         public int $id;
         public string $name;
         public float $price;

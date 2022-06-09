@@ -5,6 +5,7 @@
     require_once(__DIR__ . '/../database/review.class.php');
 
     class Restaurant {
+        const DEFAULT_IMG = 0;
         public int $id;
         public string $name;
         public string $address;
@@ -127,7 +128,7 @@
                 $restaurant['id'],
                 $restaurant['name'],
                 $restaurant['address'],
-                $restaurant['category'],
+                $categories_,
                 $restaurant['phone'],
                 $restaurant['ownerId'],
                 array(), array(),

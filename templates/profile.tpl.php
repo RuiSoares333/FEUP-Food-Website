@@ -3,7 +3,7 @@
 
     function outputProfileInfo(Costumer $costumer){ ?>
         <section id="user">
-            <img src="https://picsum.photos/300/200?<?=$costumer->id?>">
+            <img src="../resources/users/0.jpg">
             <p id="profileSquare"></p>
             <h1><?=$costumer->name?></h1>
             <h4>@<?=$costumer->username?></h4>

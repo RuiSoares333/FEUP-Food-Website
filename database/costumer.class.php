@@ -6,6 +6,7 @@
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
     class Costumer{
+        const DEFAULT_IMG = 0;
         public string $username;
         public string $name;
         public string $email;
