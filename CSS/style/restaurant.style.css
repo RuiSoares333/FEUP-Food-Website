@@ -1,22 +1,27 @@
 /* Intro */
 
-#mainDiv.restaurant #dishes section article :nth-child(1){
-    border-radius: 25%;
-    width: 95%;
-    height: 95%;
-}
-
-#restaurant article :nth-child(2){
+#restaurant > :nth-child(2){
     font-size: 250%;
     font-weight: bold;
 }
 
-#restaurant article :nth-child(3){
+#restaurant > :nth-child(3){
     font-size: 175%;
 }
 
-#restaurant article :nth-child(4){
+#restaurant > :nth-child(4){
     font-size: 125%;
+}
+
+#restaurant > section:nth-child(3) > p:not(:last-child)::after{
+    content: ". ";
+    font-weight: bold;
+}
+
+#restaurant > section:nth-child(3) > p:not(:first-child)::before{
+    content: ". ";
+    color: transparent;
+    font-size: 60%;
 }
 
 /* Dishes */
@@ -24,6 +29,12 @@
 #mainDiv.restaurant #dishes h1{
     font-size: 150%;
     border-bottom: 2px solid black;
+}
+
+#mainDiv.restaurant #dishes section article :nth-child(1){
+    border-radius: 25%;
+    width: 95%;
+    height: 95%;
 }
 
 #mainDiv.restaurant #dishes section article{
@@ -46,6 +57,11 @@
     text-shadow: .2em .2em .3em black;
     -webkit-text-stroke: .5px black;
     font-weight: bold;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #mainDiv.restaurant #reviews article > p{

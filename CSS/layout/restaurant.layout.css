@@ -11,15 +11,18 @@
 
 /* Intro */
 
-#restaurant article{
+#restaurant{
     display: flex;
     flex-direction: column;
 }
 
-#restaurant article *{
+#restaurant *{
     margin: auto;
 }
 
+#restaurant > section{
+    display: flex;
+}
 
 /* Dishes */
 
@@ -52,10 +55,9 @@
 
 #mainDiv.restaurant #dishes section article :nth-child(2){
     position: absolute;
-    bottom: 20%;
+    top: 50%;
     left: 5%;
-    max-width: 90%;
-    max-height: 10%
+    max-width: 85%;
 }
 
 #mainDiv.restaurant #dishes section article :nth-child(3){
@@ -80,16 +82,19 @@
 
 #mainDiv.restaurant #reviews article div{
     display:flex;
-    align-content: space-between;
-}
-
-#mainDiv.restaurant #reviews article div :last-child{
-    margin-left: auto;
-    margin-right: 0;
 }
 
 #mainDiv.restaurant #reviews article div *{
     margin: 0;
+}
+
+#mainDiv.restaurant #reviews article div :last-child{
+    text-decoration: underline;
+}
+
+#mainDiv.restaurant #reviews article div > p:nth-child(2){
+    margin-left: auto;
+    margin-right: 2.5%;
 }
 
 #mainDiv.restaurant #reviews article p, #mainDiv.restaurant #reviews article p b{
