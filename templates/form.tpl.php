@@ -104,7 +104,6 @@
                         } ?>
                         <button type="button">close</button>
                     </dialog>
-                    </select>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone" value ="<?=$restaurant->phone?>" required>
                     <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" type ="submit" formmethod="post">Edit</button>
@@ -136,33 +135,28 @@
     <?php }
 
 
-    function outputAddRestaurantForm(PDO $db){ 
-        $query = "SELECT name FROM RestaurantCategory";
-        $categories = getQueryResults($db, $query, true);
-        
-        ?>
-        <div id = "mainDiv" class = "add_restaurant">
-        <section id= "newRestaurant">
-            <h1>Add your Restaurant</h1>
-            <form>
-                <label for = "name">Name:</label>
-                <input type="text" name="name" required>
-                <label for="address">Address:</label>
-                <input type="text" name="address" required>
-                <label for="category">Category:</label>
-                <select name="category" required>
-                    <option disabled selected value>--choose a category--</option>
-                    <?php 
-                        foreach($categories as $category){
-                            ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
-                        }
-                    ?>
-                </select>
-                <label for="phone">Phone number:</label>
-                <input type="text" name="phone"required>
-                <button formaction="../actions/action_add_restaurant.php" id ="submit" formmethod="post">Submit</button>
-            </form>
-        </section>
+    function outputAddRestaurantForm(array $categories){ ?>
+        <div id = "mainDiv" class ="newRestaurant">
+            <section id = "newRestaurant">
+                <h1>Add your restaurant</h1>
+                <form id ="newRestaurant">
+                    <label for="name">Name:</label>
+                    <input type ="text" name ="name">
+                    <label for="address">Address:</label>
+                    <input type ="text" name ="address">
+                    <button type = "button" id = "categories">categories</button>
+                    <dialog id ="myDialog">
+                        <h1>Choose the categories</h1>
+                        <?php foreach($categories as $category){
+                            ?> <input type = "checkbox" name = "categories[]" value="<?=$category['name']?>"><?=str_replace('_', ' ', $category['name'])?></input> <?php 
+                        } ?>
+                        <button type ="button">close</button>
+                    </dialog>
+                    <label for="phone">Phone:</label>
+                    <input type ="text" name ="phone">
+                    <button formaction="../actions/action_add_restaurant.php" type="submit" formmethod="post">Add</button>
+                </form>
+            </section>
         </div>
     <?php }
 
