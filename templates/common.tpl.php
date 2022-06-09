@@ -48,7 +48,7 @@
                             <option selected value= "">Any</option>
                             <?php
                                 foreach($categories as $category){
-                                    ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                                    ?> <option value = "<?=$category['name']?>"><?=str_replace('_', ' ',$category['name'])?></option> <?php
                                 }
                             ?>
                         </select>
@@ -159,7 +159,7 @@
 <?php 
     function outputSearch(Session $session){ ?>
             <section id ="search">
-                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/search.php?search=&rating=-1&category="'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
+                <a class = "order" href="../pages/search.php?search=&rating=-1&category="><button><h2>Order Now!</h2></button></a>
                 <?php if(!$session->isLoggedin()){?> 
                 <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a> <?php } ?>
                 </form>

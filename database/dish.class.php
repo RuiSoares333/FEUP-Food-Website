@@ -66,7 +66,7 @@
             return $dishes_;
         }
 
-        function deleteDish(PDO $db){
+        function delete(PDO $db){
             $query = 'DELETE FROM dish WHERE id = ?';
 
             executeQuery($db, $query, array($this->id));

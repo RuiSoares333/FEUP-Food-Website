@@ -27,9 +27,11 @@
     }
 
 
-    if(trim($_POST['category']) == ''){
-        $session->addMessage('error', 'please fill all mandatory fields with the intended information');
-        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    foreach($_POST['categories'] as $category){
+        if(trim($category) === ''){
+            session->addMessage('error', 'your restaurant needs at least one category');
+            die(header('Location:' . $_SERVER['HTTP_REFERER']));
+        }
     }
 
 
@@ -42,7 +44,7 @@
         1,
         trim($_POST['name']),
         trim($_POST['address']),
-        trim($_POST['category']),
+        $_POST['categories'],
         trim($_POST['phone']),
         $session->getId()
     );
@@ -57,7 +59,7 @@
         $costumer->becomeOwner($db);
     }
 
-    $session->setOwnedRestaurants = $costumer->getOwnedRestaurants($db);
+    $session->setOwnedRestaurants($costumer->getOwnedRestaurants($db));
 
     header('Location: ../pages/profile.php');
 ?>
