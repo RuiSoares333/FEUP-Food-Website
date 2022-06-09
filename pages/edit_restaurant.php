@@ -39,7 +39,7 @@
     outputSideMenu($db);
     outputAds();
     ?> <div id ="mainDiv" class ="editRestaurant"> <?php
-    outputEditRestaurantForm($restaurant);
+    outputEditRestaurantForm($restaurant, $categories);
     outputDishMenu($dishes);
     outputAddDishForm();
     ?> </div> <?php

@@ -4,7 +4,9 @@
     function outputRestaurant(Restaurant $restaurant) { ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
-        <p><?=$restaurant->category?></p>
+        <?php foreach($restaurant->categories as $category){
+                ?> <p><?=$category?></p> <?php
+        } ?>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
         <?php if ($restaurant->avgRating === -1.0){ ?>
             <p>no rating</p>
@@ -19,7 +21,9 @@
     function outputOwnedRestaurant(Restaurant $restaurant) { ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
-        <p><?=$restaurant->category?></p>
+        <?php foreach ($restaurant->categories as $category){
+                ?> <p><?=$category?></p> <?php
+        } ?>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
         <?php if ($restaurant->avgRating === -1.0){ ?>
             <p>no rating</p>
@@ -104,7 +108,9 @@
         <article>
         <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
         <p><?=$restaurant->name?> </p>
-        <p><?=$restaurant->category?> </p>
+        <?php foreach($restaurant->categories as $category){
+            ?> <p><?=$category?> </p> <?php
+        } ?>
         <p><?=$restaurant->address?></p><?php
 
         if($restaurant->avgRating === -1.0){

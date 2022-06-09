@@ -27,7 +27,7 @@
             if($result)
                 return $fetchMultiple ? $stmt->fetchAll() : $stmt->fetch();
         } catch(PDOException $e) {
-            print_r($e->getMessage());
+            //print_r($e->getMessage());
         }
 
         return false;
@@ -38,7 +38,7 @@
             if($stmt = $db->prepare($query))
                 return array($stmt->execute($params), $stmt);
         } catch(PDOException $e) {
-            print_r($e->getMessage());
+            //print_r($e->getMessage());
         }
 
         return array(false, null);

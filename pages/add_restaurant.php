@@ -25,6 +25,6 @@
     outputHeader($session, $categories);
     outputSideMenu($db);
     outputAds();
-    outputAddRestaurantForm($db);
+    outputAddRestaurantForm($categories);
     outputFooter();
 ?>

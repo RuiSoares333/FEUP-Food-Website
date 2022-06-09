@@ -30,9 +30,12 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['category']) === ''){
-        $session->addMessage('error', 'what type of restaurant do you have?');
-        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+
+    foreach($_POST['categories'] as $category){
+        if(trim($category) === ''){
+            session->addMessage('error', 'your restaurant needs at least one category');
+            die(header('Location:' . $_SERVER['HTTP_REFERER']));
+        }
     }
 
     if(trim($_POST['phone']) === ''){
@@ -42,7 +45,7 @@
 
     $restaurant->name = trim($_POST['name']);
     $restaurant->address = trim($_POST['address']);
-    $restaurant->category = trim($_POST['category']);
+    $restaurant->categories = $_POST['categories'];
     $restaurant->phone = trim($_POST['phone']);
 
     $restaurant->save($db);
