@@ -87,9 +87,7 @@
         </section>
     <?php }
 
-    function outputEditRestaurantForm(Restaurant $restaurant){ 
-        $selected = $restaurant->category;
-        ?>
+    function outputEditRestaurantForm(Restaurant $restaurant, array $categories){ ?>
             <section id ="editRestaurant">
                 <h1>Edit Restaurant</h1>
                 <p id="squareEdit"></p>
@@ -98,18 +96,18 @@
                     <input type ="text" name ="name" value= "<?=$restaurant->name?>" required>
                     <label for="address">Address:</label>
                     <input type ="text" name ="address" value ="<?=$restaurant->address?>" required>
-                    <label for="category">Category:</label>
-                    <select name ="category">
-                        <option value ="italian" <?php if($selected == 'italian') echo 'selected'?>>italian</option>
-                        <option value ="japanese" <?php if($selected == 'japanese') echo 'selected'?>>japanese</option>
-                        <option value ="portuguese" <?php if($selected == 'portuguese') echo 'selected'?>>portuguese</option>
-                        <option value ="fast food" <?php if($selected == 'fast food') echo 'selected'?>>fast food</option>
-                        <option value ="european" <?php if($selected == 'european') echo 'selected'?>>european</option>
-                        <option value ="mexican" <?php if($selected == 'mexican') echo 'selected'?>>mexican</option>
+                    <button type ="button" id = "categories">categories</button>
+                    <dialog id ="myDialog">
+                        <h1>Choose the categories</h1>
+                        <?php foreach($categories as $category) {
+                            ?> <input type = "checkbox" name = "categories[]" value="<?=$category['name']?>" <?php if(array_search($category['name'],$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category['name'])?></input> <?php
+                        } ?>
+                        <button type="button">close</button>
+                    </dialog>
                     </select>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone" value ="<?=$restaurant->phone?>" required>
-                    <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" id ="submit" formmethod="post">Edit</button>
+                    <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" type ="submit" formmethod="post">Edit</button>
                 </form>
             </section>
     <?php }

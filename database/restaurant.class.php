@@ -68,9 +68,11 @@
         }
 
         static function getRestaurant(PDO $db, int $id) : Restaurant {
-            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating
+            $query = 'SELECT Restaurant.*, IFNULL(round(avg(Review.rating),1), -1) as rating, IFNULL(round(avg(Dish.price),2), 0) as price
             FROM Restaurant LEFT JOIN Review ON Restaurant.id = Review.restaurantId
-            WHERE Restaurant.id = ?';
+            LEFT JOIN dish ON Restaurant.id = dish.restaurantId
+            WHERE Restaurant.id = ?
+            GROUP BY Restaurant.id';
 
             $restaurant = getQueryResults($db, $query, false, array($id));
 
@@ -99,7 +101,7 @@
                 $restaurant['ownerId'],
                 $categories,
                 $reviews,
-                0,
+                $restaurant['price'],
                 $restaurant['rating']
             );
         }
@@ -173,7 +175,7 @@
 
             executeQuery($db, $query, array($this->name, $this->address, $this->phone, $this->id));
 
-            $query = 'DELETE * FROM RestaurantCategory WHERE restaurant = ?';
+            $query = 'DELETE FROM RestaurantCategory WHERE restaurant = ?';
 
             executeQuery($db, $query, array($this->id));
 
