@@ -1,16 +1,27 @@
 /* Intro */
 
-#restaurant article :nth-child(2){
+#restaurant > :nth-child(2){
     font-size: 250%;
     font-weight: bold;
 }
 
-#restaurant article :nth-child(3){
+#restaurant > :nth-child(3){
     font-size: 175%;
 }
 
-#restaurant article :nth-child(4){
+#restaurant > :nth-child(4){
     font-size: 125%;
+}
+
+#restaurant > section:nth-child(3) > p:not(:last-child)::after{
+    content: ". ";
+    font-weight: bold;
+}
+
+#restaurant > section:nth-child(3) > p:not(:first-child)::before{
+    content: ". ";
+    color: transparent;
+    font-size: 60%;
 }
 
 /* Dishes */

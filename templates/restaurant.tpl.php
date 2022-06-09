@@ -111,12 +111,13 @@
 
     function outputSingleRestaurant(Restaurant $restaurant, Costumer $user = null) { ?>
         <section id = "restaurant">
-        <article>
         <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
         <p><?=$restaurant->name?> </p>
+        <section>
         <?php foreach($restaurant->categories as $category){
             ?> <p><?=$category?> </p> <?php
         } ?>
+        </section>
         <p><?=$restaurant->address?></p><?php
 
         if($restaurant->avgRating === -1.0){
@@ -127,7 +128,6 @@
         <?php if(isset($user) && $restaurant->owner === $user->username){ ?>
             <a href="../pages/edit_restaurant.php?id=<?=$restaurant->id?>">Edit Restaurant</a>
         <?php } ?>
-        </article>
         </section>
     <?php }
 

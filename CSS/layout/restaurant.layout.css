@@ -11,15 +11,18 @@
 
 /* Intro */
 
-#restaurant article{
+#restaurant{
     display: flex;
     flex-direction: column;
 }
 
-#restaurant article *{
+#restaurant *{
     margin: auto;
 }
 
+#restaurant > section{
+    display: flex;
+}
 
 /* Dishes */
 

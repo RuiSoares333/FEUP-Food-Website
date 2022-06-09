@@ -1,4 +1,4 @@
-#restaurant article :nth-child(1){
+#restaurant > :nth-child(1){
     width:100%;
     height: 25em;
 }
