@@ -7,6 +7,7 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
 
     require_once(__DIR__ . '/../utils/session.php');
 
@@ -18,9 +19,14 @@
 
     $categories = Restaurant::getAllCategories($db);
 
+    if($session->isLoggedin()){
+        $costumer = Costumer::getCostumer($db, $session->getId());        
+    }
+
+
     outputHead();
     index_head();
-    outputHeader($session, $categories);
+    outputHeader($session, $categories, $costumer);
     outputSideMenu($categories);
     outputAds();
 ?>        

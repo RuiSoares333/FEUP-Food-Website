@@ -20,6 +20,7 @@
         }
         ?>
         </section>
+    </div>
     <?php }
 
     function outputFavoriteDish(Dish $dish){?>

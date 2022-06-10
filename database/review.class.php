@@ -19,7 +19,9 @@
         }
 
         static function getReviews(PDO $db, int $restaurant) : array{
-            $query = 'SELECT id, username, rating, published, comment FROM Review WHERE restaurantId = ? AND comment IS NOT NULL';
+            $query = 'SELECT Review.id, User.username, Review.rating, Review.published, Review.comment 
+            FROM Review LEFT JOIN USER ON Review.userId = User.id
+            WHERE restaurantId = ? AND comment IS NOT NULL';
 
             $reviews = getQueryResults($db, $query, true, array($restaurant));
 
@@ -37,9 +39,13 @@
         }
 
         function add(PDO $db, int $restaurant){
+            $query = 'SELECT id FROM User WHERE username = ?';
+
+            $user = getQueryResults($db, $query, false, array($this->username));
+
             $query = 'INSERT INTO Review VALUES(NULL, ?, ?, ?, unixepoch(now), ?)';
 
-            executeQuery($db, $query, array($restaurant, $this->username, $this->rating, $this->comment));
+            executeQuery($db, $query, array($restaurant, $user, $this->rating, $this->comment));
         }
     }
 ?>

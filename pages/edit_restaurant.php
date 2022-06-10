@@ -35,7 +35,7 @@
 
     outputHead();
     edit_restaurant_head();
-    outputHeader($session, $categories);
+    outputHeader($session, $categories, $owner);
     outputSideMenu($categories);
     outputAds();
     ?> <div id ="mainDiv" class ="editRestaurant"> <?php

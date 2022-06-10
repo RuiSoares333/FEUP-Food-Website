@@ -3,6 +3,7 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
     
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
@@ -19,9 +20,13 @@
 
     $categories = Restaurant::getAllCategories($db);
 
+    if($session->isLoggedin()){
+        $user = Costumer::getCostumer($db, $session->getId());
+    }
+
     outputHead();
     search_head();
-    outputHeader($session, $categories);
+    outputHeader($session, $categories, $user);
     outputAds();
     outputSortSideMenu($categories);
     outputSearchResults($restaurants);

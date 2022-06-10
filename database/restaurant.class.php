@@ -5,20 +5,19 @@
     require_once(__DIR__ . '/../database/review.class.php');
 
     class Restaurant {
-        const DEFAULT_IMG = 0;
         public int $id;
         public string $name;
         public string $address;
         public array $categories;
         public string $phone;
-        public string $owner;
+        public int $owner;
         public array $dishCategories;
         public array $reviews;
         public float $avgPrice;
         public float $avgRating;
 
 
-        public function __construct(int $id, string $name, string $address, array $categories, string $phone, string $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating = -1) {
+        public function __construct(int $id, string $name, string $address, array $categories, string $phone, int $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating = -1) {
             $this->id = $id;
             $this->name = $name;
             $this->address = $address;

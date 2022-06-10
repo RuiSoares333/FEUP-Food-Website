@@ -14,12 +14,3 @@ function showDialog() {
 function closeDialog() {
     dialog.close();
 }
-
-
-const pfp = document.querySelector('section#user img');
-pfp.on('click', function(){
-    var input = document.createElement('input');
-    input.type = 'file';
-    document.querySelector('html body').append(input);
-    input.click();
-})

@@ -18,6 +18,7 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> <script src="../javascript/categories.js" defer></script> <?php
     }
 
     function index_head(){
@@ -39,6 +40,7 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> <script src="../javascript/user_pfp.js" defer></script> <?php
     }
 
     function register_head(){

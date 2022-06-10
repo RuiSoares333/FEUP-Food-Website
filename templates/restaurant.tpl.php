@@ -109,7 +109,7 @@
     <?php }
 
 
-    function outputSingleRestaurant(Restaurant $restaurant, Costumer $user = null) { ?>
+    function outputSingleRestaurant(Restaurant $restaurant, ?Costumer $user) { ?>
         <section id = "restaurant">
         <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
         <p><?=$restaurant->name?> </p>

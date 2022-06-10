@@ -2,10 +2,7 @@
     declare(strict_types = 1);
 
     
-    function outputHead() { 
-
-    ?>
-
+    function outputHead() { ?>
     <!DOCTYPE html>
     <html lang="en-US">
         <head>
@@ -16,12 +13,11 @@
             <link rel = "stylesheet" href="../CSS/layout.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/images.css">
-            <script src = "../javascript/script.js" defer></script>
     <?php }
 ?>
 
 <?php
-    function outputHeader(Session $session, $categories) { ?>
+    function outputHeader(Session $session, array $categories, ?Costumer $user) { ?>
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
@@ -46,9 +42,13 @@
                         </select>
                     </nav>
                 </form> <?php
-                    if($session->isLoggedin()){ ?>
+                    if($session->isLoggedin()){ 
+                        $userImage = '../assets/users/icon/' . $user->id . '.webp';
+                        $defaultImage = '../assets/users/icon/0.webp';
+                        $image = (file_exists($userImage)) ? $userImage : $defaultImage;
+                        ?>
                         <div class="dropdown">
-                            <img src="https://picsum.photos/50/50" for="">
+                            <img src="<?=$image?>" for="">
                             <div class="dropdown-content">
                                 <a href= "../pages/profile.php">Profile</a>
                                 <a href= "../pages/edit_profile.php">Profile Settings</a>

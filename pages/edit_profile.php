@@ -26,7 +26,7 @@
 
     outputHead();
     edit_profile_head();
-    outputHeader($session, $categories);
+    outputHeader($session, $categories, $costumer);
     outputSideMenu($categories);
     outputAds();
     ?> <div id = "mainDiv" class ="edit_profile"> <?php
