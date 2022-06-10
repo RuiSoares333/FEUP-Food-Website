@@ -34,7 +34,7 @@
     outputHeader($session, $categories, $owner);
     outputEditRestaurantSideMenu();
     outputAds();
-    outputEditRestaurantForm($restaurant, $categories);
+    outputAddDishForm();
     outputFooter();
     
 ?>

@@ -56,6 +56,7 @@
 
 
     function outputEditProfileForm(Costumer $costumer) { ?>
+        <div id ="mainDiv" class = "edit_profile">
         <section id="edit_profile">
             <p id="squareEdit"></p>
             <h1>Edit Profile</h1>
@@ -71,9 +72,11 @@
                 <button formaction="../actions/action_edit_profile.php" id="submit" formmethod="post">Edit</button>
             </form>
         </section>
+        </div>
     <?php }
 
     function outputChangePasswordForm(){ ?>
+    <div id ="mainDiv" class="edit_profile">
         <section id ="changePassword">
             <p id="squareEdit"></p>
             <h1>Change Password</h1>
@@ -85,9 +88,11 @@
                 <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">Change Password</button>
             </form>  
         </section>
+    </div>
     <?php }
 
     function outputEditRestaurantForm(Restaurant $restaurant, array $categories){ ?>
+        <div id ="mainDiv" class="editRestaurant">
             <section id ="editRestaurant">
                 <p id="squareEdit"></p>
                 <h1>Edit Restaurant</h1>
@@ -109,10 +114,12 @@
                     <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" type ="submit" formmethod="post">Edit</button>
                 </form>
             </section>
+        </div>
     <?php }
 
 
     function outputAddDishForm(){ ?>
+        <div id ="mainDiv" class="editRestaurant">
         <section id="newDish">
             <p id="squareEdit"></p>
             <h1>Add a new Dish</h1>
@@ -133,6 +140,7 @@
                 <button formaction="../actions/action_add_dish.php?id=<?=$_GET['id']?>" id ="submit" formmethod="post">Add</button>
             </form>
         </section>
+    </div>
     <?php }
 
 
