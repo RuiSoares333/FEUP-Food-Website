@@ -37,26 +37,14 @@
 
     outputHead();
     profile_head();
-    outputHeader($session, $categories);
+    outputHeader($session, $categories, $costumer);
     outputSideMenu($categories);
     outputAds();
+    outputProfileInfo($costumer);
+    if($costumer->isOwner())
+        outputOwnedRestaurants($myRestaurants);
+    outputFavoriteRestaurants($restaurants);
+    outputFavoriteDishes($dishes);
+    outputFooter();
 ?>
-
-    <div id="mainDiv" class="profile">
-        <?php 
-        outputProfileInfo($costumer);
-        if($costumer->isOwner()){
-            ?>
-            <?php
-                outputOwnedRestaurants($myRestaurants);
-            ?>
-            <?php
-        }
-        outputFavoriteRestaurants($restaurants);
-        outputFavoriteDishes($dishes);
-        ?>
-    </div>
-    <?php
-        outputFooter();
-    ?>
 

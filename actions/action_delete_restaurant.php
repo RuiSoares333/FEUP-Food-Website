@@ -18,7 +18,7 @@
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    if($session->getId() !== $restaurant->owner){
+    if(Costumer::getUserId($session->getId()) !== $restaurant->owner){
         $session->addMessage('error', 'You don\'t own that restaurant');
         die(header('Location: /'));
     }
@@ -35,6 +35,9 @@
     if($session->getOwnedRestaurants() === array()){
         $costumer->noLongerOwner($db);
     }
+
+    unlink('../assets/restaurants/main_page/' . $restaurants->id . '.webp');
+    unlink('../assets/restaurants/minPreview/' . $restaurants->id . '.webp');
 
    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

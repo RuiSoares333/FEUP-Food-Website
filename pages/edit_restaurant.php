@@ -29,13 +29,13 @@
 
     $categories = Restaurant::getAllCategories($db);
 
-    if($owner->username !== $restaurant->owner){
+    if($owner->id !== $restaurant->owner){
         die(header('Location: /'));
     }
 
     outputHead();
     edit_restaurant_head();
-    outputHeader($session, $categories);
+    outputHeader($session, $categories, $owner);
     outputSideMenu($categories);
     outputAds();
     ?> <div id ="mainDiv" class ="editRestaurant"> <?php
