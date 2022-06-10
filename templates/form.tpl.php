@@ -56,6 +56,7 @@
 
 
     function outputEditProfileForm(Costumer $costumer) { ?>
+        <div id ="mainDiv" class = "edit_profile">
         <section id="edit_profile">
             <p id="squareEdit"></p>
             <h1>Edit Profile</h1>
@@ -71,9 +72,11 @@
                 <button formaction="../actions/action_edit_profile.php" id="submit" formmethod="post">Edit</button>
             </form>
         </section>
+        </div>
     <?php }
 
     function outputChangePasswordForm(){ ?>
+    <div id ="mainDiv" class="edit_profile">
         <section id ="changePassword">
             <p id="squareEdit"></p>
             <h1>Change Password</h1>
@@ -85,6 +88,7 @@
                 <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">Change Password</button>
             </form>  
         </section>
+    </div>
     <?php }
 
     function outputEditRestaurantForm(Restaurant $restaurant, array $categories){ ?>

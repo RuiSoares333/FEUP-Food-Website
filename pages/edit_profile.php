@@ -27,11 +27,8 @@
     outputHead();
     edit_profile_head();
     outputHeader($session, $categories, $costumer);
-    outputSideMenu($categories);
+    outputEditProfileSideMenu();
     outputAds();
-    ?> <div id = "mainDiv" class ="edit_profile"> <?php
     outputEditProfileForm($costumer);
-    outputChangePasswordForm();
-    ?> </div> <?php
     outputFooter();
 ?>
