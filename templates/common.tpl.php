@@ -75,14 +75,15 @@
 ?>
 
 <?php
-    function outputAds(){ ?>
+    function outputAds(){ 
+        $image = '../assets/advertising/';
+        ?>
         <aside id ="ads">
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?2"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?3"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?4"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?5"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?6"></a>
+            <?php
+                for($i = 0; $i <6; $i++){
+                    ?><a href = "https://rebrand.ly/r1ckr0l13r"><img src="<?=$image?><?=$i?>.webp" width="200" height = "200" ></a> <?php 
+                }
+            ?>
         </aside>
     <?php }
 ?>
