@@ -166,3 +166,13 @@
         </nav>
    <?php }
 ?>
+
+<?php 
+    function outputEditRestaurantSideMenu(){ ?>
+        <nav id = "side-menu" class="edit_restaurant">
+            <a href = "../pages/edit_restaurant.php?id=<?=$_GET['id']?>">Edit Restaurant</a>
+            <a href = "../pages/manage_dishes.php?id=<?=$_GET['id']?>">Manage Dishes</a>
+            <a href = "../pages/add_dish.php?id=<?=$_GET['id']?>">Add Dishes</a>
+        </nav>
+    <?php } 
+?> 

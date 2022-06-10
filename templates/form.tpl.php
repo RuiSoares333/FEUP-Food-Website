@@ -92,6 +92,7 @@
     <?php }
 
     function outputEditRestaurantForm(Restaurant $restaurant, array $categories){ ?>
+        <div id ="mainDiv" class="editRestaurant">
             <section id ="editRestaurant">
                 <h1>Edit Restaurant</h1>
                 <p id="squareEdit"></p>
@@ -113,10 +114,12 @@
                     <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" type ="submit" formmethod="post">Edit</button>
                 </form>
             </section>
+        </div>
     <?php }
 
 
     function outputAddDishForm(){ ?>
+        <div id ="mainDiv" class="editRestaurant">
         <section id="newDish">
             <h1>Add a new Dish</h1>
             <form>
@@ -136,6 +139,7 @@
                 <button formaction="../actions/action_add_dish.php?id=<?=$_GET['id']?>" id ="submit" formmethod="post">Add</button>
             </form>
         </section>
+    </div>
     <?php }
 
 
