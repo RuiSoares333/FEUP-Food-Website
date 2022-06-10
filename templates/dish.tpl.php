@@ -77,6 +77,7 @@
     <?php }
 
     function outputDishMenu(array $dishes){ ?>
+        <div id ="mainDiv" class ="editRestaurant">
         <section id ="manageDishes">
             <h1>manage dishes</h1>
             <?php
@@ -89,5 +90,6 @@
                 } 
             } ?>
         </section>
+        </div>
     <?php }
 ?>
