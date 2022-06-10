@@ -26,7 +26,7 @@
 
     $file = $_FILES['image'];
 
-    if(!uploadImage($file, 'dishes', $id, 155, 0.98726114649)){
+    if(!uploadImage($file, 'dishes', $dish->id, 158, 0.98726114649)){
         $session->addMessage('error', 'failed to upload image');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }

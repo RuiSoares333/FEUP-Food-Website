@@ -2,9 +2,9 @@
     declare(strict_types = 1);
 
     function outputRestaurant(Restaurant $restaurant) { 
-        $userImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
+        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
         $defaultImage = '../assets/restaurants/minPreview/0.webp';
-        $image = (file_exists($userImage)) ? $userImage : $defaultImage;
+        $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
         ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="<?=$image?>"></a>
@@ -25,9 +25,9 @@
     <?php }
 
     function outputOwnedRestaurant(Restaurant $restaurant) { 
-        $userImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
+        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
         $defaultImage = '../assets/restaurants/minPreview/0.webp';
-        $image = (file_exists($userImage)) ? $userImage : $defaultImage;
+        $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
         ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="<?=$image?>"></a>
@@ -118,9 +118,9 @@
 
 
     function outputSingleRestaurant(Restaurant $restaurant, ?Costumer $user) { 
-        $userImage = '../assets/restaurants/main_page/' . $restaurant->id . '.webp';
+        $restaurantImage = '../assets/restaurants/main_page/' . $restaurant->id . '.webp';
         $defaultImage = '../assets/restaurants/main_page/0.webp';
-        $image = (file_exists($userImage)) ? $userImage : $defaultImage;
+        $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
         ?>
         <section id = "restaurant">
             <?php

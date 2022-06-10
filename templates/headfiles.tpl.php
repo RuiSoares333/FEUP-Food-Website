@@ -18,7 +18,8 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/categories.js" defer></script> <?php
+        ?> <script src="../javascript/categories.js" defer></script> 
+           <script src="../javascript/image_upload.js" defer></script> <?php
     }
 
     function index_head(){
