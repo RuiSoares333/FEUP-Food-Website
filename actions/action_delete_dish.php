@@ -4,6 +4,7 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/dish.class.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
 
     require_once(__DIR__ . '/../utils/session.php');
 
@@ -17,10 +18,12 @@
     $dish = Dish::getDish($db, intval($_GET['id']));
     $restaurant = Restaurant::getRestaurant($db, $dish->restaurantId);
 
-    if($restaurant->owner !== $session->getId())
+    if($restaurant->owner !== Costumer::getUserId($session->getId()))
         die(header('Location: /'));
 
     $dish->delete($db);
+
+    unlink('../assets/dishes/' . $dish->id . '.webp');
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>

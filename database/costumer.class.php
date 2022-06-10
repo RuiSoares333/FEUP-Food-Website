@@ -6,6 +6,7 @@
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
     class Costumer{
+        public int $id;
         public string $username;
         public string $name;
         public string $email;
@@ -13,9 +14,8 @@
         public string $phoneNumber;
         public bool $is_owner;
 
-        public function __construct(string $username, string $name, string $email, string $address, string $phoneNumber, int $owner){
-            $db = getDBConnection(__DIR__ . '/../database/data.db');
-
+        public function __construct(int $id, string $username, string $name, string $email, string $address, string $phoneNumber, int $owner){
+            $this->id = $id;
             $this->username = $username;
             $this->name = $name;
             $this->email = $email;
@@ -25,10 +25,11 @@
         }
 
         static function getCostumerWithPassword(PDO $db, string $email, string $password) : ?Costumer {
-            $query = 'SELECT username, name, email, address, phone, owner FROM User WHERE username = ? AND password = ?';
+            $query = 'SELECT username, name, email, address, phone, owner, id FROM User WHERE username = ? AND password = ?';
 
             if($costumer = getQueryResults($db, $query, false, array(strtolower($email), sha1($password)))){
                 return new Costumer(
+                    $costumer['id'],
                     $costumer['username'],
                     $costumer['name'],
                     $costumer['email'],
@@ -44,7 +45,7 @@
             $query = 'SELECT dishId FROM FavoriteDish 
             WHERE userId = ?';
 
-            $dishes = getQueryResults($db, $query, true, array($this->username));
+            $dishes = getQueryResults($db, $query, true, array($this->id));
             
             $dishes_ = array();
 
@@ -58,7 +59,7 @@
             $query = 'SELECT restaurantId FROM FavoriteRestaurant 
             WHERE userId = ?';
 
-            $restaurants = getQueryResults($db, $query, true, array($this->username));
+            $restaurants = getQueryResults($db, $query, true, array($this->id));
 
             $restaurants_ = array();
 
@@ -70,12 +71,13 @@
         }
 
         static function getCostumer(PDO $db, string $id) : Costumer {
-            $query = 'SELECT username, name, email, address, phone, owner
+            $query = 'SELECT id, username, name, email, address, phone, owner
             FROM User WHERE username = ?';
 
             $user = getQueryResults($db, $query, false, array($id));
 
             return new Costumer(
+                $user['id'],
                 $user['username'],
                 $user['name'],
                 $user['email'],
@@ -92,18 +94,18 @@
         function getOwnedRestaurants(PDO $db) : array {
             $query = 'SELECT id FROM Restaurant WHERE ownerId = ?';
 
-            return getQueryResults($db, $query, true, array($this->username));
+            return getQueryResults($db, $query, true, array($this->id));
         }
 
         function register(PDO $db, string $password){
-            $query = 'INSERT INTO User VALUES (?, ?, ?, ?, ?, ?, false)';
+            $query = 'INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?, ?, false)';
 
             return executeQuery($db, $query, array($this->username, $this->name, $this->email, sha1($password), $this->address, $this->phoneNumber));
         }
 
 
         static function userExists(PDO $db, string $id) : bool{
-            $query = 'SELECT * FROM User WHERE username = ?';
+            $query = 'SELECT name FROM User WHERE username = ?';
 
             return !!getQueryResults($db, $query, false, array($id));
         }
@@ -156,6 +158,14 @@
             $query = 'UPDATE User set owner = TRUE WHERE username = ?';
 
             executeQuery($db, $query, array($this->username));
+        }
+
+        static function getUserId(PDO $db, string $username) : int {
+            $query = 'SELECT id FROM User WHERE username = ?';
+
+            $id = getQueryResults($db, $query, false, array($username));
+
+            return $id['id'];
         }
     }
 ?>

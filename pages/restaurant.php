@@ -28,7 +28,7 @@
 
     outputHead();
     restaurant_head();
-    outputHeader($session, $categories);
+    outputHeader($session, $categories, $user);
     outputAds();
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php

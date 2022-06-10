@@ -1,9 +1,13 @@
 <?php
     declare(strict_types = 1);
 
-    function outputRestaurant(Restaurant $restaurant) { ?>
+    function outputRestaurant(Restaurant $restaurant) { 
+        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/minPreview/0.webp';
+        $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
+        ?>
         <article class="miniPreview">
-        <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
+        <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="<?=$image?>"></a>
         <div class="categories">
         <?php foreach($restaurant->categories as $category){
                 ?> <p><?=$category?></p> <?php
@@ -20,9 +24,13 @@
         </article>
     <?php }
 
-    function outputOwnedRestaurant(Restaurant $restaurant) { ?>
+    function outputOwnedRestaurant(Restaurant $restaurant) { 
+        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/minPreview/0.webp';
+        $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
+        ?>
         <article class="miniPreview">
-        <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
+        <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="<?=$image?>"></a>
         <div class="categories">
         <?php foreach ($restaurant->categories as $category){
                 ?> <p><?=$category?></p> <?php
@@ -109,9 +117,24 @@
     <?php }
 
 
-    function outputSingleRestaurant(Restaurant $restaurant, Costumer $user = null) { ?>
+    function outputSingleRestaurant(Restaurant $restaurant, ?Costumer $user) { 
+        $restaurantImage = '../assets/restaurants/main_page/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/main_page/0.webp';
+        $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
+        ?>
         <section id = "restaurant">
-        <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
+            <?php
+            if(isset($user) && $restaurant->owner === $user->id){ ?>
+                <form method = "POST" action = "../actions/action_upload_restaurant.php?id=<?=$restaurant->id?>" enctype = "multipart/form-data" id ="upload">
+                    <input type ="file" id ="imgupload" name ="image" style="display:none"/>
+                    <button type ="button"><img src="<?=$image?>"></button>
+                </form>                
+            <?php } 
+            else {
+               ?> <img src="<?=$image?>"> <?php
+            }
+            ?>
+ 
         <p><?=$restaurant->name?> </p>
         <section>
         <?php foreach($restaurant->categories as $category){
@@ -125,7 +148,7 @@
         } else {?>
         <p><?=$restaurant->avgRating?>/10</p> <?php } ?>
 
-        <?php if(isset($user) && $restaurant->owner === $user->username){ ?>
+        <?php if(isset($user) && $restaurant->owner === $user->id){ ?>
             <a href="../pages/edit_restaurant.php?id=<?=$restaurant->id?>">Edit Restaurant</a>
         <?php } ?>
         </section>
