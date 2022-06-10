@@ -73,6 +73,16 @@ CREATE TABLE Review (
             ON DELETE NO ACTION 
 );
 
+CREATE TABLE Response (
+    id INTEGER,
+    reviewId INTEGER NOT NULL,
+    published INTEGER,
+    comment VARCHAR,
+    CONSTRAINT PK_Response PRIMARY KEY (id),
+    FOREIGN KEY (reviewId) REFERENCES Review (id)
+        ON DELETE CASCADE
+);
+
 CREATE TABLE FavoriteDish (
     dishId INTEGER,
     userId INTEGER,
@@ -108,7 +118,7 @@ INSERT INTO User VALUES (NULL, "1mafalda3", "mafalda", "mafalda13@gmail.com", "6
 
 --Category
 INSERT INTO Category VALUES ("portuguese");
-INSERT INTO Category VALUES ("international_cuisine");
+INSERT INTO Category VALUES ("international");
 INSERT INTO Category VALUES ("asian");
 INSERT INTO Category VALUES ("italian");
 INSERT INTO Category VALUES ("japanese");
