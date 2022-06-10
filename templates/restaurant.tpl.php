@@ -25,8 +25,8 @@
     <?php }
 
     function outputOwnedRestaurant(Restaurant $restaurant) { 
-        $userImage = '../assets/restaurants/main_page/' . $restaurant->id . '.webp';
-        $defaultImage = '../assets/restaurants/main_page/0.webp';
+        $userImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/minPreview/0.webp';
         $image = (file_exists($userImage)) ? $userImage : $defaultImage;
         ?>
         <article class="miniPreview">

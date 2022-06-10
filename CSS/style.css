@@ -195,6 +195,7 @@ footer{
 form#upload > button:nth-child(2){
     background-color:transparent;
     border: none;
+    height: auto;
 }
 
 form#upload > button:nth-child(2):hover{

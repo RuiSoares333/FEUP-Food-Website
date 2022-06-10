@@ -3,14 +3,14 @@
     height: 25em;
 }
 
-#upload > button:nth-child(2) > img:nth-child(1){
+#restaurant #upload > button:nth-child(2) > img:nth-child(1){
     width:100%;
-    height: 25em;
+    height: 120%;
 }
 
-#upload > button:nth-child(2){
+#restaurant #upload > button:nth-child(2){
     width:100%;
-    height: 25em;
+    height: 80%;
 }
 
 #ads > a > img{
