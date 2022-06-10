@@ -20,10 +20,10 @@
             $aspect_ratio = $original_aspect_ratio;
 
         if ($aspect_ratio > 1) {
-            $dest_width = min($size, $original_width);
+            $dest_width = $size;
             $dest_height = $dest_width / $aspect_ratio;
         } else {
-            $dest_height = min($size, $original_height);
+            $dest_height = $size;
             $dest_width = $dest_height * $aspect_ratio;
         }
 

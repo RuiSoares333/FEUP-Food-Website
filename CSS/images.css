@@ -3,7 +3,10 @@
     height: 25em;
 }
 
-
+#upload > button:nth-child(2) > img:nth-child(1){
+    width:100%;
+    height: 25em;
+}
 
 .dropdown > img{
     border-radius: 100%;

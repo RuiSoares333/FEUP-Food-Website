@@ -8,7 +8,7 @@
         ?>
         <div id ="mainDiv" class ="profile">
         <section id="user">
-            <form method = "POST" action = "../actions/action_upload_user.php" enctype="multipart/form-data">
+            <form method = "POST" action = "../actions/action_upload_user.php" enctype="multipart/form-data" id="upload">
             <input type="file" id = "imgupload" name="image" style="display:none"/>
             <button type="button"><img src="<?=$image?>"></button>
             </form>

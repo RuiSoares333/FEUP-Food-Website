@@ -40,7 +40,7 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/user_pfp.js" defer></script> <?php
+        ?> <script src="../javascript/image_upload.js" defer></script> <?php
     }
 
     function register_head(){
@@ -55,6 +55,7 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> <script src="../javascript/image_upload.js" defer></script> <?php
     }
 
     function search_head(){

@@ -3,6 +3,7 @@
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
 
     require_once(__DIR__ . '/../utils/session.php');
 
@@ -16,7 +17,7 @@
     
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    if($restaurant->owner !== $session->getid()){
+    if($restaurant->owner !== Costumer::getUserId($session->getId())){
         die(header('Location: /'));
     }
 

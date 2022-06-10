@@ -29,7 +29,7 @@
 
     $categories = Restaurant::getAllCategories($db);
 
-    if($owner->username !== $restaurant->owner){
+    if($owner->id !== $restaurant->owner){
         die(header('Location: /'));
     }
 

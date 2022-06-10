@@ -18,7 +18,7 @@
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    if($session->getId() !== $restaurant->owner){
+    if(Costumer::getUserId($session->getId()) !== $restaurant->owner){
         $session->addMessage('error', 'You don\'t own that restaurant');
         die(header('Location: /'));
     }

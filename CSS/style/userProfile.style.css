@@ -73,12 +73,3 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-#user form > button:nth-child(2){
-    background-color:transparent;
-    border: none;
-}
-
-#user form > button:nth-child(2):hover{
-    background-color: transparent;
-}
