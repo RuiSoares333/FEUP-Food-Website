@@ -36,5 +36,8 @@
         $costumer->noLongerOwner($db);
     }
 
+    unlink('../assets/restaurants/main_page/' . $restaurants->id . '.webp');
+    unlink('../assets/restaurants/minPreview/' . $restaurants->id . '.webp');
+
    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

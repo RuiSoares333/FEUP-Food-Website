@@ -23,5 +23,7 @@
 
     $dish->delete($db);
 
+    unlink('../assets/dishes/' . $dish->id . '.webp');
+
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>
