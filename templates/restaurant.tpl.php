@@ -4,7 +4,11 @@
     function outputRestaurant(Restaurant $restaurant) { ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
-        <p><?=$restaurant->category?></p>
+        <div class="categories">
+        <?php foreach($restaurant->categories as $category){
+                ?> <p><?=$category?></p> <?php
+        } ?>
+        </div>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
         <?php if ($restaurant->avgRating === -1.0){ ?>
             <p>no rating</p>
@@ -19,7 +23,11 @@
     function outputOwnedRestaurant(Restaurant $restaurant) { ?>
         <article class="miniPreview">
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="https://picsum.photos/200?<?=$restaurant->id?>"></a>
-        <p><?=$restaurant->category?></p>
+        <div class="categories">
+        <?php foreach ($restaurant->categories as $category){
+                ?> <p><?=$category?></p> <?php
+        } ?>
+        </div>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><span><?=$restaurant->name?></span></a>
         <?php if ($restaurant->avgRating === -1.0){ ?>
             <p>no rating</p>
@@ -28,7 +36,7 @@
         <?php } ?>
         <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
-        <a href ="../actions/action_delete_restaurant.php?id=<?=$restaurant->id?>">Delete</a>
+        <p><a href ="../actions/action_delete_restaurant.php?id=<?=$restaurant->id?>">Delete</a><p>
         </article>
     <?php }
 
@@ -37,12 +45,18 @@
             <h1>Your Favorite Restaurants</h1>
        <?php 
         if($restaurants) {
+            ?>
+            <section id="listRestaurants">
+            <?php
             foreach($restaurants as $restaurant){
                 outputRestaurant($restaurant);
-            }  
+            }
+            ?>
+            </section>
+            <?php
         }
         else{
-            ?> <h3>You don't have any favorite Restaurants'</h3> <?php
+            ?> <h3>You don't have any favorite Restaurants</h3> <?php
         }
         ?>
         </section>
@@ -51,10 +65,12 @@
     function outputOwnedRestaurants(array $restaurants){ ?>
         <section id="myRestaurants">
             <h1>Your Restaurants</h1>
+            <section id="listRestaurants">
             <?php if($restaurants){
                 foreach($restaurants as $restaurant)
                     outputOwnedRestaurant($restaurant);
             }?>
+            </section>
         </section>
     <?php }
 
@@ -95,10 +111,13 @@
 
     function outputSingleRestaurant(Restaurant $restaurant, Costumer $user = null) { ?>
         <section id = "restaurant">
-        <article>
         <img src="https://picsum.photos/200?'<?=$restaurant->id?>">
         <p><?=$restaurant->name?> </p>
-        <p><?=$restaurant->category?> </p>
+        <section>
+        <?php foreach($restaurant->categories as $category){
+            ?> <p><?=$category?> </p> <?php
+        } ?>
+        </section>
         <p><?=$restaurant->address?></p><?php
 
         if($restaurant->avgRating === -1.0){
@@ -109,7 +128,6 @@
         <?php if(isset($user) && $restaurant->owner === $user->username){ ?>
             <a href="../pages/edit_restaurant.php?id=<?=$restaurant->id?>">Edit Restaurant</a>
         <?php } ?>
-        </article>
         </section>
     <?php }
 

@@ -3,6 +3,7 @@
     
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/restaurant.tpl.php');
+    require_once(__DIR__ . '/../templates/headfiles.tpl.php');
 
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
@@ -18,8 +19,9 @@
     $categories = Restaurant::getAllCategories($db);
 
     outputHead();
+    index_head();
     outputHeader($session, $categories);
-    outputSideMenu($db);
+    outputSideMenu($categories);
     outputAds();
 ?>        
     <div id="mainDiv" class="index">

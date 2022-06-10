@@ -1,0 +1,59 @@
+#mainDiv.profile{
+    display:flex;
+    flex-direction: column;
+}
+
+#favRestaurants #listRestaurants, #favRestaurants #listDishes, #myRestaurants #listRestaurants{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+#favDishes, #favRestaurants{
+    display: flex;
+    flex-direction: column;
+}
+
+#favRestaurants > :nth-child(2), #favDishes > :nth-child(2){
+    margin: 4em 0 0 0;
+}
+
+/* Fav favDishes */
+
+#favDishes section{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    margin-top: 4em;
+}
+
+#favDishes section article{
+    width: 98%;
+}
+
+#favDishes section article *{
+    padding-top: 0.25em;
+    padding-left: 0.25em;
+}
+
+
+#favDishes h1, #favRestaurants h1{
+    position: absolute;
+    width: 60%
+}
+
+#listDishes a article{
+    position: relative;
+    margin: 0;
+}
+
+#listDishes a article :nth-child(2){
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    max-width: 85%;
+}
+
+#listDishes a article :nth-child(3){
+    position: absolute;
+    bottom: 27.5%;
+    left: 5%;
+}

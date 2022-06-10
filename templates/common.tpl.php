@@ -3,28 +3,21 @@
 
     
     function outputHead() { 
-    $styleFiles = array('../CSS/style.css', '../CSS/layout.css', '../CSS/forms.css', '../CSS/images.css',
-                        '../CSS/layout/index.layout.css', '../CSS/style/index.style.css', 
-                        '../CSS/layout/login.layout.css', '../CSS/style/login.style.css',
-                        '../CSS/layout/register.layout.css', '../CSS/style/register.style.css',
-                        '../CSS/layout/restaurant.layout.css', '../CSS/style/restaurant.style.css',
-                        '../CSS/layout/search.layout.css', '../CSS/style/search.style.css',
-                        '../CSS/layout/editUserInfo.layout.css', '../CSS/style/editUserInfo.style.css');
-                        ?>
+
+    ?>
+
     <!DOCTYPE html>
     <html lang="en-US">
         <head>
             <title>Super Legit Food</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <?php
-            foreach($styleFiles as $file){
-                echo '<link rel = "stylesheet" href="'.$file.'">';
-            }
-            ?>
+            <link rel = "stylesheet" href="../CSS/style.css">
+            <link rel = "stylesheet" href="../CSS/layout.css">
+            <link rel = "stylesheet" href="../CSS/forms.css">
+            <link rel = "stylesheet" href="../CSS/images.css">
+            <script src = "../javascript/script.js" defer></script>
             <script src = "../javascript/shoppingCart.js" defer></script>
-        </head>
-        <body>
     <?php }
 ?>
 
@@ -48,7 +41,7 @@
                             <option selected value= "">Any</option>
                             <?php
                                 foreach($categories as $category){
-                                    ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                                    ?> <option value = "<?=$category['name']?>"><?=str_replace('_', ' ',$category['name'])?></option> <?php
                                 }
                             ?>
                         </select>
@@ -96,10 +89,7 @@
 ?>
 
 <?php
-    function outputSideMenu(PDO $db) { 
-        $query = 'SELECT name FROM RestaurantCategory';
-        $categories = getQueryResults($db, $query, true, null);
-        ?>
+    function outputSideMenu(array $categories) {?>
         <nav id="side-menu" class="index">
             <a href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
             <a href="#close">Close to You</a>
@@ -108,7 +98,7 @@
             <ul>
                 <?php
                     foreach($categories as $category){
-                        ?> <li><a href= "../pages/index.php"><?=$category['name']?></a></li> <?php
+                        ?> <li><a href= "../pages/index.php"><?=str_replace('_', ' ', $category['name'])?></a></li> <?php
                     }
                 ?>
             </ul>
@@ -159,7 +149,7 @@
 <?php 
     function outputSearch(Session $session){ ?>
             <section id ="search">
-                <a class = "order" <?php if($session->isLoggedin()) echo 'href="../pages/search.php?search=&rating=-1&category="'; else echo 'href="../pages/login.php"';?>><button><h2>Order Now!</h2></button></a>
+                <a class = "order" href="../pages/search.php?search=&rating=-1&category="><button><h2>Order Now!</h2></button></a>
                 <?php if(!$session->isLoggedin()){?> 
                 <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a> <?php } ?>
                 </form>

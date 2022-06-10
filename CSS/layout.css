@@ -72,6 +72,23 @@ header > h1 {
     color: transparent;
 }
 
+#side-menu.index > a, #side-menu.index > label{
+    padding-left: 7%;
+    padding-top: 1.5%;
+}
+
+#side-menu.index > ul{
+    margin: 0;
+}
+
+#side-menu.index .hamburger {
+    display: block;
+}
+
+#side-menu.index li{
+    max-height: 0;
+}
+
 /* main Div*/
 
 #mainDiv{
@@ -94,4 +111,103 @@ header > h1 {
 
 #ads img{
     margin: 0.5em 0;
+}
+
+/* Footer */
+
+footer{
+    grid-area: ft;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+    "t dT s"
+    "r c s";
+    z-index: 1;
+}
+
+.teacher{
+    grid-area: t;
+    margin: 1.5em 0 0 3em;
+}
+
+.devTeam{
+    grid-area: dT;
+    margin: 1.5em auto 0 auto;
+}
+
+.rights{
+    grid-area: r;
+    margin: 0 0 0 3em;
+}
+
+.course{
+    grid-area: c;
+    margin: auto;
+}
+
+.socials{
+    grid-area: s;
+    margin: 1.5em 0 0 30em;
+}
+
+/* Mini Preview */
+
+.miniPreview{
+    display: grid;
+    grid-template-rows: 55% 7.5% 15% 15% 7.5%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+    "ig ig"
+    "catg del"
+    "name rating"
+    "addr ."
+    "avgPrice .";
+    padding: 0 5%;
+}
+
+.miniPreview *{
+    margin: 0;
+    padding: 0;
+}
+
+.miniPreview > :nth-child(1){
+    grid-area: ig;
+    width: 100%;
+    height: 85%;
+    margin: auto 0;
+}
+
+.miniPreview img{
+    border-radius: 0.5em;
+    width: 100%;
+    height: 100%;
+}
+
+.miniPreview > :nth-child(2){
+    grid-area: catg;
+    margin-top: -8%
+}
+
+.miniPreview > :nth-child(3){
+    grid-area: name;
+}
+
+.miniPreview > :nth-child(4){
+    grid-area: rating;
+    margin-left: -40%;
+}
+
+.miniPreview > :nth-child(5){
+    grid-area: addr;
+    margin: auto 0;
+}
+
+.miniPreview > :nth-child(6){
+    grid-area: avgPrice;
+}
+
+.miniPreview > :nth-child(7){
+    grid-area: del;
+    margin-left: -90%;
 }

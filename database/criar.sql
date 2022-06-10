@@ -9,7 +9,7 @@ CREATE TABLE User (
     CONSTRAINT PK_User PRIMARY KEY (username)
 );
 
-CREATE TABLE RestaurantCategory (
+CREATE TABLE Category (
     name VARCHAR,
     CONSTRAINT PK_RestaurantCategory PRIMARY KEY (name)
 );
@@ -18,13 +18,19 @@ CREATE TABLE Restaurant (
     id INTEGER,
     name VARCHAR,
     address VARCHAR,
-    category VARCHAR,
     phone VARCHAR(9),
     ownerId VARCHAR,
     CONSTRAINT PK_Restaurant PRIMARY KEY (id),
     FOREIGN KEY (ownerId) REFERENCES User(username)
-            ON DELETE CASCADE,
-    FOREIGN KEY (category) REFERENCES RestaurantCategory(name) 
+            ON DELETE CASCADE
+);
+
+CREATE TABLE RestaurantCategory (
+    restaurant INTEGER,
+    category VARCHAR,
+    FOREIGN KEY (restaurant) REFERENCES Restaurant(id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (category) REFERENCES Category(name)
 );
 
 CREATE TABLE Dish (
@@ -99,27 +105,38 @@ INSERT INTO User VALUES ("miguel_012", "miguel", "miguel012@gmail.com", "fb4369d
 INSERT INTO User VALUES ("joana26", "joana", "joana26@gmail.com", "1401dad399850fedbcbc78380934b126f708a618", "Rua Santa Luzia", "96254123", true); --hfg41
 INSERT INTO User VALUES ("1mafalda3", "mafalda", "mafalda13@gmail.com", "62458713c0b5c07c221d3e85e1300d6a781d83ce", "Avenida 5 de Outubro", "91520236", true); --mfhg4
 
---RestaurantCategory
-INSERT INTO RestaurantCategory VALUES ( "portuguese");
-INSERT INTO RestaurantCategory VALUES ( "international cuisine");
-INSERT INTO RestaurantCategory VALUES ( "asian");
-INSERT INTO RestaurantCategory VALUES ( "italian");
-INSERT INTO RestaurantCategory VALUES ( "japanese");
-INSERT INTO RestaurantCategory VALUES ( "latino");
-INSERT INTO RestaurantCategory VALUES ( "brazilian");
-INSERT INTO RestaurantCategory VALUES ( "steakhouse");
-INSERT INTO RestaurantCategory VALUES ( "pizzaria");
-INSERT INTO RestaurantCategory VALUES ( "spanish");
-INSERT INTO RestaurantCategory VALUES ( "indian");
-INSERT INTO RestaurantCategory VALUES ( "american");
+--Category
+INSERT INTO Category VALUES ("portuguese");
+INSERT INTO Category VALUES ("international_cuisine");
+INSERT INTO Category VALUES ("asian");
+INSERT INTO Category VALUES ("italian");
+INSERT INTO Category VALUES ("japanese");
+INSERT INTO Category VALUES ("latino");
+INSERT INTO Category VALUES ("brazilian");
+INSERT INTO Category VALUES ("steakhouse");
+INSERT INTO Category VALUES ("pizzaria");
+INSERT INTO Category VALUES ("spanish");
+INSERT INTO Category VALUES ("indian");
+INSERT INTO Category VALUES ("american");
 
 --Restaurant
-INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "italian", "22 205 5071", "ricardo32");
-INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "japanese", "913 037 171", "ricardo32");
-INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "american", "22 509 1784", "joana26");
-INSERT INTO Restaurant VALUES (NULL, "O Charco", "Rua Nossa Senhora Amparo 143", "portuguese", "22 375 4618", "1mafalda3");
-INSERT INTO Restaurant VALUES (NULL, "Temple Rio", "Rua D. Afonso Henriques 745", "japanese", "932 464 670", "1mafalda3");
-INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "portuguese", "22 480 1268", "1mafalda3");
+INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "22 205 5071", "ricardo32");
+INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "913 037 171", "ricardo32");
+INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "22 509 1784", "joana26");
+INSERT INTO Restaurant VALUES (NULL, "O Charco", "Rua Nossa Senhora Amparo 143", "22 375 4618", "1mafalda3");
+INSERT INTO Restaurant VALUES (NULL, "Temple Rio", "Rua D. Afonso Henriques 745", "932 464 670", "1mafalda3");
+INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "22 480 1268", "1mafalda3");
+
+--RestaurantCategory
+INSERT INTO RestaurantCategory VALUES (1, "italian");
+INSERT INTO RestaurantCategory VALUES (1, "pizzaria");
+INSERT INTO RestaurantCategory VALUES (2, "japanese");
+INSERT INTO RestaurantCategory VALUES (2, "asian");
+INSERT INTO RestaurantCategory VALUES (3, "american");
+INSERT INTO RestaurantCategory VALUES (4, "portuguese");
+INSERT INTO RestaurantCategory VALUES (5, "japanese");
+INSERT INTO RestaurantCategory VALUES (5, "asian");
+INSERT INTO RestaurantCategory VALUES (6, "portuguese");
 
 
 --Dish
