@@ -23,19 +23,27 @@
     </div>
     <?php }
 
-    function outputFavoriteDish(Dish $dish){?>
+    function outputFavoriteDish(Dish $dish){ 
+        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $defaultImage = '../assets/dishes/0.webp';
+        $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
+        ?>
         <a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
         <article data-id = <?= $dish->id?>>
-        <img src = "https://picsum.photos/200?<?= $dish->id?>">
+        <img src = "<?=$image?>">
         <p><?= $dish->name?></p>
         <p><?= $dish->price?>€</p>
         </article>
         </a>
     <?php }
 
-    function outputDish(Dish $dish){ ?>
+    function outputDish(Dish $dish){
+        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $defaultImage = '../assets/dishes/0.webp ';
+        $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
+        ?>
         <article data-id = <?= $dish->id?>>
-            <img src = "https://picsum.photos/200?<?= $dish->id?>">
+            <img src = "<?=$image?>">
             <p><?= $dish->name?></p>
             <p><?= $dish->price?>€</p>
         </article>
