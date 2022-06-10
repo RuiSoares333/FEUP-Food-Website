@@ -2,10 +2,7 @@
     declare(strict_types = 1);
 
     
-    function outputHead() { 
-
-    ?>
-
+    function outputHead() { ?>
     <!DOCTYPE html>
     <html lang="en-US">
         <head>
@@ -16,13 +13,11 @@
             <link rel = "stylesheet" href="../CSS/layout.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/images.css">
-            <script src = "../javascript/script.js" defer></script>
-            <script src = "../javascript/shoppingCart.js" defer></script>
     <?php }
 ?>
 
 <?php
-    function outputHeader(Session $session, $categories) { ?>
+    function outputHeader(Session $session, array $categories, ?Costumer $user) { ?>
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
@@ -47,9 +42,13 @@
                         </select>
                     </nav>
                 </form> <?php
-                    if($session->isLoggedin()){ ?>
+                    if($session->isLoggedin()){ 
+                        $userImage = '../assets/users/icon/' . $user->id . '.webp';
+                        $defaultImage = '../assets/users/icon/0.webp';
+                        $image = (file_exists($userImage)) ? $userImage : $defaultImage;
+                        ?>
                         <div class="dropdown">
-                            <img src="https://picsum.photos/50/50" for="">
+                            <img src="<?=$image?>" for="">
                             <div class="dropdown-content">
                                 <a href= "../pages/profile.php">Profile</a>
                                 <a href= "../pages/edit_profile.php">Profile Settings</a>
@@ -76,14 +75,15 @@
 ?>
 
 <?php
-    function outputAds(){ ?>
+    function outputAds(){ 
+        $image = '../assets/advertising/';
+        ?>
         <aside id ="ads">
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?1"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?2"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?3"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?4"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?5"></a>
-            <a href = "https://rebrand.ly/r1ckr0l13r"><img src="https://picsum.photos/200?6"></a>
+            <?php
+                for($i = 0; $i <6; $i++){
+                    ?><a href = "https://rebrand.ly/r1ckr0l13r"><img src="<?=$image?><?=$i?>.webp" width="200" height = "200" ></a> <?php 
+                }
+            ?>
         </aside>
     <?php }
 ?>
@@ -156,3 +156,23 @@
             </section>
     <?php }
 ?>
+
+
+<?php
+    function outputEditProfileSideMenu(){ ?>
+        <nav id = "side-menu" class="edit_profile">
+            <a href = "../pages/edit_profile.php">Edit Profile</a>
+            <a href = "../pages/change_password.php">Change Password</a>
+        </nav>
+   <?php }
+?>
+
+<?php 
+    function outputEditRestaurantSideMenu(){ ?>
+        <nav id = "side-menu" class="edit_restaurant">
+            <a href = "../pages/edit_restaurant.php?id=<?=$_GET['id']?>">Edit Restaurant</a>
+            <a href = "../pages/manage_dishes.php?id=<?=$_GET['id']?>">Manage Dishes</a>
+            <a href = "../pages/add_dish.php?id=<?=$_GET['id']?>">Add Dishes</a>
+        </nav>
+    <?php } 
+?> 

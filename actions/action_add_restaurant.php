@@ -40,20 +40,23 @@
         die(header('Location' . $_SERVER['HTTP_REFERER']));
     }
 
+    $costumer = Costumer::getCostumer($db, $session->getId());
+   
+   
     $restaurant = new Restaurant(
         1,
         trim($_POST['name']),
         trim($_POST['address']),
         $_POST['categories'],
         trim($_POST['phone']),
-        $session->getId()
+        $costumer->id
     );
     
     $restaurant->add($db);
 
     $session->addMessage('Success', 'Restaurant added successfully!');
 
-    $costumer = Costumer::getCostumer($db, $session->getId());
+
 
     if(!$costumer->isOwner()){
         $costumer->becomeOwner($db);

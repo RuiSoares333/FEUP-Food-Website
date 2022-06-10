@@ -20,21 +20,30 @@
         }
         ?>
         </section>
+    </div>
     <?php }
 
-    function outputFavoriteDish(Dish $dish){?>
+    function outputFavoriteDish(Dish $dish){ 
+        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $defaultImage = '../assets/dishes/0.webp';
+        $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
+        ?>
         <a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
         <article data-id = <?= $dish->id?>>
-        <img src = "https://picsum.photos/200?<?= $dish->id?>">
+        <img src = "<?=$image?>">
         <p><?= $dish->name?></p>
         <p><?= $dish->price?>€</p>
         </article>
         </a>
     <?php }
 
-    function outputDish(Dish $dish){ ?>
+    function outputDish(Dish $dish){
+        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $defaultImage = '../assets/dishes/0.webp ';
+        $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
+        ?>
         <article data-id = <?= $dish->id?>>
-            <img src = "https://picsum.photos/200?<?= $dish->id?>">
+            <img src = "<?=$image?>">
             <p><?= $dish->name?></p>
             <p><?= $dish->price?>€</p>
         </article>
@@ -51,9 +60,16 @@
 
     <?php }
 
-    function outputMenuDish(Dish $dish){ ?>
+    function outputMenuDish(Dish $dish){ 
+        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $defaultImage = '../assets/dishes/0.webp';
+        $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
+        ?>
         <article data-id = <?= $dish->id?>>
-        <img src = "https://picsum.photos/200?<?= $dish->id?>">
+            <form method = "POST" action = "../actions/action_upload_dish.php?id=<?=$dish->id?>" enctype = "multipart/form-data" id ="upload">
+                <input type ="file" id ="imgupload" name ="image" style="display:none"/>
+                <button type ="button"><img src="<?=$image?>"></button>
+            </form> 
             <p><?= $dish->name?></p>
             <p><?= $dish->price?>€</p>
             <a href = "../actions/action_delete_dish.php?id=<?= $dish->id?>">Delete</a>
@@ -61,6 +77,7 @@
     <?php }
 
     function outputDishMenu(array $dishes){ ?>
+        <div id ="mainDiv" class ="editRestaurant">
         <section id ="manageDishes">
             <h1>manage dishes</h1>
             <?php
@@ -73,5 +90,6 @@
                 } 
             } ?>
         </section>
+        </div>
     <?php }
 ?>

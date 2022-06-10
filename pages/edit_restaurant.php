@@ -4,11 +4,9 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
-    require_once(__DIR__ . '/../database/dish.class.php');
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../templates/form.tpl.php');
-    require_once(__DIR__ . '/../templates/dish.tpl.php');
     require_once(__DIR__ . '/../templates/headfiles.tpl.php');
     
     require_once(__DIR__ . '/../utils/session.php');
@@ -25,24 +23,18 @@
 
     $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    $dishes = Dish::getDishes($db, intval($_GET['id']));
-
     $categories = Restaurant::getAllCategories($db);
 
-    if($owner->username !== $restaurant->owner){
+    if($owner->id !== $restaurant->owner){
         die(header('Location: /'));
     }
 
     outputHead();
     edit_restaurant_head();
-    outputHeader($session, $categories);
-    outputSideMenu($categories);
+    outputHeader($session, $categories, $owner);
+    outputEditRestaurantSideMenu();
     outputAds();
-    ?> <div id ="mainDiv" class ="editRestaurant"> <?php
     outputEditRestaurantForm($restaurant, $categories);
-    outputDishMenu($dishes);
-    outputAddDishForm();
-    ?> </div> <?php
     outputFooter();
     
 ?>
