@@ -64,6 +64,12 @@
     text-overflow: ellipsis;
 }
 
+#mainDiv.restaurant #dishes section *:hover{
+    overflow:visible;
+    text-overflow: clip;
+    -webkit-line-clamp: 3;
+}
+
 #mainDiv.restaurant #reviews article > p{
     background-color:#DEDEDE;
     border-radius: 1em;

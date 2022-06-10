@@ -14,7 +14,7 @@
     }
 
     function edit_restaurant_head(){
-        $styleFiles = array('');
+        $styleFiles = array('../CSS/layout/editRestInfo.layout.css', '../CSS/style/editRestInfo.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }

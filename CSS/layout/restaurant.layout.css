@@ -32,10 +32,6 @@
     margin-top: 4em;
 }
 
-#mainDiv.restaurant #dishes section article{
-    width: 98%;
-}
-
 #mainDiv.restaurant #dishes section article *{
     padding-top: 0.25em;
     padding-left: 0.25em;
@@ -51,6 +47,7 @@
 #mainDiv.restaurant #dishes section article{
     position: relative;
     margin: 0;
+    width: 98%;
 }
 
 #mainDiv.restaurant #dishes section article :nth-child(2){

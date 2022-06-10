@@ -1,0 +1,130 @@
+#editRestaurant{
+    display: grid;
+    grid-template-rows: 1em 3em 19em 2em;
+}
+
+#editRestaurant > *{
+    margin: auto;
+}
+
+#editRestaurant #squareEdit{
+    width: 55%;
+    height: 25em;
+}
+
+#editRestaurant form{
+    display: grid;
+    grid-template-rows: repeat(5, 3em);
+    grid-template-columns: 35% 65%;
+    grid-template-areas: 
+    "nL name"
+    "aL adrss"
+    "pL phone"
+    "cat cat"
+    "edit edit"
+}
+
+
+#editRestaurant form :nth-child(1) {
+    grid-area: nL;
+    margin-right: 5%;
+    margin-left: auto;
+}
+
+#editRestaurant form :nth-child(2){
+    grid-area: name;
+}
+
+#editRestaurant form :nth-child(3){
+    grid-area: aL;
+    margin-right: 5%;
+    margin-left: auto;
+}
+
+#editRestaurant form :nth-child(4){
+    grid-area: adrss;
+}
+
+#editRestaurant form :nth-child(7){
+    grid-area: pL;
+    margin-right: 5%;
+    margin-left: auto;
+}
+
+#editRestaurant form :nth-child(8){
+    grid-area: phone;
+}
+
+#editRestaurant form :nth-child(5){
+    grid-area: cat;
+    margin-top: 5%;
+}
+
+#editRestaurant form :nth-child(9){
+    grid-area: edit;
+    margin-top: 10%;
+}
+
+#manageDishes{
+    margin-bottom: 5%;
+}
+
+#listDishes{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+#listDishes article{
+    position: relative;
+    width: 98%;
+}
+
+#listDishes article :nth-child(2){
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    max-width: 85%;
+}
+
+#listDishes article :nth-child(3){
+    position: absolute;
+    bottom: 40%;
+    left: 5%;
+}
+
+#listDishes > article > a:nth-child(4){
+    margin: 0 35%;
+    color: red;
+}
+
+
+
+
+#newDish{
+    display: grid;
+    grid-template-rows: 1em 3em 19em 2em;
+}
+
+#newDish *{
+    margin: auto;
+}
+
+#newDish #squareEdit{
+    width: 55%;
+    height: 25em;
+}
+
+#newDish form{
+    display: grid;
+    grid-template-rows: repeat(4, 3em);
+    grid-template-columns: 35% 65%;
+}
+
+#addDish :nth-child(1), #addDish :nth-child(3), #addDish :nth-child(5){
+    margin-right: 5%;
+    margin-left: auto;
+}
+
+#addDish :nth-child(7){
+    grid-column: 1 / span 2; 
+}

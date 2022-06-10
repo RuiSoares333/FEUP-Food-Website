@@ -15,9 +15,6 @@
 }
 
 #edit_profile label{
-    border: none;
-    background-color: transparent;
-    text-transform: uppercase;
     color: var(--branco-verde);
     font-weight: bold;
 }

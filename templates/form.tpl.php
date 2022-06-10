@@ -89,8 +89,8 @@
 
     function outputEditRestaurantForm(Restaurant $restaurant, array $categories){ ?>
             <section id ="editRestaurant">
-                <h1>Edit Restaurant</h1>
                 <p id="squareEdit"></p>
+                <h1>Edit Restaurant</h1>
                 <form id ="editRestaurant">
                     <label for="name">Name:</label>
                     <input type ="text" name ="name" value= "<?=$restaurant->name?>" required>
@@ -114,8 +114,9 @@
 
     function outputAddDishForm(){ ?>
         <section id="newDish">
+            <p id="squareEdit"></p>
             <h1>Add a new Dish</h1>
-            <form>
+            <form id ="addDish">
                 <label for="name">Name:</label>
                 <input type="text" name="name" required>
                 <label for="price">Price:</label>

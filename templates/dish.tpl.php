@@ -65,12 +65,20 @@
             <h1>manage dishes</h1>
             <?php
             if(!$dishes){
-                echo '<p>Your restaurant currently has no dishes</p>';
+                ?>
+                echo '<h3>Your restaurant currently has no dishes</h3>';
+                <?php
             }
             else{
-                foreach ($dishes as $dish){
-                    outputMenuDish($dish);
-                } 
+                ?>
+                <section id="listDishes">
+                <?php
+                    foreach ($dishes as $dish){
+                        outputMenuDish($dish);
+                    }
+                ?>
+                </section>
+                <?php
             } ?>
         </section>
     <?php }
