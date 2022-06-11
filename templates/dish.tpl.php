@@ -24,7 +24,7 @@
     <?php }
 
     function outputFavoriteDish(Dish $dish){ 
-        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $dishImage = '../assets/dishes/' . $dish->id . '.webp';
         $defaultImage = '../assets/dishes/0.webp';
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
         ?>
@@ -38,7 +38,7 @@
     <?php }
 
     function outputDish(Dish $dish){
-        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $dishImage = '../assets/dishes/' . $dish->id . '.webp';
         $defaultImage = '../assets/dishes/0.webp ';
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
         ?>
@@ -61,7 +61,7 @@
     <?php }
 
     function outputMenuDish(Dish $dish){ 
-        $dishImage = '../assets/dishes/' . $dish->id . 'webp';
+        $dishImage = '../assets/dishes/' . $dish->id . '.webp';
         $defaultImage = '../assets/dishes/0.webp';
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
         ?>

@@ -57,7 +57,9 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/image_upload.js" defer></script> <?php
+        ?> <script src="../javascript/image_upload.js" defer></script> 
+           <script src="../javascript/review_response.js" defer></script> 
+        <?php
     }
 
     function search_head(){
