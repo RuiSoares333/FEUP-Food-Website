@@ -38,7 +38,7 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/favorite_restaurant.js"></script> 
+        ?> <script src="../javascript/favorite_restaurant.js" defer></script> 
         </head>
         <body>
         <?php
@@ -61,6 +61,7 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?> <script src="../javascript/image_upload.js" defer></script> 
+            <script src="../javascript/favorite_restaurant.js" defer></script>
         </head>
         <body>
         <?php

@@ -43,7 +43,7 @@
     outputProfileInfo($costumer);
     if($costumer->isOwner())
         outputOwnedRestaurants($myRestaurants);
-    outputFavoriteRestaurants($restaurants);
+    outputFavoriteRestaurants($restaurants, $session);
     outputFavoriteDishes($dishes);
     outputFooter();
 ?>

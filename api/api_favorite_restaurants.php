@@ -12,7 +12,17 @@
 
     $userId = Costumer::getUserId($db, $session->getId());
 
-    $query = 'INSERT INTO FavoriteRestaurant VALUES(?, ?)';
+    if(intval($_POST['add']) === 1)
+        $query = 'INSERT INTO FavoriteRestaurant VALUES(?, ?)';
+    else
+        $query = 'DELETE FROM FavoriteRestaurant WHERE restaurantId = ? AND userId = ?';
 
-    executeQuery($db, $query, array(intval($_GET['restaurant'])), $userId);
+    list($result, $stmt) = executeQuery($db, $query, array(intval($_POST['restaurant'])), $userId);
+
+    if($result){
+        echo json_encode(array('statusCode'=>200));
+    }
+    else{
+        echo json_encode(array('statusCode'=>201));
+    }
 ?>

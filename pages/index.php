@@ -33,7 +33,7 @@
     <div id="mainDiv" class="index">
         <?php 
         outputSearch($session);
-        outputBestRestaurants($restaurants, $costumer, $db);
+        outputBestRestaurants($restaurants, $costumer, $db, $session);
         ?>
         <section id = "close">
             map api
