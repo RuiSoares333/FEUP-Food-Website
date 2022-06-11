@@ -30,7 +30,7 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    uploadImage($file, 'restaurants/minPreview', $restaurant->id, 146, 1.168);
+    uploadImage($file, 'restaurants/miniPreview', $restaurant->id, 146, 1.168);
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>

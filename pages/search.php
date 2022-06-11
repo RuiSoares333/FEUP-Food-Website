@@ -29,6 +29,6 @@
     outputHeader($session, $categories, $user);
     outputAds();
     outputSortSideMenu($categories);
-    outputSearchResults($restaurants);
+    outputSearchResults($restaurants, $user, $db);
     outputFooter();
 ?>

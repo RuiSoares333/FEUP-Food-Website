@@ -1,9 +1,9 @@
 <?php
     declare(strict_types = 1);
 
-    function outputRestaurant(Restaurant $restaurant) { 
-        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
-        $defaultImage = '../assets/restaurants/minPreview/0.webp';
+    function outputRestaurant(Restaurant $restaurant, bool $is_favorite) { 
+        $restaurantImage = '../assets/restaurants/miniPreview/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/miniPreview/0.webp';
         $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
         ?>
         <article class="miniPreview">
@@ -21,12 +21,14 @@
         <?php } ?>
         <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
+        <label for ="favorite"></label>
+        <input type="checkbox" name="favorite" <?php if($is_favorite) echo 'checked' ?>>
         </article>
     <?php }
 
     function outputOwnedRestaurant(Restaurant $restaurant) { 
-        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
-        $defaultImage = '../assets/restaurants/minPreview/0.webp';
+        $restaurantImage = '../assets/restaurants/miniPreview/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/miniPreview/0.webp';
         $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
         ?>
         <article class="miniPreview">
@@ -57,7 +59,7 @@
             <section id="listRestaurants">
             <?php
             foreach($restaurants as $restaurant){
-                outputRestaurant($restaurant);
+                outputRestaurant($restaurant, true);
             }
             ?>
             </section>
@@ -82,7 +84,7 @@
         </section>
     <?php }
 
-    function outputBestRestaurants(array $restaurants) { ?>
+    function outputBestRestaurants(array $restaurants, ?Costumer $user, PDO $db) { ?>
         <section id = "bestRestaurants">
         <h1>most legit restaurants</h1>    
         <input type="radio" name="slider" id="slide1" checked>
@@ -96,7 +98,7 @@
                 <div class="slide slide_<?=$k?>">
                     <div class="slide-content">
                     <?php for($j=$i; $j<$i+5; $j++){
-                        outputRestaurant($restaurants[$j]);
+                        outputRestaurant($restaurants[$j], isset($user) ? array_search($restaurants[$j], $user->getFavoriteRestaurants($db)) !== false : false);
                         if($j===5){
                             $j+=5;
                         }
@@ -167,10 +169,10 @@
     <?php }  
 
 
-    function outputSearchResults(array $restaurants){ ?>
+    function outputSearchResults(array $restaurants, ?Costumer $user, PDO $db){ ?>
         <div id = "mainDiv" class = "search">
             <?php foreach($restaurants as $restaurant){
-                outputRestaurant($restaurant);
+                outputRestaurant($restaurant, isset($user) ? array_search($restaurant, $user->getFavoriteRestaurants($db)) !== false : false);
             } ?> 
         </div>
     <?php }
