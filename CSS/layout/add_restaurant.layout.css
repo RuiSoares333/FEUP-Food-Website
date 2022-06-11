@@ -1,9 +1,9 @@
-#editRestaurant{
+section#newRestaurant{
     display: grid;
-    grid-template-rows: 1em 3em 19em 2em;
+    grid-template-rows: 1em 3em 20em 2em;
 }
 
-#editRestaurant > *{
+#newRestaurant > *{
     margin: auto;
 }
 
@@ -12,7 +12,7 @@
     height: 25em;
 }
 
-#editRestaurant form{
+.newRestaurant form{
     display: grid;
     grid-template-rows: repeat(5, 3em);
     grid-template-columns: 35% 65%;
@@ -21,49 +21,48 @@
     "aL adrss"
     "pL phone"
     "cat cat"
-    "edit edit"
+    "add add"
 }
 
-#editRestaurant form > :nth-child(1) {
+.newRestaurant form > :nth-child(1) {
     grid-area: nL;
     margin-right: 5%;
     margin-left: auto;
 }
 
-#editRestaurant form > :nth-child(2){
+.newRestaurant form > :nth-child(2){
     grid-area: name;
 }
 
-#editRestaurant form > :nth-child(3){
+.newRestaurant form > :nth-child(3){
     grid-area: aL;
     margin-right: 5%;
     margin-left: auto;
 }
 
-#editRestaurant form > :nth-child(4){
+.newRestaurant form > :nth-child(4){
     grid-area: adrss;
 }
 
-#editRestaurant form > :nth-child(7){
+.newRestaurant form > :nth-child(7){
     grid-area: pL;
     margin-right: 5%;
     margin-left: auto;
 }
 
-#editRestaurant form > :nth-child(8){
+.newRestaurant form > :nth-child(8){
     grid-area: phone;
 }
 
-#editRestaurant form > :nth-child(5){
+.newRestaurant form > :nth-child(5){
     grid-area: cat;
-    margin-top: 5%;
-}
-
-#editRestaurant form > :nth-child(9){
-    grid-area: edit;
     margin-top: 10%;
 }
 
+.newRestaurant form > :nth-child(9){
+    grid-area: add;
+    margin-top: 10%;
+}
 
 /* Dialog */
 

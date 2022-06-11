@@ -169,6 +169,7 @@
         <nav id = "side-menu" class="edit_profile">
             <a href = "../pages/edit_profile.php">Edit Profile</a>
             <a href = "../pages/change_password.php">Change Password</a>
+            <a href = "../pages/add_restaurant.php">Add Your Restaurant</a>
         </nav>
    <?php }
 ?>

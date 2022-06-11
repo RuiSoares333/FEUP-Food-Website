@@ -152,6 +152,7 @@
     function outputAddRestaurantForm(array $categories){ ?>
         <div id = "mainDiv" class ="newRestaurant">
             <section id = "newRestaurant">
+                <p id="squareEdit"></p>
                 <h1>Add your restaurant</h1>
                 <form id ="newRestaurant">
                     <label for="name">Name:</label>
@@ -161,10 +162,14 @@
                     <button type = "button" id = "categories">categories</button>
                     <dialog id ="myDialog">
                         <h1>Choose the categories</h1>
-                        <?php foreach($categories as $category){
-                            ?> <input type = "checkbox" name = "categories[]" value="<?=$category['name']?>"><?=str_replace('_', ' ', $category['name'])?></input> <?php 
+                        <div id="listCategories">
+                        <ul>
+                        <?php foreach($categories as $category) {
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>"><?=str_replace('_', ' ', $category['name'])?></input></li><?php
                         } ?>
-                        <button type ="button">close</button>
+                        </ul>
+                        </div>
+                        <button type="button">close</button>
                     </dialog>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone">

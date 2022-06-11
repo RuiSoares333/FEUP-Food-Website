@@ -27,7 +27,7 @@ $categories = Restaurant::getAllCategories($db);
 outputHead();
 change_password_head();
 outputHeader($session, $categories, $costumer);
-outputEditProfileSideMenu(2);
+outputEditProfileSideMenu();
 outputAds();
 outputChangePasswordForm();
 outputFooter();

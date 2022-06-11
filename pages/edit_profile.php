@@ -27,7 +27,7 @@
     outputHead();
     edit_profile_head();
     outputHeader($session, $categories, $costumer);
-    outputEditProfileSideMenu(1);
+    outputEditProfileSideMenu();
     outputAds();
     outputEditProfileForm($costumer);
     outputFooter();

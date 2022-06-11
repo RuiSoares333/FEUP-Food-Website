@@ -10,7 +10,7 @@
         $styleFiles = array('../CSS/layout/add_restaurant.layout.css', '../CSS/style/add_restaurant.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
-        }
+        }?> <script src="../javascript/categories.js" defer></script><?php
     }
 
     function change_password_head(){
