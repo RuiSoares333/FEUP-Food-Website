@@ -177,3 +177,28 @@ button.review_response {
 #side-menu > ul{
     padding: 0;
 }
+
+
+#cart table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+  }
+  
+  #cart th, #cart td {
+    padding: 1em;
+    text-align: center;
+  }
+  
+  #cart tfoot th:last-child::after{
+    content: "€";
+  }
+  
+  #cart tr {
+    background-color: #ffddd2;  
+    border: 5px solid white;
+  }
+  
+  #cart thead tr, #cart tfoot tr  {
+    background-color: #edf6f9;
+  }

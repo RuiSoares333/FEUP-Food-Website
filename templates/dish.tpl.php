@@ -45,7 +45,7 @@
         <article data-id = <?= $dish->id?>>
             <img src = "<?=$image?>">
             <p><?= $dish->name?></p>
-            <p><?= $dish->price?>€</p>
+            <p><?= $dish->price?></p>
         </article>
     <?php }
 
