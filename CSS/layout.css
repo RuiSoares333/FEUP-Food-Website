@@ -96,7 +96,7 @@ form.search{
 
 /* ads */
 
-#ads{
+#ads, #cart{
     grid-area: ads;
     padding: 5%;
     margin-top: 50%

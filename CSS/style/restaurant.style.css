@@ -179,30 +179,26 @@ button.review_response {
 }
 
 
-#ads table {
+#cart table {
     border-collapse: collapse;
     margin: 1em 0;
     width: 100%;
   }
   
-  #ads th, #ads td {
+  #cart th, #cart td {
     padding: 1em;
     text-align: center;
   }
   
-  #ads tfoot th:last-child::after{
+  #cart tfoot th:last-child::after{
     content: "€";
   }
   
-  #ads tr {
+  #cart tr {
     background-color: #ffddd2;  
     border: 5px solid white;
   }
   
-  #ads thead tr, #ads tfoot tr  {
+  #cart thead tr, #cart tfoot tr  {
     background-color: #edf6f9;
-  }
-
-  #ads > table:nth-child(1) > thead:nth-child(2) > tr:nth-child(1) > th:nth-child(5){
-    visibility: collapse;
   }

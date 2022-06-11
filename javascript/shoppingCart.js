@@ -1,85 +1,63 @@
 function attachBuyEvents() {
-    const buttons = document.querySelectorAll('#dishes article')
-    for (const button of buttons)
-        button.addEventListener('click', function() {
+  for(const button of document.querySelectorAll('#dishes article'))
+    button.addEventListener('click', function(e){
+      
+      const id = this.dataset.id;
+      const row = document.querySelector('#cart table tr[data-id="${id}"]');
 
-          const dataId = this.getAttribute('data-id')
-          const row = document.createElement('tr');
+      const name = this.querySelector('p:nth-child(2)').textContent;
+      const price = this.querySelector('p:nth-child(3)').textContent;
+      const quantity = document.createElement('input');
+      quantity.type = 'number';
+      quantity.value = 1;
 
-          let tRows = document.querySelectorAll('#ads table > tr');
-          let replaced = false;
+      if(!row) addRow(id, name, price, quantity);
 
-          const footer = document.querySelector('#ads tfoot');
-
-
-          let element = document.createElement('td');
-          element.textContent = this.querySelector('p:nth-child(2)').textContent;
-          row.appendChild(element);
-
-          document.createElement(input)
-          input.setAtribute("type", "number")
-          input.value = 1
-          element.appendChild(input);
-
-          element = document.createElement('td');
-          element.value = input;
-          row.appendChild(element);
-
-          
-          const price = this.querySelector('p:nth-child(3)');
-  
-          element = document.createElement('td');
-          element.textContent = (parseInt(input) * parseInt(price));
-          row.appendChild(element);
-
-          element = document.createElement('td');
-          const rm =  document.createElement('button');
-          rm.textContent = 'X';
-          element.appendChild(rm);
-          row.appendChild(element)
-
-          element = document.createElement('td');
-          element.textContent = dataId;
-          element.style.display = 'none';
-          row.appendChild(element);
-
-
-        
-          for(const tRow of tRows){
-            if(parseInt(tRow.querySelector('td:nth-child(5)').textContent) === parseInt(dataId)){
-                document.querySelector('#ads table').replaceChild(row, tRow);
-                replaced = true;
-                break;
-            }
-          }
-
-          if(!replaced){
-            document.querySelector('#ads table').insertBefore(row, footer);
-          }
-
-          let total = 0;
-          tRows = document.querySelectorAll('#ads table > tr');
-
-          for(const tRow of tRows){
-            total += parseInt(tRow.querySelector('td:nth-child(3)').textContent);
-          }
-
-          footer.querySelector('th:last-child').textContent = total;
-
-          rm.addEventListener('click', function(){
-              this.parentElement.parentElement.remove();
-              total = 0;
-              tRows = document.querySelectorAll('#ads table > tr');
-              for(const tRow of tRows){
-                  total += tRow.querySelector('td:nth-child(3)').textContent;
-              }
-              footer.querySelector('th:last-child').textContent = total;
-          })
-        
-
-
-    })
+      updateTotal();
+    });
 }
 
-  
-attachBuyEvents()
+function addRow(id, name, price, quantity) {
+  const table = document.querySelector('#cart table');
+  const row = document.createElement('tr');
+  row.setAttribute('data-id', id);
+
+  const nameCell = document.createElement('td');
+  nameCell.textContent = name;
+
+  const quantityCell = document.createElement('td');
+  quantityCell.appendChild(quantity);
+
+  const priceCell = document.createElement('td');
+  priceCell.textContent = price * quantity.value;
+
+  quantity.addEventListener('change', function (e) {
+    priceCell.textContent = price * quantity.value;
+    updateTotal();
+  })
+
+  const deleteCell = document.createElement('td');
+  deleteCell.classList.add('delete');
+  deleteCell.innerHTML = '<a href="">X</a>';
+  deleteCell.querySelector('a').addEventListener('click', function (e) {
+    e.preventDefault();
+    e.currentTarget.parentElement.parentElement.remove();
+    updateTotal();
+  })
+
+  row.appendChild(nameCell);
+  row.appendChild(quantityCell);
+  row.appendChild(priceCell);
+  row.appendChild(deleteCell);
+
+  table.appendChild(row);
+}
+
+function updateTotal() {
+  const rows = document.querySelectorAll('#cart table > tr');
+  const values = [...rows].map(r => parseInt(r.querySelector('td:nth-child(3)').textContent, 10));
+  const total = values.reduce((t, v) => t + v, 0);
+  document.querySelector('#cart table tfoot th:last-child').textContent = total;
+}
+
+attachBuyEvents();

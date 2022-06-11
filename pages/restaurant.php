@@ -45,29 +45,3 @@
     ?> </div> <?php   
     outputFooter();
 ?>
-
-<?php
-    function outputShoppingCart(){ ?>
-        <aside id ="ads">
-            <table>
-                <col>
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Delete</th>
-                            <th>id</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                </col>
-                <tfoot>
-                    <tr>
-                        <th colspan ="3">Total:</th><th>0</th>
-                    </tr>
-                </tfoot>
-            </table>
-        </aside>
-    <?php }
-?>
