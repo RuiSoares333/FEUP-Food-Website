@@ -64,3 +64,7 @@
     width: 95%;
     height: 95%;
 }
+
+#side-menu > *{
+    font-size: 150%;
+}

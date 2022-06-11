@@ -92,7 +92,7 @@ form.search > button{
 }
 
 form.search > button > img{
-    width: 2.5em;
+    width: 75%;
     opacity: 50%;
 }
 
@@ -102,6 +102,10 @@ form.search > button > img{
 #side-menu{
     box-shadow: 5px 10px 18px #0000003b;
     font-weight: bold;
+}
+
+#side-menu *{
+    font-size: 110%;
 }
 
 #side-menu.index > *{

@@ -95,7 +95,7 @@ button.review_response {
 
 #mainDiv.restaurant #newReview #reviewForm #review{
     resize: none;
-    border-radius: 0.75em 0.75em 0.75em 0.75em;
+    border-radius: 0.75em;
     border: 1px solid #00000088;
     background-color: #DEDEDE;
     text-transform: none;
@@ -127,4 +127,8 @@ button.review_response {
 
 #side-menu.restaurant li{
     font-size: 175%
+}
+
+#side-menu > ul{
+    padding: 0;
 }

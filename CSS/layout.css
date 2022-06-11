@@ -4,7 +4,7 @@ body{
     position: relative;
     margin: 0;
     display: grid;
-    grid-template-columns: 19.1145833333% 1fr 61.734375% 1fr 15.1041666667%;
+    grid-template-columns: 19% 1fr 62% 1fr 15%;
     grid-template-rows: auto auto auto;
     grid-template-areas: 
     "hd hd hd hd hd"
@@ -12,15 +12,19 @@ body{
     "ft ft ft ft ft";
 }
 
-#side-menu, #ads, #mainDiv{
-    margin-top: 7.5em;
+#mainDiv{
+    margin-top: 12%;
+}
+
+#side-menu{
+    margin-top: 7.5%;
 }
 
 /* header */
 
 header{
     width: 100%;
-    height: 7.5em;
+    height: 17.5%;
     grid-area: hd;
     display: flex;
     justify-content: space-between;
@@ -28,7 +32,7 @@ header{
 }
 
 header > :first-child{
-    margin: 0.25em 0 0 0.5em;
+    margin: 1% 0 0 1%;
 }
 
 header > :nth-child(2){
@@ -60,7 +64,7 @@ header > :last-child{
 }
 
 #side-menu > *:first-child{
-    margin-top: 1em;
+    margin-top: 10%;
 }
 
 #side-menu ul{
@@ -87,7 +91,7 @@ header > :last-child{
 
 #mainDiv{
     grid-area: mD;
-    padding: 2em 1em 1em 1em;
+    padding: 7.5% 2.5% 2.5% 2.5%;
 }
 
 #close{
@@ -99,12 +103,12 @@ header > :last-child{
 
 #ads{
     grid-area: ads;
-    margin: 7.5em auto 0 auto;
-    padding: 1em;
+    padding: 5%;
+    margin-top: 50%
 }
 
 #ads img{
-    margin: 0.5em 0;
+    margin: 5% 0;
 }
 
 /* Footer */

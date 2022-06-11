@@ -23,3 +23,7 @@
     font-size: 1.80em;
     content:'\2199';
 }
+
+#side-menu *{
+    font-size: 100%;
+}
