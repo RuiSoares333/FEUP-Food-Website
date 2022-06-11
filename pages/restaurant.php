@@ -26,6 +26,8 @@
     if($session->isLoggedin())
         $user = Costumer::getCostumer($db, $session->getId());
 
+    $favorites = isset($user) ? $user->getFavoriteDishesIds($db) : array();
+
     outputHead();
     restaurant_head();
     outputHeader($session, $categories, $user);
@@ -33,10 +35,12 @@
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php
     outputSingleRestaurant($restaurant, $user);   
+
+    var_dump($favorites);
     ?> <section id = "dishes"> <?php
     foreach($restaurant->dishCategories as $category){
         $dishes = Dish::getCategoryDishes($db, $restaurant->id, $category['category']);
-        outputCategoryDishes($category, $dishes);
+        outputCategoryDishes($category, $dishes, $favorites, $session);
     }
     ?></section> <?php
     outputReviews($restaurant->reviews, $db, $restaurant->owner === $user->id, $session, $restaurant->id);

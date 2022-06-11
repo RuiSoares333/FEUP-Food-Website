@@ -42,20 +42,43 @@
         }
 
         function getFavoriteDishes(PDO $db) : array {
-            $query = 'SELECT dishId FROM FavoriteDish 
-            WHERE userId = ?';
-
-            $dishes = getQueryResults($db, $query, true, array($this->id));
+            $dishes = $this->getFavoriteDishesIds($db);
             
             $dishes_ = array();
 
             foreach($dishes as $dish){
-                $dishes_[] = Dish::getDish($db, $dish['dishId']);
+                $dishes_[] = Dish::getDish($db, $dish);
+            }
+            return $dishes_;
+        }
+
+        function getFavoriteDishesIds(PDO $db) : array {
+            $query = 'SELECT dishId FROM FavoriteDish 
+            WHERE userId = ?';
+
+            $dishes = getQueryResults($db, $query, true, array($this->id));
+
+            $dishes_ = array();
+
+            foreach($dishes as $dish){
+                $dishes_[] = $dish['dishId'];
             }
             return $dishes_;
         }
 
         function getFavoriteRestaurants(PDO $db) : array {
+            $restaurants = $this->getFavoriteRestaurantsIds($db);
+
+            $restaurants_ = array();
+
+            foreach($restaurants as $restaurant){
+                $restaurants_[] = Restaurant::getFavoriteRestaurant($db, $restaurant);
+            }
+
+            return $restaurants_;
+        }
+
+        function getFavoriteRestaurantsIds(PDO $db) : array {
             $query = 'SELECT restaurantId FROM FavoriteRestaurant 
             WHERE userId = ?';
 
@@ -64,9 +87,9 @@
             $restaurants_ = array();
 
             foreach($restaurants as $restaurant){
-                $restaurants_[] = Restaurant::getFavoriteRestaurant($db, $restaurant['restaurantId']);
+                $restaurants_[] = $restaurant['restaurantId'];
             }
-
+            
             return $restaurants_;
         }
 

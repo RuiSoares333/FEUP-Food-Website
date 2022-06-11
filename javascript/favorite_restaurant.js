@@ -16,6 +16,6 @@ for(const button of buttons){
         this.classList.toggle("checked");
 
         if(code.statusCode === 201)
-            alert("SERVER ERROR!")
+            alert("SERVER ERROR!");
     });
 }

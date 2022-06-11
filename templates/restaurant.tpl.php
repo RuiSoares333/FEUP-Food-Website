@@ -85,7 +85,7 @@
         </section>
     <?php }
 
-    function outputBestRestaurants(array $restaurants, ?Costumer $user, PDO $db, Session $session) { ?>
+    function outputBestRestaurants(array $restaurants, array $favorites, Session $session) { ?>
         <section id = "bestRestaurants">
         <h1>most legit restaurants</h1>    
         <input type="radio" name="slider" id="slide1" checked>
@@ -99,7 +99,7 @@
                 <div class="slide slide_<?=$k?>">
                     <div class="slide-content">
                     <?php for($j=$i; $j<$i+5; $j++){
-                        outputRestaurant($restaurants[$j], isset($user) ? array_search($restaurants[$j], $user->getFavoriteRestaurants($db)) !== false : false, $session);
+                        outputRestaurant($restaurants[$j], array_search($restaurants[$j]->id, $favorites) !== false, $session);
                         if($j===5){
                             $j+=5;
                         }
@@ -170,10 +170,10 @@
     <?php }  
 
 
-    function outputSearchResults(array $restaurants, ?Costumer $user, PDO $db, Session $session){ ?>
+    function outputSearchResults(array $restaurants, array $favorites, Session $session){ ?>
         <div id = "mainDiv" class = "search">
             <?php foreach($restaurants as $restaurant){
-                outputRestaurant($restaurant, isset($user) ? array_search($restaurant, $user->getFavoriteRestaurants($db)) !== false : false, $session);
+                outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
             } ?> 
         </div>
     <?php }

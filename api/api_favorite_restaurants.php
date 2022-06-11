@@ -17,7 +17,7 @@
     else
         $query = 'DELETE FROM FavoriteRestaurant WHERE restaurantId = ? AND userId = ?';
 
-    list($result, $stmt) = executeQuery($db, $query, array(intval($_POST['restaurant'])), $userId);
+    list($result, $stmt) = executeQuery($db, $query, array(intval($_POST['restaurant']), $userId));
 
     if($result){
         echo json_encode(array('statusCode'=>200));

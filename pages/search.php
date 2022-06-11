@@ -24,11 +24,13 @@
         $user = Costumer::getCostumer($db, $session->getId());
     }
 
+    $favorites = isset($user) ? $user->getFavoriteRestaurantsIds($db) : array();
+
     outputHead();
     search_head();
     outputHeader($session, $categories, $user);
     outputAds();
     outputSortSideMenu($categories);
-    outputSearchResults($restaurants, $user, $db, $session);
+    outputSearchResults($restaurants, $favorites, $session);
     outputFooter();
 ?>

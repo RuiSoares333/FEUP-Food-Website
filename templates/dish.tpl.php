@@ -28,16 +28,17 @@
         $defaultImage = '../assets/dishes/0.webp';
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
         ?>
-        <a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
         <article data-id = <?= $dish->id?>>
+        <a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
         <img src = "<?=$image?>">
         <p><?= $dish->name?></p>
         <p><?= $dish->price?>€</p>
-        </article>
         </a>
+        <button type="button" class="checked">star</button>
+        </article>
     <?php }
 
-    function outputDish(Dish $dish){
+    function outputDish(Dish $dish, bool $is_favorite, Session $session){
         $dishImage = '../assets/dishes/' . $dish->id . '.webp';
         $defaultImage = '../assets/dishes/0.webp ';
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
@@ -46,15 +47,21 @@
             <img src = "<?=$image?>">
             <p><?= $dish->name?></p>
             <p><?= $dish->price?>€</p>
+            <?php
+                if($session->isLoggedin()){
+                    ?> <button type="button" <?php if($is_favorite) echo 'class="checked"';?>>star</button><?php
+                }
+            ?>
         </article>
     <?php }
 
-    function outputCategoryDishes(array $category, array $dishes){ ?>
+    function outputCategoryDishes(array $category, array $dishes, array $favorites, Session $session){ 
+        ?>
         <section id = <?= $category['category']?>>
             <h1><?= str_replace('_',' ', $category['category'])?></h1>
             <?php
                 foreach ($dishes as $dish)
-                    outputDish($dish);
+                    outputDish($dish, array_search($dish->id, $favorites) !== false, $session);
             ?>
         </section>
 
