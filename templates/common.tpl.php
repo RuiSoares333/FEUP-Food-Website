@@ -36,7 +36,7 @@
                             <option selected value= "">Any</option>
                             <?php
                                 foreach($categories as $category){
-                                    ?> <option value = "<?=$category['name']?>"><?=str_replace('_', ' ',$category['name'])?></option> <?php
+                                    ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
                                 }
                             ?>
                         </select>
@@ -98,7 +98,7 @@
             <ul>
                 <?php
                     foreach($categories as $category){
-                        ?> <li><a href= "../pages/index.php"><?=str_replace('_', ' ', $category['name'])?></a></li> <?php
+                        ?> <li><a href= "../pages/index.php"><?=$category['name']?></a></li> <?php
                     }
                 ?>
             </ul>
