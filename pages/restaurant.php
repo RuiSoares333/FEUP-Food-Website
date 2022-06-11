@@ -50,13 +50,23 @@
     function outputShoppingCart(){ ?>
         <aside id ="ads">
             <table>
-                <thead>
+                <col>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Delete</th>
+                            <th>id</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </col>
+                <tfoot>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
+                        <th colspan ="3">Total:</th><th>0</th>
                     </tr>
-                </thead>
+                </tfoot>
             </table>
         </aside>
     <?php }
