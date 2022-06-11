@@ -3,7 +3,7 @@
 
     require_once(__DIR__ . '/../database/costumer.class.php');
 
-    function outputReview(Review $review, string $name, bool $owner){ ?>
+    function outputReview(Review $review, string $name, bool $owner, Session $session, int $restaurant){ ?>
         <article data-review-id = <?= $review->id?>>
             <div>
                 <p><b><?=$name?></b>@<?= $review->username?></p>
@@ -13,11 +13,12 @@
             <p><?=$review->comment?></p>
             <?php if($review->response)
                 outputResponse($review->response);
-                else if($owner) {
-                    ?> <button type="button" id ="review_response">Respond</button>
+                else if($session->isLoggedin() && $owner) {
+                    ?> <button type="button" class ="review_response">Respond</button>
                     <form>
                         <textarea id = "response" name ="response" rows="4" cols="50"></textarea>
-                        <button type="submit" formaction ="../actions/action_add_response.php" formmethod ="post">Respond</button>
+                        <input type="hidden" name="date">
+                        <button type="submit" formaction ="../actions/action_add_response.php?review=<?=$review->id?>&user=<?=$session->getId()?>&restaurant=<?=$restaurant?>" formmethod ="post">Respond</button>
                         <button type="reset">Cancel</button>
                     </form>
                     <?php 
@@ -25,13 +26,13 @@
         </article> 
     <?php }
 
-    function outputReviews(array $reviews, PDO $db, bool $owner){ ?>
+    function outputReviews(array $reviews, PDO $db, bool $owner, Session $session, int $restaurant){ ?>
         <section id = "reviews">
             <h1>Reviews(<?=count($reviews)?>)</h1>
             <?php
                 foreach($reviews as $review){
                     $name = Costumer::getName($db, $review->username);
-                    outputReview($review, $name, $owner);
+                    outputReview($review, $name, $owner, $session, $restaurant);
                 }
                     
             ?>

@@ -77,7 +77,7 @@
     text-transform: none;
 }
 
-button#review_response {
+button.review_response {
     background:none;
     border:none;
     color: black;

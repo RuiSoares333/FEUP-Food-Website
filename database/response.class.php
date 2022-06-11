@@ -27,5 +27,11 @@
 
             return $response ? new Response($response['id'], $reviewId, $response['name'], $response['published'], $response['comment']) : null;
         }
+
+        function add(PDO $db, $user){
+            $query = 'INSERT INTO Response VALUES(NULL, ?, ?, ?, ?)';
+
+            executeQuery($db, $query, array($this->reviewId, $user, $this->date, $this->comment));
+        }
     }
 ?>
