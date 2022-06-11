@@ -39,7 +39,7 @@
         outputCategoryDishes($category, $dishes);
     }
     ?></section> <?php
-    outputReviews($restaurant->reviews, $db);
+    outputReviews($restaurant->reviews, $db, $restaurant->owner === $user->id, $session, $restaurant->id);
     if($session->isLoggedin())
         outputReviewForm();
     ?> </div> <?php   

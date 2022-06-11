@@ -40,15 +40,18 @@
         <section id ="newReview">
             <h1>Make a Review</h1>
             <form id = "reviewForm">
-                <select name = "rating" required>
-                    <option disabled selected value></option>
-                    <?php for($i = 1; $i <= 10; $i++){
-                        ?> <option value="<?=$i?>"><?=$i?></option> <?php
-                    } ?>  
-                </select>
-                <p>Comment</p>
-                <p>(optional)</p>
+                <div class="ratingContainer">
+                    <div class="rating">
+                        <?php
+                        for($i=10; $i>=1; $i--){
+                            echo '<input type="radio" name="rating" value="'.$i.'">';
+                        }
+                        ?>
+                    </div>
+                </div>
+                <p><b>Comment</b>(optional)</p>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
+                <input type="hidden" name="date">
                 <button id = "submit" formaction="../actions/action_add_review.php?id=<?=$_GET["id"]?>" formmethod="post">Submit</button>  
             </form>    
         </section>
@@ -94,8 +97,8 @@
     function outputEditRestaurantForm(Restaurant $restaurant, array $categories){ ?>
         <div id ="mainDiv" class="editRestaurant">
             <section id ="editRestaurant">
-                <h1>Edit Restaurant</h1>
                 <p id="squareEdit"></p>
+                <h1>Edit Restaurant</h1>
                 <form id ="editRestaurant">
                     <label for="name">Name:</label>
                     <input type ="text" name ="name" value= "<?=$restaurant->name?>" required>
@@ -104,9 +107,13 @@
                     <button type ="button" id = "categories">categories</button>
                     <dialog id ="myDialog">
                         <h1>Choose the categories</h1>
+                        <div id="listCategories">
+                        <ul>
                         <?php foreach($categories as $category) {
-                            ?> <input type = "checkbox" name = "categories[]" value="<?=$category['name']?>" <?php if(array_search($category['name'],$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category['name'])?></input> <?php
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>" <?php if(array_search($category['name'],$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category['name'])?></input></li><?php
                         } ?>
+                        </ul>
+                        </div>
                         <button type="button">close</button>
                     </dialog>
                     <label for="phone">Phone:</label>
@@ -121,8 +128,9 @@
     function outputAddDishForm(){ ?>
         <div id ="mainDiv" class="editRestaurant">
         <section id="newDish">
+            <p id="squareEdit"></p>
             <h1>Add a new Dish</h1>
-            <form>
+            <form id ="addDish">
                 <label for="name">Name:</label>
                 <input type="text" name="name" required>
                 <label for="price">Price:</label>
@@ -146,6 +154,7 @@
     function outputAddRestaurantForm(array $categories){ ?>
         <div id = "mainDiv" class ="newRestaurant">
             <section id = "newRestaurant">
+                <p id="squareEdit"></p>
                 <h1>Add your restaurant</h1>
                 <form id ="newRestaurant">
                     <label for="name">Name:</label>
@@ -155,10 +164,14 @@
                     <button type = "button" id = "categories">categories</button>
                     <dialog id ="myDialog">
                         <h1>Choose the categories</h1>
-                        <?php foreach($categories as $category){
-                            ?> <input type = "checkbox" name = "categories[]" value="<?=$category['name']?>"><?=str_replace('_', ' ', $category['name'])?></input> <?php 
+                        <div id="listCategories">
+                        <ul>
+                        <?php foreach($categories as $category) {
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>"><?=str_replace('_', ' ', $category['name'])?></input></li><?php
                         } ?>
-                        <button type ="button">close</button>
+                        </ul>
+                        </div>
+                        <button type="button">close</button>
                     </dialog>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone">

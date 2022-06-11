@@ -1,0 +1,42 @@
+#squareEdit{
+    background: linear-gradient(to bottom, #35B557, #3C814E);
+    border-radius: 2em;
+}
+
+#mainDiv.editRestaurant label, #editRestaurant h1, #newDish h1{
+    color: var(--branco-verde);
+    font-weight: bold;
+}
+
+#mainDiv.editRestaurant form > button{
+    background-color: #EBFFF1;
+    color: rgba(60,129,78,1);
+    border: none;
+    border-radius: 2em;
+    height: 75%;
+    width: 35%;
+}
+
+#mainDiv.editRestaurant form > button:hover{
+    background-color: #51BD7E;
+    color: #EBFFF1;
+}
+
+#mainDiv > section > form > input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid var(--branco-verde);
+    text-transform: none;
+    text-align: center;
+    color: var(--branco-verde);
+    width: 90%;
+}
+
+#side-menu > *{
+    font-size: 150%;
+}
+
+#side-menu > a:nth-child(1){
+    border-top: 2px solid var(--fundo-preto);
+    border-bottom: 2px solid var(--fundo-preto);
+}

@@ -25,7 +25,9 @@
         1,
         $session->getId(),
         intval($_POST['rating']),
-        trim($_POST['review']) !== '' ? trim($_POST['review']) : null
+        intval($_POST['date']),
+        trim($_POST['review']) !== '' ? trim($_POST['review']) : null,
+        null
     );
 
     $review->add($db, intval($_GET['id']));

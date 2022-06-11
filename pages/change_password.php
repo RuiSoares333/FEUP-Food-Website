@@ -25,7 +25,7 @@ $costumer = Costumer::getCostumer($db, $session->getId());
 $categories = Restaurant::getAllCategories($db);
 
 outputHead();
-edit_profile_head();
+change_password_head();
 outputHeader($session, $categories, $costumer);
 outputEditProfileSideMenu();
 outputAds();

@@ -64,10 +64,17 @@
     text-overflow: ellipsis;
 }
 
+#mainDiv.restaurant #dishes section *:hover{
+    overflow:visible;
+    text-overflow: clip;
+    -webkit-line-clamp: 3;
+}
+
 #mainDiv.restaurant #reviews article > p{
     background-color:#DEDEDE;
     border-radius: 1em;
     border: 1px solid black;
+    margin-bottom: 1%;
 }
 
 
@@ -77,12 +84,19 @@
     text-transform: none;
 }
 
+button.review_response {
+    background:none;
+    border:none;
+    color: black;
+    width: 10%;
+}
+
 
 /* New Review */
 
 #mainDiv.restaurant #newReview #reviewForm #review{
     resize: none;
-    border-radius: 0.75em 0.75em 0.75em 0.75em;
+    border-radius: 0.75em;
     border: 1px solid #00000088;
     background-color: #DEDEDE;
     text-transform: none;
@@ -101,17 +115,65 @@
     border-radius: 5em;
 }
 
-#reviewForm > p:nth-child(2){
-    font-weight: bold;
-}
-
 #reviewForm > p:nth-child(3){
     color: #00000088;
 }
 
+.ratingContainer{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.rating{
+    position: relative;
+    display: flex;
+    margin: 0;
+    flex-direction: row-reverse;
+}
+.rating *{
+    margin: 0;
+}
+.rating input{
+    position: relative;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    margin-top: -10%;
+}
+
+.rating input::before{
+    content: '\f005';
+    position: absolute;
+    font-family: fontAwesome;
+    font-size: 34px;
+    left: 4px;
+    transition: 0.25s;
+}
+
+.rating input:nth-child(2n+1)::before{
+    right: 4px;
+    left: initial;
+}
+
+.rating input:hover ~ input::before,
+.rating input:hover::before,
+.rating input:checked ~ input::before,
+.rating input:checked::before{
+    color: #dabd2d;
+}
 
 /* side-menu */
 
 #side-menu.restaurant li{
     font-size: 175%
+}
+
+#side-menu > ul{
+    padding: 0;
 }

@@ -18,7 +18,7 @@
     $dish = Dish::getDish($db, intval($_GET['id']));
     $restaurant = Restaurant::getRestaurant($db, $dish->restaurantId);
 
-    if($restaurant->owner !== Costumer::getUserId($session->getId()))
+    if($restaurant->owner !== Costumer::getUserId($db, $session->getId()))
         die(header('Location: /'));
 
     $dish->delete($db);
