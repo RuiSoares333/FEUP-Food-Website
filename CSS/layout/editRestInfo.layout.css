@@ -25,42 +25,42 @@
 }
 
 
-#editRestaurant form :nth-child(1) {
+#editRestaurant form > :nth-child(1) {
     grid-area: nL;
     margin-right: 5%;
     margin-left: auto;
 }
 
-#editRestaurant form :nth-child(2){
+#editRestaurant form > :nth-child(2){
     grid-area: name;
 }
 
-#editRestaurant form :nth-child(3){
+#editRestaurant form > :nth-child(3){
     grid-area: aL;
     margin-right: 5%;
     margin-left: auto;
 }
 
-#editRestaurant form :nth-child(4){
+#editRestaurant form > :nth-child(4){
     grid-area: adrss;
 }
 
-#editRestaurant form :nth-child(7){
+#editRestaurant form > :nth-child(7){
     grid-area: pL;
     margin-right: 5%;
     margin-left: auto;
 }
 
-#editRestaurant form :nth-child(8){
+#editRestaurant form > :nth-child(8){
     grid-area: phone;
 }
 
-#editRestaurant form :nth-child(5){
+#editRestaurant form > :nth-child(5){
     grid-area: cat;
     margin-top: 5%;
 }
 
-#editRestaurant form :nth-child(9){
+#editRestaurant form > :nth-child(9){
     grid-area: edit;
     margin-top: 10%;
 }
@@ -79,14 +79,14 @@
     width: 98%;
 }
 
-#listDishes article :nth-child(2){
+#listDishes article > :nth-child(2){
     position: absolute;
     top: 45%;
     left: 5%;
     max-width: 85%;
 }
 
-#listDishes article :nth-child(3){
+#listDishes article > :nth-child(3){
     position: absolute;
     bottom: 40%;
     left: 5%;
@@ -96,8 +96,6 @@
     margin: 0 35%;
     color: red;
 }
-
-
 
 
 #newDish{
@@ -120,11 +118,40 @@
     grid-template-columns: 35% 65%;
 }
 
-#addDish :nth-child(1), #addDish :nth-child(3), #addDish :nth-child(5){
+#addDish > :nth-child(1), #addDish > :nth-child(3), #addDish > :nth-child(5){
     margin-right: 5%;
     margin-left: auto;
 }
 
 #addDish :nth-child(7){
     grid-column: 1 / span 2; 
+}
+
+/* Dialog */
+
+#myDialog{
+    width: 50%;
+    height: 30%;
+}
+
+#myDialog > h1:nth-child(1){
+    color: var(--fundo-preto)
+}
+
+#listCategories ul{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    list-style-type: none;
+}
+
+#listCategories > input{
+    width: 50%;
+}
+
+#myDialog > button{
+    border: none;
+    border-radius: 2em;
+    height: 15%;
+    width: 25%;
+    margin-left: 35%;
 }

@@ -104,9 +104,13 @@
                     <button type ="button" id = "categories">categories</button>
                     <dialog id ="myDialog">
                         <h1>Choose the categories</h1>
+                        <div id="listCategories">
+                        <ul>
                         <?php foreach($categories as $category) {
-                            ?> <input type = "checkbox" name = "categories[]" value="<?=$category['name']?>" <?php if(array_search($category['name'],$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category['name'])?></input> <?php
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>" <?php if(array_search($category['name'],$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category['name'])?></input></li><?php
                         } ?>
+                        </ul>
+                        </div>
                         <button type="button">close</button>
                     </dialog>
                     <label for="phone">Phone:</label>

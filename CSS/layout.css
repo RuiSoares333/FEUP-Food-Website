@@ -22,46 +22,41 @@ header{
     width: 100%;
     height: 7.5em;
     grid-area: hd;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-areas: 
-    "webName topnav";
+    display: flex;
+    justify-content: space-between;
     position: fixed;
 }
 
-header > h1 {
-    grid-area: webName;
+header > :first-child{
     margin: 0.25em 0 0 0.5em;
 }
 
-#topnav{
-    grid-area: topnav;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-areas: 
-    "search login";
+header > :nth-child(2){
+    margin: auto;
+    width: 25%;
+}
+
+header > :last-child{
+    margin-right: 5%;
+    margin-left: auto;
 }
 
 .search{
-    grid-area: search;
     height: 3em;
     margin: auto 0;
-}
-
-#topnav > a{
-    grid-area: login;
-    margin: auto;
+    display: flex;
 }
 
 /* side Menu */
 
 #side-menu{
     height: 100%;
-    width: 19.1145833333%;
+    width: 19%;
     grid-area: sM;
     position: fixed;
     display: flex;
     flex-direction: column;
+    padding-left: 1%;
 }
 
 #side-menu > *:first-child{
@@ -72,8 +67,7 @@ header > h1 {
     color: transparent;
 }
 
-#side-menu.index > a, #side-menu.index > label{
-    padding-left: 7%;
+#side-menu.index > a, #side-menu.index > label{    
     padding-top: 1.5%;
 }
 
@@ -210,4 +204,18 @@ footer{
 .miniPreview > :nth-child(7){
     grid-area: del;
     margin-left: -90%;
+}
+
+/* Filter Dialog */
+
+#filterDialog{
+    border: 3px solid var(--fundo-preto);
+    margin-top: 5.49%;
+    margin-right: 19%;
+    width: 12.5%;
+}
+
+#filterDialog :nth-child(2), #filterDialog :nth-child(4), #filterDialog :nth-child(5){
+    width: 78%;
+    margin: 5%;
 }

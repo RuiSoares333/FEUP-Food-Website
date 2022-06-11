@@ -13,7 +13,7 @@
     border-bottom: 2px solid black;
 }
 
-#mainDiv.editRestaurant input{
+#mainDiv > section > form > input{
     border: none;
     background-color: transparent;
     border-bottom: 3px solid var(--branco-verde);
@@ -23,7 +23,7 @@
     width: 90%;
 }
 
-#mainDiv.editRestaurant form button{
+#mainDiv.editRestaurant form > button{
     background-color: #EBFFF1;
     color: rgba(60,129,78,1);
     border: none;
@@ -32,7 +32,7 @@
     width: 35%;
 }
 
-#mainDiv.editRestaurant form button:hover{
+#mainDiv.editRestaurant form > button:hover{
     background-color: #51BD7E;
     color: #EBFFF1;
 }
