@@ -14,7 +14,7 @@ for(const review of reviews){
 
     respondButton.item(0).addEventListener('click', function (){
         this.style.display = 'none';
-        form.style.display = 'block';
+        form.style.display = 'flex';
     })
 
     cancelButton.addEventListener('click', function (){

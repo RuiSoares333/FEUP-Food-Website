@@ -13,6 +13,7 @@
             <link rel = "stylesheet" href="../CSS/layout.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/images.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <?php }
 ?>
 
@@ -23,7 +24,9 @@
             <div id = "topnav">
                 <form action = "../pages/search.php?" class = "search">
                     <input class = "search" name = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
-                    <nav>
+                    <button type="button" id="filter"><img src="../assets/symbols/filter-solid.svg" for="" alt="filter"></button>
+                    <dialog id="filterDialog">
+                        <label for="rating">rating</label>
                         <select name ="rating">
                             <option selected value="-1">Any</option>
                             <?php 
@@ -32,6 +35,7 @@
                                 }
                             ?>
                         </select>
+                        <label for="category">category</label>
                         <select name = "category">
                             <option selected value= "">Any</option>
                             <?php
@@ -40,13 +44,16 @@
                                 }
                             ?>
                         </select>
-                    </nav>
-                </form> <?php
+                        <button type="button">close</button>
+                    </dialog>
+                </form> 
+                </div><?php
                     if($session->isLoggedin()){ 
                         $userImage = '../assets/users/icon/' . $user->id . '.webp';
                         $defaultImage = '../assets/users/icon/0.webp';
                         $image = (file_exists($userImage)) ? $userImage : $defaultImage;
-                        ?>
+                    }
+                    if($session->isLoggedin()){ ?>
                         <div class="dropdown">
                             <img src="<?=$image?>" for="">
                             <div class="dropdown-content">
@@ -60,8 +67,6 @@
                     <?php } else {?>
                         <a href = "../pages/login.php">Login</a>
                 <?php } ?>
-            </div>
-            
             <section id ="messages">
             <?php foreach($session->getMessages() as $message) {?>
                 <article class = "<?=$message['type']?>">
@@ -163,6 +168,7 @@
         <nav id = "side-menu" class="edit_profile">
             <a href = "../pages/edit_profile.php">Edit Profile</a>
             <a href = "../pages/change_password.php">Change Password</a>
+            <a href = "../pages/add_restaurant.php">Add Your Restaurant</a>
         </nav>
    <?php }
 ?>
@@ -176,3 +182,27 @@
         </nav>
     <?php } 
 ?> 
+
+
+<?php
+    function outputShoppingCart(){ ?>
+        <aside id ="cart">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th colspan ="3">Total:</th><th>0</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <button type="button">Order</button>
+        </aside>
+    <?php }
+?>

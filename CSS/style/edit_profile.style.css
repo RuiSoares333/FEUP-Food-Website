@@ -1,0 +1,33 @@
+#squareEdit{
+    background: linear-gradient(to bottom, #35B557, #3C814E);
+    border-radius: 2em;
+}
+
+
+#edit_profile input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid var(--branco-verde);
+    text-transform: none;
+    text-align: center;
+    color: var(--branco-verde);
+    width: 90%;
+}
+
+#edit_profile label{
+    color: var(--branco-verde);
+    font-weight: bold;
+}
+
+#edit_profile:nth-child(1){
+    color: var(--branco-verde);
+}
+
+#edit_profile form #submit:hover{
+    background-color: #51BD7E;
+}
+
+#side-menu > a:nth-child(1){
+    border-top: 2px solid var(--fundo-preto);
+    border-bottom: 2px solid var(--fundo-preto);
+}

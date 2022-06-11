@@ -32,7 +32,7 @@
     outputHead();
     edit_restaurant_head();
     outputHeader($session, $categories, $owner);
-    outputEditRestaurantSideMenu();
+    outputEditRestaurantSideMenu(1);
     outputAds();
     outputEditRestaurantForm($restaurant, $categories);
     outputFooter();

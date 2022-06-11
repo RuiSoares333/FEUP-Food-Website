@@ -31,7 +31,7 @@
     outputHead();
     restaurant_head();
     outputHeader($session, $categories, $user);
-    outputAds();
+    outputShoppingCart();
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php
     outputSingleRestaurant($restaurant, $user);   

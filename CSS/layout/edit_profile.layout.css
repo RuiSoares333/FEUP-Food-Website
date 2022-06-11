@@ -75,64 +75,7 @@
     margin: auto;
 }
 
-/*password*/
-
-#changePassword{
-    display: grid;
-    grid-template-rows: 2em 1em 31em 2em;
+#squareEdit{
+    background: linear-gradient(to bottom, #35B557, #3C814E);
+    border-radius: 2em;
 }
-
-#changePassword h1{
-    margin-top: 5em;
-}
-
-#changePassword form{
-    display: grid;
-    grid-template-rows: repeat(2, 3em);
-    grid-template-columns: 50% 50%;
-    grid-template-areas: 
-    "old OLD"
-    "new NEW"
-    "ch ch"
-}
-
-#changePassword form :nth-child(1) {
-    grid-area: old;
-    margin-right: 5%;
-    margin-left: auto;
-}
-
-#changePassword form :nth-child(2){
-    grid-area: OLD;
-}
-
-#changePassword form :nth-child(3){
-    grid-area: new;
-    margin-right: 5%;
-    margin-left: auto;
-}
-
-#changePassword form :nth-child(4){
-    grid-area: NEW;
-}
-
-#changePassword form #submit{
-    grid-area: ch;
-    height: 3em;
-    width: 75%;
-    margin-top: 1em;
-}
-
-#changePassword > *, #changePassword form > *{
-    margin: auto;
-}
-
-#changePassword #squareEdit{
-    width: 55%;
-    height: 18em;
-    margin-top: 8em;
-}
-
-
-
-
