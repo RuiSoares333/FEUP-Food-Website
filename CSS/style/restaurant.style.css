@@ -77,6 +77,13 @@
     text-transform: none;
 }
 
+button#review_response {
+    background:none;
+    border:none;
+    color: black;
+    width: 10%;
+}
+
 
 /* New Review */
 

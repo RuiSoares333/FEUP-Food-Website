@@ -2,6 +2,7 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/response.class.php');
 
     class Review{
         public int $id;
@@ -9,13 +10,15 @@
         public int $rating;
         public int $date;
         public ?string $comment;
+        public ?Response $response;
 
-        public function __construct(int $id, string $username, int $rating, int $date, ?string $comment) {
+        public function __construct(int $id, string $username, int $rating, int $date, ?string $comment, ?Response $response) {
             $this->id = $id;
             $this->username = $username;
             $this->rating = $rating;
             $this->date = $date;
             $this->comment = $comment;
+            $this->response = $response;
         }
 
         static function getReviews(PDO $db, int $restaurant) : array{
@@ -32,7 +35,8 @@
                     $review['username'],
                     $review['rating'],
                     $review['published'],
-                    $review['comment']
+                    $review['comment'],
+                    Response::getResponse($db, $review['id'])
                 );
             }
             return $reviews_;

@@ -14,3 +14,9 @@ function showDialog() {
 function closeDialog() {
     dialog.close();
 }
+
+document.addEventListener('click', function (){
+    if(dialog.open && !dialog.contains(event.target) && !categoryButton.contains(event.target)){
+        closeDialog();
+    }
+})

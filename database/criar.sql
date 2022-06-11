@@ -76,12 +76,14 @@ CREATE TABLE Review (
 CREATE TABLE Response (
     id INTEGER,
     reviewId INTEGER NOT NULL,
+    userId INTEGER NOT NULL,
     published INTEGER,
     comment VARCHAR,
     CONSTRAINT PK_Response PRIMARY KEY (id),
     FOREIGN KEY (reviewId) REFERENCES Review (id)
-        ON DELETE CASCADE
-);
+        ON DELETE CASCADE,
+    FOREIGN KEY (userId) REFERENCES User(id)
+); 
 
 CREATE TABLE FavoriteDish (
     dishId INTEGER,
@@ -234,6 +236,9 @@ INSERT INTO Review VALUES (NULL, 6, 5, 6, 1635347252, "Nam a quam hendrerit, luc
 
 INSERT INTO Review VALUES (NULL, 6, 5, 7, 1635347252, "Duis vitae tortor erat. Nulla ante ipsum, consectetur eu erat eget, dictum ornare nisl. Maecenas porta nibh augue, tincidunt fermentum massa bibendum ut. Maecenas ullamcorper interdum viverra. Sed pulvinar, metus et congue pulvinar, dolor elit mollis lacus, id euismod enim neque a est. Curabitur cursus ipsum ac mauris congue commodo. Morbi ut odio eu libero auctor facilisis. Nam vel lorem vulputate enim dapibus dictum. Vivamus faucibus rutrum sem, vel pharetra dolor laoreet quis. Mauris dignissim metus ac tortor hendrerit rutrum. Phasellus sed viverra libero, nec congue diam. Donec quis felis vel urna fringilla euismod a iaculis magna. Maecenas ac vestibulum risus. Vestibulum hendrerit tincidunt dictum.");
 INSERT INTO Review VALUES (NULL, 6, 5, 9, 1635347252, "Sed justo turpis, ullamcorper non nisl ac, hendrerit mollis ipsum. In imperdiet ullamcorper ipsum, ac scelerisque erat blandit a. Nullam malesuada posuere lorem vel tristique. Donec eget lacus eget lectus venenatis pulvinar ut scelerisque sapien. Aenean id leo rutrum, eleifend quam id, fringilla mi. Mauris id erat est. Integer consectetur accumsan odio id egestas. Aliquam sit amet diam lorem. Pellentesque eget neque urna. Suspendisse placerat ultricies vehicula. Aliquam sed pretium nibh, at euismod massa. Phasellus euismod tortor ante, vel ultrices velit semper nec. Etiam in condimentum neque. In in eleifend nunc. Proin convallis dolor at ullamcorper facilisis. Morbi eget neque nulla.");
+
+--Response 
+INSERT INTO Response VALUES(NULL, 2, 2, 1635348252, 'cringe');
 
 --Favorite_Dish
 INSERT INTO FavoriteDish VALUES (1, 2);
