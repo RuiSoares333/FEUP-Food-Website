@@ -1,5 +1,8 @@
-const articles = document.getElementsByClassName('miniPreview');
+const buttons = document.getElementsByClassName('favoriteRestaurant');
 
-for(const article of articles){
-    
+for(const button in buttons) {
+    button.addEventListener('click', function () {
+        console.log(button.checked);
+    })
 }
+

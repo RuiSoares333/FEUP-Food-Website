@@ -4,6 +4,10 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> 
+        </head>
+        <body>
+        <?php
     }
 
     function edit_profile_head(){
@@ -11,6 +15,10 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> 
+        </head>
+        <body>
+        <?php
     }
 
     function edit_restaurant_head(){
@@ -19,7 +27,10 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?> <script src="../javascript/categories.js" defer></script> 
-           <script src="../javascript/image_upload.js" defer></script> <?php
+           <script src="../javascript/image_upload.js" defer></script> 
+            </head>
+            <body>
+           <?php
     }
 
     function index_head(){
@@ -27,6 +38,10 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> <script src="../javascript/favorite_restaurant.js"></script> 
+        </head>
+        <body>
+        <?php
     }
 
     function login_head(){
@@ -34,6 +49,10 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> 
+        </head>
+        <body>
+        <?php
     }
 
     function profile_head(){
@@ -41,7 +60,10 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/image_upload.js" defer></script> <?php
+        ?> <script src="../javascript/image_upload.js" defer></script> 
+        </head>
+        <body>
+        <?php
     }
 
     function register_head(){
@@ -49,6 +71,10 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> 
+        </head>
+        <body>
+        <?php
     }
 
     function restaurant_head(){
@@ -58,6 +84,8 @@
         }
         ?> <script src="../javascript/image_upload.js" defer></script> 
            <script src="../javascript/review_response.js" defer></script> 
+    </head>
+    <body>
         <?php
     }
 
@@ -66,5 +94,9 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> 
+        </head>
+        <body>
+        <?php
     }
 ?>

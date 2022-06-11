@@ -21,8 +21,7 @@
         <?php } ?>
         <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
-        <label for ="favorite"></label>
-        <input type="checkbox" name="favorite" <?php if($is_favorite) echo 'checked' ?>>
+        <button type="button" <?php if($is_favorite) echo 'class = "checked"'; ?>> star</button>
         </article>
     <?php }
 
