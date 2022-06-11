@@ -14,7 +14,7 @@
     width: 90%;
 }
 
-label, #editRestaurant h1, #newDish h1{
+#newDish label, #newDish h1{
     color: var(--branco-verde);
     font-weight: bold;
 }

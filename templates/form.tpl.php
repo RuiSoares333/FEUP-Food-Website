@@ -40,14 +40,16 @@
         <section id ="newReview">
             <h1>Make a Review</h1>
             <form id = "reviewForm">
-                <select name = "rating" required>
-                    <option disabled selected value></option>
-                    <?php for($i = 1; $i <= 10; $i++){
-                        ?> <option value="<?=$i?>"><?=$i?></option> <?php
-                    } ?>  
-                </select>
-                <p>Comment</p>
-                <p>(optional)</p>
+                <div class="ratingContainer">
+                    <div class="rating">
+                        <?php
+                        for($i=10; $i>=1; $i--){
+                            echo '<input type="radio" name="rating" value="'.$i.'">';
+                        }
+                        ?>
+                    </div>
+                </div>
+                <p><b>Comment</b>(optional)</p>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
                 <input type="hidden" name="date">
                 <button id = "submit" formaction="../actions/action_add_review.php?id=<?=$_GET["id"]?>" formmethod="post">Submit</button>  

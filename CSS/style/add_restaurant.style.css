@@ -3,7 +3,7 @@
     border-radius: 2em;
 }
 
-label, #newRestaurant h1{
+#newRestaurant label, #newRestaurant h1{
     color: var(--branco-verde);
     font-weight: bold;
 }

@@ -66,7 +66,6 @@
 #mainDiv.restaurant #reviews article > p{
     padding: 0.5em;
     margin-top: 0.25em;
-    margin-bottom: 1.25em;
 }
 
 
@@ -75,6 +74,7 @@
 #mainDiv.restaurant #reviews article{
     display: flex;
     flex-direction: column;
+    margin: 5% 0;
 }
 
 #mainDiv.restaurant #reviews article div{
@@ -98,6 +98,28 @@
     text-transform: none;
 }
 
+.review_response{
+    margin: 0 5% 0 auto;
+    text-decoration: underline;
+}
+#reviews > article > form:nth-child(4){
+    flex-direction: column;
+}
+
+#response{
+    resize: none;
+    border-radius: 0.75em;
+    border: 1px solid #00000088;
+    background-color: #DEDEDE;
+    text-transform: none;
+}
+
+#reviews > article > form > button{
+    border: 0;
+    border-radius: 1em;
+    width: 50%;
+    margin: 0.5% auto;
+}
 
 /* New Review */
 
@@ -110,7 +132,7 @@
     "btn btn btn";
 }
 
-#mainDiv.restaurant #newReview #reviewForm select{
+#mainDiv.restaurant #newReview #reviewForm div{
     grid-area: st3;
 }
 
@@ -129,4 +151,23 @@
 
 #mainDiv.restaurant #newReview #reviewForm p{
     margin: 0;
+}
+
+/* Answer Review */
+
+.response{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-right: 0%;
+    margin-left: auto;
+    padding: 1%
+}
+
+.response > p{
+    background-color:#DEDEDE;
+    border-radius: 1em;
+    border: 1px solid black;
+    width: 100%;
+    padding-left: 1%;
 }
