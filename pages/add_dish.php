@@ -30,9 +30,9 @@
     }
 
     outputHead();
-    edit_restaurant_head();
+    add_dish_head();
     outputHeader($session, $categories, $owner);
-    outputEditRestaurantSideMenu();
+    outputEditRestaurantSideMenu(3);
     outputAds();
     outputAddDishForm();
     outputFooter();

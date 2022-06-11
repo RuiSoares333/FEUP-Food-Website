@@ -34,9 +34,9 @@
     }
 
     outputHead();
-    edit_restaurant_head();
+    manage_dishes_head();
     outputHeader($session, $categories, $owner);
-    outputEditRestaurantSideMenu();
+    outputEditRestaurantSideMenu(2);
     outputAds();
     outputDishMenu($dishes);
     outputFooter();

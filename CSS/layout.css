@@ -12,13 +12,6 @@ body{
     "ft ft ft ft ft";
 }
 
-#mainDiv{
-    margin-top: 12%;
-}
-
-#side-menu{
-    margin-top: 7.5%;
-}
 
 /* header */
 
@@ -45,7 +38,7 @@ header > :last-child{
     margin-left: auto;
 }
 
-.search{
+form.search{
     height: 3em;
     margin: auto 0;
     display: flex;
@@ -54,6 +47,7 @@ header > :last-child{
 /* side Menu */
 
 #side-menu{
+    margin-top: 7.5%;
     height: 100%;
     width: 19%;
     grid-area: sM;
@@ -90,6 +84,7 @@ header > :last-child{
 /* main Div*/
 
 #mainDiv{
+    margin-top: 12%;
     grid-area: mD;
     padding: 7.5% 2.5% 2.5% 2.5%;
 }

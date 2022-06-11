@@ -42,3 +42,9 @@
 #side-menu.sort option{
     border-radius: 1em;
 }
+
+
+#listRestaurants{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
