@@ -169,9 +169,11 @@
 
     function outputSearchResults(array $restaurants){ ?>
         <div id = "mainDiv" class = "search">
-            <?php foreach($restaurants as $restaurant){
-                outputRestaurant($restaurant);
-            } ?> 
+            <div id="listRestaurants">
+                <?php foreach($restaurants as $restaurant){
+                    outputRestaurant($restaurant);
+                } ?> 
+            </div>
         </div>
     <?php }
 

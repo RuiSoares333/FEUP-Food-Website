@@ -1,0 +1,31 @@
+#manageDishes{
+    margin-bottom: 5%;
+}
+
+#listDishes{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+#listDishes article{
+    position: relative;
+    width: 98%;
+}
+
+#listDishes article > :nth-child(2){
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    max-width: 85%;
+}
+
+#listDishes article > :nth-child(3){
+    position: absolute;
+    bottom: 40%;
+    left: 5%;
+}
+
+#listDishes > article > a:nth-child(4){
+    margin: 0 35%;
+    color: red;
+}

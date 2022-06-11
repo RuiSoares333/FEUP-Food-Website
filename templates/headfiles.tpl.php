@@ -1,32 +1,56 @@
 <?php
+    function add_dish_head(){
+        $styleFiles = array('../CSS/layout/add_dish.layout.css', '../CSS/style/add_dish.style.css');
+        foreach($styleFiles as $file){
+            echo '<link rel = "stylesheet" href="'.$file.'">';
+        }
+    }
+
     function add_restaurant_head(){
-        $styleFiles = array('');
+        $styleFiles = array('../CSS/layout/add_restaurant.layout.css', '../CSS/style/add_restaurant.style.css');
+        foreach($styleFiles as $file){
+            echo '<link rel = "stylesheet" href="'.$file.'">';
+        }?> <script src="../javascript/categories.js" defer></script><?php
+    }
+
+    function change_password_head(){
+        $styleFiles = array('../CSS/layout/change_password.layout.css', '../CSS/style/change_password.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
     }
 
     function edit_profile_head(){
-        $styleFiles = array('../CSS/layout/editUserInfo.layout.css', '../CSS/style/editUserInfo.style.css');
+        $styleFiles = array('../CSS/layout/edit_profile.layout.css', '../CSS/style/edit_profile.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
     }
 
     function edit_restaurant_head(){
-        $styleFiles = array('');
+        $styleFiles = array('../CSS/layout/edit_restaurant.layout.css', '../CSS/style/edit_restaurant.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
-        }
-        ?> <script src="../javascript/categories.js" defer></script> 
-           <script src="../javascript/image_upload.js" defer></script> <?php
+        }        
+        ?> <script src="../javascript/categories.js" defer></script> <?php
     }
+
+    function manage_dishes_head(){
+        $styleFiles = array('../CSS/layout/manage_dishes.layout.css', '../CSS/style/manage_dishes.style.css');
+        foreach($styleFiles as $file){
+            echo '<link rel = "stylesheet" href="'.$file.'">';
+        }?> <script src="../javascript/image_upload.js" defer></script> <?php
+    }
+
+
+
 
     function index_head(){
         $styleFiles = array('../CSS/layout/index.layout.css', '../CSS/style/index.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
+        ?> <script src="../javascript/categories.js" defer></script><?php
     }
 
     function login_head(){
