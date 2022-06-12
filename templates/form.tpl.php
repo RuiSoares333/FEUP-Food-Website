@@ -51,7 +51,7 @@
                 </div>
                 <p><b>Comment</b>(optional)</p>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
-                <input type="hidden" name="date">
+                <input type="hidden" name="date" class ="date">
                 <button id = "submit" formaction="../actions/action_add_review.php?id=<?=$_GET["id"]?>" formmethod="post">Submit</button>  
             </form>    
         </section>

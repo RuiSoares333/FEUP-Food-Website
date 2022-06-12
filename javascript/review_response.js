@@ -1,68 +1,58 @@
-//const respondButtons = document.querySelectorAll('#review_response');
-//const forms = document.querySelectorAll('#reviews > article > form');
-//const cancelButtons = document.querySelectorAll('#reviews > article > form > button:nth-child(4)');
-//
-//for(const form of forms){
-//    form.style.display = 'none';
-//}
-//
-//
-//for(const respond of respondButtons){
-//    respond.addEventListener('click', function (){
-//        this.style.display = 'none';
-//        this.querySelector
-//    })
-//}
-//
-//
-//cancelButton.addEventListener('click', function (){
-//    respondButton.style.display = 'block';
-//    form.style.display = 'none';
-//})
-//
-//function currentTime(element) {
-//    var date = Math.round((new Date()).getTime() / 1000);
-//    element.value = date;
-//}
-//
-//const responseSubmit = document.querySelectorAll('#reviews > article > form > button:nth-child(3)');
-//const reviewSubmit = document.querySelector('#submit');
+function attachResponseEvents() {
+    for(const review of document.querySelectorAll('#reviews > article')){
+        const respondButton = review.querySelector('.review_response');
 
-const reviews = document.querySelectorAll('#reviews > article');
+        if(respondButton){
+            const form = review.querySelector('form');
+            const cancelButton = form.querySelector('button:nth-child(4)');
+            const submitButton = form.querySelector('button:nth-child(3)');
 
-for(const review of reviews){
-    const respondButton = review.getElementsByClassName('review_response');
+            form.style.display = 'none';
 
-    if(respondButton.length === 0)
-        continue;
+            respondButton.addEventListener('click', function () {
+                toggleForm(form);
+                toggleButton(respondButton);
+            });
 
-    const form = review.querySelector('form');
-    const cancelButton = form.querySelector('button:nth-child(4)');
-    const submitButton = form.querySelector('button:nth-child(3)');
+            cancelButton.addEventListener('click', function () {
+                toggleForm(form);
+                toggleButton(respondButton);
+            })
 
-    form.style.display = 'none';
+            submitButton.addEventListener('click', function () {
+                setDate(form);
+            })            
+        }
+    }
+}
 
-    respondButton.item(0).addEventListener('click', function (){
-        this.style.display = 'none';
-        form.style.display = 'flex';
-    })
-
-    cancelButton.addEventListener('click', function (){
+function toggleForm(form) {
+    if(form.style.display === 'none')
+        form.style.display = 'block';
+    else
         form.style.display = 'none';
-        respondButton.item(0).style.display = 'block';
-    })
-
-    submitButton.addEventListener('click', function (){
-        var date = Math.round((new Date()).getTime() / 1000);
-        form.querySelector('input').value = date;
-    })
 }
 
-const submit = document.getElementById('submit');
-
-if(submit !== null){
-    submit.addEventListener('click', function (){
-        var date = Math.round((new Date()).getTime() / 1000);
-        document.querySelector('#newReview > form > input').value = date;
-    })
+function toggleButton(button) {
+    if(button.style.display === 'none')
+        button.style.display = 'block';
+    else
+        button.style.display = 'none';
 }
+
+function setDate(form) {
+    let date = Math.round((new Date()).getTime() / 1000);
+    form.querySelector('input.date').value = date;
+}
+
+function attachReviewEvent(){
+    const submit = document.getElementById('submit');
+    if(submit)
+        submit.addEventListener('click', function () {
+            setDate(submit.parentElement);
+        })
+}
+
+attachReviewEvent();
+
+attachResponseEvents();

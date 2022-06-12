@@ -23,6 +23,7 @@
         $costumer = Costumer::getCostumer($db, $session->getId());        
     }
 
+    $favorites = isset($costumer) ? $costumer->getFavoriteRestaurantsIds($db) : array();
 
     outputHead();
     index_head();
@@ -33,7 +34,7 @@
     <div id="mainDiv" class="index">
         <?php 
         outputSearch($session);
-        outputBestRestaurants($restaurants);
+        outputBestRestaurants($restaurants, $favorites, $session);
         ?>
         <section id = "close">
             map api
