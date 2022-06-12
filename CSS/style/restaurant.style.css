@@ -287,19 +287,6 @@ body{
 
 #cart tfoot th:last-child::after, #cart > table > tbody > tr > td:nth-child(3)::after{
     content: "€";
-<<<<<<< HEAD
-  }
-  
-  #cart tr {
-    background-color: #ffddd2;  
-    border: 5px solid white;
-  }
-  
-  #cart thead tr, #cart tfoot tr  {
-    background-color: #edf6f9;
-  }
-=======
 }
 
 
->>>>>>> 651958163fc46fe38ffe82c6dee1666e4818a334

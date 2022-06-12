@@ -3,7 +3,7 @@ function attachBuyEvents() {
     button.addEventListener('click', function(e){
       const starButton = button.querySelector('button');
 
-      if(!button.contains(e.target)){
+      if(!starButton.contains(e.target)){
       const id = this.dataset.id;
       const row = document.querySelector(`#cart table tr[data-id="${id}"]`);
 
@@ -60,7 +60,7 @@ function addRow(id, name, price, quantity) {
 }
 
 function updateTotal() {
-  const rows = document.querySelectorAll('#cart table tbody >tr');
+  const rows = document.querySelectorAll('#cart table tbody > tr');
   const values = [...rows].map(r => parseInt(r.querySelector('td:nth-child(3)').textContent, 10));
   const total = values.reduce((t, v) => t + v, 0);
   document.querySelector('#cart table tfoot th:last-child').textContent = total;

@@ -10,8 +10,11 @@ function attachFavoriteRestaurantEvents(){
                 body : data,
             });
             
-            if(response.status >= 200 && response.status < 300)
+            if(response.status >= 200 && response.status < 300){
                 this.classList.toggle("checked");
+                this.classList.toggle("unchecked");
+            }
+                
         });
     }
 }

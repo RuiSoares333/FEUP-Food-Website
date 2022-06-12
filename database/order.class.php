@@ -57,19 +57,79 @@
             foreach($orders as $order){
                 $query = 'SELECT dishId as id, quantity FROM OrderDish WHERE orderId = ?';
 
-                $dishes
-            }
+                $dishes = getQueryResults($db, $query, true, array($order['id']));
 
-            
+                $orders_[] = new Order(
+                    $order['id'],
+                    $order['userId'],
+                    $order['restaurantId'],
+                    $dishes,
+                    $order['price'],
+                    orderState::delivered
+                );
+            }
+            return $orders_;
         }
 
         static function getUserOrders(PDO $db, int $user) : array {
-            $query = 'SELECT id, restaurantId, price, state
-            FROM Ord WHERE userId = ? AND state != "delivered"';
+            $query = 'SELECT * FROM Ord WHERE userId = ? AND state != "delivered"';
 
-            return getQueryResults($db, $query, true, array($user));
+            $orders = getQueryResults($db, $query, true, array($user));
+
+            $orders_ = array();
+
+            foreach ($orders as $order){
+                $query = 'SELECT dishId as id, quantity FROM OrderDish WHERE orderId = ?';
+
+                $dishes = getQueryResults($db, $query, true, array($order['id']));
+
+                $orders_[] = new Order(
+                    $order['id'],
+                    $order['userId'],
+                    $order['restaurantId'],
+                    $dishes,
+                    $order['price'],
+                    Order::getState($order['state'])
+                );
+            }
+
+            return $orders_;
         }
 
+
+        static function getState(string $state) : orderState{
+            switch($state){
+                case 'received' : return orderState::received;
+                case 'preparign' : return orderState:: preparing;
+                case 'ready' : return orderState::ready;
+            }
+        }
+
+        static function getRestaurantOrders(PDO $db, int $user) : array {
+            $query = 'SELECT id, restaurantId, price, state
+            FROM Ord WHERE restaurantId = ? AND state != "delivered"';
+
+            $orders = getQueryResults($db, $query, true, array($user));
+
+            $orders_ = array();
+
+            foreach ($orders as $order){
+                $query = 'SELECT dishId as id, quantity FROM OrderDish WHERE orderId = ?';
+
+                $dishes = getQueryResults($db, $query, true, array($order['id']));
+
+                $orders_[] = new Order(
+                    $order['id'],
+                    $order['userId'],
+                    $order['restaurantId'],
+                    $dishes,
+                    $order['price'],
+                    Order::getState($order['state'])
+                );
+            }
+
+            return $orders_;
+        }
 
     }
 ?>  

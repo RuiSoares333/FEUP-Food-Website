@@ -2,7 +2,7 @@ function attachOrderEvent() {
     const button = document.querySelector('#cart button');
 
     button.addEventListener('click', async function () {
-        const rows = document.querySelectorAll('#cart table > tr');
+        const rows = document.querySelectorAll('#cart table tbody > tr');
         if(rows.length > 0) {
             const restaurant = parseInt(new URLSearchParams(document.location.search).get("id"), 10);
 
