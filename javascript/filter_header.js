@@ -1,20 +1,15 @@
-const filterButton = document.querySelector('button#filter');
-const filterDialog = document.getElementById('filterDialog');
-const filterButtonClose = document.querySelector('#filterDialog button');
+function attachFilterEvent(){
+    const filterButton = document.getElementById('filter');
+    const filterDialog = document.getElementById('filterDialog');
+    const filterButtonClose = filterDialog.querySelector('button');
 
-filterButton.addEventListener('click', showDialog);
-filterButtonClose.addEventListener('click', closeDialog);
+    filterButton.addEventListener('click', function () {
+        filterDialog.showModal();
+    });
 
-function showDialog() {
-    filterDialog.showModal();
+    filterButtonClose.addEventListener('click', function () {
+        filterDialog.close();
+    });
 }
 
-function closeDialog() {
-    filterDialog.close();
-}
-
-document.addEventListener('click', function(){
-    if(filterDialog.open && filterDialog.contains(event.target) && filterButton.contains(event.target)) {
-        closeDialog();
-    }
-})
+attachFilterEvent();

@@ -1,12 +1,12 @@
 <?php
     declare(strict_types = 1);
 
-    function outputRestaurant(Restaurant $restaurant) { 
-        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
-        $defaultImage = '../assets/restaurants/minPreview/0.webp';
+    function outputRestaurant(Restaurant $restaurant, bool $is_favorite, Session $session) { 
+        $restaurantImage = '../assets/restaurants/miniPreview/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/miniPreview/0.webp';
         $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
         ?>
-        <article class="miniPreview">
+        <article class="miniPreview" data-id = <?= $restaurant->id?>>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="<?=$image?>"></a>
         <div class="categories">
         <?php foreach($restaurant->categories as $category){
@@ -21,12 +21,15 @@
         <?php } ?>
         <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
+        <?php if($session->isLoggedin()){ ?>
+        <button type="button" <?php if($is_favorite) echo 'class = "checked"'; ?>> star</button>            
+       <?php } ?>
         </article>
     <?php }
 
     function outputOwnedRestaurant(Restaurant $restaurant) { 
-        $restaurantImage = '../assets/restaurants/minPreview/' . $restaurant->id . '.webp';
-        $defaultImage = '../assets/restaurants/minPreview/0.webp';
+        $restaurantImage = '../assets/restaurants/miniPreview/' . $restaurant->id . '.webp';
+        $defaultImage = '../assets/restaurants/miniPreview/0.webp';
         $image = (file_exists($restaurantImage)) ? $restaurantImage : $defaultImage;
         ?>
         <article class="miniPreview">
@@ -48,7 +51,7 @@
         </article>
     <?php }
 
-    function outputFavoriteRestaurants(array $restaurants){?>
+    function outputFavoriteRestaurants(array $restaurants, Session $session){?>
         <section id="favRestaurants">
             <h1>Your Favorite Restaurants</h1>
        <?php 
@@ -57,7 +60,7 @@
             <section id="listRestaurants">
             <?php
             foreach($restaurants as $restaurant){
-                outputRestaurant($restaurant);
+                outputRestaurant($restaurant, true, $session);
             }
             ?>
             </section>
@@ -82,7 +85,7 @@
         </section>
     <?php }
 
-    function outputBestRestaurants(array $restaurants) { ?>
+    function outputBestRestaurants(array $restaurants, array $favorites, Session $session) { ?>
         <section id = "bestRestaurants">
         <h1>most legit restaurants</h1>    
         <input type="radio" name="slider" id="slide1" checked>
@@ -96,7 +99,7 @@
                 <div class="slide slide_<?=$k?>">
                     <div class="slide-content">
                     <?php for($j=$i; $j<$i+5; $j++){
-                        outputRestaurant($restaurants[$j]);
+                        outputRestaurant($restaurants[$j], array_search($restaurants[$j]->id, $favorites) !== false, $session);
                         if($j===5){
                             $j+=5;
                         }
@@ -167,13 +170,11 @@
     <?php }  
 
 
-    function outputSearchResults(array $restaurants){ ?>
+    function outputSearchResults(array $restaurants, array $favorites, Session $session){ ?>
         <div id = "mainDiv" class = "search">
-            <div id="listRestaurants">
-                <?php foreach($restaurants as $restaurant){
-                    outputRestaurant($restaurant);
-                } ?> 
-            </div>
+            <?php foreach($restaurants as $restaurant){
+                outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
+            } ?> 
         </div>
     <?php }
 

@@ -4,7 +4,7 @@
     require_once(__DIR__ . '/../database/costumer.class.php');
 
     function outputReview(Review $review, string $name, bool $owner, Session $session, int $restaurant){ ?>
-        <article data-review-id = <?= $review->id?>>
+        <article>
             <div>
                 <p><b><?=$name?></b>@<?= $review->username?></p>
                 <p><?=date('j/n/Y',$review->date)?></p>
@@ -17,7 +17,7 @@
                     ?> <button type="button" class ="review_response">Respond</button>
                     <form>
                         <textarea id = "response" name ="response" rows="4" cols="50"></textarea>
-                        <input type="hidden" name="date">
+                        <input type="hidden" name="date" class ="date">
                         <button type="submit" formaction ="../actions/action_add_response.php?review=<?=$review->id?>&user=<?=$session->getId()?>&restaurant=<?=$restaurant?>" formmethod ="post">Respond</button>
                         <button type="reset">Cancel</button>
                     </form>
