@@ -287,12 +287,12 @@ button.unchecked{
 
 button.checked::before{
     content: url("../assets/symbols/star-solid.svg");
-    filter: invert(96%) sepia(0%) saturate(1351%) hue-rotate(226deg) brightness(87%) contrast(81%);
+    filter: invert(33%) sepia(99%) saturate(11%) hue-rotate(359deg) brightness(97%) contrast(96%);
 }
 
 button.unchecked::before{
     content: url("../assets/symbols/star-regular.svg");
-    filter: invert(96%) sepia(0%) saturate(1351%) hue-rotate(226deg) brightness(87%) contrast(81%);
+    filter: invert(33%) sepia(99%) saturate(11%) hue-rotate(359deg) brightness(97%) contrast(96%);
 }
 
 
