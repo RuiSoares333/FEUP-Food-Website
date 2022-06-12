@@ -180,72 +180,6 @@ button.review_response {
     padding: 0;
 }
 
-/* Cart */
-/*
-#side-menu{
-    width: 15%
-}
-
-body{
-    margin: 0;
-    display: grid;
-    grid-template-columns: 15% 2.5% 55% 2.5% 25%;
-    grid-template-areas: 
-    "sM . mD . ads"
-    "ft ft ft ft ft";
-}
-
-#cart{
-    position:fixed;
-    display: flex;
-    flex-direction: column;
-    margin-top: 7.75%;
-    right: 0;
-    width: 26.5%;
-}
-
-#cart table {
-    border-collapse: collapse;
-    width: 100%;
-}
-  
-#cart th, #cart td {
-    padding: 1em;
-    text-align: center;
-}
-  
-#cart tfoot th:last-child::after{
-    content: "€";
-}
-
-#cart > table > tbody{
-    height: 75%;
-    overflow-y: auto;
-}
-  
-#cart > table > tbody > *{
-    background-color: #ccffa5;  
-    border: 2px solid white;
-    height: 10em;
-}
-  
-#cart thead, #cart tfoot{
-    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
-    color: var(--branco-verde)
-}
-
-#cart input{
-    width: 50%;
-}
-
-#cart > button{
-    border: 0;
-    height: 5%;
-}
-
-#cart > table{
-    height: 10%;
-}*/
 
 body{
     grid-template-columns: 15% 2.5% 55% 2.5% 25%;
@@ -351,7 +285,7 @@ body{
 /* Tfoot */
 
 
-#cart tfoot th:last-child::after{
+#cart tfoot th:last-child::after, #cart > table > tbody > tr > td:nth-child(3)::after{
     content: "€";
 }
 

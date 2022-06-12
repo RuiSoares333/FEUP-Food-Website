@@ -29,12 +29,10 @@
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
         ?>
         <article data-id = <?= $dish->id?> class ="dish">
-        <a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
-        <img src = "<?=$image?>">
-        <p><?= $dish->name?></p>
-        <p><?= $dish->price?>€</p>
-        </a>
-        <button type="button" class="checked">star</button>
+        <img src = "<?=$image?>" href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
+        <p><a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>"><?= $dish->name?></a></p>
+        <p><a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>"><?= $dish->price?></a>€</p>
+        <button type="button" class="checked"></button>
         </article>
     <?php }
 
@@ -49,7 +47,7 @@
             <p><?= $dish->price?>€</p>
             <?php
                 if($session->isLoggedin()){
-                    ?> <button type="button" <?php if($is_favorite) echo 'class="checked"';?>>star</button><?php
+                    ?> <button type="button" <?php if($is_favorite) echo 'class="checked"'; else echo 'class="unchecked"';?>></button><?php
                 }
             ?>
         </article>

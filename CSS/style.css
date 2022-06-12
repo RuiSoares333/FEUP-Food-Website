@@ -96,6 +96,31 @@ form.search > button > img{
     opacity: 50%;
 }
 
+body > header > a{
+    margin: auto -5% auto auto;
+    color: var(--branco-verde);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.success, .error{
+    position: absolute;
+    left: 33%;
+    top: 425%;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--branco-verde);
+    background-color: rgb(0,0,0, 0.8);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    animation: fadeout 5s ease-out;
+    opacity: 0;
+}
+
+@keyframes fadeout {
+    from {display: block; opacity: 1;}
+    to { opacity: 0;}
+}
 
 /* side Menu */
 
@@ -243,4 +268,25 @@ form#upload > button:nth-child(2):hover{
   
 #myBtn:hover {
     background-color: #555;
+}
+
+
+/* Favorites */
+button.checked{
+    background-color: rgb(57, 116, 158);
+    border: none;
+}
+button.unchecked{
+    border: none;
+}
+button.checked::before{
+    content: '\f005';
+    font-family: fontAwesome;
+    color: #dabd2d;
+}
+
+button.unchecked::before{
+    content: '\f111';
+    font-family: fontAwesome;
+    color: #dabd2d;
 }
