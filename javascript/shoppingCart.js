@@ -31,11 +31,6 @@ function addRow(id, name, price, quantity) {
   const priceCell = document.createElement('td');
   priceCell.textContent = parseInt(price, 10) * quantity.value;
 
-  quantity.addEventListener('change', function () {
-    priceCell.textContent = parseInt(price, 10) * quantity.value;
-    updateTotal();
-  })
-
   const deleteCell = document.createElement('td');
   deleteCell.classList.add('delete');
   deleteCell.innerHTML = '<a href="">X</a>';
@@ -43,7 +38,15 @@ function addRow(id, name, price, quantity) {
     e.preventDefault();
     e.currentTarget.parentElement.parentElement.remove();
     updateTotal();
-  })
+  });
+
+  quantity.addEventListener('change', function (e) {
+    if(quantity.value <= 0)
+      e.currentTarget.parentElement.parentElement.remove();
+    else
+      priceCell.textContent = parseInt(price, 10) * quantity.value;
+    updateTotal();
+  });
 
   row.appendChild(nameCell);
   row.appendChild(quantityCell);

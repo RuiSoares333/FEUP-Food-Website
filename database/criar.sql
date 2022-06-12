@@ -208,18 +208,6 @@ INSERT INTO Dish VALUES (NULL, "Melão", 2, "dessert", 6);
 INSERT INTO Dish VALUES (NULL, "Água", 2, "drink", 6);
 INSERT INTO Dish VALUES (NULL, "Garrafa de Vinho", 6, "drink", 6);
 
-
---Order
-INSERT INTO Ord VALUES (NULL, 1, 2, "preparing");
-INSERT INTO Ord VALUES (NULL, 3, 1, "received");
-INSERT INTO Ord VALUES (NULL, 5, 3,"ready");
-
---Order_Dish
-INSERT INTO OrderDish VALUES (1, 4);
-INSERT INTO OrderDish VALUES (1, 5);
-INSERT INTO OrderDish VALUES (2, 3);
-INSERT INTO OrderDish VALUES (3, 7);
-
 --Review
 INSERT INTO Review VALUES (NULL, 1, 3, 8, 1635347252, "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 INSERT INTO Review VALUES (NULL, 2, 1, 9, 1635347252, "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");

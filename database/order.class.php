@@ -33,10 +33,10 @@
             executeQuery($db, $query, array($this->state->value, $this->id));
         }
 
-        function save(PDO $db){
+        function save(PDO $db) {
             $query = 'INSERT INTO Ord VALUES (NULL, ?, ?, ?, ?)';
 
-            executeQuery($db, $query, array($this->costumer, $this->restaurant, $this->price, $this->state));
+            list($result, $stmt) = executeQuery($db, $query, array($this->costumer, $this->restaurant, $this->price, $this->state->value));
 
             $id = $db->lastInsertId();
 
@@ -47,6 +47,6 @@
             }
         }
 
-        
+
     }
 ?>  

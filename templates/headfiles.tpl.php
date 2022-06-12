@@ -112,7 +112,8 @@
         ?> <script src="../javascript/image_upload.js" defer></script> 
            <script src="../javascript/review_response.js" defer></script>
            <script src = "../javascript/shoppingCart.js" defer></script> 
-           <script src="../javascript/favorite_dishes,js" defer></script>
+           <script src="../javascript/favorite_dish.js" defer></script>
+           <script src="../javascript/order.js" defer></script>
            </head>
            <body> 
         <?php
