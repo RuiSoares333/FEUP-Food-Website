@@ -1,7 +1,9 @@
 function attachBuyEvents() {
   for(const button of document.querySelectorAll('#dishes article'))
     button.addEventListener('click', function(e){
-      
+      const starButton = button.querySelector('button');
+
+      if(!button.contains(e.target)){
       const id = this.dataset.id;
       const row = document.querySelector(`#cart table tr[data-id="${id}"]`);
 
@@ -13,7 +15,8 @@ function attachBuyEvents() {
 
       if(!row) addRow(id, name, price, quantity);
 
-      updateTotal();
+      updateTotal();        
+      }
     });
 }
 
