@@ -3,7 +3,7 @@ function attachBuyEvents() {
     button.addEventListener('click', function(e){
       
       const id = this.dataset.id;
-      const row = document.querySelector('#cart table tr[data-id="${id}"]');
+      const row = document.querySelector(`#cart table tr[data-id="${id}"]`);
 
       const name = this.querySelector('p:nth-child(2)').textContent;
       const price = this.querySelector('p:nth-child(3)').textContent;
