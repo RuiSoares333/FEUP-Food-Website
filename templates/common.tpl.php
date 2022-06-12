@@ -13,7 +13,10 @@
             <link rel = "stylesheet" href="../CSS/layout.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/images.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel = "stylesheet" href="../CSS/responsive.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="../javascript/filter_header.js" defer></script>
+            <script src="../javascript/topButton.js" defer></script>
     <?php }
 ?>
 
@@ -74,8 +77,10 @@
                 </article>
                 <?php } ?>
             </section>
-            
         </header>
+        <button onclick="topFunction()" id="topButton" title="Go to top"></button>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
     <?php }
 ?>
 
@@ -135,11 +140,6 @@
                 <br>
                 <span class="name3">RUI SOARES</span>
                 <span class="nr3">up202103631</span>
-            </div>
-            <div class = "socials">
-                <p>fb</p>
-                <p>twitter</p>
-                <p>insta</p>
             </div>
             <div class = "course">
                 <span class="cN">LTW</span>

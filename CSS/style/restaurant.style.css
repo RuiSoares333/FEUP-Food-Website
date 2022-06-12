@@ -123,7 +123,7 @@ button.review_response {
     display: flex;
     justify-content: right;
     align-items: center;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .rating{
@@ -134,24 +134,26 @@ button.review_response {
 }
 .rating *{
     margin: 0;
+    padding: 0;
 }
 .rating input{
     position: relative;
-    width: 20px;
+    width: 1.430em;
     display: flex;
     justify-content: center;
     cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
-    margin-top: -10%;
+    margin-top: -17.5%;
+    overflow: hidden;
 }
 
 .rating input::before{
     content: '\f005';
     position: absolute;
     font-family: fontAwesome;
-    font-size: 34px;
+    font-size: 2em;
     left: 4px;
     transition: 0.25s;
 }
