@@ -29,10 +29,10 @@ function addRow(id, name, price, quantity) {
   quantityCell.appendChild(quantity);
 
   const priceCell = document.createElement('td');
-  priceCell.textContent = price * quantity.value;
+  priceCell.textContent = parseInt(price, 10) * quantity.value;
 
-  quantity.addEventListener('change', function (e) {
-    priceCell.textContent = price * quantity.value;
+  quantity.addEventListener('change', function () {
+    priceCell.textContent = parseInt(price, 10) * quantity.value;
     updateTotal();
   })
 
