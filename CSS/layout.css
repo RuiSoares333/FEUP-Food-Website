@@ -191,8 +191,11 @@ footer{
 
 .miniPreview > :nth-child(7){
     grid-area: del;
-    margin-left: -90%;
+    margin-left: -70%;
+    margin-top: -30%;
 }
+
+
 
 /* Filter Dialog */
 

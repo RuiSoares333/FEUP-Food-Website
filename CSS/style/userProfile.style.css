@@ -60,8 +60,8 @@
     border-radius: 25%;
     width: 95%;
     height: 95%;
+    padding: 2.5% 0.5%;
 }
-
 #listDishes article p{
     color: white;
     text-shadow: .2em .2em .3em black;

@@ -273,20 +273,35 @@ form#upload > button:nth-child(2):hover{
 
 /* Favorites */
 button.checked{
-    background-color: rgb(57, 116, 158);
+    background-color: transparent;
     border: none;
+    width: 2.5em;
+    height: 2.5em;
 }
 button.unchecked{
+    background-color: transparent;
     border: none;
+    width: 2.5em;
+    height: 2.5em;
 }
+
 button.checked::before{
-    content: '\f005';
-    font-family: fontAwesome;
-    color: #dabd2d;
+    content: url("../assets/symbols/star-solid.svg");
+    filter: invert(96%) sepia(0%) saturate(1351%) hue-rotate(226deg) brightness(87%) contrast(81%);
 }
 
 button.unchecked::before{
-    content: '\f111';
-    font-family: fontAwesome;
-    color: #dabd2d;
+    content: url("../assets/symbols/star-regular.svg");
+    filter: invert(96%) sepia(0%) saturate(1351%) hue-rotate(226deg) brightness(87%) contrast(81%);
+}
+
+
+button.checked:hover::before{
+    content: url("../assets/symbols/star-solid.svg");
+    filter: invert(91%) sepia(56%) saturate(1240%) hue-rotate(334deg) brightness(92%) contrast(85%);
+}
+
+button.unchecked:hover::before{
+    content: url("../assets/symbols/star-regular.svg");
+    filter: invert(91%) sepia(56%) saturate(1240%) hue-rotate(334deg) brightness(92%) contrast(85%);
 }
