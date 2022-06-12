@@ -3,7 +3,7 @@ function attachBuyEvents() {
     button.addEventListener('click', function(e){
       
       const id = this.dataset.id;
-      const row = document.querySelector('#cart table tr[data-id="${id}"]');
+      const row = document.querySelector(`#cart table tr[data-id="${id}"]`);
 
       const name = this.querySelector('p:nth-child(2)').textContent;
       const price = this.querySelector('p:nth-child(3)').textContent;
@@ -18,7 +18,7 @@ function attachBuyEvents() {
 }
 
 function addRow(id, name, price, quantity) {
-  const table = document.querySelector('#cart table');
+  const table = document.querySelector('#cart table tbody');
   const row = document.createElement('tr');
   row.setAttribute('data-id', id);
 
@@ -54,7 +54,7 @@ function addRow(id, name, price, quantity) {
 }
 
 function updateTotal() {
-  const rows = document.querySelectorAll('#cart table > tr');
+  const rows = document.querySelectorAll('#cart table tbody >tr');
   const values = [...rows].map(r => parseInt(r.querySelector('td:nth-child(3)').textContent, 10));
   const total = values.reduce((t, v) => t + v, 0);
   document.querySelector('#cart table tfoot th:last-child').textContent = total;

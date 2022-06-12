@@ -173,34 +173,186 @@ button.review_response {
 /* side-menu */
 
 #side-menu.restaurant li{
-    font-size: 175%
+    font-size: 150%
 }
 
 #side-menu > ul{
     padding: 0;
 }
 
+/* Cart */
+/*
+#side-menu{
+    width: 15%
+}
+
+body{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 15% 2.5% 55% 2.5% 25%;
+    grid-template-areas: 
+    "sM . mD . ads"
+    "ft ft ft ft ft";
+}
+
+#cart{
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7.75%;
+    right: 0;
+    width: 26.5%;
+}
 
 #cart table {
     border-collapse: collapse;
-    margin: 1em 0;
     width: 100%;
-  }
+}
   
-  #cart th, #cart td {
+#cart th, #cart td {
     padding: 1em;
     text-align: center;
-  }
+}
   
-  #cart tfoot th:last-child::after{
+#cart tfoot th:last-child::after{
     content: "€";
-  }
+}
+
+#cart > table > tbody{
+    height: 75%;
+    overflow-y: auto;
+}
   
-  #cart tr {
-    background-color: #ffddd2;  
-    border: 5px solid white;
-  }
+#cart > table > tbody > *{
+    background-color: #ccffa5;  
+    border: 2px solid white;
+    height: 10em;
+}
   
-  #cart thead tr, #cart tfoot tr  {
-    background-color: #edf6f9;
-  }
+#cart thead, #cart tfoot{
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    color: var(--branco-verde)
+}
+
+#cart input{
+    width: 50%;
+}
+
+#cart > button{
+    border: 0;
+    height: 5%;
+}
+
+#cart > table{
+    height: 10%;
+}*/
+
+body{
+    grid-template-columns: 15% 2.5% 55% 2.5% 25%;
+    grid-template-areas: 
+    ". . mD . ."
+    "ft ft ft ft ft";
+}
+
+#side-menu{
+    width: 15%
+}
+
+#cart{
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    right: 0;
+    width: 26.5%;
+    height: 100%
+}
+
+#cart table{
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+}
+
+#cart th{
+    padding: 1em;
+    text-align: center;
+}
+
+#cart td{
+    text-align: center;
+}
+
+#cart > table > thead, #cart > table > tfoot{
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    color: var(--branco-verde)
+}
+
+#cart > button{
+    border: 0;
+    height: 5%;
+}
+
+/* Thead */
+
+#cart thead tr{
+    display: flex;
+}
+
+#cart thead tr *{
+    margin: auto;
+}
+
+/* Tbody */
+
+#cart > table > tbody{
+    height: 27.5em;
+    background-color: var(--fundo-branco);
+    overflow-y: auto;
+}
+
+#cart input{
+    width: 50%;
+}
+
+#cart > table > tbody > *{
+    border-bottom: 2px solid var(--fundo-preto);
+}
+
+#cart tbody tr{
+    display: flex;
+}
+
+#cart tbody tr *{
+    margin: 2.5% auto;
+}
+
+#cart > table > tbody > tr > td:nth-child(1){
+    width: 26.9%;
+}
+
+#cart > table > tbody > tr > td:nth-child(2){
+    width: 28%;
+}
+
+#cart > table > tbody > tr > td:nth-child(3){
+    width: 19.1%;
+}
+
+#cart > table > tbody > tr > td:nth-child(4){
+    width: 21.3%;
+}
+
+#cart > table > tbody > tr > td > a{
+    color: red;
+    font-weight: bold;
+}
+
+/* Tfoot */
+
+
+#cart tfoot th:last-child::after{
+    content: "€";
+}
+
+
