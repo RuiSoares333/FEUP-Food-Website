@@ -13,9 +13,9 @@ for(const button of buttons){
 
         const code = await response.json();
 
-        this.classList.toggle("checked");
-
         if(code.statusCode === 201)
             alert("SERVER ERROR!");
+        else
+            this.classList.toggle("checked");
     });
 }

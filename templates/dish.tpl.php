@@ -28,7 +28,7 @@
         $defaultImage = '../assets/dishes/0.webp';
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
         ?>
-        <article data-id = <?= $dish->id?>>
+        <article data-id = <?= $dish->id?> class ="dish">
         <a href="../pages/restaurant.php?id=<?=$dish->restaurantId?>">
         <img src = "<?=$image?>">
         <p><?= $dish->name?></p>
@@ -43,7 +43,7 @@
         $defaultImage = '../assets/dishes/0.webp ';
         $image = (file_exists($dishImage)) ? $dishImage : $defaultImage;
         ?>
-        <article data-id = <?= $dish->id?>>
+        <article data-id = <?= $dish->id?> class ="dish">
             <img src = "<?=$image?>">
             <p><?= $dish->name?></p>
             <p><?= $dish->price?>€</p>
