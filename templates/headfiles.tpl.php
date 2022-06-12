@@ -130,4 +130,24 @@
         </head>
         <body>
     <?php }
+
+    function orders_head() {
+        $styleFiles = array('../CSS/layout/orders.layout.css', '../CSS/style/orders.style.css');
+        foreach($styleFiles as $file){
+            echo '<link rel = "stylesheet" href="'.$file.'">';
+        }
+        ?>
+        </head>
+        <body>
+    <?php }
+
+    function restaurant_orders_head() {
+        $styleFiles = array('../CSS/layout/restaurantOrders.layout.css' , '../CSS/style/restaurantOrders.style.css');
+        foreach($styleFiles as $file){
+            echo '<link rel = "stylesheet" href="'.$file.'">';
+        }
+        ?>
+        </head>
+        <body> 
+    <?php }
 ?>
