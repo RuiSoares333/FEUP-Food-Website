@@ -206,13 +206,12 @@
 
             executeQuery($db, $query, array($this->name, $this-> address, $this->phone, $this->owner));
 
-            $query = 'SELECT id FROM Restaurant WHERE address = ?';
-            $restaurant = getQueryResults($db, $query, false, array($this->address));
+            $id = $db->lastInsertId();
 
             foreach($this->categories as $category){
                 $query = 'INSERT INTO RestaurantCategory VALUES(?, ?)';
 
-                executeQuery($db, $query, array($restaurant['id'], $category));
+                executeQuery($db, $query, array(intval($id), $category));
             }
         }
 

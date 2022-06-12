@@ -49,6 +49,7 @@ CREATE TABLE Ord (
     id INTEGER,
     userId INTEGER REFERENCES User(id),
     restaurantId INTEGER REFERENCES Restaurant(id),
+    price INTEGER,
     state TEXT NOT NULL CHECK (state IN ('received', 'preparing', 'ready', 'delivered')),
     CONSTRAINT PK_Order PRIMARY KEY (id)
 );
@@ -56,6 +57,7 @@ CREATE TABLE Ord (
 CREATE TABLE OrderDish (
     orderId INTEGER REFERENCES Ord,
     dishId INTEGER REFERENCES Dish,
+    quantity INTEGER,
     CONSTRAINT Order_Dish_ID PRIMARY KEY (orderId, dishId)
 );
 

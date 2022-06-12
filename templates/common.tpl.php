@@ -184,7 +184,6 @@
     <?php } 
 ?> 
 
-
 <?php
     function outputShoppingCart(){ ?>
         <aside id ="cart">
