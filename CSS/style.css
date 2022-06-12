@@ -73,7 +73,7 @@ body > header > h1 > a{
 header{
     background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
     box-shadow: 5px 10px 18px #0000003b;
-    z-index: 1;
+    z-index: 2;
 }
 
 input.search{
@@ -96,6 +96,31 @@ form.search > button > img{
     opacity: 50%;
 }
 
+body > header > a{
+    margin: auto -5% auto auto;
+    color: var(--branco-verde);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.success, .error{
+    position: absolute;
+    left: 33%;
+    top: 425%;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--branco-verde);
+    background-color: rgb(0,0,0, 0.8);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    animation: fadeout 5s ease-out;
+    opacity: 0;
+}
+
+@keyframes fadeout {
+    from {display: block; opacity: 1;}
+    to { opacity: 0;}
+}
 
 /* side Menu */
 
@@ -118,7 +143,7 @@ form.search > button > img{
     transition: all 1s ease;
 }
 
-#hamburger, #price{
+#hamburger, #price, #responsiveSidebar, .responsiveSidebar{
     display: none;
 }
 
@@ -176,7 +201,7 @@ footer{
 }
 
 .devTeam{
-    text-align: center;
+    text-align: right;
 }
 
 .cN, .lname1, .lname2, .nr1, .nr2, .nr3, .c{
@@ -217,4 +242,66 @@ form#upload > button:nth-child(2){
 
 form#upload > button:nth-child(2):hover{
     background-color: transparent;
+}
+
+#topButton {
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: rgb(0,0,0, 0.8); 
+    color: white; 
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#topButton::after{
+    content: "\f106";
+    font-family: fontAwesome;
+
+}
+
+  
+#myBtn:hover {
+    background-color: #555;
+}
+
+
+/* Favorites */
+button.checked{
+    background-color: transparent;
+    border: none;
+    width: 2.5em;
+    height: 2.5em;
+}
+button.unchecked{
+    background-color: transparent;
+    border: none;
+    width: 2.5em;
+    height: 2.5em;
+}
+
+button.checked::before{
+    content: url("../assets/symbols/star-solid.svg");
+    filter: invert(96%) sepia(0%) saturate(1351%) hue-rotate(226deg) brightness(87%) contrast(81%);
+}
+
+button.unchecked::before{
+    content: url("../assets/symbols/star-regular.svg");
+    filter: invert(96%) sepia(0%) saturate(1351%) hue-rotate(226deg) brightness(87%) contrast(81%);
+}
+
+
+button.checked:hover::before{
+    content: url("../assets/symbols/star-solid.svg");
+    filter: invert(91%) sepia(56%) saturate(1240%) hue-rotate(334deg) brightness(92%) contrast(85%);
+}
+
+button.unchecked:hover::before{
+    content: url("../assets/symbols/star-regular.svg");
+    filter: invert(91%) sepia(56%) saturate(1240%) hue-rotate(334deg) brightness(92%) contrast(85%);
 }

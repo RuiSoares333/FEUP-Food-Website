@@ -41,7 +41,7 @@
 #mainDiv.restaurant #dishes h1{
     position: absolute;
     margin-top: -2em;
-    width: 60%
+    width: 50%
 }
 
 #mainDiv.restaurant #dishes section article{
@@ -61,6 +61,12 @@
     position: absolute;
     bottom: 27.5%;
     left: 5%;
+}
+
+#mainDiv.restaurant #dishes section article :nth-child(4){
+    position: absolute;
+    top: 5%;
+    right: 5%;
 }
 
 #mainDiv.restaurant #reviews article > p{

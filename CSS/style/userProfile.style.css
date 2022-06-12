@@ -41,7 +41,7 @@
     border-bottom: 2px solid black;
 }
 
-#listDishes a article{
+#listDishes article{
     text-overflow: ellipsis;
     overflow: hidden;
     word-wrap: break-word;
@@ -50,19 +50,19 @@
 }
 
 
-#listDishes a article:hover{
+#listDishes article:hover{
     background-color: #00000044;
     border-radius: 15%;
     cursor: pointer;
 }
 
-#listDishes a article img:nth-child(1){
+#listDishes article img:nth-child(1){
     border-radius: 25%;
     width: 95%;
     height: 95%;
+    padding: 2.5% 0.5%;
 }
-
-#listDishes a article p{
+#listDishes article p{
     color: white;
     text-shadow: .2em .2em .3em black;
     -webkit-text-stroke: .5px black;
@@ -72,4 +72,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#listDishes article p a{
+    color: white;
 }

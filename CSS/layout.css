@@ -1,13 +1,10 @@
 /* body */
 
 body{
-    position: relative;
     margin: 0;
     display: grid;
     grid-template-columns: 19% 1fr 62% 1fr 15%;
-    grid-template-rows: auto auto auto;
     grid-template-areas: 
-    "hd hd hd hd hd"
     "sM . mD . ads"
     "ft ft ft ft ft";
 }
@@ -18,7 +15,6 @@ body{
 header{
     width: 100%;
     height: 17.5%;
-    grid-area: hd;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -50,7 +46,6 @@ form.search{
     margin-top: 7.5%;
     height: 100%;
     width: 19%;
-    grid-area: sM;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -96,7 +91,7 @@ form.search{
 
 /* ads */
 
-#ads, #cart{
+#ads{
     grid-area: ads;
     padding: 5%;
     margin-top: 50%
@@ -111,37 +106,31 @@ form.search{
 footer{
     grid-area: ft;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50% 50%;
     grid-template-areas:
-    "t dT s"
-    "r c s";
+    "t c dT"
+    ". r .";
     z-index: 1;
+    padding: 5%;
 }
 
 .teacher{
     grid-area: t;
-    margin: 1.5em 0 0 3em;
 }
 
 .devTeam{
     grid-area: dT;
-    margin: 1.5em auto 0 auto;
 }
 
 .rights{
     grid-area: r;
-    margin: 0 0 0 3em;
+    margin: auto;
 }
 
 .course{
     grid-area: c;
     margin: auto;
-}
-
-.socials{
-    grid-area: s;
-    margin: 1.5em 0 0 30em;
 }
 
 /* Mini Preview */
@@ -202,8 +191,11 @@ footer{
 
 .miniPreview > :nth-child(7){
     grid-area: del;
-    margin-left: -90%;
+    margin-left: -70%;
+    margin-top: -30%;
 }
+
+
 
 /* Filter Dialog */
 

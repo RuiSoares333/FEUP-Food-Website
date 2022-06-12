@@ -22,7 +22,7 @@
         <p><?=$restaurant->address?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
         <?php if($session->isLoggedin()){ ?>
-        <button type="button" <?php if($is_favorite) echo 'class = "checked"'; ?>> star</button>            
+        <button type="button" <?php if($is_favorite) echo 'class = "checked"'; else echo 'class = "unchecked"' ?>></button>            
        <?php } ?>
         </article>
     <?php }
@@ -172,9 +172,11 @@
 
     function outputSearchResults(array $restaurants, array $favorites, Session $session){ ?>
         <div id = "mainDiv" class = "search">
+            <div id="listRestaurants">
             <?php foreach($restaurants as $restaurant){
                 outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
             } ?> 
+            </div>
         </div>
     <?php }
 
