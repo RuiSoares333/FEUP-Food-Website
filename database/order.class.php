@@ -47,6 +47,29 @@
             }
         }
 
+        static function getUserDeliveredOrders(PDO $db, int $user) : array{
+            $query = 'SELECT * FROM Ord WHERE userId = ? AND state = "delivered"';
+
+            $orders = getQueryResults($db, $query, true, array($user));
+
+            $orders_ = array();
+
+            foreach($orders as $order){
+                $query = 'SELECT dishId as id, quantity FROM OrderDish WHERE orderId = ?';
+
+                $dishes
+            }
+
+            
+        }
+
+        static function getUserOrders(PDO $db, int $user) : array {
+            $query = 'SELECT id, restaurantId, price, state
+            FROM Ord WHERE userId = ? AND state != "delivered"';
+
+            return getQueryResults($db, $query, true, array($user));
+        }
+
 
     }
 ?>  
