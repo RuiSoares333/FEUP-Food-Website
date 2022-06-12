@@ -1,9 +1,12 @@
-const imageButton = document.querySelectorAll('#upload > button:nth-child(2)');
+function attachImageEvent(){
+    for(const button of document.querySelectorAll('#upload > button:nth-child(2)')){
+        button.addEventListener('click', function () {
+            const upload = document.getElementById('imgupload');
 
-for(const button of imageButton){
-    button.addEventListener('click', function (){
-        var upload = document.getElementById('imgupload');
-        upload.onchange = function () {this.form.submit()};
-        upload.click();
-    });    
+            upload.onchange = function () {this.form.submit()};
+            upload.click();
+        });
+    }
 }
+
+attachImageEvent();

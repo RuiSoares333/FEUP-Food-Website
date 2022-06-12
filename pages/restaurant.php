@@ -35,8 +35,6 @@
     outputRestaurantSideMenu($restaurant->dishCategories);
     ?> <div id="mainDiv" class = "restaurant"> <?php
     outputSingleRestaurant($restaurant, $user);   
-
-    var_dump($favorites);
     ?> <section id = "dishes"> <?php
     foreach($restaurant->dishCategories as $category){
         $dishes = Dish::getCategoryDishes($db, $restaurant->id, $category['category']);
