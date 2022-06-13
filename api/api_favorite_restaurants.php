@@ -19,8 +19,5 @@
 
     list($result, $stmt) = executeQuery($db, $query, array(intval($_POST['restaurant']), $userId));
 
-    if($result)
-        echo json_encode(array('statusCode'=>200));
-    else
-        echo json_encode(array('statusCode'=>201));
+    echo json_encode(array('statusCode'=> $result ? 200 : 201));
 ?>

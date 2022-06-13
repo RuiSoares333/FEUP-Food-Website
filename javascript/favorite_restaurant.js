@@ -9,13 +9,12 @@ function attachFavoriteRestaurantEvents(){
                 method: "POST",
                 body : data,
             });
-    
-            const code = await response.json();
-    
-            if(code.statusCode === 201)
-                alert("SERVER ERROR!");
-            else
+            
+            if(response.status >= 200 && response.status < 300){
                 this.classList.toggle("checked");
+                this.classList.toggle("unchecked");
+            }
+                
         });
     }
 }

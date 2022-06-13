@@ -1,7 +1,13 @@
 function attachBuyEvents() {
   for(const button of document.querySelectorAll('#dishes article'))
     button.addEventListener('click', function(e){
-      
+      const starButton = button.querySelector('button');
+
+      if(!starButton){
+        document.location.assign('../pages/login.php');
+      }
+
+      if(!starButton.contains(e.target)){
       const id = this.dataset.id;
       const row = document.querySelector(`#cart table tr[data-id="${id}"]`);
 
@@ -13,7 +19,8 @@ function attachBuyEvents() {
 
       if(!row) addRow(id, name, price, quantity);
 
-      updateTotal();
+      updateTotal();        
+      }
     });
 }
 
@@ -31,11 +38,6 @@ function addRow(id, name, price, quantity) {
   const priceCell = document.createElement('td');
   priceCell.textContent = parseInt(price, 10) * quantity.value;
 
-  quantity.addEventListener('change', function () {
-    priceCell.textContent = parseInt(price, 10) * quantity.value;
-    updateTotal();
-  })
-
   const deleteCell = document.createElement('td');
   deleteCell.classList.add('delete');
   deleteCell.innerHTML = '<a href="">X</a>';
@@ -43,7 +45,15 @@ function addRow(id, name, price, quantity) {
     e.preventDefault();
     e.currentTarget.parentElement.parentElement.remove();
     updateTotal();
-  })
+  });
+
+  quantity.addEventListener('change', function (e) {
+    if(quantity.value <= 0)
+      e.currentTarget.parentElement.parentElement.remove();
+    else
+      priceCell.textContent = parseInt(price, 10) * quantity.value;
+    updateTotal();
+  });
 
   row.appendChild(nameCell);
   row.appendChild(quantityCell);
@@ -54,7 +64,7 @@ function addRow(id, name, price, quantity) {
 }
 
 function updateTotal() {
-  const rows = document.querySelectorAll('#cart table tbody >tr');
+  const rows = document.querySelectorAll('#cart table tbody > tr');
   const values = [...rows].map(r => parseInt(r.querySelector('td:nth-child(3)').textContent, 10));
   const total = values.reduce((t, v) => t + v, 0);
   document.querySelector('#cart table tfoot th:last-child').textContent = total;

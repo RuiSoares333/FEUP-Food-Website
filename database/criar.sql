@@ -49,6 +49,7 @@ CREATE TABLE Ord (
     id INTEGER,
     userId INTEGER REFERENCES User(id),
     restaurantId INTEGER REFERENCES Restaurant(id),
+    price INTEGER,
     state TEXT NOT NULL CHECK (state IN ('received', 'preparing', 'ready', 'delivered')),
     CONSTRAINT PK_Order PRIMARY KEY (id)
 );
@@ -56,6 +57,7 @@ CREATE TABLE Ord (
 CREATE TABLE OrderDish (
     orderId INTEGER REFERENCES Ord,
     dishId INTEGER REFERENCES Dish,
+    quantity INTEGER,
     CONSTRAINT Order_Dish_ID PRIMARY KEY (orderId, dishId)
 );
 
@@ -405,17 +407,6 @@ INSERT INTO Dish VALUES (NULL, "Suspiro, Gin Fizz", 6, "dessert", 20);
 INSERT INTO Dish VALUES (NULL, "Morango, Framboesa", 9, "dessert", 20);
 INSERT INTO Dish VALUES (NULL, "Café", 1, "drink", 20);
 INSERT INTO Dish VALUES (NULL, "Água", 2, "drink", 20);
-
---Order
-INSERT INTO Ord VALUES (NULL, 1, 2, "preparing");
-INSERT INTO Ord VALUES (NULL, 3, 1, "received");
-INSERT INTO Ord VALUES (NULL, 5, 3,"ready");
-
---Order_Dish
-INSERT INTO OrderDish VALUES (1, 4);
-INSERT INTO OrderDish VALUES (1, 5);
-INSERT INTO OrderDish VALUES (2, 3);
-INSERT INTO OrderDish VALUES (3, 7);
 
 --Review
 INSERT INTO Review VALUES (NULL, 1, 3, 8, 1635347252, "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");

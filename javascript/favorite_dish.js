@@ -10,14 +10,11 @@ function attachFavoriteDishEvents(){
                 body: data,
             });   
             
-            const code = await response.json();
-
-            this.classList.remove("checked");
-
-            if(code.statusCode == 201)
-                alert("SERVER ERROR!");
-            else
+            if(response.status >= 200 && response.status < 300){
                 this.classList.toggle("checked");
+                this.classList.toggle("unchecked");
+            }
+                
         });
     }
 }
