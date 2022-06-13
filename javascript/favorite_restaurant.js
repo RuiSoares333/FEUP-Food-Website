@@ -10,6 +10,8 @@ function attachFavoriteRestaurantEvents(){
                 body : data,
             });
             
+            console.log(response.status);
+
             if(response.status >= 200 && response.status < 300){
                 this.classList.toggle("checked");
                 this.classList.toggle("unchecked");
