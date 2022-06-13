@@ -11,11 +11,14 @@
     $session = new Session();
 
     if(!$session->isLoggedin())
-        die(header('Location: /'));
+        die(header('Location: ../pages/login.php'));
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $dish = Dish::getDish($db, intval($_GET['id']));
+    $id = trim(preg_replace("/[\D]/", '', $_GET['id']));
+
+    $dish = Dish::getDish($db, intval($id));
+
     $restaurant = Restaurant::getRestaurant($db, $dish->restaurantId);
 
     if($restaurant->owner !== Costumer::getUserId($db, $session->getId()))

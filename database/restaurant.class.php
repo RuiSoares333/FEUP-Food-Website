@@ -199,6 +199,10 @@
             $query = 'DELETE FROM RestaurantCategory WHERE restaurant = ?';
 
             executeQuery($db, $query, array($this->id));
+
+            $query = 'DELETE FROM Ord WHERE restaurantId = ?';
+
+            executeQuery($db, $query, array($this->id));
         }
 
         function add(PDO $db){

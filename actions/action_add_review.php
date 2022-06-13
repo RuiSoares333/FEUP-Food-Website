@@ -13,20 +13,23 @@
         die;
     }
 
-
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    if(trim($_POST['rating']) === ''){
-        $session->addMessage('error', 'please enter a rating');
+    if(!$_POST['rating'] || !preg_match("/^10|[1-9]$/", trim($_POST['rating']))){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
+
+    $date = trim(preg_replace("/[\D]/", '', $_POST['date']));
+
+    $review = trim(preg_replace("/[^\w\s.,]/", '', $_POST['review']));
 
     $review = new Review(
         1,
         $session->getId(),
-        intval($_POST['rating']),
-        intval($_POST['date']),
-        trim($_POST['review']) !== '' ? trim($_POST['review']) : null,
+        intval(trim($_POST['rating'])),
+        intval($date),
+        $review !== '' ? $review : null,
         null
     );
 

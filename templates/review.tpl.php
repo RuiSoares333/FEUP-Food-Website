@@ -18,7 +18,9 @@
                     <form>
                         <textarea id = "response" name ="response" rows="4" cols="50"></textarea>
                         <input type="hidden" name="date" class ="date">
-                        <button type="submit" formaction ="../actions/action_add_response.php?review=<?=$review->id?>&user=<?=$session->getId()?>&restaurant=<?=$restaurant?>" formmethod ="post">Respond</button>
+                        <input type="hidden" name="review" value="<?=$review->id?>">
+                        <input type="hidden" name="restaurant" value ="<?=$restaurant?>">
+                        <button type="submit" formaction ="../actions/action_add_response.php" formmethod ="post">Respond</button>
                         <button type="reset">Cancel</button>
                     </form>
                     <?php 

@@ -4,8 +4,8 @@ function attachResponseEvents() {
 
         if(respondButton){
             const form = review.querySelector('form');
-            const cancelButton = form.querySelector('button:nth-child(4)');
-            const submitButton = form.querySelector('button:nth-child(3)');
+            const cancelButton = form.querySelector('button:nth-child(6)');
+            const submitButton = form.querySelector('button:nth-child(5)');
 
             form.style.display = 'none';
 
@@ -42,6 +42,7 @@ function toggleButton(button) {
 
 function setDate(form) {
     let date = Math.round((new Date()).getTime() / 1000);
+    console.log(date);
     form.querySelector('input.date').value = date;
 }
 

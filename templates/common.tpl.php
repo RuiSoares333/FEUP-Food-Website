@@ -169,6 +169,7 @@
             <a href = "../pages/edit_profile.php">Edit Profile</a>
             <a href = "../pages/change_password.php">Change Password</a>
             <a href = "../pages/add_restaurant.php">Add Your Restaurant</a>
+            <a href = "../pages/profile.php">back to Profile</a>
         </nav>
    <?php }
 ?>
@@ -179,6 +180,7 @@
             <a href = "../pages/edit_restaurant.php?id=<?=$_GET['id']?>">Edit Restaurant</a>
             <a href = "../pages/manage_dishes.php?id=<?=$_GET['id']?>">Manage Dishes</a>
             <a href = "../pages/add_dish.php?id=<?=$_GET['id']?>">Add Dishes</a>
+            <a href = "../pages/restaurant.php?id=<?=$_GET['id']?>">Back to Restaurant</a>
         </nav>
     <?php } 
 ?> 
