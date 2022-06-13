@@ -1,0 +1,164 @@
+#ongoingOrders{
+    display: flex;
+    flex-direction: column;
+}
+
+#ongoingOrders > article{
+    display: grid;
+    grid-template-columns: repeat(3, 30%) 10%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    ". . . ."
+    "dL dL dL dL";
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    padding: 2%;
+    border-radius: 0.5em;
+    margin: 1% 0;
+}
+
+#ongoingOrders > article > *:not(div){
+    color: var(--branco-verde);
+    text-align: center;
+    font-weight: bold;
+}
+
+#ongoingOrders > article > p:nth-child(2)::after {
+    content: "€";
+}
+
+#ongoingOrders > article > p:nth-child(2)::before {
+    content: "Total: ";
+}
+
+#ongoingOrders > article > a:nth-child(5){
+    margin: auto;
+}
+
+#ongoingOrders > article > div:nth-child(4){
+    display: none;
+    grid-area: dL;
+    background-color: white;
+    margin-left: -1%;
+    width: 102.1%;
+    border-radius: 0.5em;
+
+    flex-direction: column;
+}
+
+
+#ongoingOrders > article > div:nth-child(4) > div{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: center;
+}
+
+#ongoingOrders > article > div:nth-child(4) > div > p:nth-child(2)::after{
+    content: "€";
+}
+
+#ongoingOrders > article > div:nth-child(4) > div:nth-child(2n){
+    border-top: 1px solid var(--fundo-preto);
+    border-bottom: 1px solid var(--fundo-preto);
+}
+
+#ongoingOrders > article > div:nth-child(4) > div > p:nth-child(1){
+    font-weight: bold;
+}
+
+#ongoingOrders > p:nth-child(2){
+    text-align: center;
+    padding: 5% 20%;
+    background-color: var(--fundo-cinza);
+    font-weight: bold;
+    font-size: 150%;
+    border-radius: 1em;
+    border: 2px solid var(--fundo-preto);
+}
+
+
+#completeOrders{
+    display: flex;
+    flex-direction: column;
+}
+
+#completeOrders > article{
+    display: grid;
+    grid-template-columns: repeat(3, 30%) 10%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    ". . . ."
+    "dL dL dL dL";
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    padding: 2%;
+    border-radius: 0.5em;
+    margin: 1% 0;
+}
+
+#completeOrders > article > *:not(div){
+    color: var(--branco-verde);
+    text-align: center;
+    font-weight: bold;
+}
+
+#completeOrders > article > p:nth-child(2)::after {
+    content: "€";
+}
+
+#completeOrders > article > p:nth-child(2)::before {
+    content: "Total: ";
+}
+
+#completeOrders > article > a:nth-child(5){
+    margin: auto;
+}
+
+#completeOrders > article > div:nth-child(4){
+    display: none;
+    grid-area: dL;
+    background-color: white;
+    margin-left: -1%;
+    width: 102.1%;
+    border-radius: 0.5em;
+
+    flex-direction: column;
+}
+
+
+#completeOrders > article > div:nth-child(4) > div{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: center;
+}
+
+#completeOrders > article > div:nth-child(4) > div > p:nth-child(2)::after{
+    content: "€";
+}
+
+#completeOrders > article > div:nth-child(4) > div:nth-child(2n){
+    border-top: 1px solid var(--fundo-preto);
+    border-bottom: 1px solid var(--fundo-preto);
+}
+
+#completeOrders > article > div:nth-child(4) > div > p:nth-child(1){
+    font-weight: bold;
+}
+
+#completeOrders > p:nth-child(2){
+    text-align: center;
+    padding: 5% 20%;
+    background-color: var(--fundo-cinza);
+    font-weight: bold;
+    font-size: 150%;
+    border-radius: 1em;
+    border: 2px solid var(--fundo-preto);
+}
+
+@media (max-width: 60em) {
+    #completeOrders{
+        margin-bottom: 70%;
+    }
+
+    #completeOrders > article > *{
+        margin: auto;
+    }
+}

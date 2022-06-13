@@ -94,12 +94,14 @@ button.review_response {
 
 /* New Review */
 
+
 #mainDiv.restaurant #newReview #reviewForm #review{
     resize: none;
     border-radius: 0.75em;
     border: 1px solid #00000088;
     background-color: #DEDEDE;
     text-transform: none;
+    width: 100%;
 }
 
 #mainDiv.restaurant #newReview #reviewForm #review::placeholder{
@@ -336,7 +338,12 @@ button.review_response {
 
     
     #mainDiv.restaurant #dishes h1{
-        width: 100%
+        width: 90%
+    }
+
+    #mainDiv.restaurant #dishes section{
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
     }
 }
 
@@ -375,5 +382,11 @@ button.review_response {
 
     #responsiveCart:checked + .responsiveCart{
         right: 90%;
+    }
+
+    
+    #mainDiv.restaurant #dishes section{
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
     }
 }

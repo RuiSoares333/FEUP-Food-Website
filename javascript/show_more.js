@@ -4,14 +4,15 @@ function attachExpandEvent() {
             e.preventDefault();
 
             const div = button.parentElement.querySelector('div');
+            console.log(div.style.display);
 
-            if(div.style.display == 'none'){
-                div.style.display = 'block';
-                button.innerHTML = 'Show less';
+            if(div.style.display === 'none' || div.style.display === ''){
+                div.style.display = 'flex';
+                button.innerHTML = '∧';
             }
             else {
                 div.style.display = 'none';
-                button.innerHTML = 'Show more';
+                button.innerHTML = '∨';
             }        
         })
     }

@@ -17,7 +17,7 @@
                     <?php }
                 ?>
             </div>
-            <a href ="">Show more</a>
+            <a href ="">∨</a>
         </article>
     <?php }
 
@@ -44,7 +44,7 @@
     <?php }
 
     function outputonGoingOrders(array $orders) { ?>
-        <section id ="completeOrders">
+        <section id ="ongoingOrders">
             <h1>Ongoing Orders:</h1>
             <?php
             if($orders)
@@ -99,7 +99,7 @@
                     <?php }
                 ?>
             </div>
-            <a href="">Show more</a>
+            <a href="">∨</a>
         </article>
     <?php }
 ?>

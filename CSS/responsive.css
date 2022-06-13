@@ -96,6 +96,8 @@
         "name rating"
         ". ."
         "avgPrice .";
+        font-size: 100%;
+        margin-bottom:10%;
     }
 
     .miniPreview > :nth-child(5){
@@ -133,11 +135,11 @@
 
 @media (max-width: 30em) {
     #mainDiv{
-        margin-top: 20%;
+        margin-top: 25%;
     }
 
     #side-menu {
-        margin-top: 20%;
+        margin-top: 25%;
         width: 80%;
         margin-left: -81%;
     }

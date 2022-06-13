@@ -1,6 +1,5 @@
 #restaurant > :nth-child(1){
     width:100%;
-    height: 25em;
 }
 
 #restaurant #upload > button:nth-child(2) > img:nth-child(1){

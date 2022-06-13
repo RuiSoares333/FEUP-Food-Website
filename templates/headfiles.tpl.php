@@ -155,17 +155,19 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?>
+        <link rel = "stylesheet" href="../CSS/responsive.css">
         <script src ="../javascript/show_more.js" defer></script>
         </head>
         <body>
     <?php }
 
     function restaurant_orders_head() {
-        $styleFiles = array('../CSS/layout/restaurantOrders.layout.css' , '../CSS/style/restaurantOrders.style.css');
+        $styleFiles = array('../CSS/layout/owner_orders.layout.css' , '../CSS/style/owner_orders.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?>
+        <link rel = "stylesheet" href="../CSS/responsive.css">
         <script src ="../javascript/show_more.js" defer></script>
         <script src="../javascript/orderState.js" defer></script>
         </head>

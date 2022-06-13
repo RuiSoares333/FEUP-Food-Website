@@ -49,5 +49,6 @@
         outputRestaurantOrders($orders, $restaurant);
     }
     ?> </div> <?php
+    echo '</div>';
     outputFooter();
 ?>

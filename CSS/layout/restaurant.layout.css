@@ -11,13 +11,14 @@
 
 /* Intro */
 
+#restaurant *{
+    margin: auto;
+}
+
 #restaurant{
     display: flex;
     flex-direction: column;
-}
-
-#restaurant *{
-    margin: auto;
+    text-align: center;
 }
 
 #restaurant > section{
