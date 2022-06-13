@@ -156,6 +156,7 @@
 
     function outputRestaurantSideMenu(array $categories){ 
         ?>
+        <div>
         <input type="checkbox" id="responsiveSidebar"> 
         <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class = "restaurant">
@@ -182,6 +183,7 @@
                     echo '<h1>No Restaurants Were Found</h1>';
                 }
                  ?> 
+        </div>
         </div>
     <?php }
 

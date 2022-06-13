@@ -26,10 +26,8 @@
     outputHead();
     add_restaurant_head();
     outputHeader($session, $categories, $costumer);
-    echo '<div>';
     outputEditProfileSideMenu();
     outputAds();
     outputAddRestaurantForm($categories);
-    echo '</div>';
     outputFooter();
 ?>

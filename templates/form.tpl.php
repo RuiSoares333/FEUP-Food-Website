@@ -13,6 +13,7 @@
         </form>
         <a class = "RegisterLink" href="../pages/register.php"><h5>Not Registered?</h5></a>
     </div>
+    </div>
     <?php }
 
     function outputRegisterForm() { ?>
@@ -32,6 +33,7 @@
                 <button id="cancel" formaction="../pages/index.php">Cancel</button>
             </form>
             <a class = "LoginLink" href="../pages/login.php"><h5>Already have an account?</h5></a>
+        </div>
         </div>
     <?php }
     
@@ -76,6 +78,7 @@
             </form>
         </section>
         </div>
+    </div>
     <?php }
 
     function outputChangePasswordForm(){ ?>
@@ -91,6 +94,7 @@
                 <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">Change Password</button>
             </form>  
         </section>
+    </div>
     </div>
     <?php }
 
@@ -122,6 +126,7 @@
                 </form>
             </section>
         </div>
+        </div>
     <?php }
 
 
@@ -147,6 +152,8 @@
                 <button formaction="../actions/action_add_dish.php?id=<?=$_GET['id']?>" id ="submit" formmethod="post">Add</button>
             </form>
         </section>
+    </div>
+    </div>
     </div>
     <?php }
 
@@ -179,10 +186,12 @@
                 </form>
             </section>
         </div>
+        </div>
     <?php }
 
     function outputSortSideMenu(array $categories) { 
         ?>
+        <div>
         <input type="checkbox" id="responsiveSidebar"> 
         <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id="side-menu" class="sort">

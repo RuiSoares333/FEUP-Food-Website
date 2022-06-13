@@ -27,10 +27,8 @@
     outputHead();
     edit_profile_head();
     outputHeader($session, $categories, $costumer);
-    echo '<div>';
     outputEditProfileSideMenu();
     outputAds();
     outputEditProfileForm($costumer);
-    echo '</div>';
     outputFooter();
 ?>

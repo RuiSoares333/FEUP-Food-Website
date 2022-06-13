@@ -28,7 +28,6 @@
     outputHead();
     index_head();
     outputHeader($session, $categories, $costumer);
-    echo '<div>';
     outputSideMenu($categories);
     outputAds();
 ?>        
@@ -41,7 +40,7 @@
             map api
         </section>
     </div>
+    </div>
     <?php
-        echo '</div>';
         outputFooter();
     ?>

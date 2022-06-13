@@ -15,12 +15,6 @@ section > article{
 
 }
 
-section > article > *:not(div, select){
-    color: var(--branco-verde);
-    text-align: center;
-    font-weight: bold;
-}
-
 section > article > div:nth-child(4){
     display: none;
     grid-area: dL;
@@ -36,54 +30,8 @@ section > article > a:nth-child(5){
     margin: auto;
 }
 
-section > article > div:nth-child(4){
-    display: none;
-    grid-area: dL;
-    background-color: white;
-    width: 97.5%;
-    border-radius: 0.5em;
-    margin: 1% auto;
-    flex-direction: column;
-}
-
 section > article > div:nth-child(4) > div{
     display: grid;
     grid-template-columns: 33% 33% 33%;
     text-align: center;
-}
-
-section > article > div:nth-child(4) > div > p:nth-child(2)::after, section > article > p:nth-child(2)::after{
-    content: "€";
-}
-
-section > article > p:nth-child(2)::before{
-    content: "Total: ";
-}
-
-section > article > div:nth-child(4) > div:nth-child(2n){
-    border-top: 1px solid var(--fundo-preto);
-    border-bottom: 1px solid var(--fundo-preto);
-}
-
-section > article > div:nth-child(4) > div > p:nth-child(1){
-    font-weight: bold;
-}
-
-section > h5{
-    text-align: center;
-    background-color: var(--fundo-cinza);
-    border: 1px solid var(--fundo-preto);
-    border-radius: 1em;
-    padding: 5% 0;
-    font-size: 125%;
-}
-
-@media (max-width: 60em) {
-    section:last-child{
-        margin-bottom: 70%;
-    }
-
-    section > article > *{
-        margin: auto;
-    }
 }

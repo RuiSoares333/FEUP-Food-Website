@@ -38,7 +38,6 @@
     outputHead();
     profile_head();
     outputHeader($session, $categories, $costumer);
-    echo '<div>';
     outputSideMenu($categories);
     outputAds();
     outputProfileInfo($costumer);
@@ -46,7 +45,6 @@
         outputOwnedRestaurants($myRestaurants);
     outputFavoriteRestaurants($restaurants, $session);
     outputFavoriteDishes($dishes);
-    echo '</div>';
     outputFooter();
 ?>
 

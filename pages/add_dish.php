@@ -32,11 +32,9 @@
     outputHead();
     add_dish_head();
     outputHeader($session, $categories, $owner);
-    echo '<div>';
     outputEditRestaurantSideMenu();
     outputAds();
     outputAddDishForm();
-    echo '</div>';
     outputFooter();
     
 ?>

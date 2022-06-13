@@ -29,10 +29,8 @@
     outputHead();
     search_head();
     outputHeader($session, $categories, $user);
-    echo '<div>';
-    outputAds();
     outputSortSideMenu($categories);
+    outputAds();
     outputSearchResults($restaurants, $favorites, $session);
-    echo '</div>';
     outputFooter();
 ?>

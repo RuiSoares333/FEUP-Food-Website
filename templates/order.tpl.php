@@ -28,6 +28,7 @@
                 outputCompleteOrders($completeOrders);
             ?>
             </div>
+    </div>
     <?php }
 
     function outputCompleteOrders(array $orders) { ?>

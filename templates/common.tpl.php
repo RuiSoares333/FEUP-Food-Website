@@ -98,6 +98,7 @@
 
 <?php
     function outputSideMenu(array $categories) {?>
+        <div>
         <input type="checkbox" id="responsiveSidebar"> 
         <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id="side-menu" class="index">
@@ -165,6 +166,7 @@
 
 <?php
     function outputEditProfileSideMenu(){ ?>
+        <div>
         <input type="checkbox" id="responsiveSidebar"> 
         <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_profile">
@@ -177,6 +179,7 @@
 
 <?php 
     function outputEditRestaurantSideMenu(){ ?>
+        <div>
         <input type="checkbox" id="responsiveSidebar"> 
         <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_restaurant">

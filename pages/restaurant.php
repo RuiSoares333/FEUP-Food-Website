@@ -31,7 +31,6 @@
     outputHead();
     restaurant_head();
     outputHeader($session, $categories, $user);
-    echo '<div>';
     outputRestaurantSideMenu($restaurant->dishCategories);
     outputShoppingCart();
     ?> <div id="mainDiv" class = "restaurant"> <?php
@@ -45,7 +44,6 @@
     outputReviews($restaurant->reviews, $db, $restaurant->owner === $user->id, $session, $restaurant->id);
     if($session->isLoggedin())
         outputReviewForm();
-    ?> </div> <?php   
-    echo '</div>';
+    ?> </div> </div><?php   
     outputFooter();
 ?>

@@ -40,7 +40,6 @@
     restaurant_orders_head();
     outputHeader($session, $categories, $user);
     outputSideMenu($categories);
-    echo '<div>';
     outputAds();
     ?> <div id ="mainDiv" class = "ownerOrders">
         <h1>manage restaurant orders</h1> <?php
@@ -48,7 +47,6 @@
         $orders = Order::getRestaurantOrders($db, $restaurant->id);
         outputRestaurantOrders($orders, $restaurant);
     }
-    ?> </div> <?php
-    echo '</div>';
+    ?> </div> </div><?php
     outputFooter();
 ?>
