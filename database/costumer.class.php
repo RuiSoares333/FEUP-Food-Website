@@ -190,5 +190,21 @@
 
             return $id['id'];
         }
+
+        static function getUserWithId($db, int $id) {
+            $query = 'SELECT * FROM User WHERE id = ?';
+
+            $user = getQueryResults($db, $query, false, array($id));
+
+            return new Costumer(
+                $user['id'],
+                $user['username'],
+                $user['name'],
+                $user['email'],
+                $user['address'],
+                $user['phone'],
+                $user['owner']
+            );
+        }
     }
 ?>

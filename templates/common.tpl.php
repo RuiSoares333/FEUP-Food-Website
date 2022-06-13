@@ -61,7 +61,7 @@
                             <div class="dropdown-content">
                                 <a href= "../pages/profile.php">Profile</a>
                                 <a href= "../pages/edit_profile.php">Profile Settings</a>
-                                <a href = "../pages/cart.php">Cart</a>
+                                <a href = "../pages/orders.php">Orders</a>
                                 <a href = "../pages/add_restaurant.php">Add new restaurant</a>
                                 <a href = "../actions/action_logout.php">Logout</a>
                             </div>   
@@ -185,7 +185,6 @@
         </nav>
     <?php } 
 ?> 
-
 
 <?php
     function outputShoppingCart(){ ?>

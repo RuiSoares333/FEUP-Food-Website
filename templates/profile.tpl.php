@@ -14,6 +14,11 @@
             </form>
             <p id="profileSquare"></p>
             <p><b><?=$costumer->name?></b>@<?=$costumer->username?></p>
+
+            <?php
+            if($costumer->isOwner())
+                echo '<a href = "../pages/owner_orders.php">manage your restaurants</a>';
+            ?>
         </section>
     <?php }
 

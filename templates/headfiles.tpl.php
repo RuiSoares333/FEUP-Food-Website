@@ -127,9 +127,10 @@
         ?> 
             <link rel = "stylesheet" href="../CSS/responsive.css">
             <script src="../javascript/image_upload.js" defer></script> 
-            <script src="../javascript/review_response.js" defer></script>
-            <script src = "../javascript/shoppingCart.js" defer></script> 
-            <script src="../javascript/favorite_dishes,js" defer></script>
+           <script src="../javascript/review_response.js" defer></script>
+           <script src = "../javascript/shoppingCart.js" defer></script> 
+           <script src="../javascript/favorite_dish.js" defer></script>
+           <script src="../javascript/order.js" defer></script>
            </head>
            <body> 
         <?php
@@ -147,5 +148,27 @@
         </head>
         <body>
     <?php }
-    
+
+    function orders_head() {
+        $styleFiles = array('../CSS/layout/orders.layout.css', '../CSS/style/orders.style.css');
+        foreach($styleFiles as $file){
+            echo '<link rel = "stylesheet" href="'.$file.'">';
+        }
+        ?>
+        <script src ="../javascript/show_more.js" defer></script>
+        </head>
+        <body>
+    <?php }
+
+    function restaurant_orders_head() {
+        $styleFiles = array('../CSS/layout/restaurantOrders.layout.css' , '../CSS/style/restaurantOrders.style.css');
+        foreach($styleFiles as $file){
+            echo '<link rel = "stylesheet" href="'.$file.'">';
+        }
+        ?>
+        <script src ="../javascript/show_more.js" defer></script>
+        <script src="../javascript/orderState.js" defer></script>
+        </head>
+        <body> 
+    <?php }
 ?>

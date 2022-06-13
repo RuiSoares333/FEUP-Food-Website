@@ -25,7 +25,7 @@
     $myRestaurants = array();
 
     if($costumer->isOwner()){
-        foreach($session->getOwnedRestaurants() as $restaurant){
+        foreach($costumer->getOwnedRestaurants($db) as $restaurant){
             $myRestaurants[] = Restaurant::getRestaurant($db, $restaurant['id']);
         }
     }

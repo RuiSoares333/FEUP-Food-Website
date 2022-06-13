@@ -6,10 +6,10 @@
     class Dish {
         public int $id;
         public string $name;
-        public float $price;
+        public int $price;
         public int $restaurantId;
 
-        public function __construct(int $id, string $name, float $price, int $restaurantId = 0) {
+        public function __construct(int $id, string $name, int $price, int $restaurantId = 0) {
             $this->id = $id;
             $this->name = $name;
             $this->price = $price;

@@ -34,6 +34,7 @@
     echo '<div>';
     outputShoppingCart();
     outputRestaurantSideMenu($restaurant->dishCategories);
+    outputShoppingCart();
     ?> <div id="mainDiv" class = "restaurant"> <?php
     outputSingleRestaurant($restaurant, $user);   
     ?> <section id = "dishes"> <?php
