@@ -9,16 +9,17 @@
     require_once(__DIR__ . '/../database/costumer.class.php');
     require_once(__DIR__ . '/../database/order.class.php');
     require_once(__DIR__ . '/../database/dish.class.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $user = Costumer::getUserId($db, $session->getId());
+    $user = Costumer::getCostumer($db, $session->getId());
 
     $dishes_ = array();
 
     $total = 0;
 
-    $restaurant = $_POST['restaurant'];
+    $restaurant = Restaurant::getRestaurant($db, intval($_POST['restaurant']));
 
     $dishes = json_decode($_POST['dishes'], true);
 
@@ -31,7 +32,7 @@
     $order = new Order(
         1,
         $user,
-        intval($_POST['restaurant']),
+        $restaurant,
         $dishes_,
         $total,
         orderState::received

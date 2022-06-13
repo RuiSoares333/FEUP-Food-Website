@@ -12,7 +12,7 @@ function attachOrderEvent() {
             let json = {};
     
             for(const row of rows) {
-                json[row.dataset.id] = row.querySelector('input').value
+                json[row.dataset.id] = row.querySelector('input').value;
             }
     
             data.append("dishes", JSON.stringify(json));

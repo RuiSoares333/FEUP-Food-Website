@@ -3,6 +3,10 @@ function attachBuyEvents() {
     button.addEventListener('click', function(e){
       const starButton = button.querySelector('button');
 
+      if(!starButton){
+        document.location.assign('../pages/login.php');
+      }
+
       if(!starButton.contains(e.target)){
       const id = this.dataset.id;
       const row = document.querySelector(`#cart table tr[data-id="${id}"]`);

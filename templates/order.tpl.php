@@ -42,16 +42,56 @@
         </section>
     <?php }
 
-function outputonGoingOrders(array $orders) { ?>
-    <section id ="completeOrders">
-        <h1>Ongoing Orders:</h1>
-        <?php
-        if($orders)
-            foreach($orders as $order)
-                outputOrder($order);
-        else
-            echo '<p>You have no ongoing orders</p>'
+    function outputonGoingOrders(array $orders) { ?>
+        <section id ="completeOrders">
+            <h1>Ongoing Orders:</h1>
+            <?php
+            if($orders)
+                foreach($orders as $order)
+                    outputOrder($order);
+            else
+                echo '<p>You have no ongoing orders</p>'
+            ?>
+        </section>
+    <?php }
+
+    function outputOwnerOrders(array $orders) { ?>
+        <div id = "mainDiv" class ="ownerOrders">
+            <h1>manage restaurant orders</h1>
+            <?php
+                foreach($orders as $order){
+                    outputRestaurantOrders($order);
+                }
+            ?>
+        </div>
+    <?php }
+
+    function outputRestaurantOrders(array $orders) { ?>
+        <section>
+            <h1><?=$orders[0]->restaurant->name?></h1>
+            <?php
+                foreach($orders as $order){
+                    outputRestaurantOrder($order);
+                }
+            ?>
+        </section>
+    <?php }
+
+    function outputRestaurantOrder(Order $order) { 
+        $states = array('received', 'preparing', 'ready', 'delivered');
         ?>
-    </section>
-<?php }
+        <article>
+            <p><?=$order->costumer->address?></p>
+            <p><?=$order->price?></p>
+            <select>
+                <?php
+                    foreach($states as $state){
+                        $selected = $order->state->value === $state;
+                        ?> <option value ="<?=$state?>" <?php echo $selected ? 'selected' : '' ?>><?=$state?></option> <?php
+                    }
+                    
+                ?>
+            </select>
+        </article>
+    <?php }
 ?>
