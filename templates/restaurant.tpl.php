@@ -100,9 +100,6 @@
                     <div class="slide-content">
                     <?php for($j=$i; $j<$i+5; $j++){
                         outputRestaurant($restaurants[$j], array_search($restaurants[$j]->id, $favorites) !== false, $session);
-                        if($j===5){
-                            $j+=5;
-                        }
                     }
                     ?>
                     </div>
@@ -175,9 +172,15 @@
     function outputSearchResults(array $restaurants, array $favorites, Session $session){ ?>
         <div id = "mainDiv" class = "search">
             <div id="listRestaurants">
-            <?php foreach($restaurants as $restaurant){
-                outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
-            } ?> 
+            <?php 
+                if($restaurants){
+                    foreach($restaurants as $restaurant){
+                        outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
+                    }
+                } else {
+                    echo '<h1>No Restaurants Were Found</h1>';
+                }
+                 ?> 
             </div>
         </div>
     <?php }

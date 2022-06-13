@@ -25,9 +25,11 @@
     outputHead();
     register_head();
     outputHeader($session, $categories, $costumer);
+    echo '<div>';
     outputAds();
     outputSideMenu($categories);
     outputRegisterForm();
+    echo '</div>';
     outputFooter()
 ?>
 

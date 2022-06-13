@@ -36,9 +36,11 @@
     outputHead();
     manage_dishes_head();
     outputHeader($session, $categories, $owner);
-    outputEditRestaurantSideMenu(2);
+    echo '<div>';
+    outputEditRestaurantSideMenu();
     outputAds();
     outputDishMenu($dishes);
+    echo '</div>';
     outputFooter();
     
 ?>

@@ -28,6 +28,7 @@
     outputHead();
     index_head();
     outputHeader($session, $categories, $costumer);
+    echo '<div>';
     outputSideMenu($categories);
     outputAds();
 ?>        
@@ -41,5 +42,6 @@
         </section>
     </div>
     <?php
+        echo '</div>';
         outputFooter();
     ?>

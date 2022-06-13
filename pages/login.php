@@ -22,8 +22,10 @@
     outputHead();
     login_head();
     outputHeader($session, $categories, $costumer);
+    echo '<div>';
     outputAds();
     outputSideMenu($categories);
     ouputLoginForm();
+    echo '</div>';
     outputFooter();
 ?>           
