@@ -164,6 +164,8 @@
 
 <?php
     function outputEditProfileSideMenu(){ ?>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_profile">
             <a href = "../pages/edit_profile.php">Edit Profile</a>
             <a href = "../pages/change_password.php">Change Password</a>
@@ -174,6 +176,8 @@
 
 <?php 
     function outputEditRestaurantSideMenu(){ ?>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_restaurant">
             <a href = "../pages/edit_restaurant.php?id=<?=$_GET['id']?>">Edit Restaurant</a>
             <a href = "../pages/manage_dishes.php?id=<?=$_GET['id']?>">Manage Dishes</a>
