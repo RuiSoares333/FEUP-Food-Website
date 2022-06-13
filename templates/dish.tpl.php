@@ -21,6 +21,7 @@
         ?>
         </section>
     </div>
+    </div>
     <?php }
 
     function outputFavoriteDish(Dish $dish){ 
@@ -103,6 +104,7 @@
                 <?php
             } ?>
         </section>
+        </div>
         </div>
     <?php }
 ?>

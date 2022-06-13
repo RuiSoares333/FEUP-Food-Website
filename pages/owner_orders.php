@@ -47,6 +47,6 @@
         $orders = Order::getRestaurantOrders($db, $restaurant->id);
         outputRestaurantOrders($orders, $restaurant);
     }
-    ?> </div> <?php
+    ?> </div> </div><?php
     outputFooter();
 ?>

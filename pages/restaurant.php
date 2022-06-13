@@ -44,6 +44,6 @@
     outputReviews($restaurant->reviews, $db, $restaurant->owner === $user->id, $session, $restaurant->id);
     if($session->isLoggedin())
         outputReviewForm();
-    ?> </div> <?php   
+    ?> </div> </div><?php   
     outputFooter();
 ?>

@@ -62,20 +62,10 @@
     margin-top: 1em;
 }
 
-#edit_profile #squareEdit{
-    width: 55%;
-    height: 25em;
-}
-
 #edit_profile:nth-child(1){
     margin-top: 0.5em;
 }
 
 #edit_profile > *, #edit_profile form > *{
     margin: auto;
-}
-
-#squareEdit{
-    background: linear-gradient(to bottom, #35B557, #3C814E);
-    border-radius: 2em;
 }

@@ -1,8 +1,16 @@
 @media (max-width: 60em) {
-    body{
-        margin: 0;
-        display: flex;
-        flex-direction: column;
+    #bestRestaurants > h1:nth-child(1){
+        font-size: 125%;
+    }
+    #controls{
+        margin-left: -100%
+    }
+    html, body {
+        min-height: 100%;
+    }
+
+    body > div{
+        height: 100%;
     }
 
     header {
@@ -27,9 +35,6 @@
         width: 50%;
     }
 
-    header .dropdown{
-        margin: auto;
-    }
 
     #ads{
         display: none;
@@ -40,15 +45,134 @@
         margin-top: 14%;
         width: 45%;
         transition: all 0.5s linear;
+        z-index: 1;
     }
 
     #mainDiv{
         margin-top: 14%;
+        width: 100%;
     }
 
     #filter{
         width: 30%;
     }
+
+    .responsiveSidebar{
+        display: block;
+        background-color: #2a2f33;
+        color: white;
+        padding: 1em;
+        position: fixed;
+        top: 25%;
+        left: 0;
+        transition: all 0.5s linear;
+        z-index: 1;
+    }
+    
+    .responsiveSidebar:before {
+        content:'\f105';
+        font-family: fontAwesome;
+    }
+
+    #responsiveSidebar:checked + .responsiveSidebar + #side-menu{
+        margin-left: 0;
+    }
+    
+    #responsiveSidebar:checked + .responsiveSidebar:before {
+        content:'\f104';
+        font-family: fontAwesome;
+    }
+
+    #responsiveSidebar:checked + .responsiveSidebar{
+        left: 46%;
+    }
+
+    #side-menu > ul:nth-child(5) > li > a{
+        font-size: 75%;
+    }
+
+    .miniPreview{
+        grid-template-rows: 60% 7.5% 2.5% 20% 2.5% 7.5%;
+        grid-template-columns: 85% 15%;
+        grid-template-areas:
+        "ig ig"
+        "catg del"
+        ". ."
+        "name rating"
+        ". ."
+        "avgPrice .";
+        font-size: 90%;
+        margin: 0 5% 10% 5%;
+    }
+
+    .miniPreview > :nth-child(5){
+        display:none;
+    }
+
+    footer{
+        height: 10%;
+        padding: 1%;
+    }
+
+
+    #listRestaurants, #listDishes{
+        grid-template-columns: repeat(4, 25%);
+        grid-template-rows: repeat(auto, auto);
+    }
+
+    div.slide > div{
+        grid-template-columns: repeat(4, 25%);
+        grid-template-rows: auto;
+        overflow: hidden;
+    }
+
+    .course{
+        grid-area: c;
+        margin: auto;
+    }
+
+    .dropdown-content{
+        width: 600%;
+        margin-top: -20%;
+        margin-right: -100%;
+    }
+
+    .dropdown > img{
+        width:175%;
+    }
+
+    .dropdown{
+        margin: 2% -2.5% auto auto;
+    }
+
+    #mainDiv > :last-child{
+        margin-bottom: 25%;
+    }
+}
+
+@media (max-width: 30em) {
+    #mainDiv{
+        margin-top: 25%;
+    }
+
+    #side-menu {
+        margin-top: 25%;
+        width: 80%;
+        margin-left: -81%;
+    }
+
+    body > header:nth-child(1) > h1:nth-child(1){
+        font-size: 60%;
+    }
+
+    #listRestaurants, #listDishes{
+        grid-template-columns: repeat(3, 33%);
+    }
+
+    div.slide > div{
+        grid-template-columns: repeat(3, 33%);
+    }
+
 
     .responsiveSidebar{
         display: block;
@@ -68,7 +192,6 @@
 
     #responsiveSidebar:checked + .responsiveSidebar + #side-menu{
         margin-left: 0;
-        z-index: 1;
     }
     
     #responsiveSidebar:checked + .responsiveSidebar:before {
@@ -77,27 +200,41 @@
     }
 
     #responsiveSidebar:checked + .responsiveSidebar{
-        left: 46%;
+        left: 80%;
     }
 
-    #side-menu > ul:nth-child(5) > li > a{
-        font-size: 75%;
+    footer{
+        font-size: 55%;
     }
 
     .miniPreview{
-        grid-template-rows: 55% 7.5% 2.5% 15% 2.5% 7.5%;
+        grid-template-rows: 50% 10% 30% 10%;
         grid-template-columns: 85% 15%;
         grid-template-areas:
         "ig ig"
         "catg del"
-        ". ."
         "name rating"
-        ". ."
         "avgPrice .";
     }
 
-    .miniPreview > :nth-child(5){
-        display:none;
+    .dropdown{
+        width: 10%;
     }
 
+    .dropdown-content{
+        margin-top: -20%;
+        margin-right: -100%;
+    }
+
+    .dropdown > img{
+        width:125%;
+    }
+
+    .dropdown{
+        margin: 5% -2.5% auto auto;
+    }
+
+    #controls{
+        margin-left: -200%
+    }
 }

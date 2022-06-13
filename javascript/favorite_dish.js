@@ -21,3 +21,17 @@ function attachFavoriteDishEvents(){
 
 
 attachFavoriteDishEvents();
+
+const dishes = document.getElementsByClassName("dish");
+
+for(const element of dishes){
+    element.addEventListener('mouseover', function(){
+      this.querySelector("button").style.display = "block";
+    })
+  }
+  
+  for(const element of dishes){
+    element.addEventListener('mouseout', function(){
+      this.querySelector("button").style.display = "none";
+    })
+  }
