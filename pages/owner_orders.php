@@ -40,7 +40,9 @@
     restaurant_orders_head();
     outputHeader($session, $categories, $user);
     outputSideMenu($categories);
+    echo '<div>';
     outputAds();
     outputOwnerOrders($orders_);
+    echo '</div>';
     outputFooter();
 ?>

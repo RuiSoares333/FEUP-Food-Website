@@ -31,7 +31,9 @@
     orders_head();
     outputHeader($session, $categories, $user);
     outputSideMenu($categories);
+    echo '<div>';
     outputAds();
     outputOrders($ongoingOrders, $completedOrders);
+    echo '</div>';
     outputFooter();
 ?>

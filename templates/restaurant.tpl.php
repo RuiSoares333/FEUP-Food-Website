@@ -171,17 +171,17 @@
 
     function outputSearchResults(array $restaurants, array $favorites, Session $session){ ?>
         <div id = "mainDiv" class = "search">
-            <div id="listRestaurants">
             <?php 
                 if($restaurants){
+                    echo '<div id="listRestaurants">';
                     foreach($restaurants as $restaurant){
                         outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
                     }
+                    echo '</div>';
                 } else {
                     echo '<h1>No Restaurants Were Found</h1>';
                 }
                  ?> 
-            </div>
         </div>
     <?php }
 

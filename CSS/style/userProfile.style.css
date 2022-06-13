@@ -19,9 +19,10 @@
 
 #favDishes > h3{
     background-color:#DEDEDE;
-    padding: 5% 29%;
+    padding: 5% 25%;
     border: 1px solid #000000;
     border-radius: 1em;
+    text-align: center;
 }
 
 /* Fav Restaurants */
@@ -31,6 +32,7 @@
     padding: 5% 25%;
     border: 1px solid #000000;
     border-radius: 1em;
+    text-align: center;
 }
 
 
