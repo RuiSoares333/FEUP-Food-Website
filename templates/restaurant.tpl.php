@@ -159,6 +159,8 @@
 
     function outputRestaurantSideMenu(array $categories){ 
         ?>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class = "restaurant">
             <ul>
             <?php

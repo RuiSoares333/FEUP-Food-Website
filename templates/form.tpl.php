@@ -183,6 +183,8 @@
 
     function outputSortSideMenu(array $categories) { 
         ?>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id="side-menu" class="sort">
             <form>
                 <input type="text" name="search" placeholder="Search">

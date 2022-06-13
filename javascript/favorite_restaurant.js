@@ -21,3 +21,17 @@ function attachFavoriteRestaurantEvents(){
 }
 
 attachFavoriteRestaurantEvents();
+
+const miniPreviews = document.getElementsByClassName("miniPreview");
+
+for(const element of miniPreviews){
+  element.addEventListener('mouseover', function(){
+    this.querySelector("button").style.display = "block";
+  })
+}
+
+for(const element of miniPreviews){
+  element.addEventListener('mouseout', function(){
+    this.querySelector("button").style.display = "none";
+  })
+}

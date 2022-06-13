@@ -29,6 +29,10 @@ body{
     background-color: var(--fundo-branco);
 }
 
+html, body {
+    height: 100%;
+  }
+
 /* Button */
 
 button{
@@ -73,7 +77,7 @@ body > header > h1 > a{
 header{
     background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
     box-shadow: 5px 10px 18px #0000003b;
-    z-index: 2;
+    z-index: 3;
 }
 
 input.search{
@@ -273,6 +277,7 @@ form#upload > button:nth-child(2):hover{
 
 /* Favorites */
 button.checked{
+    display: none;
     background-color: transparent;
     border: none;
     width: 2.5em;
@@ -283,25 +288,15 @@ button.unchecked{
     border: none;
     width: 2.5em;
     height: 2.5em;
+    display:none;
 }
 
 button.checked::before{
     content: url("../assets/symbols/star-solid.svg");
-    filter: invert(33%) sepia(99%) saturate(11%) hue-rotate(359deg) brightness(97%) contrast(96%);
-}
-
-button.unchecked::before{
-    content: url("../assets/symbols/star-regular.svg");
-    filter: invert(33%) sepia(99%) saturate(11%) hue-rotate(359deg) brightness(97%) contrast(96%);
-}
-
-
-button.checked:hover::before{
-    content: url("../assets/symbols/star-solid.svg");
     filter: invert(91%) sepia(56%) saturate(1240%) hue-rotate(334deg) brightness(92%) contrast(85%);
 }
 
-button.unchecked:hover::before{
+button.unchecked::before{
     content: url("../assets/symbols/star-regular.svg");
     filter: invert(91%) sepia(56%) saturate(1240%) hue-rotate(334deg) brightness(92%) contrast(85%);
 }

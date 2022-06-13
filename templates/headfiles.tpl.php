@@ -5,6 +5,7 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?>
+            <link rel = "stylesheet" href="../CSS/responsive.css">
             </head>
             <body> 
     <?php }
@@ -13,7 +14,9 @@
         $styleFiles = array('../CSS/layout/add_restaurant.layout.css', '../CSS/style/add_restaurant.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
-        }?> <script src="../javascript/categories.js" defer></script>
+        }?> 
+        <link rel = "stylesheet" href="../CSS/responsive.css">
+        <script src="../javascript/categories.js" defer></script>
         </head>
         <body>
         <?php
@@ -24,7 +27,8 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> 
+        ?>
+        <link rel = "stylesheet" href="../CSS/responsive.css">
         </head>
         <body>
     <?php }
@@ -35,6 +39,7 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?> 
+        <link rel = "stylesheet" href="../CSS/responsive.css">
         </head>
         <body>
     <?php }
@@ -44,7 +49,9 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }        
-        ?> <script src="../javascript/categories.js" defer></script> 
+        ?> 
+            <link rel = "stylesheet" href="../CSS/responsive.css">
+            <script src="../javascript/categories.js" defer></script> 
             </head>
             <body>
         <?php
@@ -54,7 +61,9 @@
         $styleFiles = array('../CSS/layout/manage_dishes.layout.css', '../CSS/style/manage_dishes.style.css');
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
-        }?> <script src="../javascript/image_upload.js" defer></script> 
+        }?> 
+        <link rel = "stylesheet" href="../CSS/responsive.css">
+        <script src="../javascript/image_upload.js" defer></script> 
         </head>
         <body>
         <?php
@@ -65,7 +74,9 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/favorite_restaurant.js" defer></script>
+        ?>
+        <link rel = "stylesheet" href="../CSS/responsive.css"> 
+        <script src="../javascript/favorite_restaurant.js" defer></script>
     </head>
     <body>
         <?php
@@ -77,6 +88,7 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?> 
+        <link rel = "stylesheet" href="../CSS/responsive.css">
         </head>
         <body>
     <?php }
@@ -86,7 +98,9 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/image_upload.js" defer></script>
+        ?> 
+            <link rel = "stylesheet" href="../CSS/responsive.css">
+            <script src="../javascript/image_upload.js" defer></script>
             <script src="../javascript/favorite_dish.js" defer></script>
             <script src="../javascript/favorite_restaurant.js" defer></script>
             </head>
@@ -101,6 +115,7 @@
         }
         ?>
         </head>
+        <link rel = "stylesheet" href="../CSS/responsive.css">
         <body> 
     <?php }
 
@@ -109,10 +124,12 @@
         foreach($styleFiles as $file){
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
-        ?> <script src="../javascript/image_upload.js" defer></script> 
-           <script src="../javascript/review_response.js" defer></script>
-           <script src = "../javascript/shoppingCart.js" defer></script> 
-           <script src="../javascript/favorite_dishes,js" defer></script>
+        ?> 
+            <link rel = "stylesheet" href="../CSS/responsive.css">
+            <script src="../javascript/image_upload.js" defer></script> 
+            <script src="../javascript/review_response.js" defer></script>
+            <script src = "../javascript/shoppingCart.js" defer></script> 
+            <script src="../javascript/favorite_dishes,js" defer></script>
            </head>
            <body> 
         <?php
@@ -125,8 +142,10 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?>
+        <link rel = "stylesheet" href="../CSS/responsive.css">
         <script src="../javascript/favorite_restaurant.js" defer></script>
         </head>
         <body>
     <?php }
+    
 ?>

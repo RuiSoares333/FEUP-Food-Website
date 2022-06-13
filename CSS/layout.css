@@ -104,6 +104,7 @@ form.search{
 /* Footer */
 
 footer{
+    height: 20%;
     grid-area: ft;
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -112,7 +113,7 @@ footer{
     "t c dT"
     ". r .";
     z-index: 1;
-    padding: 5%;
+    padding: 3%;
 }
 
 .teacher{
@@ -130,7 +131,7 @@ footer{
 
 .course{
     grid-area: c;
-    margin: auto;
+    margin: -5% auto auto auto;
 }
 
 /* Mini Preview */
@@ -173,6 +174,7 @@ footer{
 
 .miniPreview > :nth-child(3){
     grid-area: name;
+    width:80%;
 }
 
 .miniPreview > :nth-child(4){

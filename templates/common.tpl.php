@@ -13,7 +13,6 @@
             <link rel = "stylesheet" href="../CSS/layout.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/images.css">
-            <link rel = "stylesheet" href="../CSS/responsive.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <script src="../javascript/filter_header.js" defer></script>
             <script src="../javascript/topButton.js" defer></script>
@@ -79,8 +78,6 @@
             </section>
         </header>
         <button onclick="topFunction()" id="topButton" title="Go to top"></button>
-        <input type="checkbox" id="responsiveSidebar"> 
-        <label class="responsiveSidebar" for="responsiveSidebar"></label>
     <?php }
 ?>
 
@@ -100,6 +97,8 @@
 
 <?php
     function outputSideMenu(array $categories) {?>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id="side-menu" class="index">
             <a href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
             <a href="#close">Close to You</a>
@@ -186,6 +185,8 @@
 
 <?php
     function outputShoppingCart(){ ?>
+        <input type="checkbox" id="responsiveCart"> 
+        <label class="responsiveCart" for="responsiveCart"></label>
         <aside id ="cart">
             <table>
                 <thead>
