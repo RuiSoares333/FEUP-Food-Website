@@ -149,6 +149,10 @@ footer{
     padding: 0 5%;
 }
 
+div.slide > div > *{
+    overflow: hidden;
+}
+
 .miniPreview *{
     margin: 0;
     padding: 0;

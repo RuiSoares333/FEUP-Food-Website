@@ -1,5 +1,10 @@
 @media (max-width: 60em) {
-
+    #bestRestaurants > h1:nth-child(1){
+        font-size: 125%;
+    }
+    #controls{
+        margin-left: -200%
+    }
     html, body {
         min-height: 100%;
     }
@@ -87,7 +92,7 @@
     }
 
     .miniPreview{
-        grid-template-rows: 60% 5% 2% 15% 2% 5%;
+        grid-template-rows: 60% 7.5% 2.5% 20% 2.5% 7.5%;
         grid-template-columns: 85% 15%;
         grid-template-areas:
         "ig ig"
@@ -96,8 +101,8 @@
         "name rating"
         ". ."
         "avgPrice .";
-        font-size: 100%;
-        margin-bottom:10%;
+        font-size: 90%;
+        margin: 0 5% 10% 5%;
     }
 
     .miniPreview > :nth-child(5){
@@ -130,6 +135,10 @@
         width: 600%;
         margin-top: -20%;
         margin-right: -100%;
+    }
+
+    #mainDiv > :last-child{
+        margin-bottom: 25%;
     }
 }
 
