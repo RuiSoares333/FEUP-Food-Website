@@ -137,6 +137,7 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?>
+        <script src ="../javascript/show_more.js" defer></script>
         </head>
         <body>
     <?php }

@@ -17,6 +17,7 @@
                     <?php }
                 ?>
             </div>
+            <a href ="">Show more</a>
         </article>
     <?php }
 
