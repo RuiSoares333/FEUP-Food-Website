@@ -181,13 +181,6 @@ button.review_response {
 }
 
 
-body{
-    grid-template-columns: 15% 2.5% 55% 2.5% 25%;
-    grid-template-areas: 
-    ". . mD . ."
-    "ft ft ft ft ft";
-}
-
 #side-menu{
     width: 15%
 }

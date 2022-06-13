@@ -39,3 +39,9 @@
     border-top: 2px solid var(--fundo-preto);
     border-bottom: 2px solid var(--fundo-preto);
 }
+
+@media (max-width: 60em) {
+    #manageDishes{
+        margin-bottom: 70%;
+    }
+}

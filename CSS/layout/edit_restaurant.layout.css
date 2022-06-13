@@ -70,6 +70,7 @@
 #myDialog{
     width: 50%;
     height: 30%;
+    flex-direction: column;
 }
 
 #myDialog > h1:nth-child(1){
@@ -92,4 +93,28 @@
     height: 15%;
     width: 25%;
     margin-left: 35%;
+}
+
+
+@media (max-width: 60em) {
+    #myDialog{
+        width: 80%;
+    }
+    #listCategories ul{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        list-style-type: none;
+    }
+
+}
+
+@media (max-width: 30em) {
+    #myDialog{
+        height: 50%;
+    }
+    #listCategories ul{
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        list-style-type: none;
+    }
 }

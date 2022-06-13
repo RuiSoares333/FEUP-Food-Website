@@ -1,7 +1,9 @@
-#mainDiv.restaurant{
+#mainDiv{
     display:flex;
     flex-direction: column;
     padding:0;
+    margin-right: 28%;
+    width: 55%;
 }
 
 #mainDiv.restaurant > *:not(#restaurant){

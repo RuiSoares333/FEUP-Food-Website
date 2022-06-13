@@ -148,7 +148,7 @@ body > header > a{
     transition: all 1s ease;
 }
 
-#hamburger, #price, #responsiveSidebar, .responsiveSidebar{
+#hamburger, #price, #responsiveSidebar, .responsiveSidebar, #responsiveCart, .responsiveCart{
     display: none;
 }
 
@@ -163,7 +163,7 @@ body > header > a{
 .dropdown{
     position: relative;
     display: inline-block;
-    margin: auto -10% auto auto;
+    margin: auto -1% auto auto;
     height: 50%;
     width: 5%;
 }
@@ -175,7 +175,7 @@ body > header > a{
     width: 275%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.25);
     right: 0;
-    margin-top: -5%;
+    margin-top: -7.5%;
 }
   
 .dropdown-content a {
@@ -185,7 +185,7 @@ body > header > a{
     display: block;
 }
   
-.dropdown-content a:hover {
+.dropdown-content a:hover{
     background-color: var(--fundo-cinza);
 }
   

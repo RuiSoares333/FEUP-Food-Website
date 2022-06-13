@@ -40,3 +40,21 @@
     border-top: 2px solid var(--fundo-preto);
     border-bottom: 2px solid var(--fundo-preto);
 }
+
+@media (max-width: 60em) {
+    #squareEdit{
+        width: 60%;
+        height: 2500%;
+    }
+
+    #editRestaurant{
+        margin-bottom: 70%;
+    }
+}
+
+@media (max-width: 30em) {
+    #squareEdit{
+        width: 100%;
+        height: 2500%;
+    }
+}

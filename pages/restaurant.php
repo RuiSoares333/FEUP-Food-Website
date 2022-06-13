@@ -32,7 +32,6 @@
     restaurant_head();
     outputHeader($session, $categories, $user);
     echo '<div>';
-    outputShoppingCart();
     outputRestaurantSideMenu($restaurant->dishCategories);
     outputShoppingCart();
     ?> <div id="mainDiv" class = "restaurant"> <?php
