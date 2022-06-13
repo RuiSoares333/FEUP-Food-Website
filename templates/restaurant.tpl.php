@@ -9,7 +9,8 @@
         <article class="miniPreview" data-id = <?= $restaurant->id?>>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="<?=$image?>"></a>
         <div class="categories">
-        <?php foreach($restaurant->categories as $category){
+        <?php 
+                foreach($restaurant->categories as $category){
                 ?> <p><?=$category?></p> <?php
         } ?>
         </div>
@@ -141,7 +142,9 @@
             ?> <p><?=$category?> </p> <?php
         } ?>
         </section>
-        <p><?=$restaurant->address?></p><?php
+        <p><?=$restaurant->address?></p>
+        <p><?=$restaurant->phone?></p>
+        <?php
 
         if($restaurant->avgRating === -1.0){
             ?> <p>no rating</p> <?php

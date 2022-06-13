@@ -173,7 +173,11 @@ div.slide > div > *{
 
 .miniPreview > :nth-child(2){
     grid-area: catg;
-    margin-top: -8%
+    margin-top: -8%;
+}
+
+.miniPreview > :nth-child(2) > :nth-child(2) ~ p{
+    display: none;
 }
 
 .miniPreview > :nth-child(3){

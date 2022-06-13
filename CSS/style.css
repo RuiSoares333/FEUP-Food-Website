@@ -163,7 +163,7 @@ body > header > a{
 .dropdown{
     position: relative;
     display: inline-block;
-    margin: auto -1% auto auto;
+    margin: 1.5% -8% auto auto;
     height: 50%;
     width: 5%;
 }

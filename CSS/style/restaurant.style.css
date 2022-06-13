@@ -284,7 +284,15 @@ button.review_response {
     content: "€";
 }
 
+#restaurant > p:nth-child(5)::before{
+    font-family: fontAwesome;
+    content: "\f095 ";
+}
 
+#restaurant > p:nth-child(6)::before{
+    font-family: fontAwesome;
+    content: "\f005 ";
+}
 
 
 @media (max-width: 60em) {

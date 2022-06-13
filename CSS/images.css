@@ -18,8 +18,9 @@
 }
 
 .dropdown > img{
+    width:100%;
     border-radius: 100%;
-    margin: auto auto auto auto;
+    margin: auto;
     border: 2px solid #00000088;
     background-color: transparent;
     cursor: pointer;

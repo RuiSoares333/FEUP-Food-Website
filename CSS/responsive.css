@@ -3,7 +3,7 @@
         font-size: 125%;
     }
     #controls{
-        margin-left: -200%
+        margin-left: -100%
     }
     html, body {
         min-height: 100%;
@@ -137,6 +137,14 @@
         margin-right: -100%;
     }
 
+    .dropdown > img{
+        width:175%;
+    }
+
+    .dropdown{
+        margin: 2% -2.5% auto auto;
+    }
+
     #mainDiv > :last-child{
         margin-bottom: 25%;
     }
@@ -216,5 +224,17 @@
     .dropdown-content{
         margin-top: -20%;
         margin-right: -100%;
+    }
+
+    .dropdown > img{
+        width:125%;
+    }
+
+    .dropdown{
+        margin: 5% -2.5% auto auto;
+    }
+
+    #controls{
+        margin-left: -200%
     }
 }

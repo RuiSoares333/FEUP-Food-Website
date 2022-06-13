@@ -18,21 +18,15 @@ function attachFavoriteRestaurantEvents(){
             }
                 
         });
+
+        button.parentElement.addEventListener('mouseover', function(){
+          button.style.display = "block";
+        })
+
+        button.parentElement.addEventListener('mouseout', function(){
+          button.style.display = "none";
+        })
     }
 }
 
 attachFavoriteRestaurantEvents();
-
-const miniPreviews = document.getElementsByClassName("miniPreview");
-
-for(const element of miniPreviews){
-  element.addEventListener('mouseover', function(){
-    this.querySelector("button").style.display = "block";
-  })
-}
-
-for(const element of miniPreviews){
-  element.addEventListener('mouseout', function(){
-    this.querySelector("button").style.display = "none";
-  })
-}
