@@ -119,11 +119,14 @@
 
 
         static function getState(string $state) : orderState{
-            switch($state){
-                case 'received' : return orderState::received;
-                case 'preparign' : return orderState:: preparing;
-                case 'ready' : return orderState::ready;
-            }
+            if($state === 'received')
+                return OrderState::received;
+            else if($state === 'preparing')
+                return orderState::preparing;
+            else if($state === 'ready')
+                return orderState::ready;
+            else 
+                return orderState::delivered;
         }
 
         static function getRestaurantOrders(PDO $db, int $id) : array {
@@ -159,5 +162,32 @@
             return $orders_;
         }
 
+
+        static function getOrder(PDO $db, int $id) : Order {
+            $query = 'SELECT * FROM Ord WHERE id = ? ';
+
+            $order = getQueryResults($db, $query, false, array($id));
+           
+            $query = 'SELECT dishId as dish, quantity FROM OrderDish WHERE orderId = ?';
+
+            $dishes = getQueryResults($db, $query, true, array($order['id']));
+
+            foreach($dishes as &$dish){
+                $dish['dish'] = Dish::getDish($db, $dish['dish']);
+            }
+
+            $user = Costumer::getUserwithId($db, $order['userId']);
+
+            $restaurant = Restaurant::getRestaurant($db, $order['restaurantId']);
+
+            return new Order(
+                $order['id'],
+                $user,
+                $restaurant,
+                $dishes,
+                $order['price'],
+                Order::getState($order['state'])
+            );
+        }
     }
 ?>  

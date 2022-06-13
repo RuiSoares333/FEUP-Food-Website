@@ -81,7 +81,7 @@
     function outputRestaurantOrder(Order $order) { 
         $states = array('received', 'preparing', 'ready', 'delivered');
         ?>
-        <article>
+        <article data-id = <?=$order->id?>>
             <p><?=$order->costumer->address?></p>
             <p><?=$order->price?></p>
             <select>
@@ -93,6 +93,18 @@
                     
                 ?>
             </select>
+            <div>
+                <?php
+                    foreach($order->dishes as $dish) { ?>
+                        <div>
+                            <p><?=$dish['dish']->name?></p>
+                            <p><?=$dish['dish']->price?></p>
+                            <p>amount: <?=$dish['quantity']?></p>
+                        </div>
+                    <?php }
+                ?>
+            </div>
+            <a href="">Show more</a>
         </article>
     <?php }
 ?>

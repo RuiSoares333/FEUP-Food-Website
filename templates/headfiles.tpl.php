@@ -148,6 +148,8 @@
             echo '<link rel = "stylesheet" href="'.$file.'">';
         }
         ?>
+        <script src ="../javascript/show_more.js" defer></script>
+        <script src="../javascript/orderState.js" defer></script>
         </head>
         <body> 
     <?php }
