@@ -9,9 +9,6 @@ function attachChangeStateEvent() {
                 method: "POST",
                 body: data,
             });
-
-            if(response.status >= 200 && response.status < 300)
-                console.log('changed');
         })
     }
 }
