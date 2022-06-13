@@ -69,7 +69,7 @@
                     $dish['dish'] = Dish::getDish($db, $dish['dish']);
                 }
 
-                $user = Costumer::getUserwithId($db, $order['id']);
+                $user = Costumer::getUserwithId($db, $order['userId']);
 
                 $restaurant = Restaurant::getRestaurant($db, $order['restaurantId']);
 
