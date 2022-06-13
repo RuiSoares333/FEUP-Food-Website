@@ -19,9 +19,10 @@
 
 #favDishes > h3{
     background-color:#DEDEDE;
-    padding: 5% 29%;
+    padding: 5% 25%;
     border: 1px solid #000000;
     border-radius: 1em;
+    text-align: center;
 }
 
 /* Fav Restaurants */
@@ -31,6 +32,7 @@
     padding: 5% 25%;
     border: 1px solid #000000;
     border-radius: 1em;
+    text-align: center;
 }
 
 
@@ -76,4 +78,26 @@
 
 #listDishes article p a{
     color: white;
+}
+
+@media (max-width: 60em) {
+    #favRestaurants #listRestaurants, #favRestaurants #listDishes, #myRestaurants #listRestaurants{
+        grid-template-columns: repeat(4, 25%);
+    }
+
+    #favDishes h1, #favRestaurants h1{
+        position: absolute;
+        width: 100%
+    }
+
+    .dish > p > *{
+        font-size: 80%;
+    }
+
+}
+
+@media (max-width: 30em) {
+    #favRestaurants #listRestaurants, #favRestaurants #listDishes, #myRestaurants #listRestaurants{
+        grid-template-columns: repeat(3, 33%);
+    }
 }

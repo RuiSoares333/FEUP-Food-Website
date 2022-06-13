@@ -18,6 +18,14 @@ function attachFavoriteRestaurantEvents(){
             }
                 
         });
+
+        button.parentElement.addEventListener('mouseover', function(){
+          button.style.display = "block";
+        })
+
+        button.parentElement.addEventListener('mouseout', function(){
+          button.style.display = "none";
+        })
     }
 }
 

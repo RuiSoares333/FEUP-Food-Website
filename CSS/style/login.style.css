@@ -13,3 +13,17 @@
     background: linear-gradient(to bottom, #35B557, #3C814E);
     border-radius: 2em;
 }
+
+@media (max-width: 60em) {
+    #square{
+        width: 60%;
+        height: 2000%;
+    }
+}
+
+@media (max-width: 30em) {
+    #square{
+        width: 80%;
+        height: 2000%;
+    }
+}

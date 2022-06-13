@@ -40,6 +40,7 @@
             map api
         </section>
     </div>
+    </div>
     <?php
         outputFooter();
     ?>

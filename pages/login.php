@@ -22,8 +22,8 @@
     outputHead();
     login_head();
     outputHeader($session, $categories, $costumer);
-    outputAds();
     outputSideMenu($categories);
+    outputAds();
     ouputLoginForm();
     outputFooter();
 ?>           

@@ -1,0 +1,37 @@
+section{
+    margin: 1% 0;
+}
+
+section > article{
+    display: grid;
+    grid-template-columns: repeat(3, 30%) 10%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    ". . . ."
+    "dL dL dL dL";
+    text-align: center;
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    border-radius: 1em;
+
+}
+
+section > article > div:nth-child(4){
+    display: none;
+    grid-area: dL;
+}
+
+section > article > select:nth-child(3){
+    width: 75%;
+    height: 75%;
+    margin: auto;
+}
+
+section > article > a:nth-child(5){
+    margin: auto;
+}
+
+section > article > div:nth-child(4) > div{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: center;
+}

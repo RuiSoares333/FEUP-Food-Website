@@ -29,8 +29,8 @@
     outputHead();
     search_head();
     outputHeader($session, $categories, $user);
-    outputAds();
     outputSortSideMenu($categories);
+    outputAds();
     outputSearchResults($restaurants, $favorites, $session);
     outputFooter();
 ?>

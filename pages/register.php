@@ -25,8 +25,8 @@
     outputHead();
     register_head();
     outputHeader($session, $categories, $costumer);
-    outputAds();
     outputSideMenu($categories);
+    outputAds();
     outputRegisterForm();
     outputFooter()
 ?>
