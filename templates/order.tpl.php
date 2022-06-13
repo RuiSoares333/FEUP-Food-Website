@@ -56,24 +56,19 @@
         </section>
     <?php }
 
-    function outputOwnerOrders(array $orders) { ?>
-        <div id = "mainDiv" class ="ownerOrders">
-            <h1>manage restaurant orders</h1>
-            <?php
-                foreach($orders as $order){
-                    outputRestaurantOrders($order);
-                }
-            ?>
-        </div>
-    <?php }
-
-    function outputRestaurantOrders(array $orders) { ?>
+    function outputRestaurantOrders(array $orders, Restaurant $restaurant) { ?>
         <section>
-            <h1><?=$orders[0]->restaurant->name?></h1>
-            <?php
-                foreach($orders as $order){
-                    outputRestaurantOrder($order);
+            <h1><?=$restaurant->name?></h1>
+            <?php     
+                if($orders){
+                    foreach($orders as $order){
+                        outputRestaurantOrder($order);
+                    }                    
                 }
+                else {
+                    echo '<h5>no pending orders</h5>';
+                }
+
             ?>
         </section>
     <?php }

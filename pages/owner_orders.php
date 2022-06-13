@@ -28,10 +28,10 @@
 
     $restaurants = $user->getOwnedRestaurants($db);
 
-    $orders_ = array();
+    $restaurant_ = array();
 
     foreach($restaurants as $restaurant){
-        $orders_[] = Order::getRestaurantOrders($db, $restaurant['id']);
+        $restaurants_[] = Restaurant::getRestaurant($db, $restaurant['id']);
     }
 
     $categories = Restaurant::getAllCategories($db);
@@ -41,6 +41,12 @@
     outputHeader($session, $categories, $user);
     outputSideMenu($categories);
     outputAds();
-    outputOwnerOrders($orders_);
+    ?> <div id ="mainDiv" class = "ownerOrders">
+        <h1>manage restaurant orders</h1> <?php
+    foreach($restaurants_ as $restaurant){
+        $orders = Order::getRestaurantOrders($db, $restaurant->id);
+        outputRestaurantOrders($orders, $restaurant);
+    }
+    ?> </div> <?php
     outputFooter();
 ?>
