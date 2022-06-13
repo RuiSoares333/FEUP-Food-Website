@@ -286,6 +286,12 @@ button.review_response {
 
 
 @media (max-width: 60em) {
+
+    #mainDiv{
+        margin-right: 0%;
+        width: 100%;
+    }
+
     #cart{
         margin-right: -46%;
         margin-top: 14%;
@@ -322,6 +328,15 @@ button.review_response {
 
     #responsiveCart:checked + .responsiveCart{
         right: 46%;
+    }
+
+    #mainDiv.restaurant #dishes section article p{
+        font-size: 91%;
+    }
+
+    
+    #mainDiv.restaurant #dishes h1{
+        width: 100%
     }
 }
 

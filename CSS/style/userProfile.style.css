@@ -79,3 +79,25 @@
 #listDishes article p a{
     color: white;
 }
+
+@media (max-width: 60em) {
+    #favRestaurants #listRestaurants, #favRestaurants #listDishes, #myRestaurants #listRestaurants{
+        grid-template-columns: repeat(4, 25%);
+    }
+
+    #favDishes h1, #favRestaurants h1{
+        position: absolute;
+        width: 100%
+    }
+
+    .dish > p > *{
+        font-size: 80%;
+    }
+
+}
+
+@media (max-width: 30em) {
+    #favRestaurants #listRestaurants, #favRestaurants #listDishes, #myRestaurants #listRestaurants{
+        grid-template-columns: repeat(3, 33%);
+    }
+}
