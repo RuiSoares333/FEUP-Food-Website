@@ -108,7 +108,12 @@
 
 #squareRegister{
     width: 50%;
-    height: 3750%;
+    height: 4500%;
+}
+
+#mainDiv > p:nth-child(5){
+    width: 45%;
+    text-align: center;
 }
 
 .register > *, #registerForm > *{

@@ -16,8 +16,6 @@
     "p1 p1"
     "pL price"
     "cL ctgr"
-    "p3 p3"
-    "add add"
     "sub sub"
 }
 
@@ -53,10 +51,6 @@
     margin-top: -1%;
 }
 
-#addDish :nth-child(8){
-    grid-area: p3;
-}
-
 #addDish :nth-child(1), #addDish :nth-child(4), #addDish :nth-child(6){
     margin-right: 5%;
 }
@@ -79,5 +73,6 @@
 }
 
 #submit{
+    margin-top: 5%;
     grid-area: sub;
 }

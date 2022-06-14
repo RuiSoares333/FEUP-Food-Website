@@ -40,6 +40,7 @@
                 <a href ="../pages/index.php">Cancel</a>
             </form>
             <a class = "LoginLink" href="../pages/login.php"><h5>Already have an account?</h5></a>
+            <p>Note: Blank spaces surrounding your input will be ignored</p>
         </div>
         </div>
     <?php }
