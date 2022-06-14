@@ -5,6 +5,8 @@
     
     $session = new Session();
 
+    $session = new Session();
+
     if($session->isLoggedin()){
         $user = Costumer::getCostumer($db, $session->getId());
     }

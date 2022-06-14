@@ -20,7 +20,7 @@
         <div id="mainDiv" class="register">
             <p id="squareRegister"></p>
             <h1>Register</h1>
-            <form id="registerForm" name = "registerForm" action = "../actions/action_register.php" method = "post">
+            <form id="registerForm" name = "registerForm" action = "../actions/action_register.php" onsubmit="return validateForm()" method = "post">
                 <input id="username" type="text" name="username" maxlength="14" placeholder="username" required>
                 <p></p>
                 <input id ="name" type = "text" name = "name" maxlenght="14" placeholder="Display name" required>
@@ -72,7 +72,7 @@
         <section id="edit_profile">
             <p id="squareEdit"></p>
             <h1>Edit Profile</h1>
-            <form id = "edit_profile" action="../actions/action_edit_profile.php" method="post">
+            <form id = "edit_profile" name="edit_profile" action="../actions/action_edit_profile.php" onsubmit="validateForm()" method="post">
                 <label for="name">Name:</label>
                 <input id="name" type ="text" name ="name" value ="<?=$costumer->name?>" maxlength="14" required>
                 <p></p>
@@ -118,7 +118,7 @@
             <section id ="editRestaurant">
                 <p id="squareEdit"></p>
                 <h1>Edit Restaurant</h1>
-                <form id ="editRestaurant" action ="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" method="post">
+                <form id ="editRestaurant" name="edit_restaurant" action ="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" onsubmit="return validateForm()" method="post">
                     <label for="name">Name:</label>
                     <input id="name" type ="text" name ="name" value= "<?=$restaurant->name?>" required>
                     <p></p>
@@ -157,7 +157,7 @@
         <section id="newDish">
             <p id="squareEdit"></p>
             <h1>Add a new Dish</h1>
-            <form id ="addDish" action="../actions/action_add_dish.php?id=<?=urlencode($_GET['id'])?>" method="post">
+            <form id ="addDish" name="addDish" action="../actions/action_add_dish.php?id=<?=urlencode($_GET['id'])?>" onsubmit="return validateForm()"method="post">
                 <label for="name">Name:</label>
                 <input id="name" type="text" name="name" required>
                 <p></p>
@@ -172,7 +172,6 @@
                     <option value="main_course">main course</option>
                     <option value ="dessert">dessert</option>
                 </select>
-                <p></p>
                 <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button id ="submit" type="submit">Add</button>
             </form>
@@ -188,7 +187,7 @@
             <section id = "newRestaurant">
                 <p id="squareEdit"></p>
                 <h1>Add your restaurant</h1>
-                <form id ="newRestaurant" action ="../actions/action_add_restaurant.php" method="post">
+                <form id ="newRestaurant" name="newRestaurant" action ="../actions/action_add_restaurant.php" onsubmit ="return validateForm()"method="post">
                     <label for="name">Name:</label>
                     <input id="name" type ="text" name ="name" maxlength="50" required>
                     <p></p>
