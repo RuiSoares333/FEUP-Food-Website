@@ -36,8 +36,8 @@
                 <input id="address" type="text" name="address" placeholder="address" required>
                 <p></p>
                 <input type="hidden" name="referer" value="<?=$_SERVER['HTTP_REFERER']?>">
-                <button id="continue" formaction="../actions/action_register.php" formmethod="post">Register</button>
-                <button id="cancel" formaction="../pages/index.php">Cancel</button>
+                <button id="continue" formaction="../actions/action_register.php" type ="submit" formmethod="post">Register</button>
+                <a href ="../pages/index.php">Cancel</a>
             </form>
             <a class = "LoginLink" href="../pages/login.php"><h5>Already have an account?</h5></a>
         </div>
@@ -74,13 +74,17 @@
             <h1>Edit Profile</h1>
             <form id = "edit_profile">
                 <label for="name">Name:</label>
-                <input type ="text" name ="name" value ="<?=$costumer->name?>" required>
+                <input id="name" type ="text" name ="name" value ="<?=$costumer->name?>" maxlength="14" required>
+                <p></p>
                 <label for="email">Email:</label>
-                <input type ="text" name ="email" value ="<?=$costumer->email?>" required>
+                <input id="email" type ="text" name ="email" value ="<?=$costumer->email?>" maxlength="256" required>
+                <p></p>
                 <label for="address">Address:</label>
-                <input type ="text" name ="address" value ="<?=$costumer->address?>" required>
+                <input id="address" type ="text" name ="address" value ="<?=$costumer->address?>" required>
+                <p></p>
                 <label for="phone">Phone number:</label>
-                <input type ="text" name ="phone" value ="<?=$costumer->phoneNumber?>" required>
+                <input id="phone" type ="text" name ="phone" value ="<?=$costumer->phoneNumber?>" maxlength="9" required>
+                <p></p>
                 <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button formaction="../actions/action_edit_profile.php" id="submit" formmethod="post">Edit</button>
             </form>

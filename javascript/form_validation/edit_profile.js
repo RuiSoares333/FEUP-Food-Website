@@ -1,45 +1,13 @@
 function attachValidationEvents(){
-    const username = document.getElementById("username");
     const name = document.getElementById("name");
     const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const password2 = document.getElementById("password2");
     const phone = document.getElementById("phone");
     const address = document.getElementById("address");
 
-    usernameEvent(username);
     nameEvent(name);
     emailEvent(email);
-    passwordEvent(password);
-    password2Event(password, password2);
     phoneEvent(phone);
     addressEvent(address);
-}   
-
-function usernameEvent(username){
-    username.addEventListener("input", async function () {
-        input = username.value;
-        warning = username.nextSibling.nextSibling;
-        if(!/^[\w\s]{0,14}$/.test(input.trim())){
-            warning.textContent = "non-alphanumeric characters aren't allowed";
-        }
-        else{
-            const data = new FormData();
-            data.append("username" ,input.trim());
-
-            const response = await fetch("../api/form_validation/api_username.php", {
-                method: "POST",
-                body: data,
-            });
-
-            if(await response.json()){
-                warning.textContent = "username is taken";
-            }
-            else{
-                warning.textContent = "";
-            }
-        }
-    });
 }
 
 function nameEvent(name){
@@ -69,7 +37,7 @@ function emailEvent(email){
             const data = new FormData();
             data.append("email" ,input.trim());
 
-            const response = await fetch("../api/form_validation/api_email.php", {
+            const response = await fetch("../api/form_validation/api_change_email.php", {
                 method: "POST",
                 body: data,
             });
@@ -85,33 +53,6 @@ function emailEvent(email){
     });
 }
 
-function passwordEvent(password){
-    password.addEventListener("input", function (){
-        input = password.value;
-        warning = password.nextSibling.nextSibling;
-        if(input.trim().length < 9){
-            warning.textContent = "password should have at least 9 characters";
-        }
-        else {
-            warning.textContent = "";
-        }
-    });
-}
-
-function password2Event(password, password2){
-    password2.addEventListener("input", function() {
-        input = password.value;
-        input2 = password2.value;
-        warning = password2.nextSibling.nextSibling;
-        if(input.trim() !== input2.trim()){
-            warning.textContent = "passwords don't match";
-        }
-        else{
-            warning.textContent = "";
-        }
-    })
-}
-
 function phoneEvent(phone) {
     phone.addEventListener("input", async function() {
         input = phone.value;
@@ -123,7 +64,7 @@ function phoneEvent(phone) {
             const data = new FormData();
             data.append("phone" ,input.trim());
 
-            const response = await fetch("../api/form_validation/api_phone.php", {
+            const response = await fetch("../api/form_validation/api_change_phone.php", {
                 method: "POST",
                 body: data,
             });    
