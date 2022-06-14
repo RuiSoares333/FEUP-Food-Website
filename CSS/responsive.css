@@ -53,6 +53,10 @@
         width: 95%;
     }
 
+    #mainDiv.restaurant{
+        width: 100%;
+    }
+
     #filter{
         width: 30%;
     }

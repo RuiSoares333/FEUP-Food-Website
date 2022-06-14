@@ -20,7 +20,7 @@
         <?php } else {?>
         <p><?=$restaurant->avgRating?>/10</p>
         <?php } ?>
-        <p><?=$restaurant->address?></p>
+        <p><?=$restaurant->city?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
         <?php if($session->isLoggedin()){ ?>
         <button type="button" <?php if($is_favorite) echo 'class = "checked"'; else echo 'class = "unchecked"' ?>></button>            
@@ -46,7 +46,7 @@
         <?php } else {?>
         <p><?=$restaurant->avgRating?>/10</p>
         <?php } ?>
-        <p><?=$restaurant->address?></p>
+        <p><?=$restaurant->city?></p>
         <p>Preço médio:<?=$restaurant->avgPrice?>€</p>
         <p><a href ="../actions/action_delete_restaurant.php?id=<?=$restaurant->id?>">Delete</a><p>
         </article>

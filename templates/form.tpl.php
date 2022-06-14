@@ -125,6 +125,9 @@
                     <label for="address">Address:</label>
                     <input id="address" type ="text" name ="address" value ="<?=$restaurant->address?>" required>
                     <p></p>
+                    <label for="city">City:</label>
+                    <input id="city" type ="text" name ="city" value ="<?=$restaurant->city?>" required>
+                    <p></p>
                     <button type ="button" id = "categories">categories</button>
                     <dialog id ="myDialog">
                         <h1>Choose the categories</h1>
@@ -191,6 +194,9 @@
                     <p></p>
                     <label for="address">Address:</label>
                     <input id="address" type ="text" name ="address" required>
+                    <p></p>
+                    <label for="city">City:</label>
+                    <input id="city" type ="text" name ="city">
                     <p></p>
                     <button type = "button" id = "categories">categories</button>
                     <dialog id ="myDialog">

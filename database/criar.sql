@@ -19,6 +19,7 @@ CREATE TABLE Restaurant (
     id INTEGER,
     name VARCHAR,
     address VARCHAR,
+    city VARCHAR,
     phone VARCHAR(9) unique,
     ownerId INTEGER,
     CONSTRAINT PK_Restaurant PRIMARY KEY (id),
@@ -135,26 +136,26 @@ INSERT INTO Category VALUES ("indian");
 INSERT INTO Category VALUES ("american");
 
 --Restaurant
-INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "222055071", 2);
-INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "913037171", 2);
-INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "225091784", 4);
-INSERT INTO Restaurant VALUES (NULL, "O Charco", "Rua Nossa Senhora Amparo 143", "223754618", 5);
-INSERT INTO Restaurant VALUES (NULL, "Temple Rio", "Rua D. Afonso Henriques 745", "932464670", 5);
-INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "224801268", 5);
-INSERT INTO Restaurant VALUES (NULL, "Thamel Restaurant", "Rua da Picaria 25", "221113947", 2);
-INSERT INTO Restaurant VALUES (NULL, "Boteco Mexicano", "Campo dos Mártires da Pátria 38", "964249974", 4);
-INSERT INTO Restaurant VALUES (NULL, "Beher Porto", "Rua de Sá da Bandeira 589", "222053048", 4);
-INSERT INTO Restaurant VALUES (NULL, "Salve Simpatia Porto", "Rua da Picaria 89", "960374589", 4);
-INSERT INTO Restaurant VALUES (NULL, "KOB by Olivier", "Rua Conde de Vizela 149", "918280080", 5);
-INSERT INTO Restaurant VALUES (NULL, "Portucale", "Rua da Alegria 598", "225370717", 5);
-INSERT INTO Restaurant VALUES (NULL, "Rua Tapas e Music Bar", "Tv. de Cedofeita 24", "917356644", 5);
-INSERT INTO Restaurant VALUES (NULL, "Pizzeria Bella Mia!", "Rua do Ferraz 22", "934895680", 2);
-INSERT INTO Restaurant VALUES (NULL, "Boulevard Burger House", "Rua de Adolfo Casais Monteiro 17", "226000570", 2);
-INSERT INTO Restaurant VALUES (NULL, "Indian Palace", "Rua Pedro Homem de Melo 244 B", "220155415", 4);
-INSERT INTO Restaurant VALUES (NULL, "Dona Picanha", "Rua do Padre Luís Cabral 1086", "224920292", 4);
-INSERT INTO Restaurant VALUES (NULL, "Nogueira's Porto", "Rua de Ceuta 23", "915181515", 5);
-INSERT INTO Restaurant VALUES (NULL, "Sagardi Porto", "Rua de São João 54", "221130987", 5);
-INSERT INTO Restaurant VALUES (NULL, "Artesão Bistrô", "Rua de Mouzinho da Silveira 218", "913753002", 5);
+INSERT INTO Restaurant VALUES (NULL, "Il Pizzaiolo Clérigos", "Rua de Candido dos Reis", "Porto","222055071", 2);
+INSERT INTO Restaurant VALUES (NULL, "Tokkotai", "Rua do Comércio do Porto", "Porto","913037171", 2);
+INSERT INTO Restaurant VALUES (NULL, "McDonalds", "Estrada da Circunvalação", "Porto","225091784", 4);
+INSERT INTO Restaurant VALUES (NULL, "O Charco", "Rua Nossa Senhora Amparo 143", "Porto","223754618", 5);
+INSERT INTO Restaurant VALUES (NULL, "Temple Rio", "Rua D. Afonso Henriques 745", "Porto","932464670", 5);
+INSERT INTO Restaurant VALUES (NULL, "O Cardeal", "Largo de São Brás 102", "Porto","224801268", 5);
+INSERT INTO Restaurant VALUES (NULL, "Thamel Restaurant", "Rua da Picaria 25", "Porto","221113947", 2);
+INSERT INTO Restaurant VALUES (NULL, "Boteco Mexicano", "Campo dos Mártires da Pátria 38", "Porto","964249974", 4);
+INSERT INTO Restaurant VALUES (NULL, "Beher Porto", "Rua de Sá da Bandeira 589", "Porto","222053048", 4);
+INSERT INTO Restaurant VALUES (NULL, "Salve Simpatia Porto", "Rua da Picaria 89", "Porto","960374589", 4);
+INSERT INTO Restaurant VALUES (NULL, "KOB by Olivier", "Rua Conde de Vizela 149", "Porto","918280080", 5);
+INSERT INTO Restaurant VALUES (NULL, "Portucale", "Rua da Alegria 598", "Porto","225370717", 5);
+INSERT INTO Restaurant VALUES (NULL, "Rua Tapas e Music Bar", "Tv. de Cedofeita 24", "Porto","917356644", 5);
+INSERT INTO Restaurant VALUES (NULL, "Pizzeria Bella Mia!", "Rua do Ferraz 22", "Porto","934895680", 2);
+INSERT INTO Restaurant VALUES (NULL, "Boulevard Burger House", "Rua de Adolfo Casais Monteiro 17", "Porto","226000570", 2);
+INSERT INTO Restaurant VALUES (NULL, "Indian Palace", "Rua Pedro Homem de Melo 244 B", "Porto","220155415", 4);
+INSERT INTO Restaurant VALUES (NULL, "Dona Picanha", "Rua do Padre Luís Cabral 1086", "Porto","224920292", 4);
+INSERT INTO Restaurant VALUES (NULL, "Nogueira's Porto", "Rua de Ceuta 23", "Porto","915181515", 5);
+INSERT INTO Restaurant VALUES (NULL, "Sagardi Porto", "Rua de São João 54", "Porto","221130987", 5);
+INSERT INTO Restaurant VALUES (NULL, "Artesão Bistrô", "Rua de Mouzinho da Silveira 218", "Porto","913753002", 5);
 
 
 --RestaurantCategory
