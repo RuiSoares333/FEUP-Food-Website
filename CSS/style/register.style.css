@@ -7,6 +7,7 @@
     background-color: transparent;
     border-bottom: 3px solid #EBFFF1;
     text-transform: none;
+    width: 70%;
 }
 
 #squareRegister{
@@ -27,13 +28,21 @@
 @media (max-width: 60em) {
     #squareRegister{
         width: 60%;
-        height: 3300%;
+        height: 3700%;
+    }
+
+    #mainDiv{
+        padding-bottom: 50%;
     }
 }
 
 @media (max-width: 30em) {
     #squareRegister{
-        width: 80%;
-        height: 3300%;
+        width: 100%;
+        height: 3700%;
+    }
+
+    form#registerForm{
+        width: 100%;
     }
 }

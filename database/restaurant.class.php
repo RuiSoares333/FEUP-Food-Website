@@ -9,6 +9,7 @@
         public string $name;
         public string $address;
         public array $categories;
+        public string $city;
         public string $phone;
         public int $owner;
         public array $dishCategories;
@@ -17,11 +18,12 @@
         public float $avgRating;
 
 
-        public function __construct(int $id, string $name, string $address, array $categories, string $phone, int $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating = -1) {
+        public function __construct(int $id, string $name, string $address, array $categories, string $city, string $phone, int $owner, array $dishCategories = array(), array $reviews = array(), float $avgPrice = 0, float $avgRating = -1) {
             $this->id = $id;
             $this->name = $name;
             $this->address = $address;
             $this->categories = $categories;
+            $this->city = $city;
             $this->phone = $phone;
             $this->owner = $owner;
             $this->dishCategories = $dishCategories;
@@ -56,6 +58,7 @@
                     $restaurant['name'],
                     $restaurant['address'],
                     $categories_,
+                    $restaurant['city'],
                     $restaurant['phone'],
                     $restaurant['ownerId'],
                     array(), array(),
@@ -97,6 +100,7 @@
                 $restaurant['name'],
                 $restaurant['address'],
                 $categories_,
+                $restaurant['city'],
                 $restaurant['phone'],
                 $restaurant['ownerId'],
                 $categories,
@@ -128,6 +132,7 @@
                 $restaurant['name'],
                 $restaurant['address'],
                 $categories_,
+                $restaurant['city'],
                 $restaurant['phone'],
                 $restaurant['ownerId'],
                 array(), array(),
@@ -254,11 +259,12 @@
                     $restaurant['name'],
                     $restaurant['address'],
                     $categories_,
+                    $restaurant['city'],
                     $restaurant['phone'],
                     $restaurant['ownerId'],
                     array(), array(),
                     $restaurant['price'],
-                    $restaurant['rating'],
+                    $restaurant['rating']
                 );
             }
 

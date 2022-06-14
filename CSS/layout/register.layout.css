@@ -13,46 +13,85 @@
 }
 
 #registerForm{
+    width: 50%;
+    margin-top: 5%;
+}
+
+#registerForm{
     display: grid;
-    grid-template-rows: repeat(7, 3em);
     grid-template-columns: 50% 50%;
     grid-template-areas: 
-    "um um"
+    "username username"
+    "p1 p1"
     "name name"
-    "dois dois"
-    "tres tres"
-    "q q"
-    "c c"
-    "s s"
+    "p2 p2"
+    "email email"
+    "p3 p3"
+    "password password"
+    "p4 p4"
+    "confirm confirm"
+    "p5 p5"
+    "phone phone"
+    "p6 p6"
+    "adr adr"
+    "p7 p7"
     "cc rr"
 }
 
 #registerForm #username{
-    grid-area: um;
+    grid-area: username;
+}
+
+#registerForm :nth-child(2){
+    grid-area: p1;
+}
+
+#registerForm #name{
+    grid-area: name;
+}
+
+#registerForm :nth-child(4){
+    grid-area: p2;
 }
 
 #registerForm #email{
-    grid-area: dois;
+    grid-area: email;
+}
+
+#registerForm :nth-child(6){
+    grid-area: p3;   
 }
 
 #registerForm #password{
-    grid-area: tres;
+    grid-area: password;
+}
+
+#registerForm :nth-child(8){
+    grid-area: p4;
 }
 
 #registerForm #password2{
-    grid-area: q;
+    grid-area: confirm;
+}
+
+#registerForm :nth-child(10){
+    grid-area: p5;
 }
 
 #registerForm #phone{
-    grid-area: c;
+    grid-area: phone;
 }
 
-#registerForm #address{
-    grid-area: s;
+#registerForm :nth-child(12){
+    grid-area: p6;
 }
 
-#registerForm #name {
-    grid-area: name;
+#registerForm #address {
+    grid-area: adr;
+}
+
+#registerForm :nth-child(14){
+    grid-area: p7;
 }
 
 #registerForm #cancel{
@@ -68,10 +107,21 @@
 }
 
 #squareRegister{
-    width: 42.6499706248%;
-    height: 35em;
+    width: 50%;
+    height: 3750%;
 }
 
 .register > *, #registerForm > *{
     margin: auto;
+}
+
+#registerForm :nth-child(2), #registerForm :nth-child(4), #registerForm :nth-child(6), #registerForm :nth-child(8), #registerForm :nth-child(10), #registerForm :nth-child(12), #registerForm :nth-child(14){
+    min-height: 2em;
+    max-height: 4em;
+    color: rgb(159, 28, 28);
+    margin-top: -1%;
+}
+
+.LoginLink{
+    margin-top: 7.5%;
 }

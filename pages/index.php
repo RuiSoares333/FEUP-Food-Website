@@ -36,9 +36,6 @@
         outputSearch($session);
         outputBestRestaurants($restaurants, $favorites, $session);
         ?>
-        <section id = "close">
-            map api
-        </section>
     </div>
     </div>
     <?php
