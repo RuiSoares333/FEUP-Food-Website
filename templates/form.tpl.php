@@ -100,9 +100,10 @@
             <h1>Change Password</h1>
             <form id ="changePassword">
                 <label for="oldPassword">old password:</label>
-                <input type="password" name ="oldPassword" required>
+                <input id="oldPassword" type="password" name ="oldPassword" required>
                 <label for="newPassword">new password:</label>
-                <input type="password" name ="newPassword" required>
+                <input id="newPassword" type="password" name ="newPassword" required>
+                <p></p>
                 <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">Change Password</button>
             </form>  

@@ -29,6 +29,7 @@
         }
         ?>
         <link rel = "stylesheet" href="../CSS/responsive.css">
+        <script src="../javascript/form_validation/change_password.js" defer></script>
         </head>
         <body>
     <?php }
@@ -40,6 +41,7 @@
         }
         ?> 
         <link rel = "stylesheet" href="../CSS/responsive.css">
+        <script src ="../javascript/form_validation/edit_profile.js" defer></script>
         </head>
         <body>
     <?php }

@@ -19,7 +19,7 @@ function attachValidationEvents(){
 function usernameEvent(username){
     username.addEventListener("input", async function () {
         input = username.value;
-        warning = username.nextSibling.nextSibling;
+        warning = username.nextElementSibling;
         if(!/^[\w\s]{0,14}$/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
@@ -45,7 +45,7 @@ function usernameEvent(username){
 function nameEvent(name){
     name.addEventListener("input", function () {
         input = name.value;
-        warning = name.nextSibling.nextSibling;
+        warning = name.nextElementSibling;
         if(!/^[\w\s]{0,14}$/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
@@ -61,7 +61,7 @@ function nameEvent(name){
 function emailEvent(email){
     email.addEventListener("input", async function () {
         input = email.value;
-        warning = email.nextSibling.nextSibling;
+        warning = email.nextElementSibling;
         if(!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.trim())){
             warning.textContent = "email must be of type example@email.com";
         }
@@ -88,7 +88,7 @@ function emailEvent(email){
 function passwordEvent(password){
     password.addEventListener("input", function (){
         input = password.value;
-        warning = password.nextSibling.nextSibling;
+        warning = password.nextElementSibling;
         if(input.trim().length < 9){
             warning.textContent = "password should have at least 9 characters";
         }
@@ -102,7 +102,7 @@ function password2Event(password, password2){
     password2.addEventListener("input", function() {
         input = password.value;
         input2 = password2.value;
-        warning = password2.nextSibling.nextSibling;
+        warning = password2.nextElementSibling;
         if(input.trim() !== input2.trim()){
             warning.textContent = "passwords don't match";
         }
@@ -115,7 +115,7 @@ function password2Event(password, password2){
 function phoneEvent(phone) {
     phone.addEventListener("input", async function() {
         input = phone.value;
-        warning = phone.nextSibling.nextSibling;
+        warning = phone.nextElementSibling;
         if(!/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/.test(input.trim())){
             warning.textContent = "invalid phone number";
         }
@@ -141,7 +141,7 @@ function phoneEvent(phone) {
 function addressEvent(address){
     address.addEventListener("input", function () {
         input = address.value;
-        warning = address.nextSibling.nextSibling;
+        warning = address.nextElementSibling;
         if(!/^[\w\s]{0,14}$/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }

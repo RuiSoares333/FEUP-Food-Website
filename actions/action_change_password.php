@@ -30,6 +30,12 @@
 
     if(strlen(trim($_POST['newPassword'])) < 9){
         $session->addMessage('error', 'New Password too small');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(trim($_POST['newPassword']) === trim($_POST['oldPassword'])){
+        $session->addMessage('error', 'new password can\'t be the same as old password');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $options = ['cost' => 10];
