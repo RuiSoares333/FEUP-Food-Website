@@ -7,6 +7,11 @@
 
     $session = new Session();
 
+    if($_SESSION['crsf'] !== $_POST['crsf']){
+        $session->addMessage('error', 'Ilegitimate request');
+        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    }
+
     if(!$session->isLoggedin()){
         die(header('Location: ../pages/login.php'));
     }

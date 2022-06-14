@@ -74,6 +74,7 @@
                 <input type ="text" name ="address" value ="<?=$costumer->address?>" required>
                 <label for="phone">Phone number:</label>
                 <input type ="text" name ="phone" value ="<?=$costumer->phoneNumber?>" required>
+                <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button formaction="../actions/action_edit_profile.php" id="submit" formmethod="post">Edit</button>
             </form>
         </section>
@@ -91,6 +92,7 @@
                 <input type="password" name ="oldPassword" required>
                 <label for="newPassword">new password:</label>
                 <input type="password" name ="newPassword" required>
+                <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">Change Password</button>
             </form>  
         </section>
@@ -122,6 +124,7 @@
                     </dialog>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone" value ="<?=$restaurant->phone?>" required>
+                    <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                     <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" type ="submit" formmethod="post">Edit</button>
                 </form>
             </section>
@@ -149,6 +152,7 @@
                     <option value="main_course">main course</option>
                     <option value ="dessert">dessert</option>
                 </select>
+                <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button formaction="../actions/action_add_dish.php?id=<?=urlencode($_GET['id'])?>" id ="submit" formmethod="post">Add</button>
             </form>
         </section>
@@ -182,6 +186,7 @@
                     </dialog>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone">
+                    <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                     <button formaction="../actions/action_add_restaurant.php" type="submit" formmethod="post">Add</button>
                 </form>
             </section>
