@@ -13,32 +13,56 @@
 
 /* Mini Preview */
 
-#bestRestaurants input[type=radio] {
-    display: none;
- }
-
-#controls label {
-    cursor:pointer;
-    text-decoration: none;
-    transition: opacity 0.2s ease-out;
-    background-color: rgba(0, 0, 0, 0.300);
-    opacity: .4;
+.controls button {
+    font-size: 200%;
+    background: rgb(0,0,0, 0.6);
+    border: none;
     border-radius: 0.25em;
+    color: var(--fundo-branco);
 }
 
-#controls label:hover {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.200);
-    border-radius: 0.25em;
+.controls button:hover {
+    background: rgb(0,0,0, 0.8);
+    color: #b5ffc4;
 }
 
-#slide1:checked ~ #controls label:nth-child(2),
-#slide2:checked ~ #controls label:nth-child(1){
-    color: #000;
+@media (max-width: 60em) {
+
+    .controls button {
+        font-size: 175%;
+    }
+
+    .controls button.next {
+        right: 10%;
+        top: 42.5%;
+    }
+      
+    .controls button.prev {
+        left: 77.5%;
+        top: 42.5%;
+    }
+
+    .slider section{
+        flex-basis: 5%;
+    }
 }
- 
- #slide1:checked ~ #controls label:nth-last-child(2),
- #slide2:checked ~ #controls label:nth-last-child(2){
-    color: #000;
-    transform: rotate(180deg);
+
+@media (max-width: 30em) {
+    .controls button {
+        font-size: 150%;
+    }
+
+    .controls button.next {
+        right: 10%;
+        top: 40%;
+    }
+      
+    .controls button.prev {
+        left: 72.5%;
+        top: 40%;
+    }
+
+    .slider section{
+        flex-basis: 6.75%;
+    }
 }

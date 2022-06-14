@@ -19,6 +19,10 @@
         width: 60%;
         height: 2000%;
     }
+
+    #mainDiv.login{
+        padding-bottom: 50%;
+    }
 }
 
 @media (max-width: 30em) {

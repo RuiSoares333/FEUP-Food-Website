@@ -88,32 +88,24 @@
 
     function outputBestRestaurants(array $restaurants, array $favorites, Session $session) { ?>
         <section id = "bestRestaurants">
-        <h1>most legit restaurants</h1>    
-        <input type="radio" name="slider" id="slide1" checked>
-        <input type="radio" name="slider" id="slide2">
-        <div id="slides">
-        <div id="overflow">
-        <div class="inner">
-        <?php   
-            $k=1;
-            for($i=0; $i<10; $i+=5){ ?>
-                <div class="slide slide_<?=$k?>">
-                    <div class="slide-content">
-                    <?php for($j=$i; $j<$i+5; $j++){
-                        outputRestaurant($restaurants[$j], array_search($restaurants[$j]->id, $favorites) !== false, $session);
-                    }
-                    ?>
+            <h1>most legit restaurants</h1>
+            <div class="container">
+                <div class="carousel">
+                    <div class="slider">
+                        <?php
+                            for($i=0; $i<10; $i++){
+                                ?><section><?php
+                                    outputRestaurant($restaurants[$i], array_search($restaurants[$i]->id, $favorites) !== false, $session);
+                                ?></section><?php
+                            }
+                        ?>
+                    </div>
+                    <div class="controls">
+                        <button class="prev">➤</button>
+                        <button class="next">➤</button>
                     </div>
                 </div>
-                <?php $k+=1;
-            } ?>
-        </div>
-        </div>
-        </div>
-        <div id="controls">
-            <label for="slide1">➤</label>
-            <label for="slide2">➤</label>
-        </div>    
+            </div>
         </section>
     <?php }
 
