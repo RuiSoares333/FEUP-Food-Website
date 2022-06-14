@@ -25,7 +25,6 @@
 
     $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
 
-
     if(!$address){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location' . $_SERVER['HTTP_REFERER']));
@@ -46,9 +45,9 @@
     }
 
     //regex engloba todos os numeros de telemovel e todos os numeros fixos validos em portugal
-    $phonePattern = '/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/';
+    $phone_pattern = '/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/';
 
-    if(!preg_match($phonePattern, trim($_POST['phone']))){
+    if(!preg_match($phone_pattern, trim($_POST['phone']))){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }

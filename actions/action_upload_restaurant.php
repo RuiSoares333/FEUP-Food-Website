@@ -16,7 +16,14 @@
     
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
+    $id = trim(preg_replace("/[\D]/", '', $id));
+
+    if(!$id){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    $restaurant = Restaurant::getRestaurant($db, intval($id));
 
     if($restaurant->owner !== Costumer::getUserId($db, $session->getId())){
         $session->addMessage('error', 'failed to upload image');

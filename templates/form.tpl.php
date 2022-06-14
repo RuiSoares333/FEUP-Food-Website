@@ -24,8 +24,8 @@
                 <input id="username" type="text" name="username" placeholder="username" required>
                 <input id ="name" type = "text" name = "name" placeholder="Display name" required>
                 <input id="email" type="email" name="email" placeholder="email" required>
-                <input id="password" type="password" name="password" placeholder="password" required>
-                <input id="password2" type="password" name="repeat password" placeholder="repeat password" required>
+                <input id="password" type="password" name="password1" placeholder="password" required>
+                <input id="password2" type="password" name="password2" placeholder="confirm password" required>
                 <input id="phone" type="text" name="phone" placeholder="phone number" required>
                 <input id="address" type="text" name="address" placeholder="address" required>
                 <input type="hidden" name="referer" value="<?=$_SERVER['HTTP_REFERER']?>">

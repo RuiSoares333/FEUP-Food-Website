@@ -6,66 +6,88 @@
 
     require_once(__DIR__ . '/../utils/session.php');
 
-    if(strcmp($_SERVER['REQUEST_METHOD'], 'POST') !== 0){
-        header("Location: /");
-        die;
-    }
-
     $session = new Session();
 
     if($session->isLoggedin()){
         header('Location: ../pages/index.php');
         die;
     }
-    
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    if(Costumer::userExists($db, $_POST['username'])){
-        $session->addMessage('error', 'That username is taken');
+    $username = trim(preg_replace("/[^\w\s]/", '', $_POST['username']));
+
+    if(!$username){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(Costumer::userExistsEmail($db, $_POST['email'])){
-        $session->addMessage('error', 'That email belongs to another account');
+    $name = trim(preg_replace("/[^\s\w]/", '', $_POST['name']));
+
+    if(!$name){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['username']) === ''){
-        $session->addMessage('error', 'Please fill all the mandatory fields');
+    $email_pattern = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
+
+    if(!preg_match($email_pattern, trim($_POST['email']))){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }    
+
+    $password1 = trim($_POST['password1']);
+
+    if(strlen($password1) < 9){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }    
+
+    $password2 = trim($_POST['password2']);
+
+    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
+
+    if(!$address){
+        $session->addMessage('error', 'home address, NOW!');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['name']) === ''){
-        $session->addMessage('error', 'Please fill all the mandatory fields');
+    $phone_pattern = '/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/';
+
+    if(!preg_match($phone_pattern, trim($_POST['phone']))){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
+    }
+
+    if(Costumer::userExists($db, $username)){
+        $session->addMessage('error', 'username taken');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['email']) === ''){
-        $session->addMessage('error', 'Please fill all the mandatory fields');
+    if(Costumer::userExistsEmail($db, trim($_POST['email']))){
+        $session->addMessage('error', 'email taken');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['password']) === ''){
-        $session->addMessage('error', 'Please fill all the mandatory fields');
+    if(Costumer::userExistsPhone($db, trim($_POST['phone']))){
+        $session->addMessage('error', 'phone number taken');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['address']) === ''){
-        $session->addMessage('error', 'Please fill all the mandatory fields');
-        die(header('Location:' . $_SERVER['HTTP_REFERER']));
-    }
-
-    if(trim($_POST['phone']) === ''){
-        $session->addMessage('error', 'Please fill all the mandatory fields');
+    if($password1 !== $password2){
+        $session->addMessage('error', 'passwords don\'t match');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $costumer = new Costumer(
-        trim($_POST['username']), trim($_POST['name']), trim($_POST['email']), trim($_POST['address']), trim($_POST['phone']), false
+        $username,
+        $name, 
+        trim($_POST['email']), 
+        $address, trim($_POST['phone']), 
+        false
     );
 
-    $costumer->register($db, $_POST['password']);
+    $costumer->register($db,$password1);
 
     header('Location: /../pages/login.php');
 ?>

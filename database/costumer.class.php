@@ -139,6 +139,12 @@
             return !!getQueryResults($db, $query, false, array($email));
         }
 
+        static function userExistsPhone(PDO $db, string $phone) : bool{
+            $query = 'SELECT * FROM USER WHERE phone = ?';
+            
+            return !!getQueryResults($db, $query, false, array($phone));
+        }
+
         static function getName(PDO $db, string $username) : string{
             $query = 'SELECT name FROM User WHERE username = ?';
 

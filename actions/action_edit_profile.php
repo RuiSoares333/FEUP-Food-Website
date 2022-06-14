@@ -26,7 +26,7 @@
     $email_pattern = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
 
     if(!preg_match($email_pattern, trim($_POST['email']))){
-        $session->addMessage('error', 'Please enter an email address');
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
