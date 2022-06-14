@@ -6,6 +6,7 @@ function attachValidationEvents(){
     const password2 = document.getElementById("password2");
     const phone = document.getElementById("phone");
     const address = document.getElementById("address");
+    const submit = document.getElementById("continue");
 
     usernameEvent(username);
     nameEvent(name);
@@ -149,6 +150,16 @@ function addressEvent(address){
             warning.textContent = "";
         }
     });
+}
+
+function submitEvent(submit){
+    submit.addEventListener("submit", function(e){
+        form = document.forms["registerForm"];
+        if(form["username"] == ""){
+            alert("username must be filled out");
+            e.preventDefault();
+        }
+    })
 }
 
 attachValidationEvents();

@@ -20,7 +20,7 @@
         <div id="mainDiv" class="register">
             <p id="squareRegister"></p>
             <h1>Register</h1>
-            <form id="registerForm">
+            <form id="registerForm" name = "registerForm">
                 <input id="username" type="text" name="username" maxlength="14" placeholder="username" required>
                 <p></p>
                 <input id ="name" type = "text" name = "name" maxlenght="14" placeholder="Display name" required>
