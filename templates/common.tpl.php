@@ -17,6 +17,7 @@
             <script src="../javascript/filter_header.js" defer></script>
             <script src="../javascript/topButton.js" defer></script>
             <script src="../javascript/dropdown.js" defer></script>
+            <script src="../javascript/carousel.js" defer></script>
     <?php }
 ?>
 

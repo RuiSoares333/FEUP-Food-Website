@@ -11,7 +11,7 @@ function attachDropdownViewClick(){
     }
 
     profilePic.onclick = function(e){
-        if(dropdownContent.style.display === 'none'){
+        if(dropdownContent.style.display === 'none' || dropdownContent.style.display===''){
             showDropdown();
         }
         else{

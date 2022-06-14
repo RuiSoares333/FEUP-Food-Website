@@ -80,11 +80,12 @@
     }
 
     $costumer = new Costumer(
+        1,
         $username,
         $name, 
         trim($_POST['email']), 
         $address, trim($_POST['phone']), 
-        false
+        0
     );
 
     $costumer->register($db,$password1);
