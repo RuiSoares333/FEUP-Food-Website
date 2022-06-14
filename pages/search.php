@@ -5,12 +5,6 @@
     
     $session = new Session();
 
-    $session = new Session();
-
-    if($session->isLoggedin()){
-        $user = Costumer::getCostumer($db, $session->getId());
-    }
-
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
@@ -21,6 +15,10 @@
     require_once(__DIR__ . '/../templates/restaurant.tpl.php');
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
+
+    if($session->isLoggedin()){
+        $user = Costumer::getCostumer($db, $session->getId());
+    }
 
     $restaurants = Restaurant::searchRestaurants($db, $_GET['search'], isset($_GET['order']), $_GET['category'], intval($_GET['rating']));
 

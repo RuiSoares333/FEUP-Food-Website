@@ -25,7 +25,7 @@
         <header>
             <h1><a href="../pages/index.php">Super Legit Food</a></h1>
             <div id = "topnav">
-                <form action = "../pages/search.php?" class = "search">
+                <form action = "../pages/search.php" class = "search">
                     <input class = "search" name = "search" type="text" placeholder="Cuisine, Restaurant name, ...">
                     <button type="button" id="filter"><img src="../assets/symbols/filter-solid.svg" for="" alt="filter"></button>
                     <dialog id="filterDialog">
