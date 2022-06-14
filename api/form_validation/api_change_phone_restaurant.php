@@ -10,9 +10,9 @@
 
     $db = getDBConnection(__DIR__ . '/../../database/data.db');
 
-    $query = 'SELECT username FROM User WHERE phone = ?';
+    $query = 'SELECT id FROM Restaurant WHERE phone = ?';
 
-    $username = getQueryResults($db, $query, false, array(trim($_POST['phone'])));
+    $restaurant = getQueryResults($db, $query, false, array(trim($_POST['phone'])));
 
-    echo json_encode($username ? $username['username'] !== $session->getId() : false);
+    echo json_encode($restaurant ? $restaurant !== trim($_POST['id']) : false);
 ?>

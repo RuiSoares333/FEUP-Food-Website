@@ -19,7 +19,7 @@ CREATE TABLE Restaurant (
     id INTEGER,
     name VARCHAR,
     address VARCHAR,
-    phone VARCHAR(9),
+    phone VARCHAR(9) unique,
     ownerId INTEGER,
     CONSTRAINT PK_Restaurant PRIMARY KEY (id),
     FOREIGN KEY (ownerId) REFERENCES User(id)

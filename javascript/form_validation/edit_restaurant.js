@@ -1,56 +1,27 @@
 function attachValidationEvents(){
-    const name = document.getElementById("name");
-    const email = document.getElementById("email");
+    const name = document.getElementById("name");;
     const phone = document.getElementById("phone");
     const address = document.getElementById("address");
 
     nameEvent(name);
-    emailEvent(email);
     phoneEvent(phone);
     addressEvent(address);
-}
+}   
 
 function nameEvent(name){
     name.addEventListener("input", function () {
         input = name.value;
         warning = name.nextElementSibling;
-        if(!/^[\w\s]*$/.test(input.trim())){
+        if(!/^[\w\s]{0,50}$/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
-        else if(input.trim().length > 14){
-            warning.textContent = "name can't have more than 14 characters";
+        else if(input.trim().length > 50){
+            warning.textContent = "name can't have more than 50 characters";
         }
         else {
             warning.textContent = "";
         }
     })
-}
-
-function emailEvent(email){
-    email.addEventListener("input", async function () {
-        input = email.value;
-        warning = email.nextElementSibling;
-        if(!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.trim())){
-            warning.textContent = "email must be of type example@email.com";
-        }
-        else {
-            const data = new FormData();
-            data.append("email" ,input.trim());
-
-            const response = await fetch("../api/form_validation/api_change_email.php", {
-                method: "POST",
-                body: data,
-            });
-
-            if(await response.json()){
-                warning.textContent = "email is taken";
-            }
-            else{
-                warning.textContent = "";
-            }
-
-        }
-    });
 }
 
 function phoneEvent(phone) {
@@ -63,8 +34,9 @@ function phoneEvent(phone) {
         else {
             const data = new FormData();
             data.append("phone" ,input.trim());
+            data.append("id", parseInt(escapeHtml(new URLSearchParams(document.location.search).get("id")), 10));
 
-            const response = await fetch("../api/form_validation/api_change_phone.php", {
+            const response = await fetch("../api/form_validation/api_change_phone_restaurant.php", {
                 method: "POST",
                 body: data,
             });    
@@ -83,7 +55,7 @@ function addressEvent(address){
     address.addEventListener("input", function () {
         input = address.value;
         warning = address.nextElementSibling;
-        if(/[\W\S\.]/.test(input.trim())){
+        if(!/^[\w\s]*$/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
         else {
@@ -93,3 +65,18 @@ function addressEvent(address){
 }
 
 attachValidationEvents();
+
+const entityMap = {
+    "&" : "&amp;",
+    "<" : "&lt;",
+    ">" : "&gt;",
+    '"' : "&quot;",
+    "'" : "&#39;",
+    "/" : "&#x2F;"
+  };
+  
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
+}

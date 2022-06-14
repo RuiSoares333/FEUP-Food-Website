@@ -4,7 +4,7 @@ function attachOrderEvent() {
     button.addEventListener('click', async function () {
         const rows = document.querySelectorAll('#cart table tbody > tr');
         if(rows.length > 0) {
-            const restaurant = parseInt(new URLSearchParams(document.location.search).get("id"), 10);
+            const restaurant = parseInt(escapeHtml(new URLSearchParams(document.location.search).get("id")), 10);
 
             const data = new FormData();
             data.append("restaurant", restaurant);
@@ -28,6 +28,21 @@ function attachOrderEvent() {
             
         }
     })
+}
+
+const entityMap = {
+    "&" : "&amp;",
+    "<" : "&lt;",
+    ">" : "&gt;",
+    '"' : "&quot;",
+    "'" : "&#39;",
+    "/" : "&#x2F;"
+  };
+  
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
 }
 
 attachOrderEvent();

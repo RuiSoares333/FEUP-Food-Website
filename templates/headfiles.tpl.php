@@ -17,6 +17,7 @@
         }?> 
         <link rel = "stylesheet" href="../CSS/responsive.css">
         <script src="../javascript/categories.js" defer></script>
+        <script src="../javascript/form_validation/add_restaurant.js" defer></script>
         </head>
         <body>
         <?php
@@ -54,6 +55,7 @@
         ?> 
             <link rel = "stylesheet" href="../CSS/responsive.css">
             <script src="../javascript/categories.js" defer></script> 
+            <script src="../javascript/form_validation/edit_restaurant.js" defer></script>
             </head>
             <body>
         <?php
