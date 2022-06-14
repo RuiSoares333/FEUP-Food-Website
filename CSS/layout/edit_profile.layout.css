@@ -75,14 +75,16 @@ form#edit_profile :nth-child(14){
     width: 30%;
 }
 
-form#edit_profile#edit_profile > *:not(p){
+form > *:not(p){
     min-height: 2em;
     max-height: 4em;
 }
 
-form#edit_profile > p{
+form > p{
     min-height: 2em;
     max-height: 4em;
+    color: rgb(159, 28, 28);
+    margin-top: -1%;
 }
 
 
@@ -92,6 +94,7 @@ form#edit_profile :nth-child(1), form#edit_profile :nth-child(4), form#edit_prof
 
 form#edit_profile :nth-child(2), form#edit_profile :nth-child(5), form#edit_profile :nth-child(8), form#edit_profile :nth-child(11){
     width: 90%;
+    margin-top: -2.5%;
 }
 
 
