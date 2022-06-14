@@ -14,7 +14,7 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $costumer = Costumer::getCostumerWithPassword($db, trim($_POST['username']), trim($_POST['password']));
+    $costumer = Costumer::login($db, trim($_POST['username']), trim($_POST['password']));
 
     if($costumer){
         if($costumer->isOwner()){

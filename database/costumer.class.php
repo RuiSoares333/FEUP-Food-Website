@@ -24,12 +24,12 @@
             $this->is_owner = $owner === 1;
         }
 
-        static function getCostumerWithPassword(PDO $db, string $username, string $password) : ?Costumer {
+        static function login(PDO $db, string $username, string $password) : ?Costumer {
             $query = 'SELECT password FROM User WHERE username = ?';
 
             $password_ = getQueryResults($db, $query, false, array(strtolower($username)))['password'];
 
-            if(password_verify($password, $password_)){
+            if($password_ && password_verify($password, $password_)){
                 $query = 'SELECT username, name, email, address, phone, owner, id FROM User WHERE username = ?';
                 $costumer = getQueryResults($db, $query, false, array(strtolower($username)));
                 return new Costumer(
