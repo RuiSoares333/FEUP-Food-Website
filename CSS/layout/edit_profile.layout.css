@@ -10,6 +10,7 @@ section#edit_profile{
 form#edit_profile{
     display: grid;
     width: 55%;
+    text-align: right;
     grid-template-columns: 30% 70%;
     grid-template-areas: 
     "nL name"
