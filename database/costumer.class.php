@@ -133,7 +133,7 @@
         }
 
 
-        static function userExists(PDO $db, string $id) : bool{
+        static function userExistsUsername(PDO $db, string $id) : bool{
             $query = 'SELECT name FROM User WHERE username = ?';
 
             return !!getQueryResults($db, $query, false, array(strtolower($id)));

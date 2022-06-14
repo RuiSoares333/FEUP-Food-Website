@@ -115,6 +115,7 @@
         }
         ?>
         </head>
+        <script src="../javascript/form_validation/register.js" defer></script>  
         <link rel = "stylesheet" href="../CSS/responsive.css">
         <body> 
     <?php }

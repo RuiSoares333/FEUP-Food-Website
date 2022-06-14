@@ -59,7 +59,7 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
 
-    if(Costumer::userExists($db, $username)){
+    if(Costumer::userExistsUsername($db, $username)){
         $session->addMessage('error', 'username taken');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }

@@ -21,13 +21,20 @@
             <p id="squareRegister"></p>
             <h1>Register</h1>
             <form id="registerForm">
-                <input id="username" type="text" name="username" placeholder="username" required>
-                <input id ="name" type = "text" name = "name" placeholder="Display name" required>
-                <input id="email" type="email" name="email" placeholder="email" required>
+                <input id="username" type="text" name="username" maxlength="14" placeholder="username" required>
+                <p></p>
+                <input id ="name" type = "text" name = "name" maxlenght="14" placeholder="Display name" required>
+                <p></p>
+                <input id="email" type="email" name="email" maxlength="256" placeholder="email" required>
+                <p></p>
                 <input id="password" type="password" name="password1" placeholder="password" required>
+                <p></p>
                 <input id="password2" type="password" name="password2" placeholder="confirm password" required>
-                <input id="phone" type="text" name="phone" placeholder="phone number" required>
+                <p></p>
+                <input id="phone" type="text" name="phone" maxlength ="9" placeholder="phone number" required>
+                <p></p>
                 <input id="address" type="text" name="address" placeholder="address" required>
+                <p></p>
                 <input type="hidden" name="referer" value="<?=$_SERVER['HTTP_REFERER']?>">
                 <button id="continue" formaction="../actions/action_register.php" formmethod="post">Register</button>
                 <button id="cancel" formaction="../pages/index.php">Cancel</button>
