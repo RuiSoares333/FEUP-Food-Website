@@ -23,7 +23,7 @@
     $costumer = Costumer::getCostumer($db, $session->getId());
 
 
-    if(!$costumer->checkOldPassword($db, sha1(trim($_POST['oldPassword'])))){
+    if(!$costumer->checkOldPassword($db, $_POST['oldPassword'])){
         $session->addMessage('error', 'Old password doesn\'t match');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
@@ -32,7 +32,9 @@
         $session->addMessage('error', 'New Password too small');
     }
 
-    $costumer->updatePassword($db, sha1(trim($_POST['newPassword'])));
+    $options = ['cost' => 10];
+
+    $costumer->updatePassword($db, password_hash(trim($_POST['newPassword']), PASSWORD_BCRYPT, $options));
 
     include(__DIR__ . '/../actions/action_logout.php');
     header('Location: ../pages/login.php');

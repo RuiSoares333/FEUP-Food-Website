@@ -114,11 +114,11 @@ CREATE TABLE FavoriteRestaurant (
 PRAGMA foreign_keys = ON;
 
 --User
-INSERT INTO User VALUES (NULL, "maria20", "maria", "maria20@gmail.com", "7c4a8d09ca3762af61e59520943dc26494f8941b", "Rua das Flores", "962156489", false); --123456
-INSERT INTO User VALUES (NULL, "ricardo32", "ricardo", "ricardo32@gmail.com", "5347c8d36f07b8c333b2c40272d3269b38ed810a", "Rua Dr. António José Almeida", "956320145", true); --6543210
-INSERT INTO User VALUES (NULL, "miguel_012", "miguel", "miguel012@gmail.com", "fb4369d81f91586ce212bf0ef9c6186efb37919e", "Rua Nova do Crasto", "93201523", false); --5864102
-INSERT INTO User VALUES (NULL, "joana26", "joana", "joana26@gmail.com", "1401dad399850fedbcbc78380934b126f708a618", "Rua Santa Luzia", "96254123", true); --hfg41
-INSERT INTO User VALUES (NULL, "1mafalda3", "mafalda", "mafalda13@gmail.com", "62458713c0b5c07c221d3e85e1300d6a781d83ce", "Avenida 5 de Outubro", "91520236", true); --mfhg4
+INSERT INTO User VALUES (NULL, "maria20", "maria", "maria20@gmail.com", "$2y$10$VcHZmDeVLgA68RF0sG9/5.eJGjW9LoBhOesQ1qdJKI06FzygZNAia", "Rua das Flores", "962156489", false); --123456
+INSERT INTO User VALUES (NULL, "ricardo32", "ricardo", "ricardo32@gmail.com", "$2y$10$9BNa1sHmFqQ3FyCauIwVBeMOpvB1yxAIgCwLBEZRjbY3FC0Y//ahC", "Rua Dr. António José Almeida", "956320145", true); --6543210
+INSERT INTO User VALUES (NULL, "miguel_012", "miguel", "miguel012@gmail.com", "$2y$10$KBUzlo8RhUiXbdfyPldToeDUkv2tKHoBjUT2yAsxkIUZ57oFmMVhi", "Rua Nova do Crasto", "93201523", false); --5864102
+INSERT INTO User VALUES (NULL, "joana26", "joana", "joana26@gmail.com", "$2y$10$YgG5MAcExiGly5WKZKXqH.NztfzPAgETDxg93QGzNhXt.NgC5TrNi", "Rua Santa Luzia", "96254123", true); --hfg41
+INSERT INTO User VALUES (NULL, "1mafalda3", "mafalda", "mafalda13@gmail.com", "$2y$10$qdEFUXyVB2Ad9d5DvF7gXuSuig.mr2QJ23UPUD.emognZumqYKGJ6", "Avenida 5 de Outubro", "91520236", true); --mfhg4
 
 --Category
 INSERT INTO Category VALUES ("portuguese");
