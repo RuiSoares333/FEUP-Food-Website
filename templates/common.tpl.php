@@ -184,10 +184,10 @@
         <input type="checkbox" id="responsiveSidebar"> 
         <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_restaurant">
-            <a href = "../pages/edit_restaurant.php?id=<?=$_GET['id']?>">Edit Restaurant</a>
-            <a href = "../pages/manage_dishes.php?id=<?=$_GET['id']?>">Manage Dishes</a>
-            <a href = "../pages/add_dish.php?id=<?=$_GET['id']?>">Add Dishes</a>
-            <a href = "../pages/restaurant.php?id=<?=$_GET['id']?>">Back to Restaurant</a>
+            <a href = "../pages/edit_restaurant.php?id=<?=urlencode($_GET['id'])?>">Edit Restaurant</a>
+            <a href = "../pages/manage_dishes.php?id=<?=urlencode($_GET['id'])?>">Manage Dishes</a>
+            <a href = "../pages/add_dish.php?id=<?=urlencode($_GET['id'])?>">Add Dishes</a>
+            <a href = "../pages/restaurant.php?id=<?=urlencode($_GET['id'])?>">Back to Restaurant</a>
         </nav>
     <?php } 
 ?> 

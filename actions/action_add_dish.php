@@ -41,9 +41,9 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    $category = trim(preg_replace("/[^a-zA-Z\s]/", '', $_POST['category']));
+    $categories = array("appetizer", "drink", "soup", "main_course", "dessert");
 
-    if(!$category){
+    if(!array_search($_POST['category'], $categories)){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
@@ -52,10 +52,10 @@
         1,
         $name,
         intval($price),
-        $restaurantId
+        intval($restaurantId)
     );
 
-    $dish->add($db, $category);
+    $dish->add($db, $_POST['category']);
 
     $session->addMessage('success', 'DISH ADDED');
 

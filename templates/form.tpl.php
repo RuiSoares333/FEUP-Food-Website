@@ -54,7 +54,7 @@
                 <p><b>Comment</b>(optional)</p>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
                 <input type="hidden" name="date" class ="date">
-                <button id = "submit" formaction="../actions/action_add_review.php?id=<?=$_GET["id"]?>" formmethod="post">Submit</button>  
+                <button id = "submit" formaction="../actions/action_add_review.php?id=<?=urlencode($_GET["id"])?>" formmethod="post">Submit</button>  
             </form>    
         </section>
     <?php }
@@ -146,10 +146,10 @@
                     <option value ="appetizer">appetizer</option>
                     <option value="drink">drink</option>
                     <option value="soup">soup</option>
-                    <option value="main course">main course</option>
+                    <option value="main_course">main course</option>
                     <option value ="dessert">dessert</option>
                 </select>
-                <button formaction="../actions/action_add_dish.php?id=<?=$_GET['id']?>" id ="submit" formmethod="post">Add</button>
+                <button formaction="../actions/action_add_dish.php?id=<?=urlencode($_GET['id'])?>" id ="submit" formmethod="post">Add</button>
             </form>
         </section>
     </div>
