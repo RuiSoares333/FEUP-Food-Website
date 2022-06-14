@@ -8,6 +8,10 @@
     font-weight: bold;
 }
 
+form#newRestaurant{
+    width: 55%;
+}
+
 form > button{
     background-color: #EBFFF1;
     color: rgba(60,129,78,1);

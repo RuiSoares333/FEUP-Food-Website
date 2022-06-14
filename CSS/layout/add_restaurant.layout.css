@@ -3,65 +3,108 @@ section#newRestaurant{
     grid-template-rows: 1em 3em 20em 2em;
 }
 
-#newRestaurant > *{
+section#newRestaurant *{
     margin: auto;
 }
 
 #squareEdit{
     width: 55%;
-    height: 25em;
+    height: 3000%;
 }
 
-.newRestaurant form{
+form#newRestaurant{
     display: grid;
-    grid-template-rows: repeat(5, 3em);
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 30% 70%;
     grid-template-areas: 
     "nL name"
+    "p1 p1"
     "aL adrss"
+    "p2 p2"
+    "cL city"
+    "p3 p3"
     "pL phone"
+    "p4 p4"
     "cat cat"
     "add add"
 }
 
-.newRestaurant form > :nth-child(1) {
+form#newRestaurant > :nth-child(1) {
     grid-area: nL;
-    margin-right: 5%;
-    margin-left: auto;
 }
 
-.newRestaurant form > :nth-child(2){
+form#newRestaurant > :nth-child(2){
     grid-area: name;
 }
 
-.newRestaurant form > :nth-child(3){
-    grid-area: aL;
-    margin-right: 5%;
-    margin-left: auto;
+form#newRestaurant > :nth-child(3){
+    grid-area: p1;
 }
 
-.newRestaurant form > :nth-child(4){
+form#newRestaurant > :nth-child(4) {
+    grid-area: aL;
+}
+
+form#newRestaurant > :nth-child(5){
     grid-area: adrss;
 }
 
-.newRestaurant form > :nth-child(7){
-    grid-area: pL;
-    margin-right: 5%;
-    margin-left: auto;
+form#newRestaurant > :nth-child(6){
+    grid-area: p2;
 }
 
-.newRestaurant form > :nth-child(8){
+form#newRestaurant > :nth-child(7) {
+    grid-area: cL;
+}
+
+form#newRestaurant > :nth-child(8){
+    grid-area: city;
+}
+
+form#newRestaurant > :nth-child(9){
+    grid-area: p3;
+}
+
+form#newRestaurant > :nth-child(12) {
+    grid-area: pL;
+}
+
+form#newRestaurant > :nth-child(13){
     grid-area: phone;
 }
 
-.newRestaurant form > :nth-child(5){
-    grid-area: cat;
-    margin-top: 10%;
+form#newRestaurant > :nth-child(14){
+    grid-area: p4;
 }
 
-.newRestaurant form > :nth-child(9){
+form#newRestaurant > :nth-child(10){
+    grid-area: cat;
+    margin: 2.5% auto;
+}
+
+form#newRestaurant > :nth-child(16){
     grid-area: add;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+
+form#newRestaurant > *:not(p){
+    min-height: 2em;
+    max-height: 4em;
+}
+
+form#newRestaurant > p{
+    min-height: 2em;
+    max-height: 4em;
+    color: rgb(159, 28, 28);
+    margin-top: -1%;
+}
+
+form#newRestaurant > :nth-child(1), form#newRestaurant > :nth-child(4), form#newRestaurant > :nth-child(7), form#newRestaurant > :nth-child(12){
+    margin-right: 5%;
+}
+
+form#newRestaurant > :nth-child(2), form#newRestaurant > :nth-child(5), form#newRestaurant > :nth-child(8), form#newRestaurant > :nth-child(13){
+    width: 90%;
+    margin-top: -2.5%;
 }
 
 /* Dialog */
@@ -92,6 +135,7 @@ section#newRestaurant{
     width: 25%;
     margin-left: 35%;
 }
+
 
 @media (max-width: 60em) {
     #squareEdit{
