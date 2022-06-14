@@ -20,8 +20,8 @@ function usernameEvent(username){
     username.addEventListener("input", async function () {
         input = username.value;
         warning = username.nextElementSibling;
-        if(/[<>\"')(;\/#&]/.test(input.trim())){
-            warning.textContent = "non-alphanumeric characters aren't allowed";
+        if(/[<>"')(;\/#&]/.test(input.trim())){
+            warning.textContent = "invalid characters detected";
         }
         else if(input.trim().length > 14){
             warning.textContent = "username can't have more than 14 characters";
@@ -49,8 +49,8 @@ function nameEvent(name){
     name.addEventListener("input", function () {
         input = name.value;
         warning = name.nextElementSibling;
-        if(/[<>\"')(;\/#&]/.test(input.trim())){
-            warning.textContent = "non-alphanumeric characters aren't allowed";
+        if(/[<>"')(;\/#&]/.test(input.trim())){
+            warning.textContent = "invalid characters detected";
         }
         else if(input.trim().length > 14){
             warning.textContent = "name can't have more than 14 characters";
@@ -145,8 +145,8 @@ function addressEvent(address){
     address.addEventListener("input", function () {
         input = address.value;
         warning = address.nextElementSibling;
-        if(/[<>\"')(;\/#&]/.test(input.trim())){
-            warning.textContent = "non-alphanumeric characters aren't allowed";
+        if(/[<>"')(;\/#&]/.test(input.trim())){
+            warning.textContent = "invalid characters detected";
         }
         else {
             warning.textContent = "";
@@ -155,3 +155,83 @@ function addressEvent(address){
 }
 
 attachValidationEvents();
+
+
+function validateForm(){
+    const form = document.forms["registerForm"];
+
+    const username = form["username"].value.trim();
+    const name = form["name"].value.trim();
+    const email = form["email"].value.trim();
+    const password = form["password"].value.trim();
+    const password2 = form["password2"].value.trim();
+    const phone = form["phone"].value.trim();
+    const address = form["address"].value.trim();
+
+    if(username === ""){
+        alert("Please enter a username");
+        return false;
+    }
+    if(username === ""){
+        alert("Please enter a name");
+        return false;
+    }
+    if(email === ""){
+        alert("Please enter an email");
+        return false;
+    }
+    if(password === ""){
+        alert("Please enter a password");
+        return false;
+    }
+    if(password2 === ""){
+        alert("Please confirm your password");
+        return false;
+    }
+    if(phone === ""){
+        alert("Please enter a phone number");
+        return false;
+    }
+    if(address === ""){
+        alert("Please enter an address");
+        return false;
+    }
+    if(/[<>"')(;\/#&]/.test(username)){
+        alert("invalid characters detected in username");
+        return false
+    }
+    if(username.length > 14){
+        alert("username is too long (maximum 14 characters)");
+        return false;
+    }
+    if(/[<>"')(;\/#&]/.test(name)){
+        alert("invalid characters detected in name");
+        return false;
+    }
+    if(name.length > 14){
+        alert("name is too long (maximum 14 characters)");
+        return false;
+    }
+    if(!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
+        alert("email should be of type example@email.com");
+        return false;
+    }
+    if(password.length < 9){
+        alert("password is too short (should have at least 9 characters");
+        return false;
+    }
+    if(password != password2){
+        alert("passwords don't match");
+        return false;
+    }
+    if(!/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/.test(phone)){
+        alert("please input a valid phone number");
+        return false;
+    }
+    if(/[<>"')(;\/#&]/.test(address)){
+        alert("invalid characters detected in address");
+        return false;
+    }
+
+    return true;
+}

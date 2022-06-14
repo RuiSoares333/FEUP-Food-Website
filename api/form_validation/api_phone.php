@@ -10,5 +10,5 @@
 
     $db = getDBConnection(__DIR__ . '/../../database/data.db');    
 
-    echo json_encode(Costumer::userExistsPhone($_POST['phone']));
+    echo json_encode(Costumer::userExistsPhone($db, $_POST['phone']));
 ?>

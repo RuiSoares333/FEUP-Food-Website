@@ -3,6 +3,8 @@
 
     require_once(__DIR__ . '/../utils/session.php');
 
+    $session = new Session();
+
     if($session->isLoggedin()){
         $user = Costumer::getCostumer($db, $session->getId());
     }
