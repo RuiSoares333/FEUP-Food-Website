@@ -1,9 +1,6 @@
 <?php
     declare(strict_types = 1);
 
-    require_once(__DIR__ . '/../database/connection.php');
-    require_once(__DIR__ . '/../database/costumer.class.php');
-
     require_once(__DIR__ . '/../utils/session.php');
 
     $session = new Session();
@@ -13,16 +10,19 @@
         die;
     }
 
+    require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $username = trim(preg_replace("/[^\w\s]/", '', $_POST['username']));
+    $username = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['username']));
 
     if(!$username){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    $name = trim(preg_replace("/[^\s\w]/", '', $_POST['name']));
+    $name = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['name']));
 
     if(!$name){
         $session->addMessage('error', 'FAILED OPERATION');
@@ -45,7 +45,7 @@
 
     $password2 = trim($_POST['password2']);
 
-    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
+    $address = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['address']));
 
     if(!$address){
         $session->addMessage('error', 'home address, NOW!');
@@ -59,7 +59,7 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
 
-    if(Costumer::userExists($db, $username)){
+    if(Costumer::userExistsUsername($db, $username)){
         $session->addMessage('error', 'username taken');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }

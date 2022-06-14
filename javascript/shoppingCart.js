@@ -36,7 +36,7 @@ function addRow(id, name, price, quantity) {
   quantityCell.appendChild(quantity);
 
   const priceCell = document.createElement('td');
-  priceCell.textContent = parseInt(price, 10) * quantity.value;
+  priceCell.textContent = parseInt(price, 10) * escapeHtml(quantity.value);
 
   const deleteCell = document.createElement('td');
   deleteCell.classList.add('delete');
@@ -51,7 +51,7 @@ function addRow(id, name, price, quantity) {
     if(quantity.value <= 0)
       e.currentTarget.parentElement.parentElement.remove();
     else
-      priceCell.textContent = parseInt(price, 10) * quantity.value;
+      priceCell.textContent = parseInt(price, 10) * escapeHtml(quantity.value);
     updateTotal();
   });
 

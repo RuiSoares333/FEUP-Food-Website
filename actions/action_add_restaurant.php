@@ -2,8 +2,6 @@
     declare(strict_types = 1);
 
     require_once(__DIR__ . '/../utils/session.php');
-    require_once(__DIR__ . '/../database/connection.php');
-    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     $session = new Session();
 
@@ -16,19 +14,22 @@
         die(header('Location: ../pages/login.php'));
     }
 
+    require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     require_once(__DIR__ . '/../database/restaurant.class.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
-    $name = trim(preg_replace("/[^\w\s]/", '', $_POST['name']));
+    $name = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['name']));
 
     if(!$name){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location' . $_SERVER['HTTP_REFERER']));
     }
 
-    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
+    $address = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['address']));
 
     if(!$address){
         $session->addMessage('error', 'FAILED OPERATION');

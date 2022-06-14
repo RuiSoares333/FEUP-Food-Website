@@ -1,9 +1,6 @@
 <?php
     declare(strict_types = 1);
 
-    require_once(__DIR__ . '/../database/connection.php');
-    require_once(__DIR__ . '/../database/costumer.class.php');
-
     require_once(__DIR__ . '/../utils/session.php');
 
     $session = new Session();
@@ -18,6 +15,9 @@
         die;
     }
 
+    require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
+
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
     $costumer = Costumer::getCostumer($db, $session->getId());
@@ -30,6 +30,12 @@
 
     if(strlen(trim($_POST['newPassword'])) < 9){
         $session->addMessage('error', 'New Password too small');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(trim($_POST['newPassword']) === trim($_POST['oldPassword'])){
+        $session->addMessage('error', 'new password can\'t be the same as old password');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $options = ['cost' => 10];

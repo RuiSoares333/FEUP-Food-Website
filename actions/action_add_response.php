@@ -14,7 +14,7 @@
     require_once(__DIR__ . '/../database/costumer.class.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
-    $response = trim(preg_replace("/[^\w\s.,]/", '', $_POST['response']));
+    $response = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['response']));
 
     if(!$response){
         $session->addMessage('error', 'FAILED OPERATION');
