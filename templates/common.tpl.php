@@ -109,7 +109,7 @@
             <ul>
                 <?php
                     foreach($categories as $category){
-                        ?> <li><a href= "../pages/index.php"><?=$category?></a></li> <?php
+                        ?> <li><a href= "../pages/search.php?search=&rating=-1&category=<?=$category?>"><?=$category?></a></li> <?php
                     }
                 ?>
             </ul>
