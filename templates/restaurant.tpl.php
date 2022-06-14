@@ -9,7 +9,8 @@
         <article class="miniPreview" data-id = <?= $restaurant->id?>>
         <a href = "../pages/restaurant.php?id=<?=$restaurant->id?>"><img src="<?=$image?>"></a>
         <div class="categories">
-        <?php foreach($restaurant->categories as $category){
+        <?php 
+                foreach($restaurant->categories as $category){
                 ?> <p><?=$category?></p> <?php
         } ?>
         </div>
@@ -100,9 +101,6 @@
                     <div class="slide-content">
                     <?php for($j=$i; $j<$i+5; $j++){
                         outputRestaurant($restaurants[$j], array_search($restaurants[$j]->id, $favorites) !== false, $session);
-                        if($j===5){
-                            $j+=5;
-                        }
                     }
                     ?>
                     </div>
@@ -144,7 +142,9 @@
             ?> <p><?=$category?> </p> <?php
         } ?>
         </section>
-        <p><?=$restaurant->address?></p><?php
+        <p><?=$restaurant->address?></p>
+        <p><?=$restaurant->phone?></p>
+        <?php
 
         if($restaurant->avgRating === -1.0){
             ?> <p>no rating</p> <?php
@@ -159,6 +159,9 @@
 
     function outputRestaurantSideMenu(array $categories){ 
         ?>
+        <div>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class = "restaurant">
             <ul>
             <?php
@@ -172,11 +175,18 @@
 
     function outputSearchResults(array $restaurants, array $favorites, Session $session){ ?>
         <div id = "mainDiv" class = "search">
-            <div id="listRestaurants">
-            <?php foreach($restaurants as $restaurant){
-                outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
-            } ?> 
-            </div>
+            <?php 
+                if($restaurants){
+                    echo '<div id="listRestaurants">';
+                    foreach($restaurants as $restaurant){
+                        outputRestaurant($restaurant, array_search($restaurant->id, $favorites) !== false, $session);
+                    }
+                    echo '</div>';
+                } else {
+                    echo '<h1>No Restaurants Were Found</h1>';
+                }
+                 ?> 
+        </div>
         </div>
     <?php }
 

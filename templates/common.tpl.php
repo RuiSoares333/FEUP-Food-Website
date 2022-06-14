@@ -13,10 +13,10 @@
             <link rel = "stylesheet" href="../CSS/layout.css">
             <link rel = "stylesheet" href="../CSS/forms.css">
             <link rel = "stylesheet" href="../CSS/images.css">
-            <link rel = "stylesheet" href="../CSS/responsive.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <script src="../javascript/filter_header.js" defer></script>
             <script src="../javascript/topButton.js" defer></script>
+            <script src="../javascript/dropdown.js" defer></script>
     <?php }
 ?>
 
@@ -79,8 +79,6 @@
             </section>
         </header>
         <button onclick="topFunction()" id="topButton" title="Go to top"></button>
-        <input type="checkbox" id="responsiveSidebar"> 
-        <label class="responsiveSidebar" for="responsiveSidebar"></label>
     <?php }
 ?>
 
@@ -100,6 +98,9 @@
 
 <?php
     function outputSideMenu(array $categories) {?>
+        <div>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id="side-menu" class="index">
             <a href="../pages/index.php#bestRestaurants">Most Legit Restaurants</a>
             <a href="#close">Close to You</a>
@@ -165,6 +166,9 @@
 
 <?php
     function outputEditProfileSideMenu(){ ?>
+        <div>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_profile">
             <a href = "../pages/edit_profile.php">Edit Profile</a>
             <a href = "../pages/change_password.php">Change Password</a>
@@ -176,6 +180,9 @@
 
 <?php 
     function outputEditRestaurantSideMenu(){ ?>
+        <div>
+        <input type="checkbox" id="responsiveSidebar"> 
+        <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_restaurant">
             <a href = "../pages/edit_restaurant.php?id=<?=$_GET['id']?>">Edit Restaurant</a>
             <a href = "../pages/manage_dishes.php?id=<?=$_GET['id']?>">Manage Dishes</a>
@@ -187,6 +194,8 @@
 
 <?php
     function outputShoppingCart(){ ?>
+        <input type="checkbox" id="responsiveCart"> 
+        <label class="responsiveCart" for="responsiveCart"></label>
         <aside id ="cart">
             <table>
                 <thead>

@@ -1,0 +1,55 @@
+#ongoingOrders{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+}
+
+#ongoingOrders > article{
+    display: grid;
+    grid-template-columns: repeat(3, 30%) 10%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    ". . . ."
+    "dL dL dL dL";
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    padding: 2%;
+    border-radius: 0.5em;
+    margin: 1% 0;
+}
+
+
+#ongoingOrders > article > div:nth-child(4) > div{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: center;
+}
+
+
+#completeOrders{
+    display: flex;
+    flex-direction: column;
+}
+
+#completeOrders > article{
+    display: grid;
+    grid-template-columns: repeat(3, 30%) 10%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    ". . . ."
+    "dL dL dL dL";
+    background: linear-gradient(180deg, rgba(60,129,78,1) 0%, rgba(53,181,87,1) 100%);
+    padding: 2%;
+    border-radius: 0.5em;
+    margin: 1% 0;
+}
+
+
+#completeOrders > article > a:nth-child(5){
+    margin: auto;
+}
+
+#completeOrders > article > div:nth-child(4) > div{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: center;
+}

@@ -24,7 +24,25 @@
     content:'\2199';
 }
 
+#mainDiv h1{
+    border: 2px solid #00000088;
+    background-color: var(--fundo-cinza);
+    border-radius: 1em;
+    padding: 10% ;
+    text-align: center;
+}
+
+
 #side-menu *{
     font-size: 100%;
 }
 
+@media (max-width: 60em) {
+    #listRestaurants{
+        margin-bottom: 70%;
+    }
+
+    #mainDiv h1{
+        margin-bottom: 100%;
+    }
+}

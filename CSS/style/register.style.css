@@ -23,3 +23,17 @@
 .LoginLink > h5{
     text-decoration: underline;
 }
+
+@media (max-width: 60em) {
+    #squareRegister{
+        width: 60%;
+        height: 3300%;
+    }
+}
+
+@media (max-width: 30em) {
+    #squareRegister{
+        width: 80%;
+        height: 3300%;
+    }
+}
