@@ -3,6 +3,7 @@
         private array $messages;
 
         public function __construct(){
+            session_set_cookie_params(0, '/', 'www.fe.up.pt', true, true);
             session_start();
             $this->messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
             unset($_SESSION['messages']);
