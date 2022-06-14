@@ -27,7 +27,7 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    $review = trim(preg_replace("/[^\w\s.,]/", '', $_POST['review']));
+    $review = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['review']));
 
     $review = new Review(
         1,

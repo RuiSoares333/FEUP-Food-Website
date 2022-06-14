@@ -161,7 +161,7 @@
         function save(PDO $db){
             $query = 'UPDATE User SET name = ?, email = ?, address = ?, phone = ? WHERE username = ?';
 
-            executeQuery($db, $query, array($this->name, tolower($this->email), $this->address, $this->phoneNumber, $this->username));
+            executeQuery($db, $query, array($this->name, strtolower($this->email), $this->address, $this->phoneNumber, $this->username));
         }
 
         function updatePassword(PDO $db, string $newPassword){

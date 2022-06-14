@@ -12,7 +12,7 @@ function nameEvent(name){
     name.addEventListener("input", function () {
         input = name.value;
         warning = name.nextElementSibling;
-        if(!/^[\w\s]{0,50}$/.test(input.trim())){
+        if(/[<>\"')(;\/#&]/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
         else if(input.trim().length > 50){
@@ -32,6 +32,8 @@ function phoneEvent(phone) {
             warning.textContent = "invalid phone number";
         }
         else {
+
+            console.log(escapeHtml(new URLSearchParams(document.location.search).get("id")));
             const data = new FormData();
             data.append("phone" ,input.trim());
             data.append("id", parseInt(escapeHtml(new URLSearchParams(document.location.search).get("id")), 10));
@@ -55,7 +57,7 @@ function addressEvent(address){
     address.addEventListener("input", function () {
         input = address.value;
         warning = address.nextElementSibling;
-        if(!/^[\w\s]*$/.test(input.trim())){
+        if(/[<>\"')(;\/#&]/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
         else {

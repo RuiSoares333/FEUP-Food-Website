@@ -12,7 +12,7 @@ function nameEvent(name){
     name.addEventListener("input", function () {
         input = name.value;
         warning = name.nextElementSibling;
-        if(!/^[\w\s]*$/.test(input.trim())){
+        if(/[<>\"')(;\/#&]/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
         else if(input.trim().length > 50){
@@ -54,7 +54,7 @@ function addressEvent(address){
     address.addEventListener("input", function () {
         input = address.value;
         warning = address.nextElementSibling;
-        if(!/^[\w\s]*$/.test(input.trim())){
+        if(/[<>\"')(;\/#&]/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
         else {

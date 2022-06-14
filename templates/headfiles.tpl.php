@@ -6,6 +6,7 @@
         }
         ?>
             <link rel = "stylesheet" href="../CSS/responsive.css">
+            <script src="../javascript/form_validation/add_dish.js" defer></script>
             </head>
             <body> 
     <?php }
@@ -81,6 +82,7 @@
         ?>
         <link rel = "stylesheet" href="../CSS/responsive.css"> 
         <script src="../javascript/favorite_restaurant.js" defer></script>
+        <script src="../javascript/carousel.js" defer></script>
     </head>
     <body>
         <?php

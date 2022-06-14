@@ -32,7 +32,7 @@
     if($restaurant->owner !== Costumer::getUserId($db, $session->getId()))
         die(header('Location: /'));
 
-    $name = trim(preg_replace("/[^\w()]/", '', $_POST['name']));
+    $name = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['name']));
 
     if(!$name){
         $session->addMessage('error', 'FAILED OPERATION');

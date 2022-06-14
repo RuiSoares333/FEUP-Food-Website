@@ -33,14 +33,14 @@
         die(header('Location: /'));
     }
 
-    $name = trim(preg_replace("/[^\w\s]/", '', $_POST['name']));
+    $name = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['name']));
 
     if(!$name){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location' . $_SERVER['HTTP_REFERER']));
     }
 
-    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
+    $address = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['address']));
 
     if(!$address){
         $session->addMessage('error', 'FAILED OPERATION');

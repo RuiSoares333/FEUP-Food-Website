@@ -15,14 +15,14 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $username = trim(preg_replace("/[^\w\s]/", '', $_POST['username']));
+    $username = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['username']));
 
     if(!$username){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    $name = trim(preg_replace("/[^\s\w]/", '', $_POST['name']));
+    $name = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['name']));
 
     if(!$name){
         $session->addMessage('error', 'FAILED OPERATION');
@@ -45,7 +45,7 @@
 
     $password2 = trim($_POST['password2']);
 
-    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
+    $address = trim(preg_replace("/[<>\"')(;\/#&]/", '', $_POST['address']));
 
     if(!$address){
         $session->addMessage('error', 'home address, NOW!');

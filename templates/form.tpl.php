@@ -159,8 +159,7 @@
                 <input id="name" type="text" name="name" required>
                 <p></p>
                 <label for="price">Price:</label>
-                <input id="price" type ="text" name ="price" required>
-                <p></p>
+                <input id="dishPrice" type ="number" name ="price" required>
                 <label for="category">Category:</label>
                 <select id="category" name="category" required>
                     <option disabled selected value>--choose a category--</option>

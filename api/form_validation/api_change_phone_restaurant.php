@@ -14,5 +14,5 @@
 
     $restaurant = getQueryResults($db, $query, false, array(trim($_POST['phone'])));
 
-    echo json_encode($restaurant ? $restaurant !== trim($_POST['id']) : false);
+    echo json_encode($restaurant ? $restaurant['id'] !== intval(trim($_POST['id'])) : false);
 ?>

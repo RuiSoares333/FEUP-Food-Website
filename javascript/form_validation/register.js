@@ -20,8 +20,11 @@ function usernameEvent(username){
     username.addEventListener("input", async function () {
         input = username.value;
         warning = username.nextElementSibling;
-        if(!/^[\w\s]{0,14}$/.test(input.trim())){
+        if(/[<>\"')(;\/#&]/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
+        }
+        else if(input.trim().length > 14){
+            warning.textContent = "username can't have more than 14 characters";
         }
         else{
             const data = new FormData();
@@ -46,7 +49,7 @@ function nameEvent(name){
     name.addEventListener("input", function () {
         input = name.value;
         warning = name.nextElementSibling;
-        if(!/^[\w\s]{0,14}$/.test(input.trim())){
+        if(/[<>\"')(;\/#&]/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
         else if(input.trim().length > 14){
@@ -142,7 +145,7 @@ function addressEvent(address){
     address.addEventListener("input", function () {
         input = address.value;
         warning = address.nextElementSibling;
-        if(!/^[\w\s]{0,14}$/.test(input.trim())){
+        if(/[<>\"')(;\/#&]/.test(input.trim())){
             warning.textContent = "non-alphanumeric characters aren't allowed";
         }
         else {
