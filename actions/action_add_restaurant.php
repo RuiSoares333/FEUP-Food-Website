@@ -3,11 +3,17 @@
 
     require_once(__DIR__ . '/../utils/session.php');
     require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     $session = new Session();
 
+    if($_SESSION['crsf'] !== $_POST['crsf']){
+        $session->addMessage('error', 'Ilegitimate request');
+        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    }
+
     if(!$session->isLoggedin()){
-        die(header('Location: pages/login.php'));
+        die(header('Location: ../pages/login.php'));
     }
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
@@ -15,29 +21,40 @@
     require_once(__DIR__ . '/../database/restaurant.class.php');
     require_once(__DIR__ . '/../database/costumer.class.php');
 
-    if(trim($_POST['name']) == ''){
-        $session->addMessage('error', 'please fill all mandatory fields with the intended information');
+    $name = trim(preg_replace("/[^\w\s]/", '', $_POST['name']));
+
+    if(!$name){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location' . $_SERVER['HTTP_REFERER']));
     }
 
+    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
 
-    if(trim($_POST['address']) == ''){
-        $session->addMessage('error', 'please fill all mandatory fields with the intended information');
+    if(!$address){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location' . $_SERVER['HTTP_REFERER']));
     }
 
+    if(!$_POST['categories']){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    $categories = Restaurant::getAllCategories($db);
 
     foreach($_POST['categories'] as $category){
-        if(trim($category) === ''){
-            session->addMessage('error', 'your restaurant needs at least one category');
+        if(!array_search($category, $categories)){
+            $session->addMessage('error', 'FAILED OPERATION');
             die(header('Location:' . $_SERVER['HTTP_REFERER']));
         }
     }
 
+    //regex engloba todos os numeros de telemovel e todos os numeros fixos validos em portugal
+    $phone_pattern = '/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/';
 
-    if(trim($_POST['phone']) == ''){
-        $session->addMessage('error', 'please fill all mandatory fields with the intended information');
-        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    if(!preg_match($phone_pattern, trim($_POST['phone']))){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
 
     $costumer = Costumer::getCostumer($db, $session->getId());
@@ -45,8 +62,8 @@
    
     $restaurant = new Restaurant(
         1,
-        trim($_POST['name']),
-        trim($_POST['address']),
+        $name,
+        $address,
         $_POST['categories'],
         trim($_POST['phone']),
         $costumer->id
@@ -54,9 +71,7 @@
     
     $restaurant->add($db);
 
-    $session->addMessage('Success', 'Restaurant added successfully!');
-
-
+    $session->addMessage('Success', 'Restaurant added');
 
     if(!$costumer->isOwner()){
         $costumer->becomeOwner($db);

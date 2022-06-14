@@ -8,6 +8,11 @@
 
     $session = new Session();
 
+    if($_SESSION['crsf'] !== $_POST['crsf']){
+        $session->addMessage('error', 'Ilegitimate request');
+        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    }
+
     if(!$session->isLoggedin()){
         header('Location: ../pages/index.php');
         die;
@@ -18,16 +23,18 @@
     $costumer = Costumer::getCostumer($db, $session->getId());
 
 
-    if(!$costumer->checkOldPassword($db, sha1($_POST['oldPassword']))){
-        header('Location:' . $_SERVER['HTTP_REFERER']);
-        die;
+    if(!$costumer->checkOldPassword($db, $_POST['oldPassword'])){
+        $session->addMessage('error', 'Old password doesn\'t match');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['newPassword']) === ''){
-        $session->addMessage('error', 'New Password must not be empty');
+    if(strlen(trim($_POST['newPassword'])) < 9){
+        $session->addMessage('error', 'New Password too small');
     }
 
-    $costumer->updatePassword($db, sha1(trim($_POST['newPassword'])));
+    $options = ['cost' => 10];
+
+    $costumer->updatePassword($db, password_hash(trim($_POST['newPassword']), PASSWORD_BCRYPT, $options));
 
     include(__DIR__ . '/../actions/action_logout.php');
     header('Location: ../pages/login.php');

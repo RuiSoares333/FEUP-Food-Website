@@ -14,27 +14,51 @@
     require_once(__DIR__ . '/../database/costumer.class.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
 
-    if(trim($_POST['response']) === ''){
-        $session->addMessage('error', 'couldn\'t submit response');
+    $response = trim(preg_replace("/[^\w\s.,]/", '', $_POST['response']));
+
+    if(!$response){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $user = Costumer::getCostumer($db, $_GET['user']);
+    $user = Costumer::getCostumer($db, $session->getId());
 
-    $restaurant = Restaurant::getRestaurant($db, intval($_GET['restaurant']));
+    $restaurantId = trim(preg_replace("/[\D]/", '', $_POST['restaurant']));
+
+    if(!$restaurantId){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
+    }
+
+    $restaurant = Restaurant::getRestaurant($db, intval($restaurantId));
 
     if($restaurant->owner !== $user->id){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    $reviewId = trim(preg_replace("/[\D]/", '', $_POST['review']));
+
+    if(!$reviewId){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
+    }
+
+    $date = trim(preg_replace("/[\D]/", '', $_POST['date']));
+
+    if(!$date){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
 
     $response = new Response(
         1,
-        intval($_GET['review']),
+        intval($reviewId),
         $user->name,
-        intval($_POST['date']),
-        $_POST['response']
+        intval($date),
+        $response
     );
 
     $response->add($db, $user->id);

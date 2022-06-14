@@ -9,49 +9,73 @@
 
     $session = new Session();
 
+    if($_SESSION['crsf'] !== $_POST['crsf']){
+        $session->addMessage('error', 'Ilegitimate request');
+        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    }
+
     if(!$session->isLoggedin()){
         die(header('Location: /'));
     }
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
-    
-    $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
 
-    if($restaurant->owner !== Costumer::getUserId($session->getId())){
+    $id = trim(preg_replace("/[\D]/", '', $_GET['id']));
+
+    if(!$id){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+    
+    $restaurant = Restaurant::getRestaurant($db, intval($id));
+
+    if($restaurant->owner !== Costumer::getUserId($db, $session->getId())){
         die(header('Location: /'));
     }
 
-    if(trim($_POST['name']) === ''){
-        $session->addMessage('error', 'restaurant needs a name');
+    $name = trim(preg_replace("/[^\w\s]/", '', $_POST['name']));
+
+    if(!$name){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    }
+
+    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
+
+    if(!$address){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    }
+
+    if(!$_POST['categories']){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['address']) === ''){
-        $session->addMessage('error', 'where is your restaurant located?');
-        die(header('Location:' . $_SERVER['HTTP_REFERER']));
-    }
-
+    $categories = Restaurant::getAllCategories($db);
 
     foreach($_POST['categories'] as $category){
-        if(trim($category) === ''){
-            session->addMessage('error', 'your restaurant needs at least one category');
+        if(!array_search($category, $categories)){
+            $session->addMessage('error', 'FAILED OPERATION');
             die(header('Location:' . $_SERVER['HTTP_REFERER']));
         }
     }
 
-    if(trim($_POST['phone']) === ''){
-        $session->addMessage('error', 'what\' your restaurant\s phone number?');
-        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    $phone_pattern = '/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/';
+
+    if(!preg_match($phone_pattern, trim($_POST['phone']))){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
 
-    $restaurant->name = trim($_POST['name']);
-    $restaurant->address = trim($_POST['address']);
+    $restaurant->name = $name;
+    $restaurant->address = $address;
     $restaurant->categories = $_POST['categories'];
     $restaurant->phone = trim($_POST['phone']);
 
     $restaurant->save($db);
 
-    $session->addMessage('success', 'Your restaurant has been updated!');
+    $session->addMessage('success', 'restaurant updated!');
 
     header('Location: ../pages/restaurant.php?id=' . $restaurant->id);
 ?>

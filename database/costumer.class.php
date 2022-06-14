@@ -24,10 +24,14 @@
             $this->is_owner = $owner === 1;
         }
 
-        static function getCostumerWithPassword(PDO $db, string $email, string $password) : ?Costumer {
-            $query = 'SELECT username, name, email, address, phone, owner, id FROM User WHERE username = ? AND password = ?';
+        static function getCostumerWithPassword(PDO $db, string $username, string $password) : ?Costumer {
+            $query = 'SELECT password FROM User WHERE username = ?';
 
-            if($costumer = getQueryResults($db, $query, false, array(strtolower($email), sha1($password)))){
+            $password_ = getQueryResults($db, $query, false, array(strtolower($username)))['password'];
+
+            if(password_verify($password, $password_)){
+                $query = 'SELECT username, name, email, address, phone, owner, id FROM User WHERE username = ?';
+                $costumer = getQueryResults($db, $query, false, array(strtolower($username)));
                 return new Costumer(
                     $costumer['id'],
                     $costumer['username'],
@@ -123,20 +127,28 @@
         function register(PDO $db, string $password){
             $query = 'INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?, ?, false)';
 
-            return executeQuery($db, $query, array($this->username, $this->name, $this->email, sha1($password), $this->address, $this->phoneNumber));
+            $options = ['cost' => 10];
+
+            return executeQuery($db, $query, array(strtolower($this->username), $this->name, strtolower($this->email), password_hash($password, PASSWORD_BCRYPT, $options), $this->address, $this->phoneNumber));
         }
 
 
         static function userExists(PDO $db, string $id) : bool{
             $query = 'SELECT name FROM User WHERE username = ?';
 
-            return !!getQueryResults($db, $query, false, array($id));
+            return !!getQueryResults($db, $query, false, array(strtolower($id)));
         }
 
         static function userExistsEmail(PDO $db, string $email) : bool {
             $query = 'SELECT * FROM User WHERE email = ?';
 
-            return !!getQueryResults($db, $query, false, array($email));
+            return !!getQueryResults($db, $query, false, array(strtolower($email)));
+        }
+
+        static function userExistsPhone(PDO $db, string $phone) : bool{
+            $query = 'SELECT * FROM USER WHERE phone = ?';
+            
+            return !!getQueryResults($db, $query, false, array($phone));
         }
 
         static function getName(PDO $db, string $username) : string{
@@ -149,7 +161,7 @@
         function save(PDO $db){
             $query = 'UPDATE User SET name = ?, email = ?, address = ?, phone = ? WHERE username = ?';
 
-            executeQuery($db, $query, array($this->name, $this->email, $this->address, $this->phoneNumber, $this->username));
+            executeQuery($db, $query, array($this->name, tolower($this->email), $this->address, $this->phoneNumber, $this->username));
         }
 
         function updatePassword(PDO $db, string $newPassword){
@@ -164,7 +176,7 @@
             $password = getQueryResults($db, $query, false, array($this->username))['password'];
 
             
-            return $password === $oldPassword;
+            return password_verify($oldPassword, $password);
         }
 
         function noLongerOwner(PDO $db){

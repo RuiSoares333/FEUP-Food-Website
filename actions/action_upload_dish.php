@@ -17,8 +17,14 @@
     
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
+    $id = trim(preg_replace("/[\D]/", '', $_GET['id']));
 
-    $dish = Dish::getDish($db, intval($_GET['id']));
+    if(!$id){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
+    $dish = Dish::getDish($db, intval($id));
     $restaurant = Restaurant::getRestaurant($db, $dish->restaurantId);
 
     if($restaurant->owner !== Costumer::getUserId($db, $session->getId()))

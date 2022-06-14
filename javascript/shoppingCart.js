@@ -8,11 +8,11 @@ function attachBuyEvents() {
       }
 
       if(!starButton.contains(e.target)){
-      const id = this.dataset.id;
+      const id = escapeHtml(this.dataset.id);
       const row = document.querySelector(`#cart table tr[data-id="${id}"]`);
 
-      const name = this.querySelector('p:nth-child(2)').textContent;
-      const price = this.querySelector('p:nth-child(3)').textContent;
+      const name = escapeHtml(this.querySelector('p:nth-child(2)').textContent);
+      const price = escapeHtml(this.querySelector('p:nth-child(3)').textContent);
       const quantity = document.createElement('input');
       quantity.type = 'number';
       quantity.value = 1;
@@ -68,6 +68,21 @@ function updateTotal() {
   const values = [...rows].map(r => parseInt(r.querySelector('td:nth-child(3)').textContent, 10));
   const total = values.reduce((t, v) => t + v, 0);
   document.querySelector('#cart table tfoot th:last-child').textContent = total;
+}
+
+const entityMap = {
+  "&" : "&amp;",
+  "<" : "&lt;",
+  ">" : "&gt;",
+  '"' : "&quot;",
+  "'" : "&#39;",
+  "/" : "&#x2F;"
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'\/]/g, function (s) {
+    return entityMap[s];
+  });
 }
 
 attachBuyEvents();

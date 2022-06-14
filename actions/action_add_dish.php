@@ -4,46 +4,65 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/dish.class.php');
     require_once(__DIR__ . '/../database/restaurant.class.php');
+    require_once(__DIR__ . '/../database/costumer.class.php');
 
     require_once(__DIR__ . '/../utils/session.php');
 
     $session = new Session();
+
+    if($_SESSION['crsf'] !== $_POST['crsf']){
+        $session->addMessage('error', 'Ilegitimate request');
+        die(header('Location' . $_SERVER['HTTP_REFERER']));
+    }
 
     if(!$session->isLoggedin())
         die(header('Location: /'));
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $restaurant = Restaurant::getRestaurant($db, intval($_GET['id']));
+    $restaurantId = trim(preg_replace("/[\D]/", '', $_GET['id']));
 
-    if($restaurant->owner !== $session->getId())
+    if(!$restaurantId){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
+    }
+
+    $restaurant = Restaurant::getRestaurant($db, intval($restaurantId));
+
+    if($restaurant->owner !== Costumer::getUserId($db, $session->getId()))
         die(header('Location: /'));
 
-    if(trim($_POST['name']) === ''){
-        $session->addMessage('error', 'Dish name cannot be empty');
+    $name = trim(preg_replace("/[^\w()]/", '', $_POST['name']));
+
+    if(!$name){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['price']) === ''){
-        $session->addMessage('error', 'Dish needs to have a price');
+    $price = trim(preg_replace("/[\D]/", '', $_POST['price']));
+
+    if(!$price){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['category']) === ''){
-        $session->addMessage('error', 'Dish needs a category');
+    $categories = array("appetizer", "drink", "soup", "main_course", "dessert");
+
+    if(!array_search($_POST['category'], $categories)){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $dish = new Dish(
         1,
-        trim($_POST['name']),
-        intval($_POST['price']),
-        intval($_GET['id'])
+        $name,
+        intval($price),
+        intval($restaurantId)
     );
 
-    $dish->add($db, trim($_POST['category']));
+    $dish->add($db, $_POST['category']);
 
-    $session->addMessage('success', 'Dish created successfully!');
+    $session->addMessage('success', 'DISH ADDED');
 
     header('Location:' . $_SERVER['HTTP_REFERER']);
 ?>

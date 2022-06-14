@@ -43,7 +43,7 @@
                             <option selected value= "">Any</option>
                             <?php
                                 foreach($categories as $category){
-                                    ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                                    ?> <option value = "<?=$category?>"><?=$category?></option> <?php
                                 }
                             ?>
                         </select>
@@ -109,7 +109,7 @@
             <ul>
                 <?php
                     foreach($categories as $category){
-                        ?> <li><a href= "../pages/index.php"><?=$category['name']?></a></li> <?php
+                        ?> <li><a href= "../pages/index.php"><?=$category?></a></li> <?php
                     }
                 ?>
             </ul>
@@ -173,6 +173,7 @@
             <a href = "../pages/edit_profile.php">Edit Profile</a>
             <a href = "../pages/change_password.php">Change Password</a>
             <a href = "../pages/add_restaurant.php">Add Your Restaurant</a>
+            <a href = "../pages/profile.php">back to Profile</a>
         </nav>
    <?php }
 ?>
@@ -183,9 +184,10 @@
         <input type="checkbox" id="responsiveSidebar"> 
         <label class="responsiveSidebar" for="responsiveSidebar"></label>
         <nav id = "side-menu" class="edit_restaurant">
-            <a href = "../pages/edit_restaurant.php?id=<?=$_GET['id']?>">Edit Restaurant</a>
-            <a href = "../pages/manage_dishes.php?id=<?=$_GET['id']?>">Manage Dishes</a>
-            <a href = "../pages/add_dish.php?id=<?=$_GET['id']?>">Add Dishes</a>
+            <a href = "../pages/edit_restaurant.php?id=<?=urlencode($_GET['id'])?>">Edit Restaurant</a>
+            <a href = "../pages/manage_dishes.php?id=<?=urlencode($_GET['id'])?>">Manage Dishes</a>
+            <a href = "../pages/add_dish.php?id=<?=urlencode($_GET['id'])?>">Add Dishes</a>
+            <a href = "../pages/restaurant.php?id=<?=urlencode($_GET['id'])?>">Back to Restaurant</a>
         </nav>
     <?php } 
 ?> 

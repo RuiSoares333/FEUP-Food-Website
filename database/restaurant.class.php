@@ -199,6 +199,10 @@
             $query = 'DELETE FROM RestaurantCategory WHERE restaurant = ?';
 
             executeQuery($db, $query, array($this->id));
+
+            $query = 'DELETE FROM Ord WHERE restaurantId = ?';
+
+            executeQuery($db, $query, array($this->id));
         }
 
         function add(PDO $db){
@@ -264,7 +268,15 @@
 
         static function getAllCategories(PDO $db) : array {
             $query = 'SELECT name FROM Category';
-            return getQueryResults($db, $query, true);
+            $categories = getQueryResults($db, $query, true);
+
+            $categories_ = array();
+
+            foreach($categories as $category){
+                $categories_[] = $category['name'];
+            }
+
+            return $categories_;
         }
     }
 ?>

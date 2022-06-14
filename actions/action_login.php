@@ -14,7 +14,7 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    $costumer = Costumer::getCostumerWithPassword($db, $_POST['username'], $_POST['password']);
+    $costumer = Costumer::getCostumerWithPassword($db, trim($_POST['username']), trim($_POST['password']));
 
     if($costumer){
         if($costumer->isOwner()){
@@ -22,10 +22,10 @@
         }
         $session->setId($costumer->username);
         $session->setName($costumer->name);
-        $session->addMessage('success', 'Login successful!');
+        $session->addMessage('success', 'Login successful');
     }
     else{
-        $session->addMessage('error', 'Wrong password!');
+        $session->addMessage('error', 'FAILED OPERATION');
         header('Location:' . $_SERVER['HTTP_REFERER']);
         die;
     }

@@ -74,6 +74,10 @@
             $query = 'DELETE FROM FavoriteDish WHERE dishId = ?';
 
             executeQuery($db, $query, array($this->id));
+
+            $query = 'DELETE FROM OrderDish WHERE dishId = ?';
+
+            executeQuery($db, $query, array($this->id));
         }
 
         function add(PDO $db, string $category){

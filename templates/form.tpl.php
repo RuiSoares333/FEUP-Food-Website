@@ -24,8 +24,8 @@
                 <input id="username" type="text" name="username" placeholder="username" required>
                 <input id ="name" type = "text" name = "name" placeholder="Display name" required>
                 <input id="email" type="email" name="email" placeholder="email" required>
-                <input id="password" type="password" name="password" placeholder="password" required>
-                <input id="password2" type="password" name="repeat password" placeholder="repeat password" required>
+                <input id="password" type="password" name="password1" placeholder="password" required>
+                <input id="password2" type="password" name="password2" placeholder="confirm password" required>
                 <input id="phone" type="text" name="phone" placeholder="phone number" required>
                 <input id="address" type="text" name="address" placeholder="address" required>
                 <input type="hidden" name="referer" value="<?=$_SERVER['HTTP_REFERER']?>">
@@ -54,7 +54,7 @@
                 <p><b>Comment</b>(optional)</p>
                 <textarea id = "review" name ="review" rows="4" cols="50" placeholder ="describe your experience!!"></textarea>
                 <input type="hidden" name="date" class ="date">
-                <button id = "submit" formaction="../actions/action_add_review.php?id=<?=$_GET["id"]?>" formmethod="post">Submit</button>  
+                <button id = "submit" formaction="../actions/action_add_review.php?id=<?=urlencode($_GET["id"])?>" formmethod="post">Submit</button>  
             </form>    
         </section>
     <?php }
@@ -74,6 +74,7 @@
                 <input type ="text" name ="address" value ="<?=$costumer->address?>" required>
                 <label for="phone">Phone number:</label>
                 <input type ="text" name ="phone" value ="<?=$costumer->phoneNumber?>" required>
+                <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button formaction="../actions/action_edit_profile.php" id="submit" formmethod="post">Edit</button>
             </form>
         </section>
@@ -91,6 +92,7 @@
                 <input type="password" name ="oldPassword" required>
                 <label for="newPassword">new password:</label>
                 <input type="password" name ="newPassword" required>
+                <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                 <button formaction="../actions/action_change_password.php" id="submit" formmethod="post">Change Password</button>
             </form>  
         </section>
@@ -114,7 +116,7 @@
                         <div id="listCategories">
                         <ul>
                         <?php foreach($categories as $category) {
-                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>" <?php if(array_search($category['name'],$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category['name'])?></input></li><?php
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category?>" <?php if(array_search($category,$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category)?></input></li><?php
                         } ?>
                         </ul>
                         </div>
@@ -122,6 +124,7 @@
                     </dialog>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone" value ="<?=$restaurant->phone?>" required>
+                    <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                     <button formaction="../actions/action_edit_restaurant.php?id=<?=$restaurant->id?>" type ="submit" formmethod="post">Edit</button>
                 </form>
             </section>
@@ -146,10 +149,11 @@
                     <option value ="appetizer">appetizer</option>
                     <option value="drink">drink</option>
                     <option value="soup">soup</option>
-                    <option value="main course">main course</option>
+                    <option value="main_course">main course</option>
                     <option value ="dessert">dessert</option>
                 </select>
-                <button formaction="../actions/action_add_dish.php?id=<?=$_GET['id']?>" id ="submit" formmethod="post">Add</button>
+                <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
+                <button formaction="../actions/action_add_dish.php?id=<?=urlencode($_GET['id'])?>" id ="submit" formmethod="post">Add</button>
             </form>
         </section>
     </div>
@@ -174,7 +178,7 @@
                         <div id="listCategories">
                         <ul>
                         <?php foreach($categories as $category) {
-                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>"><?=str_replace('_', ' ', $category['name'])?></input></li><?php
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category?>"><?=str_replace('_', ' ', $category)?></input></li><?php
                         } ?>
                         </ul>
                         </div>
@@ -182,6 +186,7 @@
                     </dialog>
                     <label for="phone">Phone:</label>
                     <input type ="text" name ="phone">
+                    <input type ="hidden" name = "csrf" value ="<?=$_SESSION['csrf']?>">
                     <button formaction="../actions/action_add_restaurant.php" type="submit" formmethod="post">Add</button>
                 </form>
             </section>
@@ -211,7 +216,7 @@
                         <option selected value = "">Any</option>
                         <?php
                             foreach($categories as $category){
-                                ?> <option value = "<?=$category['name']?>"><?=str_replace('_', ' ',$category['name'])?></option> <?php
+                                ?> <option value = "<?=$category?>"><?=str_replace('_', ' ',$category)?></option> <?php
                             }
                         ?>
                     </select>
