@@ -44,7 +44,7 @@ form > button:hover{
 
 #squareEdit{
     width: 55%;
-    height: 25em;
+    height: 2500%;
 }
 
 @media (max-width: 60em) {

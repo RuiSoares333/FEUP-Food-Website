@@ -98,6 +98,15 @@ form#editRestaurant > p{
     margin-top: -1%;
 }
 
+form#editRestaurant > :nth-child(1), form#editRestaurant > :nth-child(4), form#editRestaurant > :nth-child(7), form#editRestaurant > :nth-child(12){
+    margin-right: 5%;
+}
+
+form#editRestaurant > :nth-child(2), form#editRestaurant > :nth-child(5), form#editRestaurant > :nth-child(8), form#editRestaurant > :nth-child(13){
+    width: 90%;
+    margin-top: -2.5%;
+}
+
 /* Dialog */
 
 #myDialog{
