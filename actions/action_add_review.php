@@ -22,6 +22,11 @@
 
     $date = trim(preg_replace("/[\D]/", '', $_POST['date']));
 
+    if(!$date){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));
+    }
+
     $review = trim(preg_replace("/[^\w\s.,]/", '', $_POST['review']));
 
     $review = new Review(
@@ -29,7 +34,7 @@
         $session->getId(),
         intval(trim($_POST['rating'])),
         intval($date),
-        $review !== '' ? $review : null,
+        $review ? $review : null,
         null
     );
 

@@ -17,6 +17,11 @@
 
     $id = trim(preg_replace("/[\D]/", '', $_GET['id']));
 
+    if(!$id){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location: ' . $_SERVER['HTTP_REFERER']));
+    }
+
     $dish = Dish::getDish($db, intval($id));
 
     $restaurant = Restaurant::getRestaurant($db, $dish->restaurantId);

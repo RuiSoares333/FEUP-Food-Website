@@ -110,7 +110,7 @@
                         <div id="listCategories">
                         <ul>
                         <?php foreach($categories as $category) {
-                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>" <?php if(array_search($category['name'],$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category['name'])?></input></li><?php
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category?>" <?php if(array_search($category,$restaurant->categories, true) !== false) echo 'checked'; ?>><?=str_replace('_', ' ', $category)?></input></li><?php
                         } ?>
                         </ul>
                         </div>
@@ -167,7 +167,7 @@
                         <div id="listCategories">
                         <ul>
                         <?php foreach($categories as $category) {
-                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category['name']?>"><?=str_replace('_', ' ', $category['name'])?></input></li><?php
+                            ?><li><input type = "checkbox" name = "categories[]" value="<?=$category?>"><?=str_replace('_', ' ', $category)?></input></li><?php
                         } ?>
                         </ul>
                         </div>
@@ -200,7 +200,7 @@
                         <option selected value = "">Any</option>
                         <?php
                             foreach($categories as $category){
-                                ?> <option value = "<?=$category['name']?>"><?=str_replace('_', ' ',$category['name'])?></option> <?php
+                                ?> <option value = "<?=$category?>"><?=str_replace('_', ' ',$category)?></option> <?php
                             }
                         ?>
                     </select>

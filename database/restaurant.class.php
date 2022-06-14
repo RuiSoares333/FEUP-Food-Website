@@ -268,7 +268,15 @@
 
         static function getAllCategories(PDO $db) : array {
             $query = 'SELECT name FROM Category';
-            return getQueryResults($db, $query, true);
+            $categories = getQueryResults($db, $query, true);
+
+            $categories_ = array();
+
+            foreach($categories as $category){
+                $categories_[] = $category['name'];
+            }
+
+            return $categories_;
         }
     }
 ?>

@@ -3,6 +3,7 @@
 
     require_once(__DIR__ . '/../utils/session.php');
     require_once(__DIR__ . '/../database/connection.php');
+    require_once(__DIR__ . '/../database/restaurant.class.php');
 
     $session = new Session();
 
@@ -17,15 +18,15 @@
 
     $name = trim(preg_replace("/[^\w\s]/", '', $_POST['name']));
 
-    if($name == ''){
+    if(!$name){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location' . $_SERVER['HTTP_REFERER']));
     }
 
-    $address = trim(preg_replace("/[^\w\s.,\-]/", '', $_POST['address']));
+    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
 
 
-    if($address == ''){
+    if(!$address){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location' . $_SERVER['HTTP_REFERER']));
     }
@@ -35,16 +36,16 @@
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    foreach($_POST['categories'] as &$category){
-        $category = trim(preg_replace("/[^\w\s]/", '', $category));
+    $categories = Restaurant::getAllCategories($db);
 
-        if($category === ''){
+    foreach($_POST['categories'] as $category){
+        if(!array_search($category, $categories)){
             $session->addMessage('error', 'FAILED OPERATION');
             die(header('Location:' . $_SERVER['HTTP_REFERER']));
         }
     }
 
-    //regex engloba todos os numeros de telemovel e todos os numeros fixos validos
+    //regex engloba todos os numeros de telemovel e todos os numeros fixos validos em portugal
     $phonePattern = '/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/';
 
     if(!preg_match($phonePattern, trim($_POST['phone']))){

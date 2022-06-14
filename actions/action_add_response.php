@@ -16,7 +16,7 @@
 
     $response = trim(preg_replace("/[^\w\s.,]/", '', $_POST['response']));
 
-    if($response === ''){
+    if(!$response){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
@@ -27,7 +27,7 @@
 
     $restaurantId = trim(preg_replace("/[\D]/", '', $_POST['restaurant']));
 
-    if($restaurantId === ''){
+    if(!$restaurantId){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
@@ -41,14 +41,14 @@
 
     $reviewId = trim(preg_replace("/[\D]/", '', $_POST['review']));
 
-    if($reviewId === ''){
+    if(!$reviewId){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
 
     $date = trim(preg_replace("/[\D]/", '', $_POST['date']));
 
-    if($date === ''){
+    if(!$date){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }

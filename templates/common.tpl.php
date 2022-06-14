@@ -43,7 +43,7 @@
                             <option selected value= "">Any</option>
                             <?php
                                 foreach($categories as $category){
-                                    ?> <option value = "<?=$category['name']?>"><?=$category['name']?></option> <?php
+                                    ?> <option value = "<?=$category?>"><?=$category?></option> <?php
                                 }
                             ?>
                         </select>
@@ -108,7 +108,7 @@
             <ul>
                 <?php
                     foreach($categories as $category){
-                        ?> <li><a href= "../pages/index.php"><?=$category['name']?></a></li> <?php
+                        ?> <li><a href= "../pages/index.php"><?=$category?></a></li> <?php
                     }
                 ?>
             </ul>

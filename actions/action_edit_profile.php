@@ -15,36 +15,46 @@
 
     $db = getDBConnection(__DIR__ . '/../database/data.db');
 
-    if(trim($_POST['name']) === ''){
-        $session->addMessage('error', 'You need a name');
+    $name = trim(preg_replace("/[^\s\w]/", '', $_POST['name']));
+
+    if(!$name){
+        $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['email']) === ''){
+    //regex to validade emails, i don't think this is perfect but it'll do the trick
+    $email_pattern = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
+
+    if(!preg_match($email_pattern, trim($_POST['email']))){
         $session->addMessage('error', 'Please enter an email address');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['address']) === ''){
+    $address = trim(preg_replace("/[^\w\s,\.-]/", '', $_POST['address']));
+
+    if(!$address){
         $session->addMessage('error', 'home address, NOW!');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
-    if(trim($_POST['phone']) === ''){
-        $session->addMessage('error', 'can I get your phone number, friend?');
+    $phone_pattern = '/^(?:9[1-36]\d|2[12]\d|2[35][1-689]|24[1-59]|26[1-35689]|27[1-9]|28[1-69]|29[1256])\d{6}$/';
+
+    if(!preg_match($phone_pattern, trim($_POST['phone']))){
+        $session->addMessage('error', 'FAILED OPERATION');
+        die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
 
     $costumer = Costumer::getCostumer($db, $session->getId());
 
-    $costumer->name = trim($_POST['name']);
+    $costumer->name = $name;
     $costumer->email = trim($_POST['email']);
-    $costumer->address = trim($_POST['address']);
+    $costumer->address = $address;
     $costumer->phoneNumber = trim($_POST['phone']);
 
     $costumer->save($db);
 
     $session->setName($costumer->name);
-    $session->addMessage('success', 'Account update successful!');
+    $session->addMessage('success', 'Account updated');
 
     header('Location: ../pages/profile.php');
 ?>

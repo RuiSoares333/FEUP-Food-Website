@@ -17,7 +17,7 @@
 
     $restaurantId = trim(preg_replace("/[\D]/", '', $_GET['id']));
 
-    if($restaurantId === ''){
+    if(!$restaurantId){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));        
     }
@@ -29,21 +29,21 @@
 
     $name = trim(preg_replace("/[^\w()]/", '', $_POST['name']));
 
-    if($name === ''){
+    if(!$name){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $price = trim(preg_replace("/[\D]/", '', $_POST['price']));
 
-    if($price === ''){
+    if(!$price){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
 
     $category = trim(preg_replace("/[^a-zA-Z\s]/", '', $_POST['category']));
 
-    if($category === ''){
+    if(!$category){
         $session->addMessage('error', 'FAILED OPERATION');
         die(header('Location:' . $_SERVER['HTTP_REFERER']));
     }
