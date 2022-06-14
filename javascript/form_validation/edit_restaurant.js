@@ -102,12 +102,6 @@ function validateForm(){
     const address = form['address'].value.trim();
     const city = form['city'].value.trim();
     const phone = form['phone'].value.trim();
-    
-    const form_data = new FormData(document.querySelector("form"));
-    if(!form_data.has("categories[]")){
-        alert("please choose at least one category");
-        return false;
-    }
 
     if(name === ""){
         alert("please insert a name");
