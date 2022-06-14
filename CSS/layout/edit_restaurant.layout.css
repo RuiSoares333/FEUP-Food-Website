@@ -1,4 +1,4 @@
-#editRestaurant{
+section#editRestaurant{
     display: grid;
     grid-template-rows: 1em 3em 19em 2em;
 }
@@ -9,61 +9,94 @@
 
 #squareEdit{
     width: 55%;
-    height: 25em;
+    height: 2750%;
 }
 
 #editRestaurant form{
     display: grid;
-    grid-template-rows: repeat(5, 3em);
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 30% 75%;
     grid-template-areas: 
     "nL name"
+    "p1 p1"
     "aL adrss"
+    "p2 p2"
+    "cL city"
+    "p3 p3"
     "pL phone"
+    "p4 p4"
     "cat cat"
-    "edit edit"
+    "add add"
 }
 
-#editRestaurant form > :nth-child(1) {
+form#editRestaurant > :nth-child(1) {
     grid-area: nL;
-    margin-right: 5%;
-    margin-left: auto;
 }
 
-#editRestaurant form > :nth-child(2){
+form#editRestaurant > :nth-child(2){
     grid-area: name;
 }
 
-#editRestaurant form > :nth-child(3){
-    grid-area: aL;
-    margin-right: 5%;
-    margin-left: auto;
+form#editRestaurant > :nth-child(3){
+    grid-area: p1;
 }
 
-#editRestaurant form > :nth-child(4){
+form#editRestaurant > :nth-child(4) {
+    grid-area: aL;
+}
+
+form#editRestaurant > :nth-child(5){
     grid-area: adrss;
 }
 
-#editRestaurant form > :nth-child(7){
-    grid-area: pL;
-    margin-right: 5%;
-    margin-left: auto;
+form#editRestaurant > :nth-child(6){
+    grid-area: p2;
 }
 
-#editRestaurant form > :nth-child(8){
+form#editRestaurant > :nth-child(7) {
+    grid-area: cL;
+}
+
+form#editRestaurant > :nth-child(8){
+    grid-area: city;
+}
+
+form#editRestaurant > :nth-child(9){
+    grid-area: p3;
+}
+
+form#editRestaurant > :nth-child(12) {
+    grid-area: pL;
+}
+
+form#editRestaurant > :nth-child(13){
     grid-area: phone;
 }
 
-#editRestaurant form > :nth-child(5){
+form#editRestaurant > :nth-child(14){
+    grid-area: p4;
+}
+
+form#editRestaurant > :nth-child(10){
     grid-area: cat;
+    margin: 2.5% auto;
+}
+
+form#editRestaurant > :nth-child(16){
+    grid-area: add;
     margin-top: 5%;
 }
 
-#editRestaurant form > :nth-child(9){
-    grid-area: edit;
-    margin-top: 10%;
+form#editRestaurant > label, form#editRestaurant > input, form#editRestaurant > button{
+    min-height: 2em;
+    max-height: 4em;
 }
 
+form#editRestaurant > p{
+    min-height: 2em;
+    max-height: 4em;
+    color: rgb(159, 28, 28);
+    margin-top: -1%;
+}
 
 /* Dialog */
 
