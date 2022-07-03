@@ -1,10 +1,10 @@
-# LTW_Proj
+# FEUP-Food-Website
 
 ## Unit info
 
-- **Name**: Desenho de Algoritmos (Algorithm Design)
+- **Name**: Laboratório e Tecnologias Web (Web Languages and Technologies)
 - **Date**: Year 2, Semester 2, 2021/22
-- **See also**: [feup-da-proj2](https://github.com/RuiSoares333/feup-da-proj2)
+- **See also**: [FEUP-Food-Website](https://github.com/RuiSoares333/FEUP-Food-Website)
 - [**More info**](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=484427)
 
 
