@@ -5,7 +5,7 @@
 - **Name**: Desenho de Algoritmos (Algorithm Design)
 - **Date**: Year 2, Semester 2, 2021/22
 - **See also**: [feup-da-proj2](https://github.com/RuiSoares333/feup-da-proj2)
-- [**More info**](https://sigarra.up.pt/feup/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=484424)
+- [**More info**](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=484427)
 
 
 ## Disclaimer
